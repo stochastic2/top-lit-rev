@@ -1,0 +1,221 @@
+\documentclass[12pt,a4paper]{standalone}
+\usepackage{booktabs}
+\usepackage{caption}
+\usepackage{siunitx}
+%\sisetup{binary-units = true,table-format=7.0}
+
+\usepackage{pifont}
+\usepackage[colorlinks=true,citecolor=blue,linkcolor=blue,urlcolor=blue]{hyperref}
+\usepackage{graphicx}
+\usepackage{nicefrac}
+\usepackage{blindtext}
+\usepackage{float}
+\usepackage{multirow} 
+\usepackage{xcolor}
+\usepackage{colortbl}
+\newcommand{\cbox}[2]{\vcenter{\hbox{\includegraphics[width=#1em]{#2}}}}
+\def\ZZ{\mathbb Z}
+
+
+\usepackage{amsmath,amssymb,bm,color}
+\usepackage{dsfont}
+\usepackage{framed}
+\usepackage{braket}
+\definecolor{shadecolor}{gray}{0.95}
+\usepackage{amsthm}
+\usepackage[normalem]{ulem}
+\usepackage{siunitx}
+\sisetup{output-exponent-marker=\ensuremath{\mathrm{e}}}
+
+\usepackage{tikz}
+
+\usepackage{wasysym}
+
+
+\begin{document}
+
+//
+    \begin {table*}
+    \begin{center}
+    	\bgroup
+    	\def\arraystretch{1.2}% 
+    	\scalebox{0.85}{
+    		\begin{tabular}{c @{\ }@{\ }|@{\ }@{\ } c } 
+    			%		\hline
+    			Ground State &
+    			
+    			\begin{tabular}{@{}c@{}}
+                $\qquad\qquad\qquad\qquad\qquad\qquad\qquad\qquad\qquad\quad[e^\text{\ding{65}}_1,\ e^{\triangleleft}_1,\ e^{\triangleright}_1],\ 
+    				[e^\text{\ding{65}}_2,\ e^{\triangleleft}_2,\ e^{\triangleright}_2],\ \dots 
+    				[e^\text{\ding{65}}_9,\ e^{\triangleleft}_9,\ e^{\triangleright}_9]
+    				\qquad\qquad\qquad\qquad\qquad\qquad\qquad\qquad\qquad\quad
+    				$ \vspace{0.2em}\\
+    				\arrayrulecolor{gray}\hline\arrayrulecolor{black}\vspace{0.2em}
+    				$
+    				{\mathcal{Z}_{RH}},\ {\mathcal{Z}_{GH}},\ 
+    				{\mathcal{Z}_{BH}},\ 
+    				{\mathcal{Z}_{RV}},\ {\mathcal{Z}_{GV}},\ {\mathcal{Z}_{BV}}
+    				$ \\ 
+    				$
+    				{\mathcal{X}_{RH}},\ {\mathcal{X}_{GH}},\ 
+    				{\mathcal{X}_{BH}},\ 
+    				{\mathcal{X}_{RV}},\ {\mathcal{X}_{GV}},\ {\mathcal{X}_{BV}}
+    				$ 
+    				\vspace{0.2em}
+    			\end{tabular}
+    			
+    			\\ \hline\hline					
+        
+\begin{tabular} {@{}c@{}} $\red{1,}\green{1,}\blue{1,}\red{1,}\green{1,}\blue{1}$ \\ $\overline{e}$ = -0.946(4) \\ $\overline{l}$ = 0.974(1) \\ $\overline{\mathcal{X}}$ = -0.01(1) 
+        \vspace{0.2em}
+        \end{tabular} & 
+        \begin{tabular}{@{}c@{}} 
+        $[0.94(1), 0.95(1), 0.97(1)], [0.91(1), 0.979(9), 0.95(1)], [0.91(1), 0.97(1), 0.97(1)], [0.88(2), 0.94(1), 0.94(1)], [0.92(1), 0.95(1), 0.980(8)],$ \\ 
+        $[0.91(2), 0.96(1), 0.95(1)], [0.92(1), 0.97(1), 0.988(6)], [0.94(1), 0.97(1), 0.97(1)], [0.90(1), 0.96(1), 0.96(1)]$ \\
+        \arrayrulecolor{gray}\hline\arrayrulecolor{black}\vspace{0.2em}
+        $0.981(3), 0.975(4), 0.967(5), 0.978(4), 0.973(4), 0.970(5)$ \\ 
+        $0.050(2), -0.010(2), -0.023(1), -0.016(2), -0.007(2), -0.029(1)$  
+        \vspace{0.2em}
+        \end{tabular} 
+        \\ \hline
+        
+\begin{tabular} {@{}c@{}} $\red{\text{-}1,}\green{1,}\blue{1,}\red{1,}\green{1,}\blue{1}$ \\ $\overline{e}$ = -0.937(6) \\ $\overline{l}$ = 0.965(3) \\ $\overline{\mathcal{X}}$ = -0.05(2) 
+        \vspace{0.2em}
+        \end{tabular} & 
+        \begin{tabular}{@{}c@{}} 
+        $[0.95(2), 0.97(1), 0.95(2)], [0.90(3), 0.96(2), 0.98(1)], [0.93(2), 0.98(1), 0.99(1)], [0.83(3), 0.97(1), 0.94(2)], [0.89(3), 0.95(2), 0.98(1)],$ \\ 
+        $[0.87(3), 0.91(2), 0.90(3)], [0.90(3), 0.94(2), 0.96(1)], [0.94(2), 0.93(2), 0.99(1)], [0.85(3), 0.97(1), 0.97(1)]$ \\
+        \arrayrulecolor{gray}\hline\arrayrulecolor{black}\vspace{0.2em}
+        $-0.979(6), 0.964(8), 0.960(8), 0.973(7), 0.962(8), 0.954(8)$ \\ 
+        $-0.117(4), 0.078(2), 0.025(2), -0.213(4), -0.109(4), 0.065(4)$  
+        \vspace{0.2em}
+        \end{tabular} 
+        \\ \hline
+        
+\begin{tabular} {@{}c@{}} $\red{1,}\green{\text{-}1,}\blue{1,}\red{1,}\green{1,}\blue{1}$ \\ $\overline{e}$ = -0.949(5) \\ $\overline{l}$ = 0.976(2) \\ $\overline{\mathcal{X}}$ = 0.03(2) 
+        \vspace{0.2em}
+        \end{tabular} & 
+        \begin{tabular}{@{}c@{}} 
+        $[0.95(2), 0.98(1), 0.98(1)], [0.89(3), 0.98(1), 0.94(2)], [0.92(2), 0.99(1), 0.95(2)], [0.93(2), 0.99(1), 0.97(1)], [0.86(3), 0.95(2), 0.98(1)],$ \\ 
+        $[0.92(2), 0.96(2), 0.95(2)], [0.92(2), 0.98(1), 0.97(1)], [0.90(3), 0.95(2), 0.99(1)], [0.93(2), 0.97(1), 0.97(1)]$ \\
+        \arrayrulecolor{gray}\hline\arrayrulecolor{black}\vspace{0.2em}
+        $0.982(5), -0.979(5), 0.972(6), 0.977(6), 0.981(5), 0.964(8)$ \\ 
+        $0.067(2), 0.007(5), 0.023(2), -0.056(4), 0.082(5), 0.072(4)$  
+        \vspace{0.2em}
+        \end{tabular} 
+        \\ \hline
+        
+\begin{tabular} {@{}c@{}} $\red{1,}\green{1,}\blue{\text{-}1,}\red{1,}\green{1,}\blue{1}$ \\ $\overline{e}$ = -0.925(7) \\ $\overline{l}$ = 0.965(3) \\ $\overline{\mathcal{X}}$ = 0.02(2) 
+        \vspace{0.2em}
+        \end{tabular} & 
+        \begin{tabular}{@{}c@{}} 
+        $[0.88(3), 0.96(2), 0.94(2)], [0.90(3), 0.97(1), 0.98(1)], [0.88(3), 0.92(2), 0.97(1)], [0.92(2), 0.98(1), 0.99(1)], [0.91(3), 0.92(2), 0.98(1)],$ \\ 
+        $[0.81(4), 0.87(3), 0.93(2)], [0.91(3), 0.94(2), 0.95(2)], [0.82(4), 0.91(2), 0.96(2)], [0.89(3), 0.97(1), 0.97(1)]$ \\
+        \arrayrulecolor{gray}\hline\arrayrulecolor{black}\vspace{0.2em}
+        $0.981(6), 0.960(8), -0.965(7), 0.981(5), 0.94(1), 0.961(7)$ \\ 
+        $-0.041(2), 0.009(2), 0.060(4), 0.016(4), 0.016(4), 0.064(4)$  
+        \vspace{0.2em}
+        \end{tabular} 
+        \\ \hline
+        
+\begin{tabular} {@{}c@{}} $\red{1,}\green{1,}\blue{1,}\red{\text{-}1,}\green{1,}\blue{1}$ \\ $\overline{e}$ = -0.952(5) \\ $\overline{l}$ = 0.974(2) \\ $\overline{\mathcal{X}}$ = -0.01(2) 
+        \vspace{0.2em}
+        \end{tabular} & 
+        \begin{tabular}{@{}c@{}} 
+        $[0.93(2), 0.97(1), 0.94(2)], [0.91(3), 0.95(2), 0.97(1)], [0.88(3), 0.99(1), 0.96(2)], [0.92(2), 0.96(2), 0.96(2)], [0.92(2), 0.93(2), 0.99(1)],$ \\ 
+        $[0.98(1), 0.97(1), 0.98(1)], [0.94(2), 0.94(2), 0.97(1)], [0.97(1), 0.93(2), 1.0], [0.90(3), 0.98(1), 0.99(1)]$ \\
+        \arrayrulecolor{gray}\hline\arrayrulecolor{black}\vspace{0.2em}
+        $0.976(6), 0.970(7), 0.975(6), -0.974(6), 0.970(7), 0.979(6)$ \\ 
+        $-0.067(5), -0.135(4), -0.066(4), 0.126(5), 0.050(2), 0.049(3)$  
+        \vspace{0.2em}
+        \end{tabular} 
+        \\ \hline
+        
+\begin{tabular} {@{}c@{}} $\red{1,}\green{1,}\blue{1,}\red{1,}\green{\text{-}1,}\blue{1}$ \\ $\overline{e}$ = -0.956(5) \\ $\overline{l}$ = 0.974(2) \\ $\overline{\mathcal{X}}$ = 0.00(2) 
+        \vspace{0.2em}
+        \end{tabular} & 
+        \begin{tabular}{@{}c@{}} 
+        $[0.92(2), 0.98(1), 0.99(1)], [0.96(2), 0.97(1), 0.98(1)], [0.93(2), 1.0, 0.94(2)], [0.96(2), 0.96(2), 0.87(3)], [0.92(2), 0.96(2), 1.0],$ \\ 
+        $[0.92(2), 0.98(1), 0.96(2)], [0.94(2), 0.97(1), 0.98(1)], [0.90(3), 0.95(2), 0.95(2)], [0.96(2), 1.0, 0.99(1)]$ \\
+        \arrayrulecolor{gray}\hline\arrayrulecolor{black}\vspace{0.2em}
+        $0.974(7), 0.982(5), 0.964(7), 0.985(5), -0.980(6), 0.962(8)$ \\ 
+        $-0.007(5), 0.203(5), -0.161(5), 0.051(2), -0.123(5), 0.045(3)$  
+        \vspace{0.2em}
+        \end{tabular} 
+        \\ \hline
+        
+\begin{tabular} {@{}c@{}} $\red{1,}\green{1,}\blue{1,}\red{1,}\green{1,}\blue{\text{-}1}$ \\ $\overline{e}$ = -0.941(6) \\ $\overline{l}$ = 0.976(2) \\ $\overline{\mathcal{X}}$ = -0.01(2) 
+        \vspace{0.2em}
+        \end{tabular} & 
+        \begin{tabular}{@{}c@{}} 
+        $[0.92(2), 0.96(2), 0.97(1)], [0.89(3), 0.97(1), 0.96(2)], [0.95(2), 0.97(1), 0.98(1)], [0.88(3), 0.97(1), 0.98(1)], [0.92(2), 0.96(2), 0.96(2)],$ \\ 
+        $[0.89(3), 0.92(2), 0.98(1)], [0.95(2), 0.96(2), 0.97(1)], [0.85(3), 0.93(2), 0.94(2)], [0.89(3), 0.96(2), 0.97(1)]$ \\
+        \arrayrulecolor{gray}\hline\arrayrulecolor{black}\vspace{0.2em}
+        $0.977(6), 0.974(6), 0.974(6), 0.975(7), 0.986(4), -0.972(6)$ \\ 
+        $0.017(4), -0.037(4), 0.019(4), 0.049(2), -0.077(2), -0.040(4)$  
+        \vspace{0.2em}
+        \end{tabular} 
+        \\ \hline
+        
+\begin{tabular} {@{}c@{}} $\red{\text{-}1,}\green{\text{-}1,}\blue{1,}\red{1,}\green{1,}\blue{1}$ \\ $\overline{e}$ = -0.934(6) \\ $\overline{l}$ = 0.968(3) \\ $\overline{\mathcal{X}}$ = 0.03(2) 
+        \vspace{0.2em}
+        \end{tabular} & 
+        \begin{tabular}{@{}c@{}} 
+        $[0.89(3), 0.96(2), 0.93(2)], [0.87(3), 0.96(2), 0.96(2)], [0.83(4), 0.92(2), 0.92(2)], [0.91(3), 0.96(2), 0.98(1)], [0.86(3), 0.99(1), 0.93(2)],$ \\ 
+        $[0.97(1), 0.97(1), 0.94(2)], [0.86(3), 0.98(1), 0.99(1)], [0.86(3), 0.94(2), 0.98(1)], [0.93(2), 0.99(1), 0.96(2)]$ \\
+        \arrayrulecolor{gray}\hline\arrayrulecolor{black}\vspace{0.2em}
+        $-0.961(9), -0.970(7), 0.969(7), 0.974(7), 0.962(7), 0.974(6)$ \\ 
+        $0.039(2), 0.041(2), 0.024(2), -0.088(4), 0.103(4), 0.046(5)$  
+        \vspace{0.2em}
+        \end{tabular} 
+        \\ \hline
+        
+\begin{tabular} {@{}c@{}} $\red{1,}\green{\text{-}1,}\blue{\text{-}1,}\red{1,}\green{1,}\blue{1}$ \\ $\overline{e}$ = -0.930(6) \\ $\overline{l}$ = 0.967(3) \\ $\overline{\mathcal{X}}$ = 0.03(2) 
+        \vspace{0.2em}
+        \end{tabular} & 
+        \begin{tabular}{@{}c@{}} 
+        $[0.91(3), 0.98(1), 0.90(3)], [0.78(4), 0.95(2), 0.95(2)], [0.92(2), 0.98(1), 0.96(2)], [0.92(2), 0.96(2), 0.93(2)], [0.88(3), 0.90(3), 0.98(1)],$ \\ 
+        $[0.89(3), 0.96(2), 0.94(2)], [0.93(2), 0.99(1), 0.96(2)], [0.85(3), 0.98(1), 0.94(2)], [0.81(4), 0.99(1), 0.99(1)]$ \\
+        \arrayrulecolor{gray}\hline\arrayrulecolor{black}\vspace{0.2em}
+        $0.973(6), -0.957(8), -0.971(7), 0.975(6), 0.952(8), 0.973(7)$ \\ 
+        $-0.003(1), 0.052(2), 0.010(2), 0.021(4), -0.073(4), 0.162(4)$  
+        \vspace{0.2em}
+        \end{tabular} 
+        \\ \hline
+        
+\begin{tabular} {@{}c@{}} $\red{\text{-}1,}\green{1,}\blue{\text{-}1,}\red{1,}\green{1,}\blue{1}$ \\ $\overline{e}$ = -0.928(7) \\ $\overline{l}$ = 0.971(2) \\ $\overline{\mathcal{X}}$ = 0.02(2) 
+        \vspace{0.2em}
+        \end{tabular} & 
+        \begin{tabular}{@{}c@{}} 
+        $[0.83(3), 0.95(2), 0.91(2)], [0.93(2), 0.95(2), 0.99(1)], [0.88(3), 0.96(2), 0.98(1)], [0.92(2), 0.98(1), 0.97(1)], [0.89(3), 0.95(2), 0.99(1)],$ \\ 
+        $[0.86(3), 0.89(3), 0.94(2)], [0.86(3), 0.96(2), 0.98(1)], [0.84(3), 0.96(2), 0.95(2)], [0.87(3), 0.97(1), 0.94(2)]$ \\
+        \arrayrulecolor{gray}\hline\arrayrulecolor{black}\vspace{0.2em}
+        $-0.981(5), 0.971(6), -0.965(7), 0.990(4), 0.961(8), 0.959(8)$ \\ 
+        $0.047(2), -0.003(1), -0.005(2), 0.020(4), -0.048(4), 0.121(4)$  
+        \vspace{0.2em}
+        \end{tabular} 
+        \\ \hline
+        
+\begin{tabular} {@{}c@{}} $\red{1,}\green{1,}\blue{1,}\red{\text{-}1,}\green{\text{-}1,}\blue{1}$ \\ $\overline{e}$ = -0.927(7) \\ $\overline{l}$ = 0.965(3) \\ $\overline{\mathcal{X}}$ = -0.00(2) 
+        \vspace{0.2em}
+        \end{tabular} & 
+        \begin{tabular}{@{}c@{}} 
+        $[0.83(3), 0.91(3), 0.92(2)], [0.84(4), 0.98(1), 0.95(2)], [0.91(3), 0.98(1), 0.95(2)], [0.86(3), 0.95(2), 0.96(2)], [0.91(3), 0.93(2), 0.99(1)],$ \\ 
+        $[0.85(3), 0.92(2), 0.93(2)], [0.94(2), 0.93(2), 0.99(1)], [0.88(3), 0.94(2), 0.99(1)], [0.92(2), 0.97(1), 0.96(2)]$ \\
+        \arrayrulecolor{gray}\hline\arrayrulecolor{black}\vspace{0.2em}
+        $0.977(6), 0.962(8), 0.959(8), -0.971(7), -0.955(9), 0.965(8)$ \\ 
+        $-0.094(4), 0.095(5), 0.023(5), -0.042(2), 0.016(2), -0.023(1)$  
+        \vspace{0.2em}
+        \end{tabular} 
+        \\ \hline
+        
+\end{tabular}}
+    \egroup
+    \end{center}\caption{Expectation values of the local, $Z$- and $X$-logical stabilizers for the first eleven of the 22 ground states of $D_4$ Hamiltonian (\ref{eq_hamiltonian}). $[e^\text{\ding{65}}_i,\ e^{\triangleleft}_i,\ e^{\triangleright}_i]$ denotes the expectation values of 12-body $A_s$ stabilizer ($e^\text{\ding{65}}_i$), left- ($e^{\triangleleft}_i$), and right-pointing ($e^{\triangleright}_i $) $B_t$ stabilizers. Plaquettes have been enumerated from left to right and top to bottom, and the order is given by index $i$. In the left column, we show the $Z$-logical signature $(\red{\mathcal{Z}_{RH}},\green{\mathcal{Z}_{GH}},\blue{\mathcal{Z}_{BH}},\red{\mathcal{Z}_{RV}},\green{\mathcal{Z}_{GV}},\blue{\mathcal{Z}_{BV}})$ of the ground state, energy density ($\overline{e}$), value of logical pinning function ($\overline{l}$), and the mean value of $X$-logical stabilizers ($\overline{\mathcal{X}}$).}\label{table:22_gss_a}\end 
+    {table*}
+        
+
+
+
+
+\end{document}

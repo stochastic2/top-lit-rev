@@ -1,0 +1,60 @@
+\documentclass[12pt,a4paper]{standalone}
+\usepackage{booktabs}
+\usepackage{caption}
+\usepackage{siunitx}
+%\sisetup{binary-units = true,table-format=7.0}
+
+\usepackage{pifont}
+\usepackage[colorlinks=true,citecolor=blue,linkcolor=blue,urlcolor=blue]{hyperref}
+\usepackage{graphicx}
+\usepackage{nicefrac}
+\usepackage{blindtext}
+\usepackage{float}
+\usepackage{multirow} 
+\usepackage{xcolor}
+\usepackage{colortbl}
+\newcommand{\cbox}[2]{\vcenter{\hbox{\includegraphics[width=#1em]{#2}}}}
+\def\ZZ{\mathbb Z}
+
+
+\usepackage{amsmath,amssymb,bm,color}
+\usepackage{dsfont}
+\usepackage{framed}
+\usepackage{braket}
+\definecolor{shadecolor}{gray}{0.95}
+\usepackage{amsthm}
+\usepackage[normalem]{ulem}
+\usepackage{siunitx}
+\sisetup{output-exponent-marker=\ensuremath{\mathrm{e}}}
+
+\usepackage{tikz}
+
+\usepackage{wasysym}
+
+
+\begin{document}
+
+%\minipage{1.08\textwidth}
+\begin{table*}[h!]
+    \centering
+    \begin{tabular}{|c|c|c|c|}
+    \hline
+       &  $m_{R}$ & $m_{RG}$ & $s_{RGB}$  \\
+       \hline
+    $e$       & $m_R \times e_R = f_R$ & $m_{RG} \times e_R = m_{RG} \times e_G = f_{RG}$ &$s_{RGB} \times e_R =  s_{RGB} \times e_{RGB} = \bar s_{RGB}$\\
+     & $m_R \times e_G = m_R \times e_B =m_R$ &$m_{RG} \times e_{RG} = m_{RG} \times e_B =m_{RG}$& $s_{RGB} \times e_{RG} =s_{RGB}$\\
+    \hline
+    $m_{R}$  &$m_R \times m_R = (1+e_G)(1+e_B)$& $m_{RG} \times m_{G}= m_R + f_R$& $s_{RGB} \times m_R = m_{GB} + f_{GB}$\\
+     & $m_{R} \times m_{G} = m_{RG} + f_{RG}$ &$m_{RG} \times m_B = s_{RGB}+ \bar s_{RGB}$ & \\
+    \hline
+    $m_{RG}$&&$m_{RG} \times m_{RG} = (1+e_{RG})(1+e_B)$&$ s_{RGB} \times m_{RG} = m_{B} + f_{B}$\\
+    \hline
+    $s_{RGB}$ & &&$s_{RGB} \times s_{RGB} = 1 + e_{RG}+ e_{GB} + e_{RB}$\\
+    \hline
+    \end{tabular}
+    %\caption{Summary of fusion rules up to permutation of colors}
+    \label{tab:D4fusion}
+\end{table*}
+%\endminipage
+
+\end{document}

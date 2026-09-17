@@ -1,0 +1,339 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+\documentclass[
+]{article}
+\usepackage{xcolor}
+\usepackage{amsmath,amssymb}
+\setcounter{secnumdepth}{5}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math} % this also loads fontspec
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+\usepackage{lmodern}
+\ifPDFTeX\else
+  % xetex/luatex font selection
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\newenvironment{Shaded}{}{}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{1.00,0.00,0.00}{\textbf{#1}}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{#1}}}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.49,0.56,0.16}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{#1}}
+\newcommand{\BuiltInTok}[1]{\textcolor[rgb]{0.00,0.50,0.00}{#1}}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textit{#1}}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{#1}}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.53,0.00,0.00}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.00,0.44,0.13}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.56,0.13,0.00}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.73,0.13,0.13}{\textit{#1}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{1.00,0.00,0.00}{\textbf{#1}}}
+\newcommand{\ExtensionTok}[1]{#1}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.02,0.16,0.49}{#1}}
+\newcommand{\ImportTok}[1]{\textcolor[rgb]{0.00,0.50,0.00}{\textbf{#1}}}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{#1}}}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.00,0.44,0.13}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{#1}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.40,0.40,0.40}{#1}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.00,0.44,0.13}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.74,0.48,0.00}{#1}}
+\newcommand{\RegionMarkerTok}[1]{#1}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{#1}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.73,0.40,0.53}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.10,0.09,0.49}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{#1}}}}
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\usepackage{bookmark}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same}
+\hypersetup{
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+
+\author{}
+\date{}
+
+\begin{document}
+
+{
+\setcounter{tocdepth}{3}
+\tableofcontents
+}
+\section{Reading note: Section 2.1 - Non-Abelian anyons from
+gauging}\label{reading-note-section-2.1---non-abelian-anyons-from-gauging}
+
+\textbf{Paper:} \texttt{arXiv-2602.12228v1}, Section 2.1, ``Non-Abelian
+Anyons from Gauging''\\
+\textbf{Aim:} explain the \emph{physical claim} of this subsection
+before the lattice derivation in Section 2.2.
+
+\subsection{The one-sentence story}\label{the-one-sentence-story}
+
+Start with two ordinary (Abelian) toric codes. A global operation
+changes the \emph{type} of certain anyons. When we \textbf{gauge} that
+operation, its boundaries become physical, mobile gauge-flux strings.
+Taking an anyon around one of those fluxes changes its type rather than
+merely multiplying its wavefunction by a phase. That is the mechanism
+that produces non-Abelian braiding.
+
+\subsection{What has already been set
+up}\label{what-has-already-been-set-up}
+
+The beginning of Section 2 places two square-lattice toric codes on top
+of one another, called \textbf{B} (blue) and \textbf{C} (orange). Each
+has two basic anyon types:
+
+\begin{itemize}
+\tightlist
+\item
+  \texttt{e} (``electric charge''): a violation of an
+  \texttt{X}-type/star stabilizer;
+\item
+  \texttt{m} (``magnetic flux''): a violation of a
+  \texttt{Z}-type/plaquette stabilizer.
+\end{itemize}
+
+\texttt{m\_B\ e\_C} means an \texttt{m} anyon in copy B and an
+\texttt{e} anyon in copy C at the same location: a composite excitation.
+Before gauging, all anyons of this two-copy toric code are Abelian:
+fusing two specified types has one definite outcome.
+
+The authors define a physical finite-depth circuit \texttt{U\_CZ}, made
+from controlled-Z gates between nearby B and C qubits. On the
+ground-state (encoded-qubit) subspace it acts as a logical controlled-Z.
+Its essential action is
+
+\[
+\bar X_B \mapsto \bar X_B\bar Z_C,\qquad
+\bar X_C \mapsto \bar Z_B\bar X_C,\qquad
+\bar Z_B\mapsto\bar Z_B,\quad \bar Z_C\mapsto\bar Z_C.
+\]
+
+This is the familiar controlled-Z identity
+\texttt{X\ -\textgreater{}\ XZ} on the other qubit, now applied to
+logical qubits. Since controlled-Z squared is the identity, this is a
+\texttt{Z\_2} symmetry.
+
+\subsubsection{Why it is called an ``emergent
+symmetry''}\label{why-it-is-called-an-emergent-symmetry}
+
+\texttt{U\_CZ} does not leave every individual toric-code Hamiltonian
+term unchanged. For example, it turns an \texttt{X} stabilizer in B into
+that stabilizer times a nearby \texttt{Z} stabilizer in C. But
+stabilizers have value \texttt{+1} in the ground space, so the circuit
+maps the ground space to itself. It is a symmetry of the encoded
+low-energy information, rather than a literal symmetry of every
+microscopic term.
+
+\subsection{Step 1: the symmetry changes anyon
+type}\label{step-1-the-symmetry-changes-anyon-type}
+
+A magnetic anyon is the endpoint of an \texttt{X}-string. When such a
+string enters a region on which controlled-Z was applied, its \texttt{X}
+part picks up a \texttt{Z} part in the other copy. The endpoint of that
+new \texttt{Z} string is an electric anyon. Consequently,
+
+\[
+g:\quad m_B\longmapsto m_B e_C,\qquad m_C\longmapsto m_C e_B,
+\]
+
+while \texttt{e\_B} and \texttt{e\_C} are unchanged. The paper calls
+\texttt{g} an \textbf{anyon automorphism}: it relabels allowed anyon
+types while preserving their fusion rules. Applying it twice returns
+every type, because \texttt{e\_B\^{}2=e\_C\^{}2=1}.
+
+This is the crucial fact. The symmetry does not merely attach a phase to
+\texttt{m\_B}; it turns \texttt{m\_B} into a physically distinct type,
+\texttt{m\_B\ e\_C}.
+
+\subsection{Step 2: a symmetry patch is a type-changing
+boundary}\label{step-2-a-symmetry-patch-is-a-type-changing-boundary}
+
+Imagine applying \texttt{U\_CZ} only inside a finite region. This is a
+\textbf{symmetry patch}. At its boundary, the inside and outside anyon
+labels are related by \texttt{g}. Thus an anyon crossing the boundary is
+relabelled:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{outside: m\_B       {-}{-}cross the patch boundary{-}{-}\textgreater{}       inside: m\_B e\_C}
+\end{Highlighting}
+\end{Shaded}
+
+This is what \texttt{patch.pdf} depicts. The boundary is a
+\textbf{symmetry-defect line}. At this point it is externally imposed:
+we chose where to apply the patch.
+
+\subsection{Step 3: gauging makes that boundary
+dynamical}\label{step-3-gauging-makes-that-boundary-dynamical}
+
+To \textbf{gauge} the global \texttt{Z\_2} symmetry, the authors add
+qubits on a red \textbf{A} sublattice which record whether the symmetry
+has been applied locally, then impose a local gauge constraint. A useful
+slogan is:
+
+\begin{quote}
+Before gauging, a symmetry patch is something we deliberately apply.
+After gauging, its boundary is a physical gauge-field configuration that
+the system can contain.
+\end{quote}
+
+In the gauged model, a closed A-gauge-field loop carries the same
+information as the boundary of a controlled-Z patch. Crossing it still
+performs \texttt{g} on a B/C anyon. This is why
+\texttt{gauge\_field.pdf} is reinterpreted as the symmetry-defect loop
+in \texttt{symmetry\_defect.pdf}.
+
+Such a loop can be opened into a string. Its endpoints are new
+point-like excitations: A gauge fluxes (the paper calls one
+\texttt{m\_A}). They are the dynamical versions of the endpoints of a
+defect string.
+
+\subsection{Why the braiding is
+non-Abelian}\label{why-the-braiding-is-non-abelian}
+
+Taking an \texttt{m\_B} anyon once around an A gauge flux is equivalent
+to crossing its defect string once. Hence
+
+\[
+m_B \quad\xrightarrow{\text{braid around }m_A}\quad m_B e_C.
+\]
+
+For Abelian anyons, braiding returns the same anyon type times a complex
+phase, such as \texttt{-1}. Here it acts on the two-element orbit
+
+\[
+\{m_B,\;m_Be_C\}.
+\]
+
+Braiding therefore acts as a genuine transformation on an internal
+space, not as one number. After gauging, the members of this orbit are
+internal states of a new gauge-invariant particle. This is the intuitive
+origin of its non-Abelian character (and, in the full theory, quantum
+dimension greater than one).
+
+The new A flux is special not merely because it is an extra anyon:
+braiding it with B/C anyons \emph{enacts the old symmetry} on them. This
+is the ``intertwining'' described in the paper.
+
+\subsection{The torus thought
+experiment}\label{the-torus-thought-experiment}
+
+The authors next create two pairs of nontrivially braiding anyons and
+wind them around the two independent cycles of a torus. The windings are
+linked. In a non-Abelian theory, their order and fusion channel matter;
+fusing the second pair can leave a nontrivial leftover charge at that
+location. This is the ``single unpaired anyon on a torus'' image in
+\texttt{single\_anyon.pdf}.
+
+This does not violate charge conservation. The topology and the
+non-Abelian fusion space store the compensating information. The lesson
+is simply that the history cannot be reduced to the Abelian rule ``each
+pair independently fuses back to vacuum.'' Later, the authors seek an
+analogue of this phenomenon for qLDPC codes without an ordinary spatial
+torus.
+
+\subsection{\texorpdfstring{Why the result is
+\(\mathcal D(D_4)\)}{Why the result is \textbackslash mathcal D(D\_4)}}\label{why-the-result-is-mathcal-dd_4}
+
+The initial two toric codes can be viewed as an Abelian
+\texttt{Z\_2\ x\ Z\_2} gauge theory. Gauging the extra global
+\texttt{Z\_2} symmetry \texttt{g} produces the quantum double
+\texttt{D(D\_4)}; the paper uses \texttt{D\_4} for the eight-element
+dihedral group. The group language records that the old gauge structure
+and the new symmetry do not remain three independent commuting
+\texttt{Z\_2}s: the new operation acts nontrivially on the old one.
+
+Two useful descriptions of the same group appear across the local
+papers:
+
+\[
+D_4 \cong (\mathbb Z_2\times\mathbb Z_2)\rtimes\mathbb Z_2,
+\qquad
+1\to\mathbb Z_2\to D_4\to\mathbb Z_2^2\to1.
+\]
+
+The first matches this paper's ``gauge \texttt{Z\_2\ x\ Z\_2}, then
+add/gauge a \texttt{Z\_2} symmetry'' viewpoint. The second is the
+central-extension description made explicit in the reference
+\emph{Hierarchy of topological order from finite-depth unitaries,
+measurement, and feedforward}. They describe the same \texttt{D\_4}, not
+two different phases.
+
+\subsection{What to retain before Section
+2.2}\label{what-to-retain-before-section-2.2}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Two toric codes are the Abelian starting point.
+\item
+  Controlled-Z maps \texttt{m\_B} to \texttt{m\_B\ e\_C} and
+  \texttt{m\_C} to \texttt{m\_C\ e\_B}.
+\item
+  A boundary of a \emph{partial} symmetry application is a defect line
+  across which anyon type changes.
+\item
+  Gauging promotes that defect line to a physical gauge-field string
+  with new flux excitations at open ends.
+\item
+  Braiding around one such flux changes an anyon's internal state. That,
+  rather than a mere braiding phase, is the promised non-Abelian
+  behavior.
+\end{enumerate}
+
+Section 2.2 implements these five statements with extra A-sublattice
+qubits, cluster states, a symmetry-enrichment circuit, and
+projection/measurement.
+
+\subsection{Sources consulted locally}\label{sources-consulted-locally}
+
+\begin{itemize}
+\tightlist
+\item
+  Target subsection and setup:
+  \href{../arXiv-2602.12228v1/main.tex}{\texttt{arXiv-2602.12228v1/main.tex}},
+  Section 2 and Section 2.1 (from about line 421).
+\item
+  Cited background source:
+  \href{../arXiv-2209.06202v2/main.tex}{\texttt{arXiv-2209.06202v2/main.tex}},
+  especially Section 3.2 on one-shot \texttt{D(D\_4)} preparation and
+  its \texttt{D\_4} extension data.
+\end{itemize}
+
+\end{document}

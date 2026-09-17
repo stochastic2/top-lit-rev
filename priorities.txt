@@ -1,0 +1,64 @@
+The paper has three main claims:
+
+1. **Construction:** gauging transversal Clifford gates can turn Abelian qLDPC codes into non-Abelian ones.
+2. **Physics:** these codes retain an analogue of non-Abelian topological phenomena even without an ordinary 2D geometry.
+3. **Computation:** gauging and then ungauging measures a logical Clifford gate; this can prepare magic states.
+
+For a first serious reading, I would follow this route:
+
+| Part | Priority | What to take from it |
+|---|---:|---|
+| I. Preliminaries | Done | The 2D \(D(D_4)\) example is the physical template for everything later. |
+| II. Gauging construction | Highest | The conceptual core: why two approaches, and how an ancilla complex makes a logical gate gaugeable. |
+| II toy model | High | Read for intuition: same toric-code input, but homological versus graph gauging use different ancilla geometry and give different kinds of physics. |
+| Homological formalism | Medium-high | Learn only the dictionary “checks ↔ chain complex” and \(\partial^2=0\); do not get stuck on every chain/cochain convention initially. |
+| Two approaches to gauging | Highest | The main fork: **homological gauging** is more structured and can gauge families of gates; **graph gauging** is more general and can gauge one transversal gate, including SWAP. |
+| Poincaré duality / cup products | Medium | Important if you want the precise \(D_4\) constructions from CZ gates. On first pass, retain only: duality supplies the required CZ gates and ties them to stabilizer redundancies. |
+| Graph gauging | High | Probably the more accessible and broadly applicable construction. Focus on the graph requirements and the SWAP example. |
+| Measurement preparation | Medium | Conceptually already familiar from II.C: decoder for the Abelian ancilla code corrects the Abelian measurement byproducts in the non-Abelian code too. |
+| III. Worked examples | Selective | Read the opening of each example; choose one to study deeply later. |
+| IV. Properties | Highest | Read this after II. Its “single gauge charge” result is the qLDPC analogue of the torus diagnostic you already understand. |
+| V. Computation | Highest if you care about fault-tolerant QC | This is arguably the most practically consequential result: gauging + ungauging implements a logical Clifford measurement, which can yield a non-Clifford resource state. |
+| Appendices | Leave for later | Use them only when a main-text derivation becomes important to you. |
+
+My suggested reading order is:
+
+\[
+\text{II toy model}
+\rightarrow
+\text{II: two approaches}
+\rightarrow
+\text{II graph gauging}
+\rightarrow
+\text{IV properties}
+\rightarrow
+\text{V computation}
+\rightarrow
+\text{homological/CZ details and selected examples}.
+\]
+
+What you can safely defer on a first pass:
+
+- long explicit cup-product manipulations;
+- the detailed ALP fracton construction;
+- the addressable-gate example;
+- the bivariate bicycle-code formulas;
+- appendices deriving individual stabilizers;
+- the \(S_3\) fracton appendix.
+
+The most important conceptual distinction to hold onto is:
+
+\[
+\begin{array}{c|c}
+\text{homological gauging} & \text{graph gauging}\\
+\hline
+\text{needs extra code structure (Poincare-like duality)}
+&\text{works for a general code with a chosen transversal gate}\\
+\text{can gauge a family of related gates}
+&\text{typically gauges one global gate}\\
+\text{natural for CZ and type-III }D_4\text{-like constructions}
+&\text{natural for universal applicability, including SWAP}
+\end{array}
+\]
+
+In terms of importance: the paper is ambitious and potentially significant because it connects three fields that are usually treated separately—qLDPC code constructions, gauging/topological order, and logical gate measurement. Its strongest broad claim is not merely “here is another non-Abelian code,” but “a transversal Clifford symmetry can be converted into a non-Abelian code construction and then back into a useful logical measurement protocol.”
