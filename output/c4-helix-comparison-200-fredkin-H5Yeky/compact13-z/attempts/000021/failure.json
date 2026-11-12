@@ -1,0 +1,319 @@
+{
+  "kind": "failure",
+  "failure_kind": "memory_limit",
+  "error": "MemoryError: Coherent term limit exceeded: 8192 > 4096",
+  "traceback": "Traceback (most recent call last):\n  File \"/Users/kevinhemery/quanti/top-order-lit-rev/src/simulate_c4_helix_depolarizing.py\", line 91, in _attempt_worker\n    result = simulator.run(diagnose=False)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/kevinhemery/quanti/top-order-lit-rev/src/simulate_c4_helix_depolarizing.py\", line 50, in run\n    result = super().run()\n             ^^^^^^^^^^^^^\n  File \"/Users/kevinhemery/quanti/top-order-lit-rev/src/simulate_c4_helix_reduced.py\", line 417, in run\n    certified = self.check_and_repair_gauged(cycle)\n                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/kevinhemery/quanti/top-order-lit-rev/src/simulate_c4_helix_reduced.py\", line 303, in check_and_repair_gauged\n    common = self.acquire_record(prefix, gauged_family(self.graph), cycle[\"gauged\"], stage=\"gauged\")\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/kevinhemery/quanti/top-order-lit-rev/src/simulate_c4_helix_reduced.py\", line 191, in acquire_record\n    report = measure_grouped_protected_cat(self.runtime, location, ports,\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/kevinhemery/quanti/top-order-lit-rev/src/c4_helix_reduced_gadgets.py\", line 200, in measure_grouped_protected_cat\n    return couple_and_read_cat(runtime, location, leaves, ports, indices)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/kevinhemery/quanti/top-order-lit-rev/src/c4_helix_reduced_gadgets.py\", line 143, in couple_and_read_cat\n    reports = tuple(runtime.measure_x(f\"{location}/readout/{j}\", leaf)\n              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/kevinhemery/quanti/top-order-lit-rev/src/c4_helix_reduced_gadgets.py\", line 143, in <genexpr>\n    reports = tuple(runtime.measure_x(f\"{location}/readout/{j}\", leaf)\n                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/kevinhemery/quanti/top-order-lit-rev/src/c4_helix_fault_runtime.py\", line 142, in measure_x\n    self.gate(location + \"/H\", \"H\", label)\n  File \"/Users/kevinhemery/quanti/top-order-lit-rev/src/c4_helix_depolarizing.py\", line 162, in gate\n    return super().gate(location, operation, *targets)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/kevinhemery/quanti/top-order-lit-rev/src/c4_helix_fault_runtime.py\", line 117, in gate\n    self.state = self.state.gate(operation, *targets)\n                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/kevinhemery/quanti/top-order-lit-rev/src/sparse_gadget_state.py\", line 354, in gate\n    return self._combine(contributions)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/kevinhemery/quanti/top-order-lit-rev/src/sparse_gadget_state.py\", line 179, in _combine\n    raise MemoryError(f\"Coherent term limit exceeded: {len(terms)} > {self.max_terms}\")\nMemoryError: Coherent term limit exceeded: 8192 > 4096\n",
+  "noise_events_so_far": {
+    "sampled_events": 18,
+    "channel_opportunities": {
+      "idle": 1242547,
+      "preparation": 4525,
+      "gate_1q": 2536,
+      "gate_2q": 11141,
+      "readout": 4466,
+      "gate_3q": 232
+    },
+    "event_counts_by_channel": {
+      "gate_2q_depolarizing": 12,
+      "gate_3q_depolarizing": 2,
+      "readout_flip": 4
+    },
+    "pauli_factor_counts": {
+      "X": 7,
+      "Z": 7,
+      "Y": 10
+    },
+    "sum_of_executed_channel_probabilities": "16593/800",
+    "events": [
+      {
+        "id": 0,
+        "physical_event_index": 1413,
+        "location": "source/C/round/1/X/2/couple/3",
+        "timing": "after",
+        "channel": "gate_2q_depolarizing",
+        "operation": "CX",
+        "targets": [
+          "L_0",
+          "C_11"
+        ],
+        "paulis": {
+          "L_0": "X",
+          "C_11": "X"
+        },
+        "flip_report": false
+      },
+      {
+        "id": 1,
+        "physical_event_index": 2692,
+        "location": "cycle/0/graph/round/0/vertex/e/verify/0/4/left",
+        "timing": "after",
+        "channel": "gate_2q_depolarizing",
+        "operation": "CX",
+        "targets": [
+          "L_4",
+          "w"
+        ],
+        "paulis": {
+          "L_4": "Z",
+          "w": "X"
+        },
+        "flip_report": false
+      },
+      {
+        "id": 2,
+        "physical_event_index": 5940,
+        "location": "cycle/0/gauged/round/0/paired/Z/6/couple/2",
+        "timing": "after",
+        "channel": "gate_2q_depolarizing",
+        "operation": "CZ",
+        "targets": [
+          "L_1",
+          "B_8"
+        ],
+        "paulis": {
+          "L_1": "Z",
+          "B_8": "Y"
+        },
+        "flip_report": false
+      },
+      {
+        "id": 3,
+        "physical_event_index": 6545,
+        "location": "cycle/0/gauged/round/0/gauss/c/couple/7",
+        "timing": "after",
+        "channel": "gate_3q_depolarizing",
+        "operation": "FREDKIN",
+        "targets": [
+          "L_5",
+          "B_10",
+          "C_10"
+        ],
+        "paulis": {
+          "L_5": "X",
+          "B_10": "Z",
+          "C_10": "Y"
+        },
+        "flip_report": false
+      },
+      {
+        "id": 4,
+        "physical_event_index": 8622,
+        "location": "cycle/0/gauged/round/2/cycle/4/readout/0/measure",
+        "timing": "report",
+        "channel": "readout_flip",
+        "operation": "MZ",
+        "targets": [
+          "L_0"
+        ],
+        "paulis": {},
+        "flip_report": true
+      },
+      {
+        "id": 5,
+        "physical_event_index": 9040,
+        "location": "cycle/0/gauged/round/2/gauss/e/cat/chain/3",
+        "timing": "after",
+        "channel": "gate_2q_depolarizing",
+        "operation": "CX",
+        "targets": [
+          "L_3",
+          "L_4"
+        ],
+        "paulis": {
+          "L_4": "Y"
+        },
+        "flip_report": false
+      },
+      {
+        "id": 6,
+        "physical_event_index": 10229,
+        "location": "cycle/0/gauged/round/3/gauss/d/verify/1/4/measure",
+        "timing": "report",
+        "channel": "readout_flip",
+        "operation": "MZ",
+        "targets": [
+          "w"
+        ],
+        "paulis": {},
+        "flip_report": true
+      },
+      {
+        "id": 7,
+        "physical_event_index": 12978,
+        "location": "cycle/0/terminal/round/1/C/Z/5/compact/26/CX",
+        "timing": "after",
+        "channel": "gate_2q_depolarizing",
+        "operation": "CX",
+        "targets": [
+          "L_0",
+          "L_1"
+        ],
+        "paulis": {
+          "L_0": "X",
+          "L_1": "Z"
+        },
+        "flip_report": false
+      },
+      {
+        "id": 8,
+        "physical_event_index": 14962,
+        "location": "cycle/1/graph/round/1/vertex/e/verify/0/1/right",
+        "timing": "after",
+        "channel": "gate_2q_depolarizing",
+        "operation": "CX",
+        "targets": [
+          "L_2",
+          "w"
+        ],
+        "paulis": {
+          "L_2": "X"
+        },
+        "flip_report": false
+      },
+      {
+        "id": 9,
+        "physical_event_index": 15733,
+        "location": "cycle/1/graph/round/2/vertex/d/couple/0",
+        "timing": "after",
+        "channel": "gate_2q_depolarizing",
+        "operation": "CX",
+        "targets": [
+          "L_0",
+          "V_d"
+        ],
+        "paulis": {
+          "L_0": "Z",
+          "V_d": "Y"
+        },
+        "flip_report": false
+      },
+      {
+        "id": 10,
+        "physical_event_index": 15800,
+        "location": "cycle/1/graph/round/2/vertex/e/verify/1/4/left",
+        "timing": "after",
+        "channel": "gate_2q_depolarizing",
+        "operation": "CX",
+        "targets": [
+          "L_4",
+          "w"
+        ],
+        "paulis": {
+          "w": "Y"
+        },
+        "flip_report": false
+      },
+      {
+        "id": 11,
+        "physical_event_index": 19226,
+        "location": "cycle/1/gauged/round/1/gauss/b/couple/5",
+        "timing": "after",
+        "channel": "gate_3q_depolarizing",
+        "operation": "FREDKIN",
+        "targets": [
+          "L_5",
+          "B_4",
+          "C_4"
+        ],
+        "paulis": {
+          "L_5": "Y",
+          "C_4": "Y"
+        },
+        "flip_report": false
+      },
+      {
+        "id": 12,
+        "physical_event_index": 19345,
+        "location": "cycle/1/gauged/round/1/gauss/d/verify/0/4/right",
+        "timing": "after",
+        "channel": "gate_2q_depolarizing",
+        "operation": "CX",
+        "targets": [
+          "L_5",
+          "w"
+        ],
+        "paulis": {
+          "L_5": "Z"
+        },
+        "flip_report": false
+      },
+      {
+        "id": 13,
+        "physical_event_index": 20359,
+        "location": "cycle/1/gauged/round/2/gauss/a/readout/2/measure",
+        "timing": "report",
+        "channel": "readout_flip",
+        "operation": "MZ",
+        "targets": [
+          "L_2"
+        ],
+        "paulis": {},
+        "flip_report": true
+      },
+      {
+        "id": 14,
+        "physical_event_index": 20815,
+        "location": "cycle/1/gauged/round/3/paired/X/6/couple/7",
+        "timing": "after",
+        "channel": "gate_2q_depolarizing",
+        "operation": "CX",
+        "targets": [
+          "L_3",
+          "B_19"
+        ],
+        "paulis": {
+          "L_3": "Y",
+          "B_19": "X"
+        },
+        "flip_report": false
+      },
+      {
+        "id": 15,
+        "physical_event_index": 20984,
+        "location": "cycle/1/gauged/round/3/paired/Z/3/couple/2",
+        "timing": "after",
+        "channel": "gate_2q_depolarizing",
+        "operation": "CZ",
+        "targets": [
+          "L_0",
+          "B_14"
+        ],
+        "paulis": {
+          "L_0": "Y",
+          "B_14": "Z"
+        },
+        "flip_report": false
+      },
+      {
+        "id": 16,
+        "physical_event_index": 21318,
+        "location": "cycle/1/gauged/round/3/cycle/2/readout/1/measure",
+        "timing": "report",
+        "channel": "readout_flip",
+        "operation": "MZ",
+        "targets": [
+          "L_1"
+        ],
+        "paulis": {},
+        "flip_report": true
+      },
+      {
+        "id": 17,
+        "physical_event_index": 22405,
+        "location": "cycle/1/gauged/round/4/paired/Z/8/couple/2",
+        "timing": "after",
+        "channel": "gate_2q_depolarizing",
+        "operation": "CZ",
+        "targets": [
+          "L_1",
+          "B_5"
+        ],
+        "paulis": {
+          "L_1": "Y"
+        },
+        "flip_report": false
+      }
+    ]
+  },
+  "physical_events_so_far": 22900
+}

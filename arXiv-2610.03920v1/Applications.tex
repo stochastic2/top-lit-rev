@@ -1,0 +1,414 @@
+\ifdefined\ismainfile
+\else
+    \documentclass[11pt]{article}
+
+    \input{preamble.tex}
+    
+    \begin{document}
+    \title{Applications}
+    \date{\today}
+    \bibliographystyle{abbrv}
+
+    \maketitle
+\fi
+
+
+
+
+In this section we describe applications of the gauging measurement protocol. The logical action of a Clifford gate on a high-rate QLDPC code may be complicated and consequently the gauging measurement of that Clifford gate may lead to a logical magic state that is challenging to use. Below, we describe several approaches to achieve useful logical primitives using gauging measurements on QLDPC codes. 
+
+\subsection{Preparing $\ket{\mathsf{Tof}}$ states in CSS codes by gauging}
+\label{sec:applicationsA}
+
+First, we present a scheme to prepare multiple $\tof$ states on a single CSS QLDPC codeblock using our fault-tolerant gauging protocol. We highlight that this scheme can be applied to the transversal $\CX$ gate in a general CSS QLDPC code with no further structure required. 
+Unless otherwise specified, all states and operators in this section are at the logical level. 
+
+
+Often, QLDPC codes admit a transversal logical Clifford operator of the form $\T^{\otimes k}$, where $k$ is the number of logical qubits in one codeblock.
+In the context of magic state preparation, it is well-motivated to prepare a logical product state such as $\ket{+\T}^{\otimes k}$, where $\ket{+\T}$ is a logical state in the $+1$ eigenspace of $\T$.
+Unfortunately, naively measuring the logical transversal operator $\T^{\otimes k}$ is not sufficient to obtain a tensor product of $\ket{+\T}$ states. 
+
+Let $\ket{+\T}=\ket{(-1)^{0}\T}$ denote a state in the $+1$ eigenspace of $\T$, and $\ket{-\T}=\ket{(-1)^1\T}$ denote a state in the $-1$ eigenspace of $\T$. 
+Let the entries of $\vec{v} = (v_1, \dots, v_k) \in\{0,1\}^k$, be used to denote which eigenspace of $\T$ logical qubit $i$ is in.
+
+Suppose for the sake of simplicity that we begin with $k$ logical qubits in a single codeblock in the stabilizer state such that each logical qubit $i$ has equal overlap with the $\ket{+\T}_i$ and $\ket{-\T}_i$ states.
+If we measure the operator $\T^{\otimes k}$ and obtain measurement outcome $m_\T$, the codestate is projected into a state proportional to
+\begin{align}
+    \sum_{\vec{v}:\ \prod_i(-1)^{v_i}=m_\T}\ket{(-1)^{v_1}\T}_1
+    \otimes\ket{(-1)^{v_2}\T}_2
+    \otimes ...\otimes \ket{(-1)^{v_k}\T}_k.
+    \label{eq:entangled-magic}
+\end{align}
+This is technically a magic state, although its computational utility is unclear. It is more desirable to prepare individual $\ket{+\T}$ states that can be consumed to perform gate teleportation or some similar implementation of a non-Clifford gate.
+
+
+Certainly, if one had transversal addressable logical Clifford operators $\T_i$ for all $i\in [k]$, then we could measure $\T_i$ one at a time (or in parallel if the operators on the physical Hilbert space are disjoint) to obtain the product state we desire.
+However, this places a strict requirement on the QLDPC code that we use, because it must come equipped with many addressable logical Clifford operators $\T_i,\ i\in[k]$ that we can measure.
+A natural question to ask is: can we measure a symmetry $\T$ that is present in a broad family of QLDPC codes, and still yields known computationally-useful magic states?
+
+
+To answer this question, we propose a protocol that only requires a transversal $\CX^{\otimes k}$ between two QLDPC code blocks.
+The existence of this transversal operation is guaranteed for any CSS code, which means that this protocol is applicable to a very large family of QLDPC codes.
+Algorithm~\ref{alg:cx-states} presents our protocol to produce $\ket{+\CX}^{\otimes k}$ between two QLDPC codeblocks, where $$\ket{+\CX}=\frac{1}{\sqrt{3}}(\ket{0+}+\ket{0-}+\ket{1+}).$$
+Importantly, $\ket{+\CX}^{\otimes k}$ is a product state of many magic states unlike Eq.~\eqref{eq:entangled-magic}.
+This means that the magic is easily separable, and so more broadly useful for algorithmic purposes. 
+
+We briefly remark on how these $\ket{+\CX}$ states can be consumed to perform non-Clifford logic. 
+There is a known probabilistic conversion that takes two copies of $\ket{+\CX}$  and creates one $$\tof=\ket{000}+\ket{010}+\ket{100}+\ket{111}$$ state~\cite{dennis2001toward,gupta2024encoding} using just Pauli measurements and Clifford operations, succeeding with probability $4/9$.
+This means that running our protocol once over two QLDPC code blocks with $k$ logical qubits each yields on expectation $2k/9$ $\tof$ states.
+In particular, these $\tof$ states are resource magic states that can be used to deterministically perform the Toffoli gate using just Clifford gates, Pauli corrections, and Pauli measurements~\cite{dennis2001toward}.
+We remark that Ref.~\cite{vaknin2026efficientmagicstatecultivation} considers measurement of the $\CX$ operator using post-selection and a large GHZ state. 
+There, the authors considered codes with $k=1$, so preparing a product state $\ket{+\CX}^{\otimes k}$ is straightforward. 
+
+\begin{example}
+    Given two code blocks of the same $[[n,k,d]]$ CSS code, we can prepare $\ket{+\CX}^{\otimes k}$ between these two code blocks with $\Omega(k)$ measurements of $\CX^{\otimes k}$, Clifford operations, and Pauli measurements.
+\end{example}
+
+We now introduce the notation used in Alg.~\ref{alg:cx-states}.
+This protocol uses two $[[n,k,d]]$ QLDPC code blocks. 
+Let the \textit{control code block}, denoted by subscript $\mathrm{c}$, be the code block on which the control of $\CX^{\otimes k}$ is acted on.
+Let the \textit{target code block}, denoted by the subscript $\mathrm{t}$, be the code block on which the target of $\CX^{\otimes k}$ is acted on. 
+The $i$th logical qubit in the control and target codeblock constitute the $i$th \textit{logical qubit pair}.
+A state or operator of the $i$th logical qubit pair is denoted by the subscript $i$.
+
+Our algorithm makes use of some facts about the structure of the $\pm1$ eigenspace of a controlled-Pauli operator.
+Let $\ket{P_{\pm}}$ denote the $\pm1$ eigenstates of the Pauli operator $P$.
+Then the $+1$ eigenspace of a controlled-Pauli operator $\mathrm{CP}_i$ is spanned by $\{\ket{00}_i,\ket{01}_i,\ket{1P_+}_i\}$ and the $-1$ eigenspace is spanned by $\{\ket{1P_-}_i\}$. 
+From this basis of the eigenspaces, we observe that the measurement of the Pauli operators $Z_\mathrm{c}$ and $P_{\mathrm{t}}$ collapses a state to either the $+1$ or $-1$ eigenspace of $\mathrm{CP}$.
+For example, if the measurement of $Z_\mathrm{c}$ is $m_{Z_\mathrm{c}}=+1$, then we know that the post-measurement state collapsed to the $+1$ eigenspace of $\mathrm{CP}_i$.
+
+Finally, we remark that the successful preparation of a magic state relies on the initial state of the code prior to the Clifford measurement. 
+For example, measuring $\CX_i$ on the state $\ket{00}_i$ leaves the state invariant; the resulting state is a stabilizer state. 
+Clearly, our choice of state prior to Clifford measurement is crucial to preparing the right magic state.  
+What state should we initialize prior to $\CX$ measurement?
+The initial state, $\ket{+}_c\ket{0}_t$ suffices because measuring $m_{\CX_i}=+1$ projects to the following post measurement state
+\begin{align}
+    \frac{I_\mathrm{c}I_\mathrm{t}+\CX_i}{4} \left(\ket{0+}+\ket{0-}+\ket{1+}+\ket{1-}\right)
+    &=\frac{1}{4}\left(2\ket{0+}+2\ket{0-}+2\ket{1+}\right)\\
+    &\propto \frac{1}{\sqrt{3}}\left(\ket{0+}+\ket{0-}+\ket{1+}\right)=:\ket{+\CX},
+\end{align}
+which is proportional to the $\ket{+\CX}$ we desired.
+Let $c_+$ be a constant from normalization, $$\ket{+\CX}=\frac{1}{c_+} \frac{1}{2}(\ket{0+}+\ket{0-}+\ket{1+}),$$ thus $c_+=\frac{\sqrt{3}}{2}$.
+If we measure $\CX^{\otimes k}$ and obtain $m_{\CX_i}=-1$, then the post-measurement state is a stabilizer state,
+\begin{align}
+    \frac{I_\mathrm{c}I_\mathrm{t}-\CX_i}{4} \left(\ket{0+}+\ket{0-}+\ket{1+}+\ket{1-}\right) \propto \ket{1-}=:\ket{-\CX}.
+\end{align}
+Again, let $c_-=\frac{1}{2}$ be a constant from normalization.
+
+\begin{algorithm}
+    \caption{Preparing $k$ copies of $\ket{+\CX}$ states.}
+    \label{alg:cx-states}
+    \KwIn{Two copies of the same $[[n,k,d]]$ CSS QLDPC code.}
+    \KwOut{$k$ copies of $\ket{+\CX}$ states across two $[[n,k,d]]$ codes.}
+    \vspace{0.5cm}
+    Initialize the control codeblock $C$ into $\ket{+}^{\otimes k}$ and the target codeblock $T$ into $\ket{0}^{\otimes k}$ OR $C$ into $\ket{1}^{\otimes k}$ and $T$ into $\ket{-}^{\otimes k}$.
+
+    $m_{\CX^{\otimes k}}\leftarrow$ Measure $\CX^{\otimes k}$. For the second initialization option, instead set $m_{\CX^{\otimes k}}\leftarrow(-1)^k$.
+
+    \For{$i\in[1,k]$}{
+        
+        $m_{Z_{\mathrm{c}_i}},m_{X_{\mathrm{t}_i}}$ $\leftarrow$ Measure $Z_{\mathrm{c}_i}$ and $X_{\mathrm{t}_i}$
+
+        \If{$(m_{Z_{\mathrm{c}_i}},m_{X_{\mathrm{t}_i}})=(+1,+1)$}{
+            $\lambda_i\leftarrow+1$ \quad \quad \quad\quad \quad \tcp{Store the parity of pair $i$ as $+1$}
+
+        
+            Apply $H_{\mathrm{c}_i}H_{\mathrm{t}_i}$ \quad\quad\quad \tcp{Apply Clifford correction to reset to $\ket{+0}_{i}$}
+        }
+
+        \If{$(m_{Z_{\mathrm{c}_i}},m_{X_{\mathrm{t}_i}})=(+1,-1)$}{
+            
+            $\lambda_i\leftarrow+1$ \quad\quad \quad\quad\quad  \tcp{Store the parity of pair $i$ as $+1$}
+            
+            
+            Apply $H_{\mathrm{c}_i}H_{\mathrm{t}_i}Z_{\mathrm{t}_i}$ \quad\quad\quad \tcp{Apply Clifford correction to reset to $\ket{+0}_{i}$}
+        }
+
+        \If{$(m_{Z_{\mathrm{c}_i}},m_{X_{\mathrm{t}_i}})=(-1,+1)$}{
+            $\lambda_{i}\leftarrow+1$ \quad\quad \quad \quad\quad  \tcp{Store the parity of pair $i$ as $+1$}
+
+            
+            Apply $H_{\mathrm{c}_i}H_{\mathrm{t}_i}X_{\mathrm{c}_i}$ \quad\tcp{Apply Clifford correction to reset to $\ket{+0}_{i}$}
+        }
+
+        \If{$(m_{Z_{\mathrm{c}_i}},m_{X_{\mathrm{t}_i}})=(-1,-1)$}{
+            $\lambda_{i}\leftarrow-1$ \quad \quad \quad\quad \quad \tcp{Store the parity of pair $i$ as $-1$}
+
+            
+            Apply $H_{\mathrm{c}_i}H_{\mathrm{t}_i}X_{\mathrm{c}_i}Z_{\mathrm{t}_i}$ \quad\quad\quad \tcp{Apply Clifford correction to reset to $\ket{+0}_{i}$}
+        }
+        $\lambda_{[k]\setminus i} \leftarrow\lambda_i\cdot m_{\CX^{\otimes k}}$ \tcp{The parity of all $\CX$ pairs except for pair $i$}
+
+        $\lambda'_i\leftarrow -1$ \tcp{Initialization to enter the while loop}
+
+        \While{$\lambda'_i\neq +1$}{
+            $m'_{\CX^{\otimes k}}\leftarrow$ Measure $\CX^{\otimes k}$.  \tcp{Measure the global operator again}
+
+            $\lambda'_i\leftarrow\lambda_{[k]\setminus i}\cdot m'_{\CX^{\otimes k}}$ \tcp{Get the eigenvalue of pair $i$}
+
+            \If{$\lambda'_i\neq +1$}{
+                Apply $H_{\mathrm{c}_i}H_{\mathrm{t}_i}X_{\mathrm{c}_i}Z_{\mathrm{t}_i}$ \tcp{Reset pair $i$ from $\ket{1-}_i$ back to $\ket{+0}_{i}$}
+            }
+        }
+
+        $m_{\CX^{\otimes k}}\leftarrow m'_{\CX^{\otimes k}}$
+
+    }
+\end{algorithm}
+
+
+The working principle of Alg.~\ref{alg:cx-states} is as follows.
+First, we initialize the control code block in $\ket{+}^{\otimes k}$ and the target code block in $\ket{0}^{\otimes k}$.
+Then we measure $\CX^{\otimes k}$ on the control and target blocks.
+Let $n_+$ ($n_-$) be the number of $0$s ($1$s) in $\vec{v}\in\{0,1\}^{k}$.
+Then, the post-measurement state $\ket{\Psi_0}$ dependent on the measurement outcome, $m_{\CX^{\otimes k}}^{(0)}$ is the following
+\begin{align}
+    \ket{\Psi_0}=\sum_{\vec{v},\ (-1)^{n_-}=m_{\CX^{\otimes k}}^{(0)}} c_+^{n_+}{c_-}^{n_-}\left( \bigotimes_{i\in [k]}\ket{(-1)^{v_i}\CX}_i\right).
+    \label{eq:psi0}
+\end{align}
+This is a superposition over all possible combinations of logical pairs $i$ in states $\ket{\pm\CX}$ with the total number of $\ket{-\CX}$s being even (odd) when the measurement outcome $m_{\CX^{\otimes k}}=+1$($=-1$).
+
+The following steps narrow the number of terms in this superposition until we are left with a product state over all logical pairs. First, consider how the first logical pair of qubits can be disentangled from the rest:
+
+\begin{enumerate}
+    \item We measure logical Paulis $Z_{\mathrm{c}_1}$ and $X_{\mathrm{t}_1}$ on the first pair of logical qubits and store the outcomes of these measurements in $(m_{Z_{\mathrm{c}_1}},m_{X_{\mathrm{t}_1}})$.
+    \begin{itemize}
+        \item If $(m_{Z_{\mathrm{c}_1}},m_{X_{\mathrm{t}_1}})\in \{ (+1,+1),(+1,-1),(-1,+1)\}$, then we know that logical pair $1$ has collapsed to the $+1$ eigenspace of $\CX_1$.
+    Let us call this post-measurement state $\ket{\Psi_1}$. Since $\CX^{\otimes k}$ commutes with $Z_{\mathrm{c}_1}$ and with $X_{\mathrm{t}_1}$, $\ket{\Psi_1}$ must be a simultaneous eigenstate of all three operators. We can use the previous measurement result of $\CX^{\otimes k}$ to deduce that logical pairs $2,\dots, k$ are in the $m_{\CX^{\otimes k}}$ eigenspace of $\CX_2\otimes \dots \otimes\CX_k$. 
+    \item Conversely, if we had measured $(m_{Z_{\mathrm{c}_1}},m_{X_{\mathrm{t}_1}})=(-1,-1)$, then logical pair $1$ collapsed to the $-1$ eigenspace of $\CX_1$.
+    Using our previously obtained eigenvalue of $\CX^{\otimes k}$, we deduce that logical pairs from $2$ through $k$ are in the $-m_{\CX^{\otimes k}}$ eigenspace of $\CX_2\otimes ...\otimes\CX_k$. 
+    \end{itemize}
+    
+    \item Regardless of which eigenvalue of $\CX_2\otimes ...\otimes\CX_k$ $\ket{\Psi_1}$ has, we reset logical pair $1$ back to $\ket{+0}_1$ by applying the Clifford operation $$H_{\mathrm{c}_1}H_{\mathrm{t}_1}X_{\mathrm{c}_1}^{(1-m_{Z_{\mathrm{c}_1}})/2}Z_{\mathrm{t}_1}^{(1-m_{X_{\mathrm{t}_1}})/2}$$
+    \item Finally, we measure $\CX^{\otimes k}$ again.
+    Crucially, measuring the global operator $\CX^{\otimes k}$ at this point does not change the eigenvalue of $\CX_2\otimes ...\otimes\CX_k$, so we know whether the state of logical pair $1$ is $\ket{+\CX}_1$ or $\ket{-\CX}_1$. 
+    \item With probability $3/4$, we have produced the magic state $\ket{+\CX}_{1}$. If we fail and project to $\ket{-\CX}_{1}$, we can repeat until success by resetting pair $1$ into $\ket{+0}_{1}$ via Clifford operations and measuring the global operator $\CX^{\otimes k}$ again.
+\end{enumerate}
+
+
+We indicate the eigenvalue of $\CX_2\otimes ...\otimes\CX_k$ with $\lambda_{[k]\setminus 1}=\pm 1$. Let $\vec{v}\in \{0,1\}^{k-1}$ and index its entries by integers $i\in [2,k]$.
+We define $n_+$ and $n_-$ in the same way as above.
+After success with the first pair, we have the state 
+\begin{align}
+    \ket{\Psi_2}=\ket{+\CX}_{1}\otimes \sum_{\vec{v},\ (-1)^{n_-}=\lambda_{[k]\setminus 1}} c_+^{n_+}c_-^{n_-}\bigotimes_{i\in [2,k]} \ket{(-1)^{v_i}\CX}_i
+\end{align}
+
+The rest of the algorithm repeats this process for all other pairs of logical qubits one by one. Once a logical pair is in the $\ket{+\CX}_i$ state, subsequent repetitions of these steps do not disturb or change the state of pair $i$. This eventually results in $k$ copies of $\ket{+\CX}$ states. 
+
+As an alternative initialization step, one can instead prepare the control and target code blocks in logical $\ket{1}$ and $\ket{-}$ states, respectively, to fix the initial eigenvalue of the codestate under $\CX^{\otimes k}$. This avoids the requirement for the initial $\CX^{\otimes k}$ measurement. The remainder of the algorithm proceeds as above.  
+
+We now discuss how many operations, aside from the initial global measurement, are required to fix a single logical pair into the $\ket{+\CX}_i$ state. 
+The procedure requires at least two Pauli measurements, one Clifford operation, and one global $\CX^{\otimes k}$ measurement. 
+If the inferred eigenvalue $\lambda'_i$ is $-1$, we reset pair $i$ to $\ket{+0}_i$ with the Clifford correction and repeat the global $\CX^{\otimes k}$ measurement.
+Fortunately, the expected number of repetitions until success is a small constant, $\langle \mathrm{Rep.}\rangle=4/3\simeq 1.33$. 
+Thus, the expected number of $\CX^{\otimes k}$ measurements, Pauli measurements, and Clifford operations our algorithm requires to prepare $\ket{+\CX}^{\otimes k}$ is $\Theta(k)$.
+
+
+
+One can similarly prepare a comparable number of $\tof$ states with only half of the measurements required in Alg.~\ref{alg:cx-states}. 
+To do this, we prepare a product of $$\ket{+\CX}\ket{+\CX}+\ket{-\CX}\ket{-\CX}$$ states instead; these can still be turned into $\tof$ states. We only require half of the measurements because we only need to determine the parity of neighboring logical pairs, rather than each individual pair's eigenvalue. We also note that it is possible to get $> 2k/9\ \tof$ states if one is willing to repeat Alg.~\ref{alg:cx-states} on the $\ket{\Log{\CZ}}$-to-$\tof$ conversions that fail.
+
+
+
+\subsection{Performing structured controlled-Clifford gates in parallel}
+\label{sec:ctrl-t-gadget}
+
+In this section, we introduce a gadget that uses a single logical Clifford measurement to deterministically perform a logical controlled-Clifford gate, $\CT$, where $\T$ is a $\mathbb{Z}_2$ Clifford symmetry of a QLDPC code.
+When $\T$ is a symmetry that acts on many logical qubits, for example $\T = \bigotimes_{i}\T_i$, this gadget performs many non-Clifford gates $\CT_i$ in parallel.
+Note that the control qubit of these operations is the same, which limits the addressability of $\CT_i$ operations. However, this one-control many-target circuit structure is readily applicable to subroutines in quantum state preparation, block encoding of second-quantized Hamiltonians,  unitary synthesis, and the hidden subgroup problem~\cite{Low_2024,Zhang_2022,liu2025blockencodinglowgate,bouland2024statehiddensubgroupproblem}. We discuss how our gadget may be applied to these instances and the savings obtained as compared to existing circuits below in Section~\ref{sec:applications-with-cswap}.
+
+
+\begin{table}
+    \centering
+    \begin{tabular}{|c|c|c|}
+        \hline
+        \textbf{Algorithm}& \textbf{Existing Protocols: $T$-count} & \textbf{$\CT$ Gadget: \# Clifford meas.} \\
+        \hline
+         $\SWAP$ network & $\mathcal{O}(bK)$ & $\mathcal{O}(\log K)$\\
+         Alg. 1 (non-adaptive) \cite{bouland2024statehiddensubgroupproblem}& $\mathcal{O}(K^3/\epsilon^2)$ & $O(K^2)$\\
+         Alg. 2 (adaptive) \cite{bouland2024statehiddensubgroupproblem} & $\mathcal{O}(K^2/\epsilon^2)$ & $O(K)$\\
+         \hline
+    \end{tabular}
+    \caption{Comparison between $T$-count for various existing algorithms/algorithm primitives and our protocols using the $\CT$ gadget. We list the number of $T$ states consumed by existing protocols vs. the number of Clifford measurements needed for the $\CT$ gadget. In all cases, $K$ is the number of logical qubits in the target codeblock. For the $\SWAP$ network, $b$ gives the size of registers in our lookup table. In the last two algorithms for the hidden cut problem, $\epsilon \in [0, 1]$ is a parameter indicating how far away the two factor states are from product states.}
+    \label{tab:placeholder}
+\end{table}
+
+\subsubsection{$\CT$ gadget}
+First, we introduce the gadget itself. Let $c$ denote the logical qubit designated as the control, and $t$ denote the logical qubit(s) being targeted. Additionally, we need $a$, a logical ancilla qubit. 
+
+The control qubit before the gadget is in a state $(\alpha_c\ket{0}_{c}  + \beta_c\ket{1}_c )$. 
+As $\T^2=1$, $\T$ has eigenvalues $\pm1$. 
+We can decompose a general state on the target logical qubit(s) in terms of the $\pm1$ eigenspaces of $\T$, written $(\gamma_t\ket{+\T}_t+\delta_t\ket{-\T}_t)$. 
+The most general input state we consider is thus
+\begin{align}
+    \ket{\Psi_0} = (\alpha_c\ket{0}_{c}  + \beta_c\ket{1}_c )\otimes (\gamma_t\ket{+\T}_t+\delta_t\ket{-\T}_t)\otimes \ket{0}_a.
+\end{align}
+Below, we present a gadget $\CT$ that performs the following linear transformation:
+\begin{align}
+    \CT: \ket{\Psi_0} \to
+    \ket{0}_c \otimes\biggl( (\gamma_t\ket{+\T}_t +\delta_t\ket{-\T}_t)\otimes \alpha_c \ket{0}_a + (\gamma_t\ket{+\T}_t-\delta_t\ket{-\T}_t)\otimes \beta_c\ket{1}_a\biggr)
+\end{align}
+To this end, we first measure the operator $O_1 = X_c\T_tX_a$. 
+We remark that $O_1$ must still be a transversal Clifford operator. $X_c$ and $X_a$ must have transversal, Pauli representatives in the QLDPC codes hosting $c$ and $a$, and so multiplying $\T$ by $X_c$ and $X_a$ leads to an operator that is both Clifford and transversal.
+Furthermore, the eigenvalues of $O_1$ are still $\pm 1$ because $$O_1^2 = (X_c\T_tX_a)(X_c\T_tX_a) = X_c^2 \T_t^2 X_a^2 = \id.$$
+Since $O_1$ is still a $\mathbb{Z}_2$, transversal Clifford gate, we can use Clifford gauging to measure it fault tolerantly. We remark that if the QLDPC code block, or blocks, hosting $X_a$ and $X_c$ are disjoint from the block hosting the $\T_t$ gate, one can build an ancilla system for the joint gauging measurement from the individual ancilla systems joined together via adapters~\cite{swaroop2025universaladaptersquantumldpc}. We write $\ket{\pm m_j}_{cta}$ for the post-measurement state of the registers $c$, $t$, $a$ after the $j$th measurement of the gadget returns the outcome $\pm 1$.
+Up to a global normalization constant, the state after measuring $O_1$ with outcome $+1$ is
+\begin{align}
+    \ket{+m_1}_{cta}=(\alpha_c+\beta_c)\gamma_t \ket{+}_c\ket{+\T}_t \ket{+}_a +(\alpha_c + \beta_c)\delta_t \ket{+}_c\ket{-\T}_t \ket{-}_a \notag\\
+    +(\alpha_c - \beta_c)\delta_t \ket{-}_c\ket{-\T}_t\ket{+}_a +(\alpha_c -\beta_c)\gamma_t \ket{-}_c\ket{+\T}_t\ket{-}_a.
+    \label{eq:o1-plus-one}
+\end{align}
+The state after measuring $O_1$ with outcome $-1$ is
+\begin{align}
+    \ket{-m_1}_{cta}&=
+    (\alpha_c+\beta_c)\gamma_t \ket{+}_c\ket{+\T}_t \ket{-}_a +(\alpha_c + \beta_c)\delta_t \ket{+}_c\ket{-\T}_t \ket{+}_a \label{eq:o1-minus-one}\\
+    &+(\alpha_c - \beta_c)\delta_t \ket{-}_c\ket{-\T}_t\ket{-}_a +(\alpha_c -\beta_c)\gamma_t \ket{-}_c\ket{+\T}_t\ket{+}_a
+    \notag\\&=Z_a\ket{+m_1}.
+\end{align}
+Whenever measurement of $O_1$ returns $-1$, we apply $Z_a$ to deterministically prepare the state in Eq.~\eqref{eq:o1-plus-one}.
+
+Next, we measure $Z_c$. Expanding $\ket{+m_1}$ from Eq.~\eqref{eq:o1-plus-one} in the $Z_c$ basis, we have
+\begin{align}
+    \ket{+m_1}_{cta}&\propto\ket{0}_c \big [(\alpha_c+\beta_c)\gamma_t\ket{+\T}_t\ket{+}_a+(\alpha_c+\beta_c)\delta_t\ket{-\T}_t\ket{-}_a\notag\\
+    &+(\alpha_c-\beta_c)\delta_t\ket{-\T}_t\ket{+}_a+(\alpha_c-\beta_c)\gamma_t\ket{+\T}_t\ket{-}_a \big]\notag\\
+    &+\ket{1}_c \big [(\alpha_c+\beta_c)\gamma_t\ket{+\T}_t\ket{+}_a+(\alpha_c+\beta_c)\delta_t\ket{-\T}_t\ket{-}_a\notag\\
+    &-(\alpha_c-\beta_c)\delta_t\ket{-\T}_t\ket{+}_a-(\alpha_c-\beta_c)\gamma_t\ket{+\T}_t\ket{-}_a \big].
+\end{align}
+The states after measuring $Z_c$ with outcomes $+1$ and $-1$ respectively are
+\begin{align}
+    \ket{+m_2}_{cta} &\propto \ket{0}\bra{0}_c \ket{+m_1}\label{eq:plus-m2}\\
+    &\propto\ket{0}_c[(\alpha_c+\beta_c)\gamma_t\ket{+\T}_t\ket{+}_a+(\alpha_c+\beta_c)\delta_t\ket{-\T}_t\ket{-}_a\notag\\
+    &+(\alpha_c-\beta_c)\delta_t\ket{-\T}_t\ket{+}_a+(\alpha_c-\beta_c)\gamma_t\ket{+\T}_t\ket{-}_a]\notag\\
+    \ket{-m_2}_{cta}&\propto\ket{1}\bra{1}_c\ket{+m_1}\notag\\
+    &\propto\ket{1}_c[(\alpha_c+\beta_c)\gamma_t\ket{+\T}_t\ket{+}_a+(\alpha_c+\beta_c)\delta_t\ket{-\T}_t\ket{-}_a\notag\\
+    &-(\alpha_c-\beta_c)\delta_t\ket{-\T}_t\ket{+}_a-(\alpha_c-\beta_c)\gamma_t\ket{+\T}_t\ket{-}_a]\\
+    &=X_c\T_t X_a\ket{+m_2}
+\end{align}
+If we measure $Z_c$ and get the outcome $-1$, we apply $X_c\T_tX_a$ to deterministically prepare the state $\ket{+m_2}$ in Eq.~\eqref{eq:plus-m2}.
+
+Now, we show that $\ket{+m_2}$ is the state following the desired linear transformation $\CT$.
+Up to normalization constants, we take equation~\eqref{eq:plus-m2} and expand in the $Z_a$ basis,
+{\small
+\begin{align}
+    \ket{+m_2}_{cta}&\propto\ket{0}_c\otimes \biggl( \biggl[ (\alpha_c+\beta_c)\gamma_t\ket{+\T}_t+(\alpha_c+\beta_c)\delta_t\ket{-\T}_t + (\alpha_c-\beta_c)\delta_t\ket{-\T}_t
+    + (\alpha_c-\beta_c)\gamma_t\ket{+\T}_t\biggr]\otimes \ket{0}_a\notag\\
+    &+ \biggl[(\alpha_c+\beta_c)\gamma_t\ket{+\T}_t
+    - (\alpha_c+\beta_c)\delta_t\ket{-\T}_t + (\alpha_c-\beta_c)\delta_t\ket{-\T}_t
+    - (\alpha_c-\beta_c)\gamma_t\ket{+\T}_t\biggr]\otimes \ket{1}_a\biggr)\notag\\
+    &\propto \ket{0}_c\otimes  \biggl((\gamma_t\ket{+\T}_t +\delta_t\ket{-\T}_t) \otimes \alpha_c \ket{0}_a + (\gamma_t\ket{+\T}_t -\delta_t\ket{-\T}_t) \beta_c\otimes \ket{1}_a\biggr)\\
+    &=\ket{0}_c (\CT)_{at} \biggl( (\gamma_t\ket{+\T}_t + \delta_t \ket{-\T}_t) (\alpha_c\ket{0}_a+ \beta_c\ket{1}_a) \biggr) = \ket{\Psi_f}
+\end{align}}
+By inspection, we can see that this has performed the $\CT$ operation with the control on the input state of $c$, and the target on $t$.
+Furthermore, the state of the control qubit has been teleported to the ancilla qubit $a$.
+
+The $\CT$ gadget is summarized in Algorithm \ref{alg:cu-gadget}.
+
+\begin{algorithm}
+    \caption{Implementing $\CT$}
+    \label{alg:cu-gadget}
+
+    \KwIn{A control codeblock with a designated control logical $c$, target codeblock $t$ with a transversal Clifford $\T$, and an ancilla codeblock with a designated ancilla logical $a$.}
+    \KwOut{$\CT$ applied to the target codeblock, and the state of the control teleported to the ancilla.}
+    \vspace{0.5cm}
+
+     $\ket{\Psi} \leftarrow \ket{\Psi_0} = \ket{\psi}_c \ket{\psi'}_t \ket{0}_a$ \quad \quad \quad \tcp{Initialize the ancilla in $\ket{0}_a$. $\ket{\psi}_c \ket{\psi'}_t$ are generic.}
+
+    $m_1 \leftarrow$ Measure $O_1 = X_c \T_t X_a$.
+    
+    \If{$m_1 = +1$}{
+    $\ket{\Psi} \leftarrow \ket{+m_1}_{cta}$
+    
+    }
+
+    \If{$m_1 = -1$}{
+    $\ket{\Psi} \leftarrow \ket{-m_1}_{cta}$
+    
+    Apply $Z_a$ \quad\quad\quad \tcp{Corrects back to $\ket{+m_1}$.}
+    
+    }
+
+    $m_2 \leftarrow$ Measure $Z_c$.
+
+    \If{$m_2 = +1$}{
+    $\ket{\Psi} \leftarrow \ket{+m_2}_{cta}$
+    }
+
+    \If{$m_2 = -1$}{
+    $\ket{\Psi} \leftarrow \ket{-m_2}_{cta}$
+
+    Apply $X_c \T_t X_a$ \quad \quad \quad \tcp{Corrects back to $\ket{+m_2}$.}
+    }
+
+\end{algorithm}
+
+\subsubsection{Performing $\CSWAP^{\otimes k}$ in parallel in SWAP networks}
+\label{sec:applications-with-cswap}
+
+Now we consider two practical applications of the $\CT$ gadget. The first is a parallel implementation of $\CSWAP^{\otimes k}$ between many logical qubits, with the same control qubit. This structure of $\CSWAP$ operations is common in certain information processing tasks, in particular, $\SWAP$ networks.
+$\SWAP$ networks in data-lookup oracles are an important subroutine in arbitrary quantum state preparation, unitary synthesis, and block encoding of Hamiltonians~\cite{Low_2024,liu2025blockencodinglowgate}.
+
+Given two copies of the same $[[n,k,d]]$ stabilizer code, let $i_\mathrm{A (B)}\in[n]$ and $j_\mathrm{A (B)}\in [k]$ enumerate the physical and logical qubits in code block A (B).
+Then the transversal operation $\prod_{i=1}^n\SWAP _{i_\mathrm{A}i_{\mathrm{B}}}$ implements a logical $\SWAP$ between logical qubits in A and B, $ \prod_{j=1}^k\SWAP_{j_\mathrm{A}j_{\mathrm{B}}}$. 
+Taking $\T = \prod_{i=1}^n\SWAP _{i_\mathrm{A}i_{\mathrm{B}}}$ we can use the $\CT$ gadget in Section~\ref{sec:ctrl-t-gadget} to implement the following logical operations in parallel:
+\begin{align}
+    \prod_{j=1}^k C_{\mathrm{c}}\SWAP _{j_\mathrm{A}j_\mathrm{B}}.
+\end{align}
+In other words, a single logical qubit $c$ acts as the control for the $\SWAP$ of every $j_\mathrm{A},j_{\mathrm{B}}$ logical qubit pair.
+Importantly, this means that an arbitrary number of $\CSWAP$ operations sharing a common control qubit can be performed in parallel. This is achieved by encoding each pair of logical qubits to be swapped in the logical qubits $j_\mathrm{A}$ and $j_\mathrm{B}$ of two separate code blocks.
+
+We can show that this implementation significantly reduces the amount of non-Clifford operations needed to implement the $\SWAP$ network.
+Suppose there are $K$ registers $\{\ket{\phi_x} \}, x \in \{0, \dots, K-1\}$, where each $\ket{\phi_x}$ is a $b$-qubit state. We discuss how these registers are distributed across codeblocks $A, B$ below; we require that $A$ and $B$ each encode at least $b \lfloor K/2 \rfloor$ logical qubits. A register state $\ket{\phi_x}$ is initially at position $x$.
+
+Suppose we have a set of control states labeled $\ket{x}$, $x = 0, \dots, K-1$. We can write these as $\lceil \log_2(K) \rceil$-qubit states where the state of each qubit is given by the corresponding digit of the binary expansion of $x$: 
+$$\ket{x}= \ket{x_0} \ket{x_1} \dots \ket{x_{\lceil \log_2(K) \rceil-1}},$$
+where $x_0$ is the smallest bit.
+When we input state $\ket{x}$ to the $\SWAP$ network, it fetches the $x$th $b$-qubit register and places it in the $0$th register~\cite{Low_2024}. Explicitly, the operation that the $\SWAP$ network performs is as follows:
+\begin{align}
+    \SWAP_{\rm{net.}} \biggl[\ket{x} \bigotimes _{x=0}^{K-1}\ket{\phi_x}_x\biggr]= \ket{x}\otimes \ket{\phi_x}_0\otimes \cdots 
+\end{align}
+Here the $\cdots$ indicates that the output state of the registers $x=1,\cdots K-1$ is not important.
+The number of $\CSWAP$ operations needed to perform the $\SWAP_{\rm{net.}}$ circuit is upper-bounded by $\mathcal{O}(bK)$, see Fig.~1(b) in Ref.~\cite{Low_2024}.
+However, our $\CT$ gadget allows one to perform a $\SWAP$ network with just $\mathcal{O}(\log(K))$ Clifford measurements.
+
+To achieve this, take two codeblocks that encode at least $k = b\lfloor\frac{K}{2}\rfloor$ logical qubits.
+Following the $\SWAP$ network circuit in Ref.~\cite{Low_2024}, we perform $\CSWAP$ between all pairs of $b$-qubit registers $$(i_A, i_B) \in \{(i,i+2^j)~|~i\in 2^{j+1}\{0, 1, \dots, K-1\}\}$$ controlled by qubit $j\in \{0,\dots,\lceil \log_2(K)\rceil -1\}$ of the control state $\ket{x}$.
+In particular, we use the $\CT$ gadget to parallelize all $\CSWAP$ operations that share a control qubit $j$.
+In addition to the actual Clifford measurement, this requires that we perform Clifford $\SWAP$s to move the registers into the correct positions for each index $j$: we want each $(i,i+2^j)$ register pair to correspond to a logical qubit pair across the two codeblocks A and B. 
+
+Since there are only $\lceil \log_2(K)\rceil$ control qubits in the state $\ket{x}$, and each $\CT$ gadget only needs one Clifford measurement, the whole $\SWAP$ network only requires $\mathcal{O}(\log_2(K))$ Clifford measurements, plus some additional Clifford gates. We have lost the dependence on the size $b$ of our stored registers; as long as we have a large enough codeblock to support our desired $b$, the gauging measurement deals with everything in parallel. 
+Importantly, the number of Clifford measurements is \emph{exponentially} smaller compared to the number of $T$ states to be prepared via distillation or other means.
+
+
+\subsubsection{ Parallel $\CSWAP^{\otimes k}$ for the hidden-cut problem}
+
+The $\CSWAP^{\otimes k}$ circuit structure is useful in other applications in addition to building a quantum look-up table (QROM). In particular, we can use our $\CSWAP^{\otimes k}$ gadget in circuits that solve the state hidden-subgroup problem or hidden-cut problem.
+We briefly summarize the problem here and refer the interested reader to Ref.~\cite{bouland2024statehiddensubgroupproblem} for details.
+
+At a high level, the problem is as follows: given many copies of an $K$-qubit state $\ket{\psi}$, the goal is to find a bipartition of the qubits, each with $K/2$ qubits, such that the states are unentangled across this partition.
+Specifically, $\ket{\psi}=\ket{\phi_1}_C\otimes \ket{\phi_2}_{\bar{C}}$ is a product across an unknown cut $$C\in {[K]\choose K/2}.$$ The factor states, $\ket{\phi_1}$ and $\ket{\phi_2}$ are $\epsilon$-far from being product states (see Def.~5 of Ref.~\cite{bouland2024statehiddensubgroupproblem}).
+Since there are exponentially many ($2^{\Theta(K)}$) bipartitions of the state, a brute-force search for $C$ is not efficient. 
+
+Ref.~\cite{bouland2024statehiddensubgroupproblem} introduces two algorithms that solve for $C$ in polynomial time.
+Alg.~1 of Ref.~\cite{bouland2024statehiddensubgroupproblem} is a non-adaptive algorithm that consumes $\mathcal{O}(K^2/\epsilon^2)$ copies of $\ket{\psi}$, acting coherently on $\mathcal{O}(K/\epsilon^2)$ copies at a time.
+In total, it uses $\mathcal{O}(K^3/\epsilon^2)$ $\CSWAP$ operations. 
+Each $\CSWAP$ can be decomposed into a constant number of $T$ gates via the decomposition into $\CX$s and Toffoli gates~\cite{Jones_2013,nielsen2010quantum}.
+Consequently, Alg.~1 requires $\mathcal{O}(K^3/\epsilon^2)$ T states.
+
+We find that by applying our $\CT$ gadgets, Alg.~1 can be realized in $\mathcal{O}(K^2)$ Clifford measurements and in $\mathcal{O}(1)$ logical depth, where logical depth quantifies the depth of the compiled logical gadgets which may take $\mathcal{O}(d)$ syndrome extraction rounds each.
+To achieve this, we note that the $K$ parallel $\mathcal{O}(K/\epsilon^2)$ $\CSWAP$s during the Fourier sampling circuit of Alg.~1 can be performed in parallel with $O(K)$ $\CSWAP^{\otimes K}$ gadgets.
+Since this algorithm is non-adaptive in the sense that each circuit of the $O(K)$ shots does not depend on the output of another shot, we can run all $O(K)$ shots in parallel, each of which can be executed in a $\mathcal{O}(1)$ logical depth circuit.
+
+Alg.~2 of Ref.~\cite{bouland2024statehiddensubgroupproblem} is an adaptive algorithm that consumes $\mathcal{O}(K/\epsilon^2)$ copies of $\ket{\psi}$, acting coherently on $\mathcal{O}(1/\epsilon^2)$ copies at a time.
+In total, this algorithm uses $\mathcal{O}(K^2/\epsilon^2)$ $T$ states, and runs circuits of depth $\mathcal{O}(K^2)+\mathcal{O}(\log(1/\epsilon))$.
+The Fourier sampling circuit in Alg.~2 uses $K$ parallel $\mathcal{O}(1/\epsilon^2)$ $\CSWAP$s.
+Using Clifford measurements, we can perform these $\CSWAP$s with $\mathcal{O}(K)$ Clifford measurements.
+However, because the shots are adaptive, even if each shot is constant depth, we must run all shots sequentially. 
+As a result, the total logical depth required is $\mathcal{O}(K)$.
+
+
+
+\ifdefined\ismainfile
+\else
+    \bibliography{bib}
+    \end{document}
+\fi

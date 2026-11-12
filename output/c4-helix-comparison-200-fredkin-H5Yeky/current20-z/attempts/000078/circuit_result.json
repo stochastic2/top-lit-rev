@@ -1,0 +1,3449 @@
+{
+  "schema_version": 2,
+  "procedure": "reduced_rejection",
+  "noise_model": "pauli_depolarizing",
+  "seed": 1078,
+  "graph": "current20",
+  "source_preparation": "encoded",
+  "extraction": "optimized",
+  "history_policy": "adaptive",
+  "terminal_extraction": "compact_flagged",
+  "terminal_flag_policy": "repair_then_protected",
+  "magic_output": "z",
+  "b_y": null,
+  "output_clifford_frame": null,
+  "accepted": false,
+  "rejection_code": "terminal_absent",
+  "rejection_reason": "Joint B/C syndrome has no unique stabilizer-equivalent correction class",
+  "sources": {
+    "B": {
+      "attempts": [
+        {
+          "attempt_index": 0,
+          "records": [
+            [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ]
+          ],
+          "history_policy": "adaptive",
+          "outcome": "flag_retry",
+          "flag": {
+            "location": "source/B/round/2/X/7",
+            "flags": [
+              1,
+              0,
+              0
+            ],
+            "syndrome": 0
+          }
+        },
+        {
+          "attempt_index": 1,
+          "records": [
+            [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              1,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ]
+          ],
+          "history_policy": "adaptive",
+          "rounds_used": 4,
+          "stopping_record": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "reference_certificate": {
+            "fault_budget": 2,
+            "round_index_convention": "zero_based",
+            "change_edges": [
+              [
+                0,
+                1
+              ]
+            ],
+            "compatible_bad_round_sets": [
+              [
+                0
+              ],
+              [
+                1
+              ],
+              [
+                0,
+                1
+              ],
+              [
+                0,
+                2
+              ],
+              [
+                0,
+                3
+              ],
+              [
+                1,
+                2
+              ],
+              [
+                1,
+                3
+              ]
+            ],
+            "selected_occurrences": [
+              1,
+              2,
+              3
+            ],
+            "selected_record_index": 3,
+            "min_faulty_rounds_if_all_occurrences_bad": 3
+          },
+          "correction": [
+            "I",
+            "I",
+            "I",
+            "I",
+            "I",
+            "I",
+            "I",
+            "I",
+            "I",
+            "I",
+            "I",
+            "I",
+            "I",
+            "I",
+            "I",
+            "I",
+            "I",
+            "I",
+            "I",
+            "I"
+          ],
+          "outcome": "prepared"
+        }
+      ],
+      "records": [
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      ],
+      "history_policy": "adaptive",
+      "rounds_used": 4,
+      "stopping_record": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "reference_certificate": {
+        "fault_budget": 2,
+        "round_index_convention": "zero_based",
+        "change_edges": [
+          [
+            0,
+            1
+          ]
+        ],
+        "compatible_bad_round_sets": [
+          [
+            0
+          ],
+          [
+            1
+          ],
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            2
+          ],
+          [
+            0,
+            3
+          ],
+          [
+            1,
+            2
+          ],
+          [
+            1,
+            3
+          ]
+        ],
+        "selected_occurrences": [
+          1,
+          2,
+          3
+        ],
+        "selected_record_index": 3,
+        "min_faulty_rounds_if_all_occurrences_bad": 3
+      },
+      "correction": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I"
+      ],
+      "outcome": "prepared"
+    },
+    "C": {
+      "attempts": [
+        {
+          "attempt_index": 0,
+          "records": [
+            [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ]
+          ],
+          "history_policy": "adaptive",
+          "rounds_used": 3,
+          "stopping_record": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "reference_certificate": {
+            "fault_budget": 2,
+            "round_index_convention": "zero_based",
+            "change_edges": [],
+            "compatible_bad_round_sets": [
+              [],
+              [
+                0
+              ],
+              [
+                1
+              ],
+              [
+                2
+              ],
+              [
+                0,
+                1
+              ],
+              [
+                0,
+                2
+              ],
+              [
+                1,
+                2
+              ]
+            ],
+            "selected_occurrences": [
+              0,
+              1,
+              2
+            ],
+            "selected_record_index": 2,
+            "min_faulty_rounds_if_all_occurrences_bad": 3
+          },
+          "correction": [
+            "I",
+            "I",
+            "I",
+            "I",
+            "I",
+            "I",
+            "I",
+            "I",
+            "I",
+            "I",
+            "I",
+            "I",
+            "I",
+            "I",
+            "I",
+            "I",
+            "I",
+            "I",
+            "I",
+            "I"
+          ],
+          "outcome": "prepared"
+        }
+      ],
+      "records": [
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      ],
+      "history_policy": "adaptive",
+      "rounds_used": 3,
+      "stopping_record": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "reference_certificate": {
+        "fault_budget": 2,
+        "round_index_convention": "zero_based",
+        "change_edges": [],
+        "compatible_bad_round_sets": [
+          [],
+          [
+            0
+          ],
+          [
+            1
+          ],
+          [
+            2
+          ],
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            2
+          ],
+          [
+            1,
+            2
+          ]
+        ],
+        "selected_occurrences": [
+          0,
+          1,
+          2
+        ],
+        "selected_record_index": 2,
+        "min_faulty_rounds_if_all_occurrences_bad": 3
+      },
+      "correction": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I"
+      ],
+      "outcome": "prepared"
+    }
+  },
+  "cycles": [
+    {
+      "index": 0,
+      "graph_source": {
+        "records": [
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        ],
+        "history_policy": "adaptive",
+        "rounds_used": 4,
+        "stopping_record": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "reference_certificate": {
+          "fault_budget": 2,
+          "round_index_convention": "zero_based",
+          "change_edges": [
+            [
+              1,
+              2
+            ],
+            [
+              2,
+              3
+            ]
+          ],
+          "compatible_bad_round_sets": [
+            [
+              2
+            ],
+            [
+              0,
+              2
+            ],
+            [
+              1,
+              2
+            ],
+            [
+              1,
+              3
+            ],
+            [
+              2,
+              3
+            ]
+          ],
+          "selected_occurrences": [
+            0,
+            1,
+            3
+          ],
+          "selected_record_index": 3,
+          "min_faulty_rounds_if_all_occurrences_bad": 3
+        },
+        "correction": [
+          "I",
+          "I",
+          "I",
+          "I",
+          "I",
+          "I",
+          "I",
+          "I",
+          "I",
+          "I",
+          "I",
+          "I",
+          "I",
+          "I",
+          "I",
+          "I",
+          "I",
+          "I",
+          "I",
+          "I",
+          "I",
+          "I",
+          "I",
+          "I",
+          "I"
+        ]
+      },
+      "vertex_x": [
+        1,
+        1,
+        1,
+        0,
+        1
+      ],
+      "gauged": {
+        "records": [
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            1,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            1,
+            1,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            1,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            1,
+            1,
+            1,
+            0,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            1,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            1,
+            1,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            1,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            1,
+            1,
+            0,
+            0,
+            1,
+            1,
+            0,
+            0,
+            1,
+            0,
+            1,
+            0,
+            1,
+            1,
+            0,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0
+          ]
+        ],
+        "history_policy": "adaptive",
+        "rounds_used": 5,
+        "stopping_record": [
+          0,
+          0,
+          1,
+          1,
+          0,
+          0,
+          1,
+          1,
+          0,
+          0,
+          1,
+          0,
+          1,
+          0,
+          1,
+          1,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0
+        ],
+        "reference_certificate": {
+          "fault_budget": 2,
+          "round_index_convention": "zero_based",
+          "change_edges": [
+            [
+              0,
+              1
+            ],
+            [
+              1,
+              2
+            ],
+            [
+              2,
+              3
+            ],
+            [
+              3,
+              4
+            ]
+          ],
+          "compatible_bad_round_sets": [
+            [
+              1,
+              3
+            ]
+          ],
+          "selected_occurrences": [
+            4
+          ],
+          "selected_record_index": 4,
+          "min_faulty_rounds_if_all_occurrences_bad": 3
+        },
+        "decoding": {
+          "paired": [
+            0,
+            0,
+            1,
+            1,
+            0,
+            0,
+            1,
+            1,
+            0,
+            0,
+            1,
+            0,
+            1,
+            0,
+            1,
+            1,
+            0,
+            1
+          ],
+          "cycles": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "gauss": [
+            0,
+            1,
+            0,
+            0,
+            0
+          ],
+          "certified": false,
+          "cycle_x_edges": [
+            13
+          ],
+          "gauss_z_edges": [],
+          "action": "regauge"
+        }
+      },
+      "gauge_z": [
+        0,
+        1,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        1,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        1
+      ],
+      "gauge_decoding": {
+        "corrected_bits": [
+          0,
+          1,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          1,
+          1,
+          1,
+          0,
+          0,
+          0,
+          0,
+          1,
+          1
+        ],
+        "offsets": [
+          0,
+          0,
+          1,
+          0,
+          0
+        ]
+      },
+      "terminal": {
+        "compact_history": {
+          "includes_logical_y": false,
+          "records": [
+            [
+              0,
+              0,
+              1,
+              0,
+              0,
+              0,
+              1,
+              1,
+              0,
+              0,
+              1,
+              0,
+              1,
+              0,
+              1,
+              1,
+              0,
+              1,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              1,
+              0,
+              0,
+              0,
+              1,
+              1,
+              0,
+              0,
+              1,
+              0,
+              1,
+              0,
+              1,
+              1,
+              0,
+              1,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ]
+          ],
+          "history_policy": "adaptive"
+        },
+        "flag_recovery": {
+          "location": "cycle/0/terminal/round/2/B/Z/8",
+          "flags": [
+            0,
+            0,
+            1,
+            0,
+            0
+          ],
+          "reported_syndrome": 0,
+          "weight": 8,
+          "axis": "Z",
+          "action": "protected_fallback",
+          "repair_targets": []
+        },
+        "extraction_used": "protected_fallback",
+        "includes_logical_y": false,
+        "records": [
+          [
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            1,
+            1,
+            0,
+            0,
+            1,
+            0,
+            1,
+            0,
+            1,
+            1,
+            1,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            1,
+            1,
+            1,
+            0,
+            0,
+            1,
+            1,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            1,
+            0,
+            0,
+            0,
+            1,
+            1,
+            1,
+            0,
+            0,
+            1,
+            1,
+            1,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            1,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            1,
+            0,
+            0,
+            0,
+            1,
+            1,
+            1,
+            0,
+            0,
+            1,
+            1,
+            1,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            1,
+            1,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            1,
+            0,
+            0,
+            0,
+            1,
+            1,
+            1,
+            0,
+            0,
+            1,
+            1,
+            1,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            1,
+            1,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            1,
+            0,
+            0,
+            1
+          ]
+        ],
+        "history_policy": "adaptive",
+        "rounds_used": 5,
+        "stopping_record": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          1,
+          0,
+          0,
+          0,
+          1,
+          1,
+          1,
+          0,
+          0,
+          1,
+          1,
+          1,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          1,
+          1,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          1,
+          0,
+          0,
+          1
+        ],
+        "reference_certificate": {
+          "fault_budget": 2,
+          "round_index_convention": "zero_based",
+          "change_edges": [
+            [
+              0,
+              1
+            ],
+            [
+              1,
+              2
+            ],
+            [
+              2,
+              3
+            ],
+            [
+              3,
+              4
+            ]
+          ],
+          "compatible_bad_round_sets": [
+            [
+              1,
+              3
+            ]
+          ],
+          "selected_occurrences": [
+            4
+          ],
+          "selected_record_index": 4,
+          "min_faulty_rounds_if_all_occurrences_bad": 3
+        },
+        "decoding": {
+          "compatible_blocks": [],
+          "candidate_logical_classes": 0
+        }
+      },
+      "next_action": null,
+      "vertex_reported_parity": 0,
+      "vertex_word_probability": "3/64"
+    }
+  ],
+  "b_z": null,
+  "b_decoding": null,
+  "noise_seed": 14554476377460661428,
+  "rejection_details": {
+    "compatible_blocks": [],
+    "candidate_logical_classes": 0
+  },
+  "metrics": {
+    "elapsed_seconds": 15.150947916030418,
+    "process_peak_rss_bytes": 2991439872,
+    "physical_events": 29991,
+    "implicit_single_qubit_idles": 1588545,
+    "idle_locations_by_register": {
+      "B": 596752,
+      "C": 597380,
+      "L": 122887,
+      "V": 23920,
+      "A": 247606
+    },
+    "idle_locations_by_operation": {
+      "PREP": 337500,
+      "H": 162893,
+      "CX": 627132,
+      "MZ": 336720,
+      "CZ": 115616,
+      "FREDKIN": 7840,
+      "Z": 177,
+      "X": 515,
+      "SWAP": 152
+    },
+    "check_gadgets_completed": 753,
+    "cat_scans_completed": 879,
+    "cats_prepared": 753,
+    "flagged_source_checks": 188,
+    "flag_bits_measured": 261,
+    "grouped_protected_checks": 115,
+    "flagged_terminal_checks": 90,
+    "terminal_flag_bits_measured": 250,
+    "peak_live_qubits": 75,
+    "peak_coherent_terms": 1024,
+    "interned_sparse_factors": 28510,
+    "fallback_overlaps": 0,
+    "gate_counts": {
+      "PREP": 6334,
+      "H": 3154,
+      "CX": 11784,
+      "MZ": 6294,
+      "CZ": 2288,
+      "FREDKIN": 120,
+      "Z": 3,
+      "X": 10,
+      "SWAP": 4
+    },
+    "gauging_cycles_started": 1
+  },
+  "global_i_power": 3,
+  "terminal_flag_records": [
+    {
+      "location": "cycle/0/terminal/round/0/B/X/0",
+      "flags": [
+        0
+      ],
+      "reported_syndrome": 0,
+      "weight": 4,
+      "axis": "X",
+      "action": "continue",
+      "repair_targets": []
+    },
+    {
+      "location": "cycle/0/terminal/round/0/B/X/1",
+      "flags": [
+        0
+      ],
+      "reported_syndrome": 0,
+      "weight": 4,
+      "axis": "X",
+      "action": "continue",
+      "repair_targets": []
+    },
+    {
+      "location": "cycle/0/terminal/round/0/B/X/2",
+      "flags": [
+        0
+      ],
+      "reported_syndrome": 1,
+      "weight": 4,
+      "axis": "X",
+      "action": "continue",
+      "repair_targets": []
+    },
+    {
+      "location": "cycle/0/terminal/round/0/B/X/3",
+      "flags": [
+        0
+      ],
+      "reported_syndrome": 0,
+      "weight": 4,
+      "axis": "X",
+      "action": "continue",
+      "repair_targets": []
+    },
+    {
+      "location": "cycle/0/terminal/round/0/B/X/4",
+      "flags": [
+        0
+      ],
+      "reported_syndrome": 0,
+      "weight": 4,
+      "axis": "X",
+      "action": "continue",
+      "repair_targets": []
+    },
+    {
+      "location": "cycle/0/terminal/round/0/B/X/5",
+      "flags": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "reported_syndrome": 0,
+      "weight": 8,
+      "axis": "X",
+      "action": "continue",
+      "repair_targets": []
+    },
+    {
+      "location": "cycle/0/terminal/round/0/B/X/6",
+      "flags": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "reported_syndrome": 1,
+      "weight": 8,
+      "axis": "X",
+      "action": "continue",
+      "repair_targets": []
+    },
+    {
+      "location": "cycle/0/terminal/round/0/B/X/7",
+      "flags": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "reported_syndrome": 1,
+      "weight": 8,
+      "axis": "X",
+      "action": "continue",
+      "repair_targets": []
+    },
+    {
+      "location": "cycle/0/terminal/round/0/B/X/8",
+      "flags": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "reported_syndrome": 0,
+      "weight": 8,
+      "axis": "X",
+      "action": "continue",
+      "repair_targets": []
+    },
+    {
+      "location": "cycle/0/terminal/round/0/B/Z/0",
+      "flags": [
+        0
+      ],
+      "reported_syndrome": 0,
+      "weight": 4,
+      "axis": "Z",
+      "action": "continue",
+      "repair_targets": []
+    },
+    {
+      "location": "cycle/0/terminal/round/0/B/Z/1",
+      "flags": [
+        0
+      ],
+      "reported_syndrome": 1,
+      "weight": 4,
+      "axis": "Z",
+      "action": "continue",
+      "repair_targets": []
+    },
+    {
+      "location": "cycle/0/terminal/round/0/B/Z/2",
+      "flags": [
+        0
+      ],
+      "reported_syndrome": 0,
+      "weight": 4,
+      "axis": "Z",
+      "action": "continue",
+      "repair_targets": []
+    },
+    {
+      "location": "cycle/0/terminal/round/0/B/Z/3",
+      "flags": [
+        0
+      ],
+      "reported_syndrome": 1,
+      "weight": 4,
+      "axis": "Z",
+      "action": "continue",
+      "repair_targets": []
+    },
+    {
+      "location": "cycle/0/terminal/round/0/B/Z/4",
+      "flags": [
+        0
+      ],
+      "reported_syndrome": 0,
+      "weight": 4,
+      "axis": "Z",
+      "action": "continue",
+      "repair_targets": []
+    },
+    {
+      "location": "cycle/0/terminal/round/0/B/Z/5",
+      "flags": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "reported_syndrome": 1,
+      "weight": 8,
+      "axis": "Z",
+      "action": "continue",
+      "repair_targets": []
+    },
+    {
+      "location": "cycle/0/terminal/round/0/B/Z/6",
+      "flags": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "reported_syndrome": 1,
+      "weight": 8,
+      "axis": "Z",
+      "action": "continue",
+      "repair_targets": []
+    },
+    {
+      "location": "cycle/0/terminal/round/0/B/Z/7",
+      "flags": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "reported_syndrome": 0,
+      "weight": 8,
+      "axis": "Z",
+      "action": "continue",
+      "repair_targets": []
+    },
+    {
+      "location": "cycle/0/terminal/round/0/B/Z/8",
+      "flags": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "reported_syndrome": 1,
+      "weight": 8,
+      "axis": "Z",
+      "action": "continue",
+      "repair_targets": []
+    },
+    {
+      "location": "cycle/0/terminal/round/0/C/X/0",
+      "flags": [
+        0
+      ],
+      "reported_syndrome": 0,
+      "weight": 4,
+      "axis": "X",
+      "action": "continue",
+      "repair_targets": []
+    },
+    {
+      "location": "cycle/0/terminal/round/0/C/X/1",
+      "flags": [
+        0
+      ],
+      "reported_syndrome": 0,
+      "weight": 4,
+      "axis": "X",
+      "action": "continue",
+      "repair_targets": []
+    },
+    {
+      "location": "cycle/0/terminal/round/0/C/X/2",
+      "flags": [
+        0
+      ],
+      "reported_syndrome": 0,
+      "weight": 4,
+      "axis": "X",
+      "action": "continue",
+      "repair_targets": []
+    },
+    {
+      "location": "cycle/0/terminal/round/0/C/X/3",
+      "flags": [
+        0
+      ],
+      "reported_syndrome": 0,
+      "weight": 4,
+      "axis": "X",
+      "action": "continue",
+      "repair_targets": []
+    },
+    {
+      "location": "cycle/0/terminal/round/0/C/X/4",
+      "flags": [
+        0
+      ],
+      "reported_syndrome": 0,
+      "weight": 4,
+      "axis": "X",
+      "action": "continue",
+      "repair_targets": []
+    },
+    {
+      "location": "cycle/0/terminal/round/0/C/X/5",
+      "flags": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "reported_syndrome": 0,
+      "weight": 8,
+      "axis": "X",
+      "action": "continue",
+      "repair_targets": []
+    },
+    {
+      "location": "cycle/0/terminal/round/0/C/X/6",
+      "flags": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "reported_syndrome": 0,
+      "weight": 8,
+      "axis": "X",
+      "action": "continue",
+      "repair_targets": []
+    },
+    {
+      "location": "cycle/0/terminal/round/0/C/X/7",
+      "flags": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "reported_syndrome": 0,
+      "weight": 8,
+      "axis": "X",
+      "action": "continue",
+      "repair_targets": []
+    },
+    {
+      "location": "cycle/0/terminal/round/0/C/X/8",
+      "flags": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "reported_syndrome": 0,
+      "weight": 8,
+      "axis": "X",
+      "action": "continue",
+      "repair_targets": []
+    },
+    {
+      "location": "cycle/0/terminal/round/0/C/Z/0",
+      "flags": [
+        0
+      ],
+      "reported_syndrome": 0,
+      "weight": 4,
+      "axis": "Z",
+      "action": "continue",
+      "repair_targets": []
+    },
+    {
+      "location": "cycle/0/terminal/round/0/C/Z/1",
+      "flags": [
+        0
+      ],
+      "reported_syndrome": 0,
+      "weight": 4,
+      "axis": "Z",
+      "action": "continue",
+      "repair_targets": []
+    },
+    {
+      "location": "cycle/0/terminal/round/0/C/Z/2",
+      "flags": [
+        0
+      ],
+      "reported_syndrome": 0,
+      "weight": 4,
+      "axis": "Z",
+      "action": "continue",
+      "repair_targets": []
+    },
+    {
+      "location": "cycle/0/terminal/round/0/C/Z/3",
+      "flags": [
+        0
+      ],
+      "reported_syndrome": 0,
+      "weight": 4,
+      "axis": "Z",
+      "action": "continue",
+      "repair_targets": []
+    },
+    {
+      "location": "cycle/0/terminal/round/0/C/Z/4",
+      "flags": [
+        0
+      ],
+      "reported_syndrome": 0,
+      "weight": 4,
+      "axis": "Z",
+      "action": "continue",
+      "repair_targets": []
+    },
+    {
+      "location": "cycle/0/terminal/round/0/C/Z/5",
+      "flags": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "reported_syndrome": 0,
+      "weight": 8,
+      "axis": "Z",
+      "action": "continue",
+      "repair_targets": []
+    },
+    {
+      "location": "cycle/0/terminal/round/0/C/Z/6",
+      "flags": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "reported_syndrome": 0,
+      "weight": 8,
+      "axis": "Z",
+      "action": "continue",
+      "repair_targets": []
+    },
+    {
+      "location": "cycle/0/terminal/round/0/C/Z/7",
+      "flags": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "reported_syndrome": 0,
+      "weight": 8,
+      "axis": "Z",
+      "action": "continue",
+      "repair_targets": []
+    },
+    {
+      "location": "cycle/0/terminal/round/0/C/Z/8",
+      "flags": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "reported_syndrome": 0,
+      "weight": 8,
+      "axis": "Z",
+      "action": "continue",
+      "repair_targets": []
+    },
+    {
+      "location": "cycle/0/terminal/round/1/B/X/0",
+      "flags": [
+        0
+      ],
+      "reported_syndrome": 0,
+      "weight": 4,
+      "axis": "X",
+      "action": "continue",
+      "repair_targets": []
+    },
+    {
+      "location": "cycle/0/terminal/round/1/B/X/1",
+      "flags": [
+        0
+      ],
+      "reported_syndrome": 0,
+      "weight": 4,
+      "axis": "X",
+      "action": "continue",
+      "repair_targets": []
+    },
+    {
+      "location": "cycle/0/terminal/round/1/B/X/2",
+      "flags": [
+        0
+      ],
+      "reported_syndrome": 1,
+      "weight": 4,
+      "axis": "X",
+      "action": "continue",
+      "repair_targets": []
+    },
+    {
+      "location": "cycle/0/terminal/round/1/B/X/3",
+      "flags": [
+        0
+      ],
+      "reported_syndrome": 0,
+      "weight": 4,
+      "axis": "X",
+      "action": "continue",
+      "repair_targets": []
+    },
+    {
+      "location": "cycle/0/terminal/round/1/B/X/4",
+      "flags": [
+        0
+      ],
+      "reported_syndrome": 0,
+      "weight": 4,
+      "axis": "X",
+      "action": "continue",
+      "repair_targets": []
+    },
+    {
+      "location": "cycle/0/terminal/round/1/B/X/5",
+      "flags": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "reported_syndrome": 0,
+      "weight": 8,
+      "axis": "X",
+      "action": "continue",
+      "repair_targets": []
+    },
+    {
+      "location": "cycle/0/terminal/round/1/B/X/6",
+      "flags": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "reported_syndrome": 1,
+      "weight": 8,
+      "axis": "X",
+      "action": "continue",
+      "repair_targets": []
+    },
+    {
+      "location": "cycle/0/terminal/round/1/B/X/7",
+      "flags": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "reported_syndrome": 1,
+      "weight": 8,
+      "axis": "X",
+      "action": "continue",
+      "repair_targets": []
+    },
+    {
+      "location": "cycle/0/terminal/round/1/B/X/8",
+      "flags": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "reported_syndrome": 0,
+      "weight": 8,
+      "axis": "X",
+      "action": "continue",
+      "repair_targets": []
+    },
+    {
+      "location": "cycle/0/terminal/round/1/B/Z/0",
+      "flags": [
+        0
+      ],
+      "reported_syndrome": 0,
+      "weight": 4,
+      "axis": "Z",
+      "action": "continue",
+      "repair_targets": []
+    },
+    {
+      "location": "cycle/0/terminal/round/1/B/Z/1",
+      "flags": [
+        0
+      ],
+      "reported_syndrome": 1,
+      "weight": 4,
+      "axis": "Z",
+      "action": "continue",
+      "repair_targets": []
+    },
+    {
+      "location": "cycle/0/terminal/round/1/B/Z/2",
+      "flags": [
+        0
+      ],
+      "reported_syndrome": 0,
+      "weight": 4,
+      "axis": "Z",
+      "action": "continue",
+      "repair_targets": []
+    },
+    {
+      "location": "cycle/0/terminal/round/1/B/Z/3",
+      "flags": [
+        0
+      ],
+      "reported_syndrome": 1,
+      "weight": 4,
+      "axis": "Z",
+      "action": "continue",
+      "repair_targets": []
+    },
+    {
+      "location": "cycle/0/terminal/round/1/B/Z/4",
+      "flags": [
+        0
+      ],
+      "reported_syndrome": 0,
+      "weight": 4,
+      "axis": "Z",
+      "action": "continue",
+      "repair_targets": []
+    },
+    {
+      "location": "cycle/0/terminal/round/1/B/Z/5",
+      "flags": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "reported_syndrome": 1,
+      "weight": 8,
+      "axis": "Z",
+      "action": "continue",
+      "repair_targets": []
+    },
+    {
+      "location": "cycle/0/terminal/round/1/B/Z/6",
+      "flags": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "reported_syndrome": 1,
+      "weight": 8,
+      "axis": "Z",
+      "action": "continue",
+      "repair_targets": []
+    },
+    {
+      "location": "cycle/0/terminal/round/1/B/Z/7",
+      "flags": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "reported_syndrome": 0,
+      "weight": 8,
+      "axis": "Z",
+      "action": "continue",
+      "repair_targets": []
+    },
+    {
+      "location": "cycle/0/terminal/round/1/B/Z/8",
+      "flags": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "reported_syndrome": 1,
+      "weight": 8,
+      "axis": "Z",
+      "action": "continue",
+      "repair_targets": []
+    },
+    {
+      "location": "cycle/0/terminal/round/1/C/X/0",
+      "flags": [
+        0
+      ],
+      "reported_syndrome": 0,
+      "weight": 4,
+      "axis": "X",
+      "action": "continue",
+      "repair_targets": []
+    },
+    {
+      "location": "cycle/0/terminal/round/1/C/X/1",
+      "flags": [
+        0
+      ],
+      "reported_syndrome": 0,
+      "weight": 4,
+      "axis": "X",
+      "action": "continue",
+      "repair_targets": []
+    },
+    {
+      "location": "cycle/0/terminal/round/1/C/X/2",
+      "flags": [
+        0
+      ],
+      "reported_syndrome": 0,
+      "weight": 4,
+      "axis": "X",
+      "action": "continue",
+      "repair_targets": []
+    },
+    {
+      "location": "cycle/0/terminal/round/1/C/X/3",
+      "flags": [
+        0
+      ],
+      "reported_syndrome": 0,
+      "weight": 4,
+      "axis": "X",
+      "action": "continue",
+      "repair_targets": []
+    },
+    {
+      "location": "cycle/0/terminal/round/1/C/X/4",
+      "flags": [
+        0
+      ],
+      "reported_syndrome": 0,
+      "weight": 4,
+      "axis": "X",
+      "action": "continue",
+      "repair_targets": []
+    },
+    {
+      "location": "cycle/0/terminal/round/1/C/X/5",
+      "flags": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "reported_syndrome": 0,
+      "weight": 8,
+      "axis": "X",
+      "action": "continue",
+      "repair_targets": []
+    },
+    {
+      "location": "cycle/0/terminal/round/1/C/X/6",
+      "flags": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "reported_syndrome": 0,
+      "weight": 8,
+      "axis": "X",
+      "action": "continue",
+      "repair_targets": []
+    },
+    {
+      "location": "cycle/0/terminal/round/1/C/X/7",
+      "flags": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "reported_syndrome": 0,
+      "weight": 8,
+      "axis": "X",
+      "action": "continue",
+      "repair_targets": []
+    },
+    {
+      "location": "cycle/0/terminal/round/1/C/X/8",
+      "flags": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "reported_syndrome": 0,
+      "weight": 8,
+      "axis": "X",
+      "action": "continue",
+      "repair_targets": []
+    },
+    {
+      "location": "cycle/0/terminal/round/1/C/Z/0",
+      "flags": [
+        0
+      ],
+      "reported_syndrome": 0,
+      "weight": 4,
+      "axis": "Z",
+      "action": "continue",
+      "repair_targets": []
+    },
+    {
+      "location": "cycle/0/terminal/round/1/C/Z/1",
+      "flags": [
+        0
+      ],
+      "reported_syndrome": 0,
+      "weight": 4,
+      "axis": "Z",
+      "action": "continue",
+      "repair_targets": []
+    },
+    {
+      "location": "cycle/0/terminal/round/1/C/Z/2",
+      "flags": [
+        0
+      ],
+      "reported_syndrome": 0,
+      "weight": 4,
+      "axis": "Z",
+      "action": "continue",
+      "repair_targets": []
+    },
+    {
+      "location": "cycle/0/terminal/round/1/C/Z/3",
+      "flags": [
+        0
+      ],
+      "reported_syndrome": 0,
+      "weight": 4,
+      "axis": "Z",
+      "action": "continue",
+      "repair_targets": []
+    },
+    {
+      "location": "cycle/0/terminal/round/1/C/Z/4",
+      "flags": [
+        0
+      ],
+      "reported_syndrome": 0,
+      "weight": 4,
+      "axis": "Z",
+      "action": "continue",
+      "repair_targets": []
+    },
+    {
+      "location": "cycle/0/terminal/round/1/C/Z/5",
+      "flags": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "reported_syndrome": 0,
+      "weight": 8,
+      "axis": "Z",
+      "action": "continue",
+      "repair_targets": []
+    },
+    {
+      "location": "cycle/0/terminal/round/1/C/Z/6",
+      "flags": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "reported_syndrome": 0,
+      "weight": 8,
+      "axis": "Z",
+      "action": "continue",
+      "repair_targets": []
+    },
+    {
+      "location": "cycle/0/terminal/round/1/C/Z/7",
+      "flags": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "reported_syndrome": 0,
+      "weight": 8,
+      "axis": "Z",
+      "action": "continue",
+      "repair_targets": []
+    },
+    {
+      "location": "cycle/0/terminal/round/1/C/Z/8",
+      "flags": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "reported_syndrome": 0,
+      "weight": 8,
+      "axis": "Z",
+      "action": "continue",
+      "repair_targets": []
+    },
+    {
+      "location": "cycle/0/terminal/round/2/B/X/0",
+      "flags": [
+        0
+      ],
+      "reported_syndrome": 0,
+      "weight": 4,
+      "axis": "X",
+      "action": "continue",
+      "repair_targets": []
+    },
+    {
+      "location": "cycle/0/terminal/round/2/B/X/1",
+      "flags": [
+        0
+      ],
+      "reported_syndrome": 0,
+      "weight": 4,
+      "axis": "X",
+      "action": "continue",
+      "repair_targets": []
+    },
+    {
+      "location": "cycle/0/terminal/round/2/B/X/2",
+      "flags": [
+        0
+      ],
+      "reported_syndrome": 1,
+      "weight": 4,
+      "axis": "X",
+      "action": "continue",
+      "repair_targets": []
+    },
+    {
+      "location": "cycle/0/terminal/round/2/B/X/3",
+      "flags": [
+        0
+      ],
+      "reported_syndrome": 0,
+      "weight": 4,
+      "axis": "X",
+      "action": "continue",
+      "repair_targets": []
+    },
+    {
+      "location": "cycle/0/terminal/round/2/B/X/4",
+      "flags": [
+        0
+      ],
+      "reported_syndrome": 0,
+      "weight": 4,
+      "axis": "X",
+      "action": "continue",
+      "repair_targets": []
+    },
+    {
+      "location": "cycle/0/terminal/round/2/B/X/5",
+      "flags": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "reported_syndrome": 0,
+      "weight": 8,
+      "axis": "X",
+      "action": "continue",
+      "repair_targets": []
+    },
+    {
+      "location": "cycle/0/terminal/round/2/B/X/6",
+      "flags": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "reported_syndrome": 1,
+      "weight": 8,
+      "axis": "X",
+      "action": "continue",
+      "repair_targets": []
+    },
+    {
+      "location": "cycle/0/terminal/round/2/B/X/7",
+      "flags": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "reported_syndrome": 1,
+      "weight": 8,
+      "axis": "X",
+      "action": "continue",
+      "repair_targets": []
+    },
+    {
+      "location": "cycle/0/terminal/round/2/B/X/8",
+      "flags": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "reported_syndrome": 0,
+      "weight": 8,
+      "axis": "X",
+      "action": "continue",
+      "repair_targets": []
+    },
+    {
+      "location": "cycle/0/terminal/round/2/B/Z/0",
+      "flags": [
+        0
+      ],
+      "reported_syndrome": 0,
+      "weight": 4,
+      "axis": "Z",
+      "action": "continue",
+      "repair_targets": []
+    },
+    {
+      "location": "cycle/0/terminal/round/2/B/Z/1",
+      "flags": [
+        0
+      ],
+      "reported_syndrome": 1,
+      "weight": 4,
+      "axis": "Z",
+      "action": "continue",
+      "repair_targets": []
+    },
+    {
+      "location": "cycle/0/terminal/round/2/B/Z/2",
+      "flags": [
+        0
+      ],
+      "reported_syndrome": 0,
+      "weight": 4,
+      "axis": "Z",
+      "action": "continue",
+      "repair_targets": []
+    },
+    {
+      "location": "cycle/0/terminal/round/2/B/Z/3",
+      "flags": [
+        0
+      ],
+      "reported_syndrome": 1,
+      "weight": 4,
+      "axis": "Z",
+      "action": "continue",
+      "repair_targets": []
+    },
+    {
+      "location": "cycle/0/terminal/round/2/B/Z/4",
+      "flags": [
+        0
+      ],
+      "reported_syndrome": 0,
+      "weight": 4,
+      "axis": "Z",
+      "action": "continue",
+      "repair_targets": []
+    },
+    {
+      "location": "cycle/0/terminal/round/2/B/Z/5",
+      "flags": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "reported_syndrome": 1,
+      "weight": 8,
+      "axis": "Z",
+      "action": "continue",
+      "repair_targets": []
+    },
+    {
+      "location": "cycle/0/terminal/round/2/B/Z/6",
+      "flags": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "reported_syndrome": 1,
+      "weight": 8,
+      "axis": "Z",
+      "action": "continue",
+      "repair_targets": []
+    },
+    {
+      "location": "cycle/0/terminal/round/2/B/Z/7",
+      "flags": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "reported_syndrome": 0,
+      "weight": 8,
+      "axis": "Z",
+      "action": "continue",
+      "repair_targets": []
+    },
+    {
+      "location": "cycle/0/terminal/round/2/B/Z/8",
+      "flags": [
+        0,
+        0,
+        1,
+        0,
+        0
+      ],
+      "reported_syndrome": 0,
+      "weight": 8,
+      "axis": "Z",
+      "action": "protected_fallback",
+      "repair_targets": []
+    }
+  ],
+  "noise": {
+    "sampled_events": 30,
+    "channel_opportunities": {
+      "idle": 1588545,
+      "preparation": 6334,
+      "gate_1q": 3167,
+      "gate_2q": 14076,
+      "readout": 6294,
+      "gate_3q": 120
+    },
+    "event_counts_by_channel": {
+      "gate_2q_depolarizing": 20,
+      "readout_flip": 9,
+      "gate_3q_depolarizing": 1
+    },
+    "pauli_factor_counts": {
+      "Y": 11,
+      "Z": 15,
+      "X": 8
+    },
+    "sum_of_executed_channel_probabilities": "3138/125",
+    "events": [
+      {
+        "id": 0,
+        "physical_event_index": 809,
+        "location": "source/B/round/2/X/7/flag_cat/fanout/1",
+        "timing": "after",
+        "channel": "gate_2q_depolarizing",
+        "operation": "CX",
+        "targets": [
+          "L_0",
+          "L_1"
+        ],
+        "paulis": {
+          "L_0": "Y",
+          "L_1": "Z"
+        },
+        "flip_report": false
+      },
+      {
+        "id": 1,
+        "physical_event_index": 1083,
+        "location": "source/B/retry/1/round/0/Z/2/couple/1",
+        "timing": "after",
+        "channel": "gate_2q_depolarizing",
+        "operation": "CZ",
+        "targets": [
+          "L_0",
+          "B_9"
+        ],
+        "paulis": {
+          "L_0": "Z"
+        },
+        "flip_report": false
+      },
+      {
+        "id": 2,
+        "physical_event_index": 6024,
+        "location": "cycle/0/graph/round/2/vertex/e/verify/0/6/right",
+        "timing": "after",
+        "channel": "gate_2q_depolarizing",
+        "operation": "CX",
+        "targets": [
+          "L_7",
+          "w"
+        ],
+        "paulis": {
+          "L_7": "Z",
+          "w": "Y"
+        },
+        "flip_report": false
+      },
+      {
+        "id": 3,
+        "physical_event_index": 6267,
+        "location": "cycle/0/graph/round/2/edge/3/verify/1/1/measure",
+        "timing": "report",
+        "channel": "readout_flip",
+        "operation": "MZ",
+        "targets": [
+          "w"
+        ],
+        "paulis": {},
+        "flip_report": true
+      },
+      {
+        "id": 4,
+        "physical_event_index": 6459,
+        "location": "cycle/0/graph/round/2/edge/9/verify/0/1/left",
+        "timing": "after",
+        "channel": "gate_2q_depolarizing",
+        "operation": "CX",
+        "targets": [
+          "L_1",
+          "w"
+        ],
+        "paulis": {
+          "L_1": "Z"
+        },
+        "flip_report": false
+      },
+      {
+        "id": 5,
+        "physical_event_index": 7959,
+        "location": "cycle/0/enrichment/fredkin/5",
+        "timing": "after",
+        "channel": "gate_3q_depolarizing",
+        "operation": "FREDKIN",
+        "targets": [
+          "V_b",
+          "B_5",
+          "C_5"
+        ],
+        "paulis": {
+          "B_5": "X"
+        },
+        "flip_report": false
+      },
+      {
+        "id": 6,
+        "physical_event_index": 8485,
+        "location": "cycle/0/gauged/round/0/paired/Z/7/couple/10",
+        "timing": "after",
+        "channel": "gate_2q_depolarizing",
+        "operation": "CZ",
+        "targets": [
+          "L_1",
+          "C_8"
+        ],
+        "paulis": {
+          "L_1": "Z",
+          "C_8": "Z"
+        },
+        "flip_report": false
+      },
+      {
+        "id": 7,
+        "physical_event_index": 11254,
+        "location": "cycle/0/gauged/round/2/paired/X/8/readout/1/measure",
+        "timing": "report",
+        "channel": "readout_flip",
+        "operation": "MZ",
+        "targets": [
+          "L_1"
+        ],
+        "paulis": {},
+        "flip_report": true
+      },
+      {
+        "id": 8,
+        "physical_event_index": 12991,
+        "location": "cycle/0/gauged/round/3/paired/Z/8/verify/0/0/right",
+        "timing": "after",
+        "channel": "gate_2q_depolarizing",
+        "operation": "CX",
+        "targets": [
+          "L_1",
+          "w"
+        ],
+        "paulis": {
+          "L_1": "X"
+        },
+        "flip_report": false
+      },
+      {
+        "id": 9,
+        "physical_event_index": 13379,
+        "location": "cycle/0/gauged/round/3/cycle/14/verify/0/1/measure",
+        "timing": "report",
+        "channel": "readout_flip",
+        "operation": "MZ",
+        "targets": [
+          "w"
+        ],
+        "paulis": {},
+        "flip_report": true
+      },
+      {
+        "id": 10,
+        "physical_event_index": 13516,
+        "location": "cycle/0/gauged/round/3/gauss/a/verify/1/5/right",
+        "timing": "after",
+        "channel": "gate_2q_depolarizing",
+        "operation": "CX",
+        "targets": [
+          "L_6",
+          "w"
+        ],
+        "paulis": {
+          "L_6": "X",
+          "w": "Z"
+        },
+        "flip_report": false
+      },
+      {
+        "id": 11,
+        "physical_event_index": 14110,
+        "location": "cycle/0/gauged/round/4/paired/X/3/couple/3",
+        "timing": "after",
+        "channel": "gate_2q_depolarizing",
+        "operation": "CX",
+        "targets": [
+          "L_0",
+          "B_15"
+        ],
+        "paulis": {
+          "L_0": "Z",
+          "B_15": "X"
+        },
+        "flip_report": false
+      },
+      {
+        "id": 12,
+        "physical_event_index": 14776,
+        "location": "cycle/0/gauged/round/4/cycle/7/couple/1",
+        "timing": "after",
+        "channel": "gate_2q_depolarizing",
+        "operation": "CZ",
+        "targets": [
+          "L_1",
+          "A_13"
+        ],
+        "paulis": {
+          "L_1": "Y",
+          "A_13": "Z"
+        },
+        "flip_report": false
+      },
+      {
+        "id": 13,
+        "physical_event_index": 17461,
+        "location": "cycle/0/terminal/round/2/B/Z/8/compact/25/CX",
+        "timing": "after",
+        "channel": "gate_2q_depolarizing",
+        "operation": "CX",
+        "targets": [
+          "L_0",
+          "L_2"
+        ],
+        "paulis": {
+          "L_0": "Y"
+        },
+        "flip_report": false
+      },
+      {
+        "id": 14,
+        "physical_event_index": 18559,
+        "location": "cycle/0/terminal/protected_fallback/round/0/B/Z/7/couple/3",
+        "timing": "after",
+        "channel": "gate_2q_depolarizing",
+        "operation": "CZ",
+        "targets": [
+          "L_3",
+          "B_11"
+        ],
+        "paulis": {
+          "L_3": "Y",
+          "B_11": "Y"
+        },
+        "flip_report": false
+      },
+      {
+        "id": 15,
+        "physical_event_index": 19139,
+        "location": "cycle/0/terminal/protected_fallback/round/0/C/X/7/verify/1/1/measure",
+        "timing": "report",
+        "channel": "readout_flip",
+        "operation": "MZ",
+        "targets": [
+          "w"
+        ],
+        "paulis": {},
+        "flip_report": true
+      },
+      {
+        "id": 16,
+        "physical_event_index": 19715,
+        "location": "cycle/0/terminal/protected_fallback/round/0/C/Z/6/verify/1/4/measure",
+        "timing": "report",
+        "channel": "readout_flip",
+        "operation": "MZ",
+        "targets": [
+          "w"
+        ],
+        "paulis": {},
+        "flip_report": true
+      },
+      {
+        "id": 17,
+        "physical_event_index": 20155,
+        "location": "cycle/0/terminal/protected_fallback/round/1/B/X/3/verify/1/1/measure",
+        "timing": "report",
+        "channel": "readout_flip",
+        "operation": "MZ",
+        "targets": [
+          "w"
+        ],
+        "paulis": {},
+        "flip_report": true
+      },
+      {
+        "id": 18,
+        "physical_event_index": 20318,
+        "location": "cycle/0/terminal/protected_fallback/round/1/B/X/5/couple/6",
+        "timing": "after",
+        "channel": "gate_2q_depolarizing",
+        "operation": "CX",
+        "targets": [
+          "L_6",
+          "B_12"
+        ],
+        "paulis": {
+          "L_6": "Y"
+        },
+        "flip_report": false
+      },
+      {
+        "id": 19,
+        "physical_event_index": 20643,
+        "location": "cycle/0/terminal/protected_fallback/round/1/B/Z/0/verify/0/2/measure",
+        "timing": "report",
+        "channel": "readout_flip",
+        "operation": "MZ",
+        "targets": [
+          "w"
+        ],
+        "paulis": {},
+        "flip_report": true
+      },
+      {
+        "id": 20,
+        "physical_event_index": 21202,
+        "location": "cycle/0/terminal/protected_fallback/round/1/B/Z/8/verify/1/0/right",
+        "timing": "after",
+        "channel": "gate_2q_depolarizing",
+        "operation": "CX",
+        "targets": [
+          "L_1",
+          "w"
+        ],
+        "paulis": {
+          "w": "X"
+        },
+        "flip_report": false
+      },
+      {
+        "id": 21,
+        "physical_event_index": 21759,
+        "location": "cycle/0/terminal/protected_fallback/round/1/C/X/7/verify/0/5/measure",
+        "timing": "report",
+        "channel": "readout_flip",
+        "operation": "MZ",
+        "targets": [
+          "w"
+        ],
+        "paulis": {},
+        "flip_report": true
+      },
+      {
+        "id": 22,
+        "physical_event_index": 22179,
+        "location": "cycle/0/terminal/protected_fallback/round/1/C/Z/4/couple/3",
+        "timing": "after",
+        "channel": "gate_2q_depolarizing",
+        "operation": "CZ",
+        "targets": [
+          "L_3",
+          "C_19"
+        ],
+        "paulis": {
+          "L_3": "Y",
+          "C_19": "Z"
+        },
+        "flip_report": false
+      },
+      {
+        "id": 23,
+        "physical_event_index": 22295,
+        "location": "cycle/0/terminal/protected_fallback/round/1/C/Z/6/cat/chain/2",
+        "timing": "after",
+        "channel": "gate_2q_depolarizing",
+        "operation": "CX",
+        "targets": [
+          "L_2",
+          "L_3"
+        ],
+        "paulis": {
+          "L_2": "Y",
+          "L_3": "X"
+        },
+        "flip_report": false
+      },
+      {
+        "id": 24,
+        "physical_event_index": 22374,
+        "location": "cycle/0/terminal/protected_fallback/round/1/C/Z/6/verify/2/4/right",
+        "timing": "after",
+        "channel": "gate_2q_depolarizing",
+        "operation": "CX",
+        "targets": [
+          "L_5",
+          "w"
+        ],
+        "paulis": {
+          "L_5": "Z",
+          "w": "Z"
+        },
+        "flip_report": false
+      },
+      {
+        "id": 25,
+        "physical_event_index": 26347,
+        "location": "cycle/0/terminal/protected_fallback/round/3/C/X/2/verify/1/2/left",
+        "timing": "after",
+        "channel": "gate_2q_depolarizing",
+        "operation": "CX",
+        "targets": [
+          "L_2",
+          "w"
+        ],
+        "paulis": {
+          "L_2": "X",
+          "w": "Z"
+        },
+        "flip_report": false
+      },
+      {
+        "id": 26,
+        "physical_event_index": 26428,
+        "location": "cycle/0/terminal/protected_fallback/round/3/C/X/4/verify/1/0/right",
+        "timing": "after",
+        "channel": "gate_2q_depolarizing",
+        "operation": "CX",
+        "targets": [
+          "L_1",
+          "w"
+        ],
+        "paulis": {
+          "L_1": "Y",
+          "w": "Y"
+        },
+        "flip_report": false
+      },
+      {
+        "id": 27,
+        "physical_event_index": 27213,
+        "location": "cycle/0/terminal/protected_fallback/round/3/C/Z/6/verify/0/5/right",
+        "timing": "after",
+        "channel": "gate_2q_depolarizing",
+        "operation": "CX",
+        "targets": [
+          "L_6",
+          "w"
+        ],
+        "paulis": {
+          "w": "X"
+        },
+        "flip_report": false
+      },
+      {
+        "id": 28,
+        "physical_event_index": 29706,
+        "location": "cycle/0/terminal/protected_fallback/round/4/C/Z/6/verify/1/3/measure",
+        "timing": "report",
+        "channel": "readout_flip",
+        "operation": "MZ",
+        "targets": [
+          "w"
+        ],
+        "paulis": {},
+        "flip_report": true
+      },
+      {
+        "id": 29,
+        "physical_event_index": 29967,
+        "location": "cycle/0/terminal/protected_fallback/round/4/C/Z/8/couple/0",
+        "timing": "after",
+        "channel": "gate_2q_depolarizing",
+        "operation": "CZ",
+        "targets": [
+          "L_0",
+          "C_2"
+        ],
+        "paulis": {
+          "L_0": "Z",
+          "C_2": "Z"
+        },
+        "flip_report": false
+      }
+    ]
+  },
+  "shot_index": 78,
+  "c_state_reference": null,
+  "execution_status": "completed",
+  "diagnostic_status": "not_applicable"
+}

@@ -1,0 +1,145 @@
+{
+  "verified": true,
+  "graph_policy": "three_zero_Z_edge_scans",
+  "full_factory_fault_pair_enumeration": false,
+  "meter": {
+    "locations_including_resource_idles": 17,
+    "Pauli_and_report_cases": 96,
+    "merged_signatures": 32,
+    "signature_pairs": 1024,
+    "max_resource_X_support_per_fault": 1,
+    "phase_spread_can_reach_three_resources": true,
+    "scope": "Clifford meter support audit; phases arbitrary in the analytical graph-span lemma"
+  },
+  "graphs": {
+    "compact13": {
+      "Z_rank": 13,
+      "constrained_dimension": 32,
+      "Walsh_inner_products": 1024,
+      "coordinate_patterns": 32,
+      "emitted_program_matches_independent_list": true,
+      "clean_gates": {
+        "PREP": 57,
+        "H": 5,
+        "CX": 143,
+        "BOUNDARY": 4,
+        "MZ": 39
+      },
+      "verification_helpers": 1
+    },
+    "current20": {
+      "Z_rank": 20,
+      "constrained_dimension": 32,
+      "Walsh_inner_products": 1024,
+      "coordinate_patterns": 32,
+      "emitted_program_matches_independent_list": true,
+      "clean_gates": {
+        "PREP": 85,
+        "H": 5,
+        "CX": 220,
+        "BOUNDARY": 4,
+        "MZ": 60
+      },
+      "verification_helpers": 1
+    }
+  },
+  "scan_fault_placements": [
+    {
+      "fault_counts_by_scan": [
+        0,
+        0,
+        0
+      ],
+      "last_clean_scan": 2,
+      "max_late_bit_error_sites": 0
+    },
+    {
+      "fault_counts_by_scan": [
+        0,
+        0,
+        1
+      ],
+      "last_clean_scan": 1,
+      "max_late_bit_error_sites": 1
+    },
+    {
+      "fault_counts_by_scan": [
+        0,
+        0,
+        2
+      ],
+      "last_clean_scan": 1,
+      "max_late_bit_error_sites": 2
+    },
+    {
+      "fault_counts_by_scan": [
+        0,
+        1,
+        0
+      ],
+      "last_clean_scan": 2,
+      "max_late_bit_error_sites": 0
+    },
+    {
+      "fault_counts_by_scan": [
+        0,
+        1,
+        1
+      ],
+      "last_clean_scan": 0,
+      "max_late_bit_error_sites": 2
+    },
+    {
+      "fault_counts_by_scan": [
+        0,
+        2,
+        0
+      ],
+      "last_clean_scan": 2,
+      "max_late_bit_error_sites": 0
+    },
+    {
+      "fault_counts_by_scan": [
+        1,
+        0,
+        0
+      ],
+      "last_clean_scan": 2,
+      "max_late_bit_error_sites": 0
+    },
+    {
+      "fault_counts_by_scan": [
+        1,
+        0,
+        1
+      ],
+      "last_clean_scan": 1,
+      "max_late_bit_error_sites": 1
+    },
+    {
+      "fault_counts_by_scan": [
+        1,
+        1,
+        0
+      ],
+      "last_clean_scan": 2,
+      "max_late_bit_error_sites": 0
+    },
+    {
+      "fault_counts_by_scan": [
+        2,
+        0,
+        0
+      ],
+      "last_clean_scan": 2,
+      "max_late_bit_error_sites": 0
+    }
+  ],
+  "proof": "notes/full_procedure_single_block_cz_proof.md#c3-known-source-and-graph-verification",
+  "source_sha256": {
+    "check_single_cz_graph_parity.py": "c7a633aac45648864c647c5914ca65ad3974a9b603ce8dd3d201cba427ca5820",
+    "run_single_block_cz_controller.py": "093bad3ec45350064da64245f1d701b490b99df7753c98b130fadad012bea1bf",
+    "single_cz_controller.py": "7b8f9cd2bb82d1a0a99a6521160fce02c3f210531038508d3eea45b121f655ba",
+    "single_cz_recovery.py": "779b678abf09a3daaddac1b4889f03010e92aeed3fa5553cb9175daada356a6b"
+  }
+}

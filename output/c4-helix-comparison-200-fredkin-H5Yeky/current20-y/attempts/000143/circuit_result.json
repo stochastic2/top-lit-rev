@@ -1,0 +1,2220 @@
+{
+  "schema_version": 2,
+  "procedure": "reduced_rejection",
+  "noise_model": "pauli_depolarizing",
+  "seed": 1143,
+  "graph": "current20",
+  "source_preparation": "encoded",
+  "extraction": "optimized",
+  "history_policy": "adaptive",
+  "terminal_extraction": "compact_flagged",
+  "terminal_flag_policy": "repair_then_protected",
+  "magic_output": "y",
+  "b_y": null,
+  "output_clifford_frame": null,
+  "accepted": false,
+  "rejection_code": "terminal_absent",
+  "rejection_reason": "Joint B/C syndrome has no unique stabilizer-equivalent correction class",
+  "sources": {
+    "B": {
+      "attempts": [
+        {
+          "attempt_index": 0,
+          "records": [],
+          "history_policy": "adaptive",
+          "outcome": "flag_retry",
+          "flag": {
+            "location": "source/B/round/0/X/6",
+            "flags": [
+              1,
+              1,
+              1
+            ],
+            "syndrome": 0
+          }
+        },
+        {
+          "attempt_index": 1,
+          "records": [
+            [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ]
+          ],
+          "history_policy": "adaptive",
+          "rounds_used": 3,
+          "stopping_record": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "reference_certificate": {
+            "fault_budget": 2,
+            "round_index_convention": "zero_based",
+            "change_edges": [],
+            "compatible_bad_round_sets": [
+              [],
+              [
+                0
+              ],
+              [
+                1
+              ],
+              [
+                2
+              ],
+              [
+                0,
+                1
+              ],
+              [
+                0,
+                2
+              ],
+              [
+                1,
+                2
+              ]
+            ],
+            "selected_occurrences": [
+              0,
+              1,
+              2
+            ],
+            "selected_record_index": 2,
+            "min_faulty_rounds_if_all_occurrences_bad": 3
+          },
+          "correction": [
+            "I",
+            "I",
+            "I",
+            "I",
+            "I",
+            "I",
+            "I",
+            "I",
+            "I",
+            "I",
+            "I",
+            "I",
+            "I",
+            "I",
+            "I",
+            "I",
+            "I",
+            "I",
+            "I",
+            "I"
+          ],
+          "outcome": "prepared"
+        }
+      ],
+      "records": [
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      ],
+      "history_policy": "adaptive",
+      "rounds_used": 3,
+      "stopping_record": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "reference_certificate": {
+        "fault_budget": 2,
+        "round_index_convention": "zero_based",
+        "change_edges": [],
+        "compatible_bad_round_sets": [
+          [],
+          [
+            0
+          ],
+          [
+            1
+          ],
+          [
+            2
+          ],
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            2
+          ],
+          [
+            1,
+            2
+          ]
+        ],
+        "selected_occurrences": [
+          0,
+          1,
+          2
+        ],
+        "selected_record_index": 2,
+        "min_faulty_rounds_if_all_occurrences_bad": 3
+      },
+      "correction": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I"
+      ],
+      "outcome": "prepared"
+    },
+    "C": {
+      "attempts": [
+        {
+          "attempt_index": 0,
+          "records": [],
+          "history_policy": "adaptive",
+          "outcome": "flag_retry",
+          "flag": {
+            "location": "source/C/round/0/Z/6",
+            "flags": [
+              1,
+              0,
+              0
+            ],
+            "syndrome": 0
+          }
+        },
+        {
+          "attempt_index": 1,
+          "records": [
+            [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              1,
+              0,
+              0,
+              0,
+              0,
+              0,
+              1,
+              0,
+              1,
+              1,
+              0,
+              0,
+              1,
+              1
+            ],
+            [
+              0,
+              0,
+              0,
+              1,
+              0,
+              1,
+              1,
+              0,
+              0,
+              0,
+              0,
+              0,
+              1,
+              0,
+              1,
+              1,
+              0,
+              0,
+              1,
+              1
+            ]
+          ],
+          "history_policy": "adaptive",
+          "outcome": "flag_retry",
+          "flag": {
+            "location": "source/C/retry/1/round/3/Z/5",
+            "flags": [
+              0,
+              0,
+              1
+            ],
+            "syndrome": 1
+          }
+        },
+        {
+          "attempt_index": 2,
+          "records": [
+            [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ]
+          ],
+          "history_policy": "adaptive",
+          "rounds_used": 3,
+          "stopping_record": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "reference_certificate": {
+            "fault_budget": 2,
+            "round_index_convention": "zero_based",
+            "change_edges": [],
+            "compatible_bad_round_sets": [
+              [],
+              [
+                0
+              ],
+              [
+                1
+              ],
+              [
+                2
+              ],
+              [
+                0,
+                1
+              ],
+              [
+                0,
+                2
+              ],
+              [
+                1,
+                2
+              ]
+            ],
+            "selected_occurrences": [
+              0,
+              1,
+              2
+            ],
+            "selected_record_index": 2,
+            "min_faulty_rounds_if_all_occurrences_bad": 3
+          },
+          "correction": [
+            "I",
+            "I",
+            "I",
+            "I",
+            "I",
+            "I",
+            "I",
+            "I",
+            "I",
+            "I",
+            "I",
+            "I",
+            "I",
+            "I",
+            "I",
+            "I",
+            "I",
+            "I",
+            "I",
+            "I"
+          ],
+          "outcome": "prepared"
+        }
+      ],
+      "records": [
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      ],
+      "history_policy": "adaptive",
+      "rounds_used": 3,
+      "stopping_record": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "reference_certificate": {
+        "fault_budget": 2,
+        "round_index_convention": "zero_based",
+        "change_edges": [],
+        "compatible_bad_round_sets": [
+          [],
+          [
+            0
+          ],
+          [
+            1
+          ],
+          [
+            2
+          ],
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            2
+          ],
+          [
+            1,
+            2
+          ]
+        ],
+        "selected_occurrences": [
+          0,
+          1,
+          2
+        ],
+        "selected_record_index": 2,
+        "min_faulty_rounds_if_all_occurrences_bad": 3
+      },
+      "correction": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I"
+      ],
+      "outcome": "prepared"
+    }
+  },
+  "cycles": [
+    {
+      "index": 0,
+      "graph_source": {
+        "records": [
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        ],
+        "history_policy": "adaptive",
+        "rounds_used": 3,
+        "stopping_record": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "reference_certificate": {
+          "fault_budget": 2,
+          "round_index_convention": "zero_based",
+          "change_edges": [],
+          "compatible_bad_round_sets": [
+            [],
+            [
+              0
+            ],
+            [
+              1
+            ],
+            [
+              2
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              2
+            ],
+            [
+              1,
+              2
+            ]
+          ],
+          "selected_occurrences": [
+            0,
+            1,
+            2
+          ],
+          "selected_record_index": 2,
+          "min_faulty_rounds_if_all_occurrences_bad": 3
+        },
+        "correction": [
+          "I",
+          "I",
+          "I",
+          "I",
+          "I",
+          "I",
+          "I",
+          "I",
+          "I",
+          "I",
+          "I",
+          "I",
+          "I",
+          "I",
+          "I",
+          "I",
+          "I",
+          "I",
+          "I",
+          "I",
+          "I",
+          "I",
+          "I",
+          "I",
+          "I"
+        ]
+      },
+      "vertex_x": [
+        0,
+        0,
+        0,
+        0,
+        1
+      ],
+      "gauged": {
+        "records": [
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            1,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            1,
+            0,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            1,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            1,
+            0,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            1,
+            0
+          ],
+          [
+            1,
+            0,
+            0,
+            1,
+            0,
+            0,
+            1,
+            1,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            1,
+            1,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            1,
+            0
+          ],
+          [
+            0,
+            0,
+            1,
+            1,
+            0,
+            1,
+            0,
+            0,
+            0,
+            1,
+            0,
+            1,
+            0,
+            0,
+            1,
+            1,
+            1,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            1,
+            0
+          ]
+        ],
+        "history_policy": "adaptive",
+        "rounds_used": 5,
+        "stopping_record": [
+          0,
+          0,
+          1,
+          1,
+          0,
+          1,
+          0,
+          0,
+          0,
+          1,
+          0,
+          1,
+          0,
+          0,
+          1,
+          1,
+          1,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          1,
+          0
+        ],
+        "reference_certificate": {
+          "fault_budget": 2,
+          "round_index_convention": "zero_based",
+          "change_edges": [
+            [
+              0,
+              1
+            ],
+            [
+              1,
+              2
+            ],
+            [
+              2,
+              3
+            ],
+            [
+              3,
+              4
+            ]
+          ],
+          "compatible_bad_round_sets": [
+            [
+              1,
+              3
+            ]
+          ],
+          "selected_occurrences": [
+            4
+          ],
+          "selected_record_index": 4,
+          "min_faulty_rounds_if_all_occurrences_bad": 3
+        },
+        "decoding": {
+          "paired": [
+            0,
+            0,
+            1,
+            1,
+            0,
+            1,
+            0,
+            0,
+            0,
+            1,
+            0,
+            1,
+            0,
+            0,
+            1,
+            1,
+            1,
+            1
+          ],
+          "cycles": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "gauss": [
+            1,
+            0,
+            0,
+            1,
+            0
+          ],
+          "certified": false,
+          "cycle_x_edges": [],
+          "gauss_z_edges": [],
+          "action": "regauge"
+        }
+      },
+      "gauge_z": [
+        0,
+        0,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        0,
+        0,
+        0,
+        1,
+        0,
+        1,
+        0,
+        1,
+        0,
+        1
+      ],
+      "gauge_decoding": {
+        "corrected_bits": [
+          0,
+          0,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          0,
+          0,
+          0,
+          1,
+          0,
+          1,
+          0,
+          1,
+          0,
+          1
+        ],
+        "offsets": [
+          0,
+          1,
+          0,
+          1,
+          0
+        ]
+      },
+      "terminal": {
+        "compact_history": {
+          "includes_logical_y": false,
+          "records": [],
+          "history_policy": "adaptive"
+        },
+        "flag_recovery": {
+          "location": "cycle/0/terminal/round/0/B/X/5",
+          "flags": [
+            1,
+            1,
+            1,
+            0,
+            0
+          ],
+          "reported_syndrome": 1,
+          "weight": 8,
+          "axis": "X",
+          "action": "protected_fallback",
+          "repair_targets": []
+        },
+        "extraction_used": "protected_fallback",
+        "includes_logical_y": false,
+        "records": [
+          [
+            1,
+            0,
+            1,
+            0,
+            0,
+            0,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            0,
+            1,
+            0,
+            0,
+            1,
+            1,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            1,
+            0
+          ],
+          [
+            1,
+            0,
+            1,
+            0,
+            0,
+            0,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            0,
+            1,
+            1,
+            1,
+            1,
+            1,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            1,
+            0
+          ],
+          [
+            1,
+            0,
+            1,
+            0,
+            0,
+            0,
+            1,
+            1,
+            1,
+            0,
+            1,
+            1,
+            1,
+            0,
+            1,
+            1,
+            0,
+            1,
+            1,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            1,
+            1
+          ],
+          [
+            1,
+            0,
+            1,
+            0,
+            0,
+            0,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            0,
+            1,
+            1,
+            0,
+            1,
+            1,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0
+          ],
+          [
+            1,
+            0,
+            1,
+            0,
+            0,
+            0,
+            1,
+            1,
+            0,
+            1,
+            1,
+            1,
+            1,
+            0,
+            1,
+            1,
+            0,
+            1,
+            1,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            1,
+            0
+          ]
+        ],
+        "history_policy": "adaptive",
+        "rounds_used": 5,
+        "stopping_record": [
+          1,
+          0,
+          1,
+          0,
+          0,
+          0,
+          1,
+          1,
+          0,
+          1,
+          1,
+          1,
+          1,
+          0,
+          1,
+          1,
+          0,
+          1,
+          1,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          1,
+          0
+        ],
+        "reference_certificate": {
+          "fault_budget": 2,
+          "round_index_convention": "zero_based",
+          "change_edges": [
+            [
+              0,
+              1
+            ],
+            [
+              1,
+              2
+            ],
+            [
+              2,
+              3
+            ],
+            [
+              3,
+              4
+            ]
+          ],
+          "compatible_bad_round_sets": [
+            [
+              1,
+              3
+            ]
+          ],
+          "selected_occurrences": [
+            4
+          ],
+          "selected_record_index": 4,
+          "min_faulty_rounds_if_all_occurrences_bad": 3
+        },
+        "decoding": {
+          "compatible_blocks": [],
+          "candidate_logical_classes": 0
+        }
+      },
+      "next_action": null,
+      "vertex_reported_parity": 1,
+      "vertex_word_probability": "3/64"
+    }
+  ],
+  "b_z": null,
+  "b_decoding": null,
+  "noise_seed": 12730908110743577556,
+  "rejection_details": {
+    "compatible_blocks": [],
+    "candidate_logical_classes": 0
+  },
+  "metrics": {
+    "elapsed_seconds": 56.18020825000713,
+    "process_peak_rss_bytes": 6198706176,
+    "physical_events": 27317,
+    "implicit_single_qubit_idles": 1438598,
+    "idle_locations_by_register": {
+      "B": 543908,
+      "C": 542528,
+      "L": 112573,
+      "V": 17740,
+      "A": 221849
+    },
+    "idle_locations_by_operation": {
+      "PREP": 304522,
+      "H": 150451,
+      "CX": 568102,
+      "MZ": 303742,
+      "CZ": 102766,
+      "FREDKIN": 7840,
+      "Z": 59,
+      "X": 812,
+      "SWAP": 304
+    },
+    "check_gadgets_completed": 674,
+    "cat_scans_completed": 814,
+    "cats_prepared": 674,
+    "flagged_source_checks": 218,
+    "flag_bits_measured": 291,
+    "grouped_protected_checks": 115,
+    "flagged_terminal_checks": 6,
+    "terminal_flag_bits_measured": 10,
+    "peak_live_qubits": 75,
+    "peak_coherent_terms": 4096,
+    "interned_sparse_factors": 113747,
+    "fallback_overlaps": 0,
+    "gate_counts": {
+      "PREP": 5763,
+      "H": 2936,
+      "CX": 10737,
+      "MZ": 5723,
+      "CZ": 2014,
+      "FREDKIN": 120,
+      "Z": 1,
+      "X": 15,
+      "SWAP": 8
+    },
+    "gauging_cycles_started": 1
+  },
+  "global_i_power": 2,
+  "terminal_flag_records": [
+    {
+      "location": "cycle/0/terminal/round/0/B/X/0",
+      "flags": [
+        0
+      ],
+      "reported_syndrome": 1,
+      "weight": 4,
+      "axis": "X",
+      "action": "continue",
+      "repair_targets": []
+    },
+    {
+      "location": "cycle/0/terminal/round/0/B/X/1",
+      "flags": [
+        0
+      ],
+      "reported_syndrome": 0,
+      "weight": 4,
+      "axis": "X",
+      "action": "continue",
+      "repair_targets": []
+    },
+    {
+      "location": "cycle/0/terminal/round/0/B/X/2",
+      "flags": [
+        0
+      ],
+      "reported_syndrome": 1,
+      "weight": 4,
+      "axis": "X",
+      "action": "continue",
+      "repair_targets": []
+    },
+    {
+      "location": "cycle/0/terminal/round/0/B/X/3",
+      "flags": [
+        0
+      ],
+      "reported_syndrome": 0,
+      "weight": 4,
+      "axis": "X",
+      "action": "continue",
+      "repair_targets": []
+    },
+    {
+      "location": "cycle/0/terminal/round/0/B/X/4",
+      "flags": [
+        0
+      ],
+      "reported_syndrome": 0,
+      "weight": 4,
+      "axis": "X",
+      "action": "continue",
+      "repair_targets": []
+    },
+    {
+      "location": "cycle/0/terminal/round/0/B/X/5",
+      "flags": [
+        1,
+        1,
+        1,
+        0,
+        0
+      ],
+      "reported_syndrome": 1,
+      "weight": 8,
+      "axis": "X",
+      "action": "protected_fallback",
+      "repair_targets": []
+    }
+  ],
+  "noise": {
+    "sampled_events": 27,
+    "channel_opportunities": {
+      "idle": 1438598,
+      "preparation": 5763,
+      "gate_1q": 2952,
+      "gate_2q": 12759,
+      "readout": 5723,
+      "gate_3q": 120
+    },
+    "event_counts_by_channel": {
+      "gate_2q_depolarizing": 21,
+      "readout_flip": 4,
+      "gate_3q_depolarizing": 2
+    },
+    "pauli_factor_counts": {
+      "X": 15,
+      "Y": 14,
+      "Z": 12
+    },
+    "sum_of_executed_channel_probabilities": "91547/4000",
+    "events": [
+      {
+        "id": 0,
+        "physical_event_index": 176,
+        "location": "source/B/round/0/X/6/couple/1",
+        "timing": "after",
+        "channel": "gate_2q_depolarizing",
+        "operation": "CX",
+        "targets": [
+          "L_0",
+          "B_7"
+        ],
+        "paulis": {
+          "L_0": "X"
+        },
+        "flip_report": false
+      },
+      {
+        "id": 1,
+        "physical_event_index": 1478,
+        "location": "source/C/round/0/Z/6/flag_cat/fanout/2",
+        "timing": "after",
+        "channel": "gate_2q_depolarizing",
+        "operation": "CX",
+        "targets": [
+          "L_0",
+          "L_2"
+        ],
+        "paulis": {
+          "L_0": "Y",
+          "L_2": "Y"
+        },
+        "flip_report": false
+      },
+      {
+        "id": 2,
+        "physical_event_index": 1982,
+        "location": "source/C/retry/1/round/1/X/6/couple/5",
+        "timing": "after",
+        "channel": "gate_2q_depolarizing",
+        "operation": "CX",
+        "targets": [
+          "L_2",
+          "C_15"
+        ],
+        "paulis": {
+          "L_2": "Z",
+          "C_15": "Y"
+        },
+        "flip_report": false
+      },
+      {
+        "id": 3,
+        "physical_event_index": 2717,
+        "location": "source/C/retry/1/round/3/Z/5/flag/3",
+        "timing": "report",
+        "channel": "readout_flip",
+        "operation": "MZ",
+        "targets": [
+          "L_3"
+        ],
+        "paulis": {},
+        "flip_report": true
+      },
+      {
+        "id": 4,
+        "physical_event_index": 7322,
+        "location": "cycle/0/enrichment/fredkin/13",
+        "timing": "after",
+        "channel": "gate_3q_depolarizing",
+        "operation": "FREDKIN",
+        "targets": [
+          "V_d",
+          "B_13",
+          "C_13"
+        ],
+        "paulis": {
+          "V_d": "Y",
+          "B_13": "X",
+          "C_13": "X"
+        },
+        "flip_report": false
+      },
+      {
+        "id": 5,
+        "physical_event_index": 7690,
+        "location": "cycle/0/gauged/round/0/paired/Z/5/cat/chain/1",
+        "timing": "after",
+        "channel": "gate_2q_depolarizing",
+        "operation": "CX",
+        "targets": [
+          "L_1",
+          "L_2"
+        ],
+        "paulis": {
+          "L_1": "Z",
+          "L_2": "Y"
+        },
+        "flip_report": false
+      },
+      {
+        "id": 6,
+        "physical_event_index": 8716,
+        "location": "cycle/0/gauged/round/0/gauss/d/couple/10",
+        "timing": "after",
+        "channel": "gate_3q_depolarizing",
+        "operation": "FREDKIN",
+        "targets": [
+          "L_8",
+          "B_14",
+          "C_14"
+        ],
+        "paulis": {
+          "L_8": "X",
+          "B_14": "X",
+          "C_14": "Y"
+        },
+        "flip_report": false
+      },
+      {
+        "id": 7,
+        "physical_event_index": 10839,
+        "location": "cycle/0/gauged/round/2/paired/Z/7/couple/9",
+        "timing": "after",
+        "channel": "gate_2q_depolarizing",
+        "operation": "CZ",
+        "targets": [
+          "L_0",
+          "C_2"
+        ],
+        "paulis": {
+          "L_0": "Y",
+          "C_2": "Z"
+        },
+        "flip_report": false
+      },
+      {
+        "id": 8,
+        "physical_event_index": 10883,
+        "location": "cycle/0/gauged/round/2/paired/Z/8/verify/1/2/left",
+        "timing": "after",
+        "channel": "gate_2q_depolarizing",
+        "operation": "CX",
+        "targets": [
+          "L_2",
+          "w"
+        ],
+        "paulis": {
+          "L_2": "X",
+          "w": "Y"
+        },
+        "flip_report": false
+      },
+      {
+        "id": 9,
+        "physical_event_index": 11120,
+        "location": "cycle/0/gauged/round/2/cycle/10/cat/chain/1",
+        "timing": "after",
+        "channel": "gate_2q_depolarizing",
+        "operation": "CX",
+        "targets": [
+          "L_1",
+          "L_2"
+        ],
+        "paulis": {
+          "L_2": "Y"
+        },
+        "flip_report": false
+      },
+      {
+        "id": 10,
+        "physical_event_index": 12076,
+        "location": "cycle/0/gauged/round/3/paired/X/7/couple/2",
+        "timing": "after",
+        "channel": "gate_2q_depolarizing",
+        "operation": "CX",
+        "targets": [
+          "L_1",
+          "B_8"
+        ],
+        "paulis": {
+          "L_1": "X",
+          "B_8": "Z"
+        },
+        "flip_report": false
+      },
+      {
+        "id": 11,
+        "physical_event_index": 12156,
+        "location": "cycle/0/gauged/round/3/paired/Z/0/couple/0",
+        "timing": "after",
+        "channel": "gate_2q_depolarizing",
+        "operation": "CZ",
+        "targets": [
+          "L_0",
+          "B_0"
+        ],
+        "paulis": {
+          "B_0": "Y"
+        },
+        "flip_report": false
+      },
+      {
+        "id": 12,
+        "physical_event_index": 13769,
+        "location": "cycle/0/gauged/round/4/paired/Z/6/cat/chain/0",
+        "timing": "after",
+        "channel": "gate_2q_depolarizing",
+        "operation": "CX",
+        "targets": [
+          "L_0",
+          "L_1"
+        ],
+        "paulis": {
+          "L_1": "X"
+        },
+        "flip_report": false
+      },
+      {
+        "id": 13,
+        "physical_event_index": 13815,
+        "location": "cycle/0/gauged/round/4/paired/Z/6/couple/4",
+        "timing": "after",
+        "channel": "gate_2q_depolarizing",
+        "operation": "CZ",
+        "targets": [
+          "L_2",
+          "B_14"
+        ],
+        "paulis": {
+          "L_2": "X",
+          "B_14": "X"
+        },
+        "flip_report": false
+      },
+      {
+        "id": 14,
+        "physical_event_index": 14970,
+        "location": "cycle/0/terminal/round/0/B/X/5/compact/9/CX",
+        "timing": "after",
+        "channel": "gate_2q_depolarizing",
+        "operation": "CX",
+        "targets": [
+          "L_1",
+          "B_6"
+        ],
+        "paulis": {
+          "L_1": "Y"
+        },
+        "flip_report": false
+      },
+      {
+        "id": 15,
+        "physical_event_index": 15951,
+        "location": "cycle/0/terminal/protected_fallback/round/0/B/Z/6/verify/0/5/right",
+        "timing": "after",
+        "channel": "gate_2q_depolarizing",
+        "operation": "CX",
+        "targets": [
+          "L_6",
+          "w"
+        ],
+        "paulis": {
+          "L_6": "Z",
+          "w": "Z"
+        },
+        "flip_report": false
+      },
+      {
+        "id": 16,
+        "physical_event_index": 16152,
+        "location": "cycle/0/terminal/protected_fallback/round/0/B/Z/8/verify/1/0/measure",
+        "timing": "report",
+        "channel": "readout_flip",
+        "operation": "MZ",
+        "targets": [
+          "w"
+        ],
+        "paulis": {},
+        "flip_report": true
+      },
+      {
+        "id": 17,
+        "physical_event_index": 16178,
+        "location": "cycle/0/terminal/protected_fallback/round/0/B/Z/8/verify/2/0/left",
+        "timing": "after",
+        "channel": "gate_2q_depolarizing",
+        "operation": "CX",
+        "targets": [
+          "L_0",
+          "w"
+        ],
+        "paulis": {
+          "L_0": "Z",
+          "w": "Z"
+        },
+        "flip_report": false
+      },
+      {
+        "id": 18,
+        "physical_event_index": 18568,
+        "location": "cycle/0/terminal/protected_fallback/round/1/B/Z/7/readout/3/measure",
+        "timing": "report",
+        "channel": "readout_flip",
+        "operation": "MZ",
+        "targets": [
+          "L_3"
+        ],
+        "paulis": {},
+        "flip_report": true
+      },
+      {
+        "id": 19,
+        "physical_event_index": 18631,
+        "location": "cycle/0/terminal/protected_fallback/round/1/B/Z/8/verify/1/2/right",
+        "timing": "after",
+        "channel": "gate_2q_depolarizing",
+        "operation": "CX",
+        "targets": [
+          "L_3",
+          "w"
+        ],
+        "paulis": {
+          "L_3": "X"
+        },
+        "flip_report": false
+      },
+      {
+        "id": 20,
+        "physical_event_index": 18662,
+        "location": "cycle/0/terminal/protected_fallback/round/1/B/Z/8/verify/2/3/left",
+        "timing": "after",
+        "channel": "gate_2q_depolarizing",
+        "operation": "CX",
+        "targets": [
+          "L_3",
+          "w"
+        ],
+        "paulis": {
+          "L_3": "Y",
+          "w": "Y"
+        },
+        "flip_report": false
+      },
+      {
+        "id": 21,
+        "physical_event_index": 19475,
+        "location": "cycle/0/terminal/protected_fallback/round/1/C/Z/3/verify/0/0/right",
+        "timing": "after",
+        "channel": "gate_2q_depolarizing",
+        "operation": "CX",
+        "targets": [
+          "L_1",
+          "w"
+        ],
+        "paulis": {
+          "L_1": "X",
+          "w": "X"
+        },
+        "flip_report": false
+      },
+      {
+        "id": 22,
+        "physical_event_index": 20591,
+        "location": "cycle/0/terminal/protected_fallback/round/2/B/Z/0/readout/0/measure",
+        "timing": "report",
+        "channel": "readout_flip",
+        "operation": "MZ",
+        "targets": [
+          "L_0"
+        ],
+        "paulis": {},
+        "flip_report": true
+      },
+      {
+        "id": 23,
+        "physical_event_index": 22311,
+        "location": "cycle/0/terminal/protected_fallback/round/2/C/Z/8/verify/0/6/left",
+        "timing": "after",
+        "channel": "gate_2q_depolarizing",
+        "operation": "CX",
+        "targets": [
+          "L_6",
+          "w"
+        ],
+        "paulis": {
+          "L_6": "Z",
+          "w": "X"
+        },
+        "flip_report": false
+      },
+      {
+        "id": 24,
+        "physical_event_index": 24499,
+        "location": "cycle/0/terminal/protected_fallback/round/3/C/Z/5/verify/1/0/left",
+        "timing": "after",
+        "channel": "gate_2q_depolarizing",
+        "operation": "CX",
+        "targets": [
+          "L_0",
+          "w"
+        ],
+        "paulis": {
+          "L_0": "Y",
+          "w": "X"
+        },
+        "flip_report": false
+      },
+      {
+        "id": 25,
+        "physical_event_index": 25450,
+        "location": "cycle/0/terminal/protected_fallback/round/4/B/X/8/verify/0/6/left",
+        "timing": "after",
+        "channel": "gate_2q_depolarizing",
+        "operation": "CX",
+        "targets": [
+          "L_6",
+          "w"
+        ],
+        "paulis": {
+          "w": "Z"
+        },
+        "flip_report": false
+      },
+      {
+        "id": 26,
+        "physical_event_index": 25706,
+        "location": "cycle/0/terminal/protected_fallback/round/4/B/Z/4/verify/1/1/left",
+        "timing": "after",
+        "channel": "gate_2q_depolarizing",
+        "operation": "CX",
+        "targets": [
+          "L_1",
+          "w"
+        ],
+        "paulis": {
+          "L_1": "Z",
+          "w": "Z"
+        },
+        "flip_report": false
+      }
+    ]
+  },
+  "shot_index": 143,
+  "c_state_reference": null,
+  "execution_status": "completed",
+  "diagnostic_status": "not_applicable"
+}

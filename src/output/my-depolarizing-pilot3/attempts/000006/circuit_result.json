@@ -1,0 +1,674 @@
+{
+  "schema_version": 2,
+  "procedure": "reduced_rejection",
+  "noise_model": "pauli_depolarizing",
+  "seed": 6,
+  "graph": "current20",
+  "source_preparation": "encoded",
+  "extraction": "optimized",
+  "accepted": false,
+  "rejection_code": "source_retry_limit",
+  "rejection_reason": "Three local source builds flagged",
+  "sources": {
+    "B": {
+      "attempts": [
+        {
+          "attempt_index": 0,
+          "records": [
+            [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ]
+          ],
+          "outcome": "flag_retry",
+          "flag": {
+            "location": "source/B/round/1/X/8",
+            "flags": [
+              0,
+              0,
+              1
+            ],
+            "syndrome": 1
+          }
+        },
+        {
+          "attempt_index": 1,
+          "records": [],
+          "outcome": "flag_retry",
+          "flag": {
+            "location": "source/B/retry/1/round/0/X/8",
+            "flags": [
+              0,
+              1,
+              0
+            ],
+            "syndrome": 1
+          }
+        },
+        {
+          "attempt_index": 2,
+          "records": [
+            [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ]
+          ],
+          "rounds_used": 3,
+          "stopping_record": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "correction": [
+            "I",
+            "I",
+            "I",
+            "I",
+            "I",
+            "I",
+            "I",
+            "I",
+            "I",
+            "I",
+            "I",
+            "I",
+            "I",
+            "I",
+            "I",
+            "I",
+            "I",
+            "I",
+            "I",
+            "I"
+          ],
+          "outcome": "prepared"
+        }
+      ],
+      "records": [
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      ],
+      "rounds_used": 3,
+      "stopping_record": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "correction": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I"
+      ],
+      "outcome": "prepared"
+    },
+    "C": {
+      "attempts": [
+        {
+          "attempt_index": 0,
+          "records": [
+            [
+              0,
+              1,
+              0,
+              0,
+              0,
+              1,
+              1,
+              1,
+              0,
+              0,
+              0,
+              0,
+              1,
+              0,
+              1,
+              0,
+              1,
+              0,
+              0,
+              1
+            ],
+            [
+              0,
+              1,
+              0,
+              0,
+              0,
+              1,
+              1,
+              1,
+              0,
+              0,
+              0,
+              0,
+              1,
+              0,
+              1,
+              0,
+              1,
+              0,
+              0,
+              1
+            ],
+            [
+              0,
+              1,
+              0,
+              0,
+              0,
+              1,
+              1,
+              1,
+              0,
+              1,
+              0,
+              0,
+              1,
+              0,
+              0,
+              0,
+              1,
+              0,
+              0,
+              1
+            ],
+            [
+              0,
+              1,
+              0,
+              0,
+              0,
+              1,
+              0,
+              1,
+              1,
+              1,
+              0,
+              0,
+              1,
+              0,
+              0,
+              0,
+              1,
+              0,
+              0,
+              1
+            ]
+          ],
+          "outcome": "flag_retry",
+          "flag": {
+            "location": "source/C/round/4/X/8",
+            "flags": [
+              0,
+              1,
+              0
+            ],
+            "syndrome": 1
+          }
+        },
+        {
+          "attempt_index": 1,
+          "records": [],
+          "outcome": "flag_retry",
+          "flag": {
+            "location": "source/C/retry/1/round/0/X/6",
+            "flags": [
+              0,
+              0,
+              1
+            ],
+            "syndrome": 1
+          }
+        },
+        {
+          "attempt_index": 2,
+          "records": [],
+          "outcome": "flag_retry",
+          "flag": {
+            "location": "source/C/retry/2/round/0/logical/1",
+            "flags": [
+              0,
+              1
+            ],
+            "syndrome": 1
+          }
+        }
+      ]
+    }
+  },
+  "cycles": [],
+  "b_z": null,
+  "b_decoding": null,
+  "noise_seed": 7658271035739400399,
+  "rejection_details": {
+    "location": "source/C/retry/2/round/0/logical/1",
+    "flags": [
+      0,
+      1
+    ],
+    "syndrome": 1
+  },
+  "metrics": {
+    "elapsed_seconds": 0.37554120901040733,
+    "process_peak_rss_bytes": 198885376,
+    "physical_events": 3828,
+    "implicit_single_qubit_idles": 153539,
+    "idle_locations_by_register": {
+      "B": 74609,
+      "C": 74112,
+      "L": 4818
+    },
+    "idle_locations_by_operation": {
+      "PREP": 24030,
+      "H": 19637,
+      "CX": 64308,
+      "MZ": 23250,
+      "CZ": 22314
+    },
+    "check_gadgets_completed": 214,
+    "cat_scans_completed": 0,
+    "cats_prepared": 214,
+    "flagged_source_checks": 214,
+    "flag_bits_measured": 294,
+    "grouped_protected_checks": 0,
+    "peak_live_qubits": 44,
+    "peak_coherent_terms": 2,
+    "interned_sparse_factors": 661,
+    "fallback_overlaps": 0,
+    "gate_counts": {
+      "PREP": 628,
+      "H": 485,
+      "CX": 1581,
+      "MZ": 588,
+      "CZ": 546
+    },
+    "gauging_cycles_started": 0
+  },
+  "global_i_power": 2,
+  "noise": {
+    "sampled_events": 10,
+    "channel_opportunities": {
+      "idle": 153539,
+      "preparation": 628,
+      "gate_1q": 485,
+      "gate_2q": 2127,
+      "readout": 588
+    },
+    "event_counts_by_channel": {
+      "gate_2q_depolarizing": 10
+    },
+    "pauli_factor_counts": {
+      "Y": 6,
+      "Z": 5,
+      "X": 5
+    },
+    "sum_of_executed_channel_probabilities": "2127/160",
+    "events": [
+      {
+        "id": 0,
+        "physical_event_index": 535,
+        "location": "source/B/round/1/X/8/couple/7",
+        "timing": "after",
+        "channel": "gate_2q_depolarizing",
+        "operation": "CX",
+        "targets": [
+          "L_3",
+          "B_17"
+        ],
+        "paulis": {
+          "L_3": "Y",
+          "B_17": "Y"
+        },
+        "flip_report": false
+      },
+      {
+        "id": 1,
+        "physical_event_index": 770,
+        "location": "source/B/retry/1/round/0/X/8/couple/5",
+        "timing": "after",
+        "channel": "gate_2q_depolarizing",
+        "operation": "CX",
+        "targets": [
+          "L_2",
+          "B_14"
+        ],
+        "paulis": {
+          "L_2": "Y",
+          "B_14": "Z"
+        },
+        "flip_report": false
+      },
+      {
+        "id": 2,
+        "physical_event_index": 1847,
+        "location": "source/C/encode/CX/33",
+        "timing": "after",
+        "channel": "gate_2q_depolarizing",
+        "operation": "CX",
+        "targets": [
+          "C_6",
+          "C_18"
+        ],
+        "paulis": {
+          "C_6": "Z",
+          "C_18": "Z"
+        },
+        "flip_report": false
+      },
+      {
+        "id": 3,
+        "physical_event_index": 2026,
+        "location": "source/C/round/0/Z/3/couple/0",
+        "timing": "after",
+        "channel": "gate_2q_depolarizing",
+        "operation": "CZ",
+        "targets": [
+          "L_0",
+          "C_12"
+        ],
+        "paulis": {
+          "L_0": "Z",
+          "C_12": "X"
+        },
+        "flip_report": false
+      },
+      {
+        "id": 4,
+        "physical_event_index": 2483,
+        "location": "source/C/round/2/X/0/couple/1",
+        "timing": "after",
+        "channel": "gate_2q_depolarizing",
+        "operation": "CX",
+        "targets": [
+          "L_0",
+          "C_1"
+        ],
+        "paulis": {
+          "L_0": "X",
+          "C_1": "X"
+        },
+        "flip_report": false
+      },
+      {
+        "id": 5,
+        "physical_event_index": 2627,
+        "location": "source/C/round/2/Z/1/couple/1",
+        "timing": "after",
+        "channel": "gate_2q_depolarizing",
+        "operation": "CZ",
+        "targets": [
+          "L_0",
+          "C_5"
+        ],
+        "paulis": {
+          "L_0": "X"
+        },
+        "flip_report": false
+      },
+      {
+        "id": 6,
+        "physical_event_index": 3218,
+        "location": "source/C/round/4/X/8/couple/4",
+        "timing": "after",
+        "channel": "gate_2q_depolarizing",
+        "operation": "CX",
+        "targets": [
+          "L_2",
+          "C_13"
+        ],
+        "paulis": {
+          "L_2": "X"
+        },
+        "flip_report": false
+      },
+      {
+        "id": 7,
+        "physical_event_index": 3411,
+        "location": "source/C/retry/1/round/0/X/6/couple/7",
+        "timing": "after",
+        "channel": "gate_2q_depolarizing",
+        "operation": "CX",
+        "targets": [
+          "L_3",
+          "C_19"
+        ],
+        "paulis": {
+          "L_3": "Y",
+          "C_19": "Z"
+        },
+        "flip_report": false
+      },
+      {
+        "id": 8,
+        "physical_event_index": 3658,
+        "location": "source/C/retry/2/round/0/Z/0/couple/0",
+        "timing": "after",
+        "channel": "gate_2q_depolarizing",
+        "operation": "CZ",
+        "targets": [
+          "L_0",
+          "C_0"
+        ],
+        "paulis": {
+          "C_0": "Y"
+        },
+        "flip_report": false
+      },
+      {
+        "id": 9,
+        "physical_event_index": 3815,
+        "location": "source/C/retry/2/round/0/logical/1/flag_cat/fanout/2",
+        "timing": "after",
+        "channel": "gate_2q_depolarizing",
+        "operation": "CX",
+        "targets": [
+          "L_0",
+          "L_2"
+        ],
+        "paulis": {
+          "L_2": "Y"
+        },
+        "flip_report": false
+      }
+    ]
+  },
+  "shot_index": 6,
+  "c_state_reference": null,
+  "execution_status": "completed",
+  "diagnostic_status": "not_applicable"
+}

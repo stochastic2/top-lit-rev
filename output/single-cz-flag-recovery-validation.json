@@ -1,0 +1,22 @@
+{
+  "tests": {
+    "command": "/Users/kevinhemery/pytket-venv/bin/python -m pytest -q src/test_single_cz_flag_recovery.py src/test_single_cz_simulation.py src/test_single_cz_cat_simulation.py",
+    "passed": 55,
+    "failed": 0
+  },
+  "finite_certificate": {
+    "command": "/Users/kevinhemery/pytket-venv/bin/python src/check_single_cz_flag_recovery.py --output output/single-cz-flag-recovery-certificates.json",
+    "verified": true,
+    "candidate_terms": 645296,
+    "accepted_decisions": 135904,
+    "ambiguous_decisions": 520,
+    "accepted_physical_candidate_checks": 641200,
+    "full_factory_location_pairs_enumerated": false
+  },
+  "analytical_proof": "notes/single_block_cz_flag_dependent_recovery.md",
+  "rendered_figure_inspected": "notes/figures/c4-helix/single-block-cz/11-flag-dependent-fallback.png",
+  "final_pilot": "output/single-cz-flag-recovery-bounded8-pilot-20261110",
+  "population_fidelity_advantage_claim": false,
+  "noisy_pilot_is_proof": false,
+  "two_block_SWAP_files_modified": false
+}

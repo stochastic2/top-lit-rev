@@ -1,0 +1,120 @@
+{
+  "scope": "Finite exact fault examples, classical readout decoder, and ideal logical distillation; not a complete circuit fault-tolerance proof.",
+  "single_vertex_Z_fault": {
+    "wrong_accepted_probability": "1/8",
+    "accepted_C0_state": "|1_L>",
+    "infidelity_to_M": "4/5"
+  },
+  "gauge_readout_code": {
+    "length": 20,
+    "dimension": 4,
+    "distance": 8,
+    "weight_distribution": {
+      "0": 1,
+      "8": 5,
+      "12": 10
+    },
+    "corrected_record_cases": 21616
+  },
+  "four_flip_ambiguous_example": [
+    4,
+    7,
+    8,
+    9
+  ],
+  "controller_b_cut": [
+    4,
+    7,
+    8,
+    9,
+    14,
+    15,
+    16,
+    19
+  ],
+  "controller_erasure_outside_distance": {
+    "a": 3,
+    "b": 3,
+    "c": 3,
+    "d": 3,
+    "e": 3
+  },
+  "two_controller_erasure_failures": [
+    "bd"
+  ],
+  "bd_undetectable_logical_support": [
+    5,
+    7,
+    14,
+    15,
+    16,
+    17
+  ],
+  "two_X_faults_bd": {
+    "post_code_check_state": "(|0000_L>+|1111_L>)/sqrt(2)",
+    "code_accept_given_r_plus": "1/12288",
+    "bad_magic_accept_per_trial": "1/32768",
+    "accepted_C0_state": "|0_L>"
+  },
+  "twirled_ideal_magic": {
+    "bloch": [
+      "7/10",
+      "0",
+      "7/10"
+    ],
+    "H_error": "0.00502525316941673291940894652660567250061484361806817438816209170324363253826253640236436298532544945"
+  },
+  "Steane_seven_input_projection": {
+    "input_coordinate": "7/10",
+    "output_coordinate": "424977/605750",
+    "acceptance": "21807/320000",
+    "stabilizer_supports": [
+      [
+        3,
+        4,
+        5,
+        6
+      ],
+      [
+        1,
+        2,
+        5,
+        6
+      ],
+      [
+        0,
+        2,
+        4,
+        6
+      ]
+    ]
+  },
+  "BK15_ideal_independent_inputs": [
+    {
+      "level": 1,
+      "error": "0.000004509795993754582919453654243433658287903894887523095894201605648198982898335535005251379708672847268",
+      "acceptance": "0.9272201500000000000000000000000000000000000000000000000000000000000000000000000000000000000000000012"
+    },
+    {
+      "level": 2,
+      "error": "3.210292539838582067338585309384809532217116492625615315504481572974353539655470982306168938474726068E-15",
+      "acceptance": "0.9999323551955724487561680256278997413545915951013468542402780616679035855717785314906955894396028638"
+    }
+  ],
+  "split_controller_graph": {
+    "temporary_vertices": 30,
+    "gauge_qubits": 60,
+    "max_degree": 8,
+    "controller_degree": 3,
+    "controlled_SWAPS_per_controller": 1,
+    "classical_cut_code_distance": 3
+  },
+  "not_verified": [
+    "complete native Fredkin decomposition",
+    "flag circuit for controller faults",
+    "two-fault-tolerant C4-Helix EC and logical Clifford gadgets",
+    "joint space-time gauging decoder",
+    "physical noise threshold",
+    "distillation with correlated inputs"
+  ]
+}

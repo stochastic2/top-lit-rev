@@ -1,0 +1,96 @@
+{
+  "naive_one_record": {
+    "global_faults": 2,
+    "seed": 4,
+    "bad_order": "Z0..Z8 then X0..X8",
+    "faults": [
+      {
+        "context": "final_cycles/0/cycle/0",
+        "operation": "CX",
+        "targets": [
+          "A1",
+          "w"
+        ],
+        "paulis": {
+          "A1": "X"
+        }
+      },
+      {
+        "context": "terminal_screen/0/X/7",
+        "operation": "CX",
+        "targets": [
+          "s",
+          "D1"
+        ],
+        "paulis": {
+          "s": "Z",
+          "D1": "Z"
+        }
+      }
+    ],
+    "naive_accepted": true,
+    "naive_decoded_fidelity": "1/9",
+    "ordered_screen_accepted": false,
+    "ordered_reason": "data_ambiguity",
+    "command": "python -m pytest -q src/test_single_cz_terminal_screen.py -k naive"
+  },
+  "prototype_conditional_exit": {
+    "global_faults": 4,
+    "outside_two_fault_theorem": true,
+    "seed": 1034,
+    "prototype_accepted_decoded_fidelity": 0,
+    "release_rejects": true,
+    "release_reason": "data_ambiguity",
+    "faults": [
+      {
+        "event": 3489,
+        "context": "gauged/2/code/Z/6",
+        "targets": [
+          "s",
+          "D8"
+        ],
+        "Paulis": [
+          "X",
+          "Y"
+        ]
+      },
+      {
+        "event": 5346,
+        "context": "terminal_screen/0/Z/7",
+        "targets": [
+          "s",
+          "f0"
+        ],
+        "Paulis": [
+          "Y",
+          "Z"
+        ]
+      },
+      {
+        "event": 6025,
+        "context": "flag_recovery/1/1/X/6",
+        "targets": [
+          "s",
+          "D19"
+        ],
+        "Paulis": [
+          "Z",
+          "Z"
+        ]
+      },
+      {
+        "event": 6344,
+        "context": "flag_recovery/1/2/X/4",
+        "targets": [
+          "s",
+          "f0"
+        ],
+        "Paulis": [
+          "Y",
+          "Z"
+        ]
+      }
+    ],
+    "command": "python -m pytest -q src/test_single_cz_terminal_screen.py -k four_fault"
+  }
+}

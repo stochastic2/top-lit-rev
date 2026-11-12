@@ -1,0 +1,282 @@
+{
+  "schema_version": 2,
+  "procedure": "reduced_rejection",
+  "noise_model": "pauli_depolarizing",
+  "seed": 34,
+  "graph": "compact13",
+  "source_preparation": "encoded",
+  "extraction": "optimized",
+  "history_policy": "adaptive",
+  "terminal_extraction": "compact_flagged",
+  "terminal_flag_policy": "repair_then_protected",
+  "magic_output": "y",
+  "b_y": null,
+  "output_clifford_frame": null,
+  "accepted": false,
+  "rejection_code": "source_retry_limit",
+  "rejection_reason": "Three local source builds flagged",
+  "sources": {
+    "B": {
+      "attempts": [
+        {
+          "attempt_index": 0,
+          "records": [
+            [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ]
+          ],
+          "history_policy": "adaptive",
+          "outcome": "flag_retry",
+          "flag": {
+            "location": "source/B/round/2/Z/7",
+            "flags": [
+              1,
+              0,
+              0
+            ],
+            "syndrome": 0
+          }
+        },
+        {
+          "attempt_index": 1,
+          "records": [
+            [
+              0,
+              0,
+              0,
+              0,
+              0,
+              1,
+              0,
+              1,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ]
+          ],
+          "history_policy": "adaptive",
+          "outcome": "flag_retry",
+          "flag": {
+            "location": "source/B/retry/1/round/1/Z/5",
+            "flags": [
+              1,
+              0,
+              0
+            ],
+            "syndrome": 1
+          }
+        },
+        {
+          "attempt_index": 2,
+          "records": [],
+          "history_policy": "adaptive",
+          "outcome": "flag_retry",
+          "flag": {
+            "location": "source/B/retry/2/round/0/logical/0",
+            "flags": [
+              0,
+              1
+            ],
+            "syndrome": 1
+          }
+        }
+      ]
+    }
+  },
+  "cycles": [],
+  "b_z": null,
+  "b_decoding": null,
+  "noise_seed": 734105514690996778,
+  "rejection_details": {
+    "location": "source/B/retry/2/round/0/logical/0",
+    "flags": [
+      0,
+      1
+    ],
+    "syndrome": 1
+  },
+  "metrics": {
+    "elapsed_seconds": 0.10849620803492144,
+    "process_peak_rss_bytes": 146358272,
+    "physical_events": 1962,
+    "implicit_single_qubit_idles": 78265,
+    "idle_locations_by_register": {
+      "B": 37223,
+      "C": 38630,
+      "L": 2412
+    },
+    "idle_locations_by_operation": {
+      "PREP": 12525,
+      "H": 10079,
+      "CX": 30794,
+      "MZ": 11745,
+      "CZ": 13122
+    },
+    "check_gadgets_completed": 111,
+    "cat_scans_completed": 0,
+    "cats_prepared": 111,
+    "flagged_source_checks": 111,
+    "flag_bits_measured": 146,
+    "grouped_protected_checks": 0,
+    "flagged_terminal_checks": 0,
+    "terminal_flag_bits_measured": 0,
+    "peak_live_qubits": 44,
+    "peak_coherent_terms": 2,
+    "interned_sparse_factors": 270,
+    "fallback_overlaps": 0,
+    "gate_counts": {
+      "PREP": 337,
+      "H": 249,
+      "CX": 757,
+      "MZ": 297,
+      "CZ": 322
+    },
+    "gauging_cycles_started": 0
+  },
+  "global_i_power": 3,
+  "terminal_flag_records": [],
+  "noise": {
+    "sampled_events": 4,
+    "channel_opportunities": {
+      "idle": 78265,
+      "preparation": 337,
+      "gate_1q": 249,
+      "gate_2q": 1079,
+      "readout": 297
+    },
+    "event_counts_by_channel": {
+      "gate_2q_depolarizing": 4
+    },
+    "pauli_factor_counts": {
+      "X": 1,
+      "Z": 3,
+      "Y": 3
+    },
+    "sum_of_executed_channel_probabilities": "6583/4000",
+    "events": [
+      {
+        "id": 0,
+        "physical_event_index": 957,
+        "location": "source/B/round/2/Z/7/flag_cat/uncompute/2",
+        "timing": "after",
+        "channel": "gate_2q_depolarizing",
+        "operation": "CX",
+        "targets": [
+          "L_0",
+          "L_2"
+        ],
+        "paulis": {
+          "L_0": "X"
+        },
+        "flip_report": false
+      },
+      {
+        "id": 1,
+        "physical_event_index": 1115,
+        "location": "source/B/retry/1/round/0/X/5/couple/6",
+        "timing": "after",
+        "channel": "gate_2q_depolarizing",
+        "operation": "CX",
+        "targets": [
+          "L_3",
+          "B_12"
+        ],
+        "paulis": {
+          "L_3": "Z",
+          "B_12": "Z"
+        },
+        "flip_report": false
+      },
+      {
+        "id": 2,
+        "physical_event_index": 1561,
+        "location": "source/B/retry/1/round/1/Z/5/couple/3",
+        "timing": "after",
+        "channel": "gate_2q_depolarizing",
+        "operation": "CZ",
+        "targets": [
+          "L_1",
+          "B_7"
+        ],
+        "paulis": {
+          "L_1": "Y",
+          "B_7": "Y"
+        },
+        "flip_report": false
+      },
+      {
+        "id": 3,
+        "physical_event_index": 1956,
+        "location": "source/B/retry/2/round/0/logical/0/flag_cat/uncompute/2",
+        "timing": "after",
+        "channel": "gate_2q_depolarizing",
+        "operation": "CX",
+        "targets": [
+          "L_0",
+          "L_2"
+        ],
+        "paulis": {
+          "L_0": "Z",
+          "L_2": "Y"
+        },
+        "flip_report": false
+      }
+    ]
+  },
+  "shot_index": 33,
+  "c_state_reference": null,
+  "execution_status": "completed",
+  "diagnostic_status": "not_applicable",
+  "worker_elapsed_seconds": 0.10934274998726323,
+  "worker_peak_rss_bytes": 146391040
+}

@@ -1,0 +1,162 @@
+{
+  "field": "Q[zeta_8]/(zeta_8**4+1)",
+  "floating_point_used": false,
+  "scope": "W, W' and exact controlled decompositions; local port faults and coherent sums",
+  "full_factory_fault_enumeration": false,
+  "results": [
+    {
+      "sign": -1,
+      "single_Pauli_basis_faults": 27,
+      "two_distinct_location_Pauli_basis_faults": 234,
+      "coherent_term_count_histogram": {
+        "2": 132,
+        "1": 129
+      },
+      "coherent_examples": [
+        {
+          "locations": [
+            "T-data"
+          ],
+          "output_error_Pauli_sum": [
+            {
+              "control": "I",
+              "data": "X",
+              "coefficient": [
+                "0",
+                "1/2",
+                "0",
+                "-1/2"
+              ]
+            },
+            {
+              "control": "I",
+              "data": "Y",
+              "coefficient": [
+                "0",
+                "1/2",
+                "0",
+                "-1/2"
+              ]
+            }
+          ]
+        },
+        {
+          "locations": [
+            "T-data"
+          ],
+          "output_error_Pauli_sum": [
+            {
+              "control": "Z",
+              "data": "X",
+              "coefficient": [
+                "0",
+                "-1/2",
+                "0",
+                "1/2"
+              ]
+            },
+            {
+              "control": "Z",
+              "data": "Y",
+              "coefficient": [
+                "0",
+                "1/2",
+                "0",
+                "-1/2"
+              ]
+            }
+          ]
+        }
+      ],
+      "identities_exact": true
+    },
+    {
+      "sign": 1,
+      "single_Pauli_basis_faults": 27,
+      "two_distinct_location_Pauli_basis_faults": 234,
+      "coherent_term_count_histogram": {
+        "2": 132,
+        "1": 129
+      },
+      "coherent_examples": [
+        {
+          "locations": [
+            "T-data"
+          ],
+          "output_error_Pauli_sum": [
+            {
+              "control": "I",
+              "data": "X",
+              "coefficient": [
+                "0",
+                "1/2",
+                "0",
+                "-1/2"
+              ]
+            },
+            {
+              "control": "I",
+              "data": "Y",
+              "coefficient": [
+                "0",
+                "-1/2",
+                "0",
+                "1/2"
+              ]
+            }
+          ]
+        },
+        {
+          "locations": [
+            "T-data"
+          ],
+          "output_error_Pauli_sum": [
+            {
+              "control": "Z",
+              "data": "X",
+              "coefficient": [
+                "0",
+                "1/2",
+                "0",
+                "-1/2"
+              ]
+            },
+            {
+              "control": "Z",
+              "data": "Y",
+              "coefficient": [
+                "0",
+                "1/2",
+                "0",
+                "-1/2"
+              ]
+            }
+          ]
+        }
+      ],
+      "identities_exact": true
+    }
+  ],
+  "mixed_cat_ideal": [
+    {
+      "ports": [
+        "X",
+        "Z",
+        "W+"
+      ],
+      "input_basis_and_leaf_record_pairs": 64,
+      "all_coefficients_exact": true,
+      "Kraus": "(I+(-1)^parity Q)/4 for m=3"
+    },
+    {
+      "ports": [
+        "W-",
+        "W+",
+        "X"
+      ],
+      "input_basis_and_leaf_record_pairs": 64,
+      "all_coefficients_exact": true,
+      "Kraus": "(I+(-1)^parity Q)/4 for m=3"
+    }
+  ]
+}

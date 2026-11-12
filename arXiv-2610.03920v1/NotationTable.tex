@@ -1,0 +1,239 @@
+
+\begingroup
+\renewcommand{\arraystretch}{1.25}
+\setlength{\LTleft}{0pt}
+\setlength{\LTright}{0pt}
+
+{\small
+\begin{longtable}{@{}>{\raggedright\arraybackslash}p{0.185\textwidth}@{\hspace{6pt}}>{\raggedright\arraybackslash}p{0.175\textwidth}@{\hspace{6pt}}p{0.075\textwidth}@{\hspace{6pt}}>{\raggedright\arraybackslash}p{0.475\textwidth}@{}}
+\toprule
+\textbf{Notation} & \textbf{Name} & \textbf{Sec.} & \textbf{Meaning} \\
+\midrule
+\endfirsthead
+\multicolumn{4}{@{}l}{\textit{Table of notations (continued)}}\\
+\toprule
+\textbf{Notation} & \textbf{Name} & \textbf{Sec.} & \textbf{Meaning} \\
+\midrule
+\endhead
+\midrule
+\multicolumn{4}{r@{}}{\textit{continued on next page}}\\
+\endfoot
+\bottomrule
+\endlastfoot
+
+
+$\T$ &
+transversal gate &
+all &
+Transversal logical gate being gauged, with $\T^p = \id$. \\
+
+$q, p$ & qudit dimensions & all & the original code has qudits with dimension $q$, and the added gauge qudits have dimension $p$. \\
+
+$\physq$ &
+matter-qudit set &
+all &
+The set of matter qudits of the input/original code. \\
+
+$v\in \vertexV$ &
+vertex qudits &
+\ref{sec:gauging-procedure} &
+Vertex qudits are ancillas that measure vertex stabilizers. They form vertices of the gauging graph $\graphG$. Additionally, a vertex $v$ indexes a set of matter qudits $\vertexset{v}$ and its vertex stabilizer $\av$\\
+
+$\Sigma:\physq\to\vertexV$ &
+vertex-set map &
+\ref{sec:gauging-procedure} &
+Assignment of each matter qudit to its vertex set. Vertex sets are constant size and respect the structure of the transversal gate $\T$. \\
+
+$\vertexset{v}$ &
+vertex set &
+\ref{sec:gauging-procedure} &
+The block of matter qudits assigned to vertex $v$. \\
+
+$\T_v$ &
+on-site symmetry &
+\ref{sec:gauging-procedure} &
+Action of the transversal gate $\T$ on vertex set $\vertexset{v}$. \\
+
+$\Agrp$ &
+symmetry group &
+\ref{sec:space-distance} &
+A finite Abelian group $\Agrp$. When $\Agrp$ is the cyclic group of order $p$, $\T^p=\id$. \\
+
+$\widehat{\Agrp}$ &
+representation group &
+\ref{sec:space-distance} &
+Additively written group of irreducible representations (characters) of $\Agrp$; the coefficient group of all representation-label chains. \\
+
+$\T^{\bm a}$,\ $\T^g=\T^{g\id}$ &
+symmetry operators &
+\ref{sec:space-distance} &
+$\T^{\bm a}=\prod_{v\in \vertexV}\T_v^{a_v}$ for a vertex labeling $\bm a\in \Agrp[\vertexV]$; the constant labeling where $(g\id)_v = g\ \forall v\in \vertexV$ gives the global symmetry $\T^g$. \\
+
+
+$\bm\chi\in \widehat{\Agrp}[\vertexV], \omega^{\bm\chi}(\bm a)$  &
+eigenoperator label on each vertex &
+\ref{sec:space-distance} &
+$\bm\chi$ is a labeling of vertices by $\widehat{\Agrp}$ coefficients.  $\omega^{\bm\chi}(\bm a) := \prod_v \omega^{\chi_v}(a_v)$. \\
+
+$\Xp^a,\Zp^\chi$ &
+gauge Pauli operators &
+\ref{sec:gauging-procedure} &
+Generalized Pauli (shift/clock) operators on $|\Agrp|$-dimensional gauge qudits; $\Xp^a\ket{x}=\ket{x+a}$, $\Zp^\chi\ket{x}=\omega^\chi(x)\ket{x}$, with strings $\Xp^{\bm a}$ and $\Zp^{\bm\alpha}$. \\
+
+$\av^g$,\ $A(\bm a)$ &
+vertex stabilizer, product of vertex stabilizers according to $\bm a\in \Agrp[\vertexV]$&
+\ref{sec:gauging-procedure} & $\av^g=\T_v^g\otimes\Xp^{\delta_1 g\bm e_v}$; general finite-Abelian form $A(\bm a):=\prod_{v\in\vertexV}\av^{a_v}=\T^{\bm a}\otimes\Xp^{\delta_1\bm a}$.  For fixed $g$, the product over all vertices recovers the symmetry $\T^g$. \\
+
+$\bp$,\ $\gaugedB_f(\chi)$ &
+cycle stabilizer &
+\ref{sec:gauging-procedure} &
+Cycle stabilizer $\bp=\prod_{e\in\partial_2 f}\cZ_e^{\eta_f(e)}$ for a face $f\in\faceF$, whose boundary is a cycle: $\partial_1\partial_2 f=0$; we also write $\gaugedB_p(\chi)=\Zp^{\chi\,\partial_2 f}$. \\
+
+
+
+
+$\graphG_\bullet, \graphG^\bullet$ &
+Gauging graph chain and cochain complex. &
+\ref{sec:space-distance} &
+Chains are labeled by $\widehat{\Agrp}$ coefficients, cochains are labeled by $\Agrp$ coefficients. $\graphG^\bullet = \Agrp[\vertexV] \xrightarrow{\delta_{1}} 
+    \Agrp[\edgeE] \xrightarrow{\delta_2} 
+    \Agrp[\faceF]$, $\graphG_\bullet = \widehat{\Agrp}[\vertexV] \xleftarrow{\partial_{1}}
+    \widehat{\Agrp}[\edgeE] \xleftarrow{\partial_2} 
+    \widehat{\Agrp}[\faceF] $\\
+
+$\mathcal H_{\mathrm m}$, $\mathcal H_{\mathrm g}$ &
+matter and gauge Hilbert spaces &
+\ref{sec:space-distance} &
+$\mathcal H_{\mathrm m}$ is the Hilbert space of the original matter qudits, and
+$\mathcal H_{\mathrm g}:=\bigotimes_{e\in\edgeE}\mathbb C[\Agrp]$
+is the Hilbert space of the gauge qudits. \\
+
+$\cC$,\ $\cC'$ &
+base code or original code, gauged code. &
+\ref{sec:gauging-procedure} &
+The input stabilizer code $\cC$ with stabilizer group $\mathcal S=\langle S_i\rangle$, and the deformed code $\cC'=\langle\gaugedS_i,\av,\bp\rangle$ produced by gauging.  \\
+$\cC_\mathrm{sym.}$ &
+Symmetric codespace &
+\ref{sec:space-distance} &
+symmetric codespace is defined $\cC_\mathrm{sym.}:=\cC\cap \mathcal{H}_\mathrm{sym.}$.  \\
+
+$\Gamma$ &
+gauging map &
+\ref{sec:space-distance} &
+$\Gamma:\mathcal H_{\rm sym.}\xrightarrow{}\mathcal H_{\rm m}\otimes \mathcal{H}_{\rm g}$.\\
+
+
+$\Gamma[M]$ & gauging map on matter operator $M$ & \ref{sec:space-distance} &
+Sends a matter operator to its decorated counterpart. When $M$ is a symmetrized stabilizer, it maps it to its decorated version $\overline{\gaugedS}=\Gamma[\bar{S}]$. \\
+
+
+$\aS{i}$, $\nS{i}$ &
+Abelian and non-Abelian stabilizers &
+\ref{sec:spacetime-distance} &
+$\mathbb{Z}_2$ gauged code stabilizers can be partitioned into non-Abelian stabilizers $\nS{}$ that always commute, while Abelian stabilizers satisfy $\ComGrp{\aS{i}}{\aS{j}} \in \langle \nS{} \rangle$.\\
+
+
+
+$\mathcal H_{\mathrm{sym.}}$ &
+symmetric subspace &
+\ref{sec:space-distance} &
+$\mathcal H_{\mathrm{sym.}}
+:=\{\ket{\psi}\in\mathcal H_{\mathrm m}:
+\T^g\ket{\psi}=\ket{\psi}\ \forall g\in\Agrp\}$. \\
+
+$\ComGrp{A}{B}$ &
+group commutator &
+\ref{sec:gauging-procedure} &
+Group/multiplicative commutator $\ComGrp{A}{B}=ABA^\dagger B^\dagger$. \\
+
+
+$\supp{O}$, $\operatorname{Wt}(O)$ &
+support and weight &
+\ref{sec:space-distance} &
+$\supp{O}$ is the set of matter and gauge qudits on which $O$ acts nontrivially, and
+$\operatorname{Wt}(O):=|\supp{O}|$. 
+\\
+
+
+
+
+
+$d$;\ $d_{\rm g}$ &
+original and gauged code distance &
+\ref{sec:spacetime-distance} &
+The minimum weights of operators with nonscalar projected action on $\cC$ and $\cC'$ respectively. \\
+
+
+$\Pi_{\cC}$, $\Pi_{\cC_\mathrm{sym.}}$, $\Pi_{\cC'}$ & code projectors & \ref{sec:space-distance} & Projectors onto the original, symmetric, and gauged codespace.\\
+
+$M_{\bm\chi}$ & matter eigenoperator & \ref{sec:space-distance} & The component of a matter operator $M$ that satisfies $\T^{\bm a} M_{\bm\chi} (\T^{\bm a})^\dagger= \omega^{\bm\chi}(\bm a) M_{\bm\chi}.$\\
+
+$\sum_{\bm\chi}M_{\bm\chi}$ & Eigenoperator decomposition & \ref{sec:space-distance} & Every matter operator $M$ can be written as $M=\sum_{\bm\chi\in \widehat{\Agrp}[\vertexV]} M_{\bm\chi}$\\
+
+
+$\E{i}{j}\in E$ &
+gauge-qubit edge &
+\ref{sec:gauging-procedure} &
+Gauge qubit on the edge adjacent to vertices $i, j$. \\
+
+
+
+$\fa$, $\fn$ &
+Abelian and non-Abelian faults &
+\ref{sec:spacetime-distance} &
+Elementary space faults on a single vertex set: $\fa$ commutes with all non-Abelian stabilizers \\
+
+$\graphG=(\vertexV, \edgeE)= (\vertexV,\edgeE,\faceF)$ &
+gauging graph &
+\ref{sec:gauging-procedure} &
+Graph whose vertices host the vertex ancillas (one per vertex set) and whose edges host the gauge qudits; required to have $O(1)$ degree and a sparse cycle basis. \\
+ 
+
+
+
+$S$, $\gaugedS$ &
+ungauged, gauged stabilizer &
+\ref{sec:gauging-procedure} &
+Stabilizer of the original code and its gauged counterpart. \\
+
+$\sym$, $\overline{\gaugedS}$ &
+ungauged, gauged symmetrized stabilizer &
+\ref{sec:gauging-procedure} &
+$\sym = \frac{1}{p}\sum_{a=0}^{p-1}\T^{a}S(\T^{a})^\dagger$, the normalized average over the symmetry group. $\overline{\gaugedS}$ denotes its gauged counterpart. \\
+
+
+
+$h_{\Agrp}(\graphG)$ &
+generalized Cheeger constant &
+\ref{sec:space-distance} &
+(Cheeger) expansion constant of the gauging graph.\\
+
+$\nu$ & constant denoting the maximum number of qudits in any vertex set. & \ref{sec:space-distance} & $\nu :=\max_{v\in \vertexV}|\vertexset{v}|$\\
+
+
+$\mu_v$ &
+ &
+\ref{sec:gauging-procedure} &
+Integer defined by $\ComGrp{S_v}{\T_v}=i^{\mu_v}(N_S)_v$, constrained by $\sum_v\mu_v=0\pmod 4$. \\
+
+
+$N_S$, $(N_S)_v$, $\mathbb{N}_S$ &
+ &
+\ref{sec:gauging-procedure} &
+$N_S=\ComGrp{S}{\T}$, its restriction to vertex set $v$, and its gauged form $\mathbb{N}_S=\Circo_2[N_S]$. \\
+
+$\Pi_{\rm sym.}$ &
+symmetry projector &
+\ref{sec:space-distance} &
+$\Pi_{\rm sym.}=\frac{1}{|\Agrp|}\sum_{g\in \Agrp}\T^g$ \\
+
+
+$\mathsf{S}$ &
+generalized phase gate &
+\ref{sec:gauging-procedure} &
+$\mathsf{S}_P = \frac{1 + \prod_{e \in P} Z_e}{2} + i \frac{1 - \prod_{e \in P} Z_e}{2}$. \\
+
+
+\end{longtable}
+}
+\endgroup

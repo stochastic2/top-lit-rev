@@ -1,0 +1,155 @@
+\newcommand{\ismainfile}{}
+
+\documentclass[aps,prx,onecolumn,nofootinbib,11pt,superscriptaddress]{revtex4-2}
+\usepackage{cmap}
+\RequirePackage{array}[=2016-10-06]
+\RequirePackage{longtable}[=2020-01-07]
+\usepackage{setspace}
+\setstretch{0.9}
+
+\input{preamble}
+
+\begin{document}
+
+
+\title{Magic Quantum Code Surgery}
+
+\author{Kathleen~(Katie)~Chang}
+\thanks{These authors contributed equally to this work.}
+\affil{Yale University, Department of Physics, New Haven, Connecticut 06520, USA}
+\affil{Yale Quantum Institute, Yale University, New Haven, Connecticut 06511, USA}
+\email{katie.chang@yale.edu}
+
+\author{Anasuya~Lyons}
+\thanks{These authors contributed equally to this work.}
+\affil{Department of Physics, Harvard University, Cambridge, Massachusetts 02138, USA}
+\email{anasuya\_lyons@g.harvard.edu}
+
+\author{Yuanjie~Ren}
+\thanks{These authors contributed equally to this work.}
+\affil{Department of Physics, Massachusetts Institute of Technology, Cambridge, Massachusetts 02139, USA}
+\email{yuanjie@mit.edu}
+
+\author{Harald~Putterman}
+\affil{Department of Physics, Harvard University, Cambridge, Massachusetts 02138, USA}
+
+\author{Nathanan~Tantivasadakarn}
+\affil{C. N. Yang Institute for Theoretical Physics, Stony Brook University, Stony Brook, NY 11794, USA}
+
+\author{Victor~V.~Albert}
+\affil{Joint Center for Quantum Information and Computer Science, NIST/University of Maryland, College Park, MD 20742}
+
+
+\author{Benjamin~J.~Brown}
+\affil{IBM Quantum, T. J. Watson Research Center, Yorktown Heights, New York 10598, USA}
+\affil{IBM Denmark, Sundkrogsgade 11, 2100 Copenhagen, Denmark}
+
+
+\author{Dominic~J.~Williamson}
+\affil{School of Physics, University of Sydney, Sydney, NSW 2006, Australia}
+
+\begin{abstract}
+\noindent
+
+Non-Clifford operations required for universal quantum computation can be implemented by measuring logical Clifford operators. We present a generalized framework to fault-tolerantly measure transversal Clifford logical operators in quantum low-density parity check (QLDPC) codes. Our protocol takes any QLDPC code and deforms the code across additional ancillary qubits such that a product of stabilizers measures the desired logical Clifford operator. 
+We prove that the deformed, Clifford-stabilized code remains LDPC and that its distance is preserved up to a constant factor independent of the number of physical qubits.
+We further prove that the Clifford measurement has a fault distance against data qubit and measurement errors that grows linearly with the distance of the original code. We apply our methods to implement logical non-Clifford gates in algorithmically relevant subroutines and to prepare magic states in quantum stabilizer codes.
+\end{abstract}
+
+\maketitle
+
+\tableofcontents
+
+\section{Introduction}\label{sec:intro}\input{Introduction}
+
+\subsection*{Recurring Notation}
+
+We list notation that is commonly used throughout the paper below. More specialized notation is specified in the corresponding section.
+Throughout, a \emph{constant} is a number independent of $n$, $k$, and $d$. It may depend on fixed local dimensions $q$ and $p$, uniform upper bounds on stabilizer weights, qudit degrees, vertex-set sizes, graph degrees, cycle weights and edge incidences, and decoration-path lengths, as well as a uniform positive lower bound on the relevant expansion. These bounds are held fixed as the code family grows.
+
+\begin{longtable}{p{0.25\linewidth}p{0.71\linewidth}}
+    \toprule
+    Notation & Denotes \\
+        \midrule
+    \endhead
+        $\cC $ & Original QLDPC Pauli stabilizer code over qudits with dimension $q$, with $n$ physical qudits, $k$ logical qudits, and distance $d$. The $n$ qudits are referred to as matter qudits.\\
+        $\cC'$ & Gauged code obtained by deforming $\cC$.
+        \\
+        $\T = \bigotimes_{v\in \vertexV}\T_v, \quad \T^p = \id$ & Transversal logical Clifford operator $\T$. $\T_v$ is its constant-sized, local operators and $p$ is the order.
+        \\
+        $p$ & Order of $\T$ and the dimension of the gauge qudits.
+        \\
+        $\mathcal{M}$ & Set of matter qudits in the original code.
+        \\
+        $\graphG = (\vertexV, \edgeE, \faceF)$ & Gauging $2$-complex or gauging graph. Vertices correspond to local operators $\T_v$. Edges correspond to ancilla or gauge qudits. Faces correspond with cycle stabilizers.
+        \\
+        $\Sigma : \mathcal{M} \to \vertexV$ & Assignment of matter qudits in the original code to vertex sets. $\Sigma^{-1}(v)$ is the constant-sized set of qudits associated with $v\in \vertexV$, acted on by $\T_v$.
+        \\
+        $\Xp^a, \Zp^\chi$ & Generalized Pauli shift and clock operators for the Abelian symmetry $\Agrp$, with $a\in\Agrp$, $\chi\in\widehat{\Agrp}$, and $\Zp^\chi\Xp^a=\omega^\chi(a)\Xp^a\Zp^\chi$. The gauge qudits have dimension $|\Agrp|$.
+        \\
+        $X,Z$ & Generalized Pauli shift and clock operators on $q$-dimensional matter qudits where $ZX = XZ e^{2\pi i /q}$
+        \\
+        
+        $\ComGrp{A}{B}$ & Group commutator $ABA^\dagger B^\dagger$. 
+        \\
+        
+        $\av$ & Vertex stabilizer. The product of all vertex stabilizers is the transversal Clifford operator $\prod_{v\in \vertexV}\av = \T$.
+        \\
+        $\bp$ & Cycle stabilizers which are $\mathsf{Z}$-type Pauli operators with support on cycles $ f\in \faceF$.
+        \\
+        $S_i, \bar{S}_i$  & Stabilizer of $\cC$ and symmetrized stabilizer $\bar{S} = \frac{1}{p}\sum_{a = 0}^{p-1} \T^a S (\T^a)^\dagger$.
+        \\
+
+        $\mathbb{S}_i = \mathfrak{C}_2(S_i) \mathrm{\ or\ }\mathfrak{C}(S_i)$ & Decorated counterpart in the gauged code $\cC'$ of a stabilizer $S_i$ of the code $\cC$. $\mathfrak{C}_2$ denotes the decoration map when $p=2$. If $p>2$, the decoration map is $\mathfrak{C}$.\\ 
+
+        
+        $d_\mathrm{g},d_\mathrm{f}$ & $d_\mathrm{g}$ is the distance of $\cC'$ to data qudit Pauli errors. $d_\mathrm{f}$ denotes the spacetime fault distance of the gauging protocol (Sec.~\ref{sec:spacetime-distance}).\\
+        \bottomrule
+    \\
+    \caption{Essential notation used throughout Sections~\ref{sec:gauging-procedure},~\ref{sec:space-distance},~\ref{sec:spacetime-distance}.}
+    \label{tab:notation-lite}\\
+\end{longtable}
+
+
+
+\section{Procedure for measuring logical Clifford operators}\label{sec:gauging-procedure}\input{Gauging-procedure.tex}
+
+
+\section{Algebraic formalism and distance of the gauged code}\label{sec:space-distance}\input{gauged-code-properties}
+
+
+
+\section{Fault tolerance of the gauging procedure}\label{sec:spacetime-distance}\input{spacetime.tex}
+
+
+\section{Examples} \label{sec:examples}\input{Examples}
+
+
+
+\section{Applications}\label{sec:applications}\input{Applications.tex}
+ 
+
+\section{Discussion}
+\input{Discussion}
+
+
+
+
+
+\bibliography{bib}
+
+
+\appendix
+
+
+
+\newpage
+\input{Appendix.tex}
+
+\clearpage 
+
+\section{Notation}
+
+\input{NotationTable}
+
+\end{document}

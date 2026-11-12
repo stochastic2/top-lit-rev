@@ -1,0 +1,368 @@
+{
+  "schema_version": 2,
+  "procedure": "reduced_rejection",
+  "noise_model": "pauli_depolarizing",
+  "seed": 7,
+  "graph": "compact13",
+  "source_preparation": "encoded",
+  "extraction": "optimized",
+  "history_policy": "adaptive",
+  "terminal_extraction": "compact_flagged",
+  "terminal_flag_policy": "repair_then_protected",
+  "magic_output": "y",
+  "b_y": null,
+  "output_clifford_frame": null,
+  "accepted": false,
+  "rejection_code": "source_retry_limit",
+  "rejection_reason": "Three local source builds flagged",
+  "sources": {
+    "B": {
+      "attempts": [
+        {
+          "attempt_index": 0,
+          "records": [
+            [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ]
+          ],
+          "history_policy": "adaptive",
+          "outcome": "flag_retry",
+          "flag": {
+            "location": "source/B/round/2/X/5",
+            "flags": [
+              0,
+              0,
+              1
+            ],
+            "syndrome": 0
+          }
+        },
+        {
+          "attempt_index": 1,
+          "records": [
+            [
+              0,
+              1,
+              0,
+              0,
+              0,
+              1,
+              0,
+              1,
+              0,
+              0,
+              1,
+              0,
+              0,
+              1,
+              0,
+              1,
+              1,
+              0,
+              1,
+              0
+            ],
+            [
+              0,
+              1,
+              0,
+              0,
+              0,
+              1,
+              0,
+              1,
+              0,
+              0,
+              1,
+              0,
+              0,
+              1,
+              0,
+              1,
+              1,
+              1,
+              1,
+              0
+            ]
+          ],
+          "history_policy": "adaptive",
+          "outcome": "flag_retry",
+          "flag": {
+            "location": "source/B/retry/1/round/2/X/7",
+            "flags": [
+              1,
+              1,
+              1
+            ],
+            "syndrome": 1
+          }
+        },
+        {
+          "attempt_index": 2,
+          "records": [
+            [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ]
+          ],
+          "history_policy": "adaptive",
+          "outcome": "flag_retry",
+          "flag": {
+            "location": "source/B/retry/2/round/2/Z/7",
+            "flags": [
+              1,
+              0,
+              0
+            ],
+            "syndrome": 0
+          }
+        }
+      ]
+    }
+  },
+  "cycles": [],
+  "b_z": null,
+  "b_decoding": null,
+  "noise_seed": 13250475773379112363,
+  "rejection_details": {
+    "location": "source/B/retry/2/round/2/Z/7",
+    "flags": [
+      1,
+      0,
+      0
+    ],
+    "syndrome": 0
+  },
+  "metrics": {
+    "elapsed_seconds": 0.13984679098939523,
+    "process_peak_rss_bytes": 148733952,
+    "physical_events": 2572,
+    "implicit_single_qubit_idles": 103320,
+    "idle_locations_by_register": {
+      "B": 49193,
+      "C": 50830,
+      "L": 3297
+    },
+    "idle_locations_by_operation": {
+      "PREP": 16430,
+      "H": 13334,
+      "CX": 40422,
+      "MZ": 15650,
+      "CZ": 17484
+    },
+    "check_gadgets_completed": 151,
+    "cat_scans_completed": 0,
+    "cats_prepared": 151,
+    "flagged_source_checks": 151,
+    "flag_bits_measured": 201,
+    "grouped_protected_checks": 0,
+    "flagged_terminal_checks": 0,
+    "terminal_flag_bits_measured": 0,
+    "peak_live_qubits": 44,
+    "peak_coherent_terms": 2,
+    "interned_sparse_factors": 312,
+    "fallback_overlaps": 0,
+    "gate_counts": {
+      "PREP": 432,
+      "H": 329,
+      "CX": 991,
+      "MZ": 392,
+      "CZ": 428
+    },
+    "gauging_cycles_started": 0
+  },
+  "global_i_power": 1,
+  "terminal_flag_records": [],
+  "noise": {
+    "sampled_events": 5,
+    "channel_opportunities": {
+      "idle": 103320,
+      "preparation": 432,
+      "gate_1q": 329,
+      "gate_2q": 1419,
+      "readout": 392
+    },
+    "event_counts_by_channel": {
+      "gate_2q_depolarizing": 5
+    },
+    "pauli_factor_counts": {
+      "X": 4,
+      "Z": 4,
+      "Y": 1
+    },
+    "sum_of_executed_channel_probabilities": "8663/4000",
+    "events": [
+      {
+        "id": 0,
+        "physical_event_index": 767,
+        "location": "source/B/round/2/X/5/couple/6",
+        "timing": "after",
+        "channel": "gate_2q_depolarizing",
+        "operation": "CX",
+        "targets": [
+          "L_3",
+          "B_12"
+        ],
+        "paulis": {
+          "L_3": "X",
+          "B_12": "Z"
+        },
+        "flip_report": false
+      },
+      {
+        "id": 1,
+        "physical_event_index": 863,
+        "location": "source/B/retry/1/encode/CX/34",
+        "timing": "after",
+        "channel": "gate_2q_depolarizing",
+        "operation": "CX",
+        "targets": [
+          "B_5",
+          "B_19"
+        ],
+        "paulis": {
+          "B_5": "X",
+          "B_19": "Y"
+        },
+        "flip_report": false
+      },
+      {
+        "id": 2,
+        "physical_event_index": 1141,
+        "location": "source/B/retry/1/round/0/Z/8/couple/3",
+        "timing": "after",
+        "channel": "gate_2q_depolarizing",
+        "operation": "CZ",
+        "targets": [
+          "L_1",
+          "B_6"
+        ],
+        "paulis": {
+          "L_1": "Z"
+        },
+        "flip_report": false
+      },
+      {
+        "id": 3,
+        "physical_event_index": 1592,
+        "location": "source/B/retry/1/round/2/X/7/couple/0",
+        "timing": "after",
+        "channel": "gate_2q_depolarizing",
+        "operation": "CX",
+        "targets": [
+          "L_0",
+          "B_1"
+        ],
+        "paulis": {
+          "L_0": "X",
+          "B_1": "Z"
+        },
+        "flip_report": false
+      },
+      {
+        "id": 4,
+        "physical_event_index": 2557,
+        "location": "source/B/retry/2/round/2/Z/7/couple/2",
+        "timing": "after",
+        "channel": "gate_2q_depolarizing",
+        "operation": "CZ",
+        "targets": [
+          "L_1",
+          "B_8"
+        ],
+        "paulis": {
+          "L_1": "X",
+          "B_8": "Z"
+        },
+        "flip_report": false
+      }
+    ]
+  },
+  "shot_index": 6,
+  "c_state_reference": null,
+  "execution_status": "completed",
+  "diagnostic_status": "not_applicable",
+  "worker_elapsed_seconds": 0.14070908399298787,
+  "worker_peak_rss_bytes": 148815872
+}

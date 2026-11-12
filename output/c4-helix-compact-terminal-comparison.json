@@ -1,0 +1,224 @@
+{
+  "comparison": "Same graph, source, optimized upstream extraction, adaptive policy, rates and seeds 0-49; trajectories diverge after terminal decisions",
+  "results": {
+    "protected": {
+      "attempts_requested": 50,
+      "circuit_attempts_completed": 50,
+      "accepted": 5,
+      "rejected": 45,
+      "unresolved_attempts": 0,
+      "rejection_counts": {
+        "terminal_absent": 11,
+        "source_retry_limit": 5,
+        "negative_swap": 14,
+        "cycle_limit": 5,
+        "logical_B_one": 2,
+        "terminal_ambiguity": 7,
+        "cycle_syndrome": 1
+      },
+      "computational_failure_counts": {},
+      "observed_rejection_fraction_among_completed": "9/10",
+      "rejection_fraction_Wilson95_among_completed": {
+        "low": 0.7863976856252035,
+        "high": 0.9565242350681096,
+        "confidence": 0.95,
+        "method": "Wilson"
+      },
+      "rejection_fraction_bounds_over_all_requested": [
+        "9/10",
+        "9/10"
+      ],
+      "completed_subset_may_be_selection_biased": false,
+      "ideal_noiseless_rejection_reference": "3/8",
+      "accepted_diagnostics_completed": 5,
+      "accepted_diagnostics_unavailable": 0,
+      "accepted_decoded_exact": 5,
+      "accepted_decoded_imperfect": 0,
+      "mean_decoded_fidelity_among_assessed_accepted": "1",
+      "mean_decoded_infidelity_among_assessed_accepted": "0",
+      "decoded_fidelity_bounds_among_known_accepted": [
+        "1",
+        "1"
+      ],
+      "accepted_raw_exact_target_matches": 4,
+      "noise_event_counts_by_channel_completed": {
+        "gate_2q_depolarizing": 840,
+        "readout_flip": 342
+      },
+      "pauli_factor_counts_completed": {
+        "X": 440,
+        "Y": 457,
+        "Z": 450
+      },
+      "noise_events_per_completed_attempt": {
+        "33": 1,
+        "27": 2,
+        "7": 3,
+        "15": 1,
+        "29": 1,
+        "21": 2,
+        "8": 1,
+        "5": 1,
+        "19": 4,
+        "64": 1,
+        "10": 1,
+        "14": 2,
+        "20": 1,
+        "17": 2,
+        "11": 2,
+        "6": 1,
+        "63": 1,
+        "42": 1,
+        "55": 1,
+        "28": 1,
+        "35": 1,
+        "25": 2,
+        "13": 2,
+        "23": 2,
+        "22": 1,
+        "9": 1,
+        "4": 1,
+        "31": 1,
+        "51": 1,
+        "53": 1,
+        "3": 2,
+        "47": 1,
+        "18": 1,
+        "50": 1,
+        "67": 1,
+        "12": 1
+      },
+      "max_worker_peak_rss_bytes": 3222650880,
+      "max_peak_coherent_terms_completed": 2048,
+      "max_fallback_overlaps_completed": 0,
+      "two_fault_prediction_violation_shots": [],
+      "run_directories": [
+        "output/c4-helix-adaptive-1e-3-readout-1e-3-baseline20",
+        "output/c4-helix-protected-1e-3-readout-1e-3-seed20-30"
+      ],
+      "two_qubit_gates_total": 738793,
+      "meters_total": 340524,
+      "two_qubit_gates_per_accepted": "738793/5",
+      "protected_terminal_fallbacks": 0,
+      "accepted_after_terminal_fallback": 0,
+      "nontrivial_flag_repairs": 0
+    },
+    "compact_flagged": {
+      "attempts_requested": 50,
+      "circuit_attempts_completed": 50,
+      "accepted": 8,
+      "rejected": 42,
+      "unresolved_attempts": 0,
+      "rejection_counts": {
+        "negative_swap": 13,
+        "source_retry_limit": 5,
+        "terminal_ambiguity": 8,
+        "terminal_absent": 10,
+        "logical_B_one": 2,
+        "cycle_syndrome": 3,
+        "cycle_limit": 1
+      },
+      "computational_failure_counts": {},
+      "observed_rejection_fraction_among_completed": "21/25",
+      "rejection_fraction_Wilson95_among_completed": {
+        "low": 0.7148578393696501,
+        "high": 0.916625793219666,
+        "confidence": 0.95,
+        "method": "Wilson"
+      },
+      "rejection_fraction_bounds_over_all_requested": [
+        "21/25",
+        "21/25"
+      ],
+      "completed_subset_may_be_selection_biased": false,
+      "ideal_noiseless_rejection_reference": "3/8",
+      "accepted_diagnostics_completed": 8,
+      "accepted_diagnostics_unavailable": 0,
+      "accepted_decoded_exact": 8,
+      "accepted_decoded_imperfect": 0,
+      "mean_decoded_fidelity_among_assessed_accepted": "1",
+      "mean_decoded_infidelity_among_assessed_accepted": "0",
+      "decoded_fidelity_bounds_among_known_accepted": [
+        "1",
+        "1"
+      ],
+      "accepted_raw_exact_target_matches": 8,
+      "noise_event_counts_by_channel_completed": {
+        "gate_2q_depolarizing": 758,
+        "readout_flip": 279
+      },
+      "pauli_factor_counts_completed": {
+        "X": 398,
+        "Y": 392,
+        "Z": 424
+      },
+      "noise_events_per_completed_attempt": {
+        "28": 2,
+        "25": 4,
+        "7": 4,
+        "15": 1,
+        "29": 2,
+        "37": 1,
+        "8": 1,
+        "5": 1,
+        "19": 3,
+        "22": 5,
+        "21": 2,
+        "14": 2,
+        "27": 2,
+        "17": 1,
+        "43": 1,
+        "11": 2,
+        "6": 2,
+        "40": 1,
+        "30": 3,
+        "42": 1,
+        "13": 2,
+        "4": 1,
+        "50": 1,
+        "24": 1,
+        "3": 2,
+        "51": 1,
+        "12": 1
+      },
+      "max_worker_peak_rss_bytes": 3289858048,
+      "max_peak_coherent_terms_completed": 2048,
+      "max_fallback_overlaps_completed": 0,
+      "two_fault_prediction_violation_shots": [],
+      "run_directories": [
+        "output/c4-helix-compact-recovery-1e-3-readout-1e-3-50"
+      ],
+      "two_qubit_gates_total": 665761,
+      "meters_total": 294414,
+      "two_qubit_gates_per_accepted": "665761/8",
+      "protected_terminal_fallbacks": 35,
+      "accepted_after_terminal_fallback": 6,
+      "nontrivial_flag_repairs": 2
+    }
+  },
+  "noise_model": {
+    "name": "pauli_depolarizing",
+    "gate_rate_convention": "average_gate_infidelity",
+    "rates": {
+      "two_qubit_infidelity": "1/1000",
+      "one_qubit_infidelity": "0",
+      "three_qubit_infidelity": "0",
+      "idle_infidelity": "0",
+      "preparation_flip_probability": "0",
+      "readout_flip_probability": "1/1000"
+    },
+    "nonidentity_gate_probabilities": {
+      "1": "0",
+      "2": "1/800",
+      "3": "0"
+    },
+    "idle_nonidentity_probability": "0",
+    "quantum_noise_timing": "gate: after ideal operation; idle: before operation",
+    "preparation_noise": "X after zero preparation",
+    "readout_noise": "classical report flip after actual destructive Z measurement",
+    "fredkin_implementation": "atomic_three_qubit",
+    "idle_interval": "one interval per serial physical operation, no calibrated duration",
+    "noise_correlations": "independent channel draws; joint Pauli within a gate",
+    "fault_count_cap": null
+  }
+}

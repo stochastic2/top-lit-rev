@@ -1,0 +1,359 @@
+{
+  "scope": "Finite algebra, frame-error, and cat X-component audits supporting a conditional two-fault-detecting proposal; the complete physical gadget remains unaudited.",
+  "graph_unchanged": true,
+  "vertices": [
+    "a",
+    "b",
+    "c",
+    "d",
+    "e"
+  ],
+  "controller_assignment": {
+    "a": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "b": [
+      4,
+      5,
+      6,
+      7
+    ],
+    "c": [
+      8,
+      9,
+      10,
+      11
+    ],
+    "d": [
+      12,
+      13,
+      14,
+      15
+    ],
+    "e": [
+      16,
+      17,
+      18,
+      19
+    ]
+  },
+  "frame_controls": {
+    "b": 7,
+    "c": 11,
+    "d": 3,
+    "e": 0
+  },
+  "frame_fredkins": 16,
+  "cluster_resource_stabilizer_rank": 25,
+  "normalized_gauge_stabilizer_rank": 20,
+  "known_input_stabilizer_rank_per_block": 20,
+  "destructive_Z_readout_error_patterns_tested": 211,
+  "checked_one_or_two_inner_block_erasure_sets": [
+    {
+      "vertices": [
+        "a"
+      ],
+      "labels": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "projected_partial_swap_coefficient": "0.25"
+    },
+    {
+      "vertices": [
+        "b"
+      ],
+      "labels": [
+        4,
+        5,
+        6,
+        7
+      ],
+      "projected_partial_swap_coefficient": "0.25"
+    },
+    {
+      "vertices": [
+        "c"
+      ],
+      "labels": [
+        8,
+        9,
+        10,
+        11
+      ],
+      "projected_partial_swap_coefficient": "0.25"
+    },
+    {
+      "vertices": [
+        "d"
+      ],
+      "labels": [
+        12,
+        13,
+        14,
+        15
+      ],
+      "projected_partial_swap_coefficient": "0.25"
+    },
+    {
+      "vertices": [
+        "e"
+      ],
+      "labels": [
+        16,
+        17,
+        18,
+        19
+      ],
+      "projected_partial_swap_coefficient": "0.25"
+    },
+    {
+      "vertices": [
+        "a",
+        "b"
+      ],
+      "labels": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "projected_partial_swap_coefficient": "0.0625"
+    },
+    {
+      "vertices": [
+        "a",
+        "c"
+      ],
+      "labels": [
+        0,
+        1,
+        2,
+        3,
+        8,
+        9,
+        10,
+        11
+      ],
+      "projected_partial_swap_coefficient": "0.0625"
+    },
+    {
+      "vertices": [
+        "a",
+        "d"
+      ],
+      "labels": [
+        0,
+        1,
+        2,
+        3,
+        12,
+        13,
+        14,
+        15
+      ],
+      "projected_partial_swap_coefficient": "0.0625"
+    },
+    {
+      "vertices": [
+        "a",
+        "e"
+      ],
+      "labels": [
+        0,
+        1,
+        2,
+        3,
+        16,
+        17,
+        18,
+        19
+      ],
+      "projected_partial_swap_coefficient": "0.0625"
+    },
+    {
+      "vertices": [
+        "b",
+        "c"
+      ],
+      "labels": [
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "projected_partial_swap_coefficient": "0.0625"
+    },
+    {
+      "vertices": [
+        "b",
+        "d"
+      ],
+      "labels": [
+        4,
+        5,
+        6,
+        7,
+        12,
+        13,
+        14,
+        15
+      ],
+      "projected_partial_swap_coefficient": "0.0625"
+    },
+    {
+      "vertices": [
+        "b",
+        "e"
+      ],
+      "labels": [
+        4,
+        5,
+        6,
+        7,
+        16,
+        17,
+        18,
+        19
+      ],
+      "projected_partial_swap_coefficient": "0.0625"
+    },
+    {
+      "vertices": [
+        "c",
+        "d"
+      ],
+      "labels": [
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "projected_partial_swap_coefficient": "0.0625"
+    },
+    {
+      "vertices": [
+        "c",
+        "e"
+      ],
+      "labels": [
+        8,
+        9,
+        10,
+        11,
+        16,
+        17,
+        18,
+        19
+      ],
+      "projected_partial_swap_coefficient": "0.0625"
+    },
+    {
+      "vertices": [
+        "d",
+        "e"
+      ],
+      "labels": [
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19
+      ],
+      "projected_partial_swap_coefficient": "0.0625"
+    }
+  ],
+  "frame_G_conjugations": "G_nonroot -> gauge X-star; G_root -> gauge X-star times U, exact globally",
+  "frame_matter_conjugations": "original code-pair projectors on the flat gauge sector",
+  "resource_X_patterns": 145,
+  "resource_one_fault_patterns": 15,
+  "two_early_pattern_pairs_tested": 10440,
+  "two_early_pattern_pairs_surviving_flatness": 268,
+  "early_late_pattern_pairs_tested": 2900,
+  "early_late_pattern_pairs_surviving_flatness": 80,
+  "mixed_time_U_only_counterexample": "P Z_Cq Pi_+ Z_Bq P = U P/2",
+  "verification_sweeps": 3,
+  "data_Pauli_checks_per_code_scan": 40,
+  "gauge_Pauli_checks_per_sweep": 20,
+  "fresh_cat_size_for_U": 20,
+  "fredkin_count_excluding_verifier_preparation": 96,
+  "explicit_cat_verification_X_audits": [
+    {
+      "cat_qubits": 2,
+      "single_X_patterns": 29,
+      "two_X_pattern_pairs": 385,
+      "accepted_single_patterns": 4,
+      "accepted_two_patterns": 59
+    },
+    {
+      "cat_qubits": 3,
+      "single_X_patterns": 57,
+      "two_X_pattern_pairs": 1554,
+      "accepted_single_patterns": 5,
+      "accepted_two_patterns": 93
+    },
+    {
+      "cat_qubits": 4,
+      "single_X_patterns": 85,
+      "two_X_pattern_pairs": 3507,
+      "accepted_single_patterns": 6,
+      "accepted_two_patterns": 132
+    },
+    {
+      "cat_qubits": 6,
+      "single_X_patterns": 141,
+      "two_X_pattern_pairs": 9765,
+      "accepted_single_patterns": 8,
+      "accepted_two_patterns": 213
+    },
+    {
+      "cat_qubits": 8,
+      "single_X_patterns": 197,
+      "two_X_pattern_pairs": 19159,
+      "accepted_single_patterns": 10,
+      "accepted_two_patterns": 298
+    },
+    {
+      "cat_qubits": 9,
+      "single_X_patterns": 225,
+      "two_X_pattern_pairs": 25032,
+      "accepted_single_patterns": 11,
+      "accepted_two_patterns": 342
+    },
+    {
+      "cat_qubits": 20,
+      "single_X_patterns": 533,
+      "two_X_pattern_pairs": 141379,
+      "accepted_single_patterns": 22,
+      "accepted_two_patterns": 892
+    }
+  ],
+  "conditional_obligations": [
+    "validate the explicit verified-cat support contract in the complete physical implementation",
+    "one fresh cat leaf per data interaction",
+    "faults in Pauli/U check gadgets satisfy the stated support contract",
+    "native Fredkin and idle/leakage model validation",
+    "protected input preparation and final recovery/extraction"
+  ],
+  "unproved": "Full native-location enumeration of complete physical verification circuits"
+}

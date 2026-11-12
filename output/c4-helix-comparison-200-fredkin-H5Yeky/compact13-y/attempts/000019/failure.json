@@ -1,0 +1,196 @@
+{
+  "kind": "failure",
+  "failure_kind": "memory_limit",
+  "error": "MemoryError: Coherent term limit exceeded: 8192 > 4096",
+  "traceback": "Traceback (most recent call last):\n  File \"/Users/kevinhemery/quanti/top-order-lit-rev/src/simulate_c4_helix_depolarizing.py\", line 91, in _attempt_worker\n    result = simulator.run(diagnose=False)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/kevinhemery/quanti/top-order-lit-rev/src/simulate_c4_helix_depolarizing.py\", line 50, in run\n    result = super().run()\n             ^^^^^^^^^^^^^\n  File \"/Users/kevinhemery/quanti/top-order-lit-rev/src/simulate_c4_helix_reduced.py\", line 415, in run\n    self.prepare_graph(cycle)\n  File \"/Users/kevinhemery/quanti/top-order-lit-rev/src/simulate_c4_helix_reduced.py\", line 274, in prepare_graph\n    common = self.acquire_record(prefix, family, cycle[\"graph_source\"], stage=\"graph\")\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/kevinhemery/quanti/top-order-lit-rev/src/simulate_c4_helix_reduced.py\", line 191, in acquire_record\n    report = measure_grouped_protected_cat(self.runtime, location, ports,\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/kevinhemery/quanti/top-order-lit-rev/src/c4_helix_reduced_gadgets.py\", line 199, in measure_grouped_protected_cat\n    leaves = prepare_repaired_cat(runtime, location, size, zero_scans=2)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/kevinhemery/quanti/top-order-lit-rev/src/c4_helix_reduced_gadgets.py\", line 120, in prepare_repaired_cat\n    runtime.gate(location + \"/cat/H\", \"H\", leaves[0])\n  File \"/Users/kevinhemery/quanti/top-order-lit-rev/src/c4_helix_depolarizing.py\", line 162, in gate\n    return super().gate(location, operation, *targets)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/kevinhemery/quanti/top-order-lit-rev/src/c4_helix_fault_runtime.py\", line 117, in gate\n    self.state = self.state.gate(operation, *targets)\n                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/kevinhemery/quanti/top-order-lit-rev/src/sparse_gadget_state.py\", line 354, in gate\n    return self._combine(contributions)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/kevinhemery/quanti/top-order-lit-rev/src/sparse_gadget_state.py\", line 179, in _combine\n    raise MemoryError(f\"Coherent term limit exceeded: {len(terms)} > {self.max_terms}\")\nMemoryError: Coherent term limit exceeded: 8192 > 4096\n",
+  "noise_events_so_far": {
+    "sampled_events": 10,
+    "channel_opportunities": {
+      "idle": 642276,
+      "preparation": 2422,
+      "gate_1q": 1428,
+      "gate_2q": 6425,
+      "readout": 2357,
+      "gate_3q": 100
+    },
+    "event_counts_by_channel": {
+      "readout_flip": 1,
+      "gate_2q_depolarizing": 8,
+      "gate_3q_depolarizing": 1
+    },
+    "pauli_factor_counts": {
+      "Z": 5,
+      "Y": 6,
+      "X": 5
+    },
+    "sum_of_executed_channel_probabilities": "45603/4000",
+    "events": [
+      {
+        "id": 0,
+        "physical_event_index": 251,
+        "location": "source/B/round/0/Z/1/syndrome/measure",
+        "timing": "report",
+        "channel": "readout_flip",
+        "operation": "MZ",
+        "targets": [
+          "L_0"
+        ],
+        "paulis": {},
+        "flip_report": true
+      },
+      {
+        "id": 1,
+        "physical_event_index": 1405,
+        "location": "source/C/round/0/X/1/couple/3",
+        "timing": "after",
+        "channel": "gate_2q_depolarizing",
+        "operation": "CX",
+        "targets": [
+          "L_0",
+          "C_7"
+        ],
+        "paulis": {
+          "L_0": "Z",
+          "C_7": "Z"
+        },
+        "flip_report": false
+      },
+      {
+        "id": 2,
+        "physical_event_index": 1695,
+        "location": "source/C/round/0/logical/1/flag_cat/uncompute/1",
+        "timing": "after",
+        "channel": "gate_2q_depolarizing",
+        "operation": "CX",
+        "targets": [
+          "L_0",
+          "L_1"
+        ],
+        "paulis": {
+          "L_0": "Y",
+          "L_1": "Z"
+        },
+        "flip_report": false
+      },
+      {
+        "id": 3,
+        "physical_event_index": 1754,
+        "location": "source/C/round/1/X/5/couple/5",
+        "timing": "after",
+        "channel": "gate_2q_depolarizing",
+        "operation": "CX",
+        "targets": [
+          "L_2",
+          "C_11"
+        ],
+        "paulis": {
+          "C_11": "Z"
+        },
+        "flip_report": false
+      },
+      {
+        "id": 4,
+        "physical_event_index": 2090,
+        "location": "source/C/round/2/X/6/flag_cat/uncompute/1",
+        "timing": "after",
+        "channel": "gate_2q_depolarizing",
+        "operation": "CX",
+        "targets": [
+          "L_0",
+          "L_1"
+        ],
+        "paulis": {
+          "L_0": "X",
+          "L_1": "Y"
+        },
+        "flip_report": false
+      },
+      {
+        "id": 5,
+        "physical_event_index": 3402,
+        "location": "cycle/0/graph/round/0/vertex/d/cat/chain/3",
+        "timing": "after",
+        "channel": "gate_2q_depolarizing",
+        "operation": "CX",
+        "targets": [
+          "L_3",
+          "L_4"
+        ],
+        "paulis": {
+          "L_3": "Y",
+          "L_4": "Z"
+        },
+        "flip_report": false
+      },
+      {
+        "id": 6,
+        "physical_event_index": 5754,
+        "location": "cycle/0/gauged/round/0/paired/X/8/cat/chain/1",
+        "timing": "after",
+        "channel": "gate_2q_depolarizing",
+        "operation": "CX",
+        "targets": [
+          "L_1",
+          "L_2"
+        ],
+        "paulis": {
+          "L_1": "Y"
+        },
+        "flip_report": false
+      },
+      {
+        "id": 7,
+        "physical_event_index": 6497,
+        "location": "cycle/0/gauged/round/0/gauss/b/couple/5",
+        "timing": "after",
+        "channel": "gate_3q_depolarizing",
+        "operation": "FREDKIN",
+        "targets": [
+          "L_5",
+          "B_4",
+          "C_4"
+        ],
+        "paulis": {
+          "L_5": "X",
+          "B_4": "X",
+          "C_4": "Y"
+        },
+        "flip_report": false
+      },
+      {
+        "id": 8,
+        "physical_event_index": 6636,
+        "location": "cycle/0/gauged/round/0/gauss/d/verify/1/4/right",
+        "timing": "after",
+        "channel": "gate_2q_depolarizing",
+        "operation": "CX",
+        "targets": [
+          "L_5",
+          "w"
+        ],
+        "paulis": {
+          "w": "X"
+        },
+        "flip_report": false
+      },
+      {
+        "id": 9,
+        "physical_event_index": 6973,
+        "location": "cycle/0/gauged/round/1/paired/X/7/verify/1/2/left",
+        "timing": "after",
+        "channel": "gate_2q_depolarizing",
+        "operation": "CX",
+        "targets": [
+          "L_2",
+          "w"
+        ],
+        "paulis": {
+          "L_2": "X",
+          "w": "Y"
+        },
+        "flip_report": false
+      }
+    ]
+  },
+  "physical_events_so_far": 12732
+}

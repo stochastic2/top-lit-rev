@@ -1,0 +1,264 @@
+{
+  "scope": "Ideal check algebra and static physical-qubit distance only; no circuit fault-distance claim",
+  "paper": "arXiv:2610.03920v1, Magic Quantum Code Surgery",
+  "controller_assignment": {
+    "a": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "b": [
+      4,
+      5,
+      6,
+      7
+    ],
+    "c": [
+      8,
+      9,
+      10,
+      11
+    ],
+    "d": [
+      12,
+      13,
+      14,
+      15
+    ],
+    "e": [
+      16,
+      17,
+      18,
+      19
+    ]
+  },
+  "graph_degree": 8,
+  "graph_cheeger_constant": "6",
+  "nonzero_cut_minimum_weight": 8,
+  "cycle_rank": 16,
+  "cycle_check_maximum_weight": 3,
+  "cycle_basis_maximum_edge_incidence": 4,
+  "maximum_matter_vertex_set_size_nu": 8,
+  "dressing_paths": [
+    [
+      [],
+      [],
+      [],
+      []
+    ],
+    [
+      [],
+      [],
+      [],
+      []
+    ],
+    [
+      [],
+      [],
+      [],
+      []
+    ],
+    [
+      [],
+      [],
+      [],
+      []
+    ],
+    [
+      [],
+      [],
+      [],
+      []
+    ],
+    [
+      [],
+      [],
+      [
+        7
+      ],
+      [
+        7
+      ],
+      [
+        11
+      ],
+      [
+        11
+      ],
+      [
+        3
+      ],
+      [
+        3
+      ]
+    ],
+    [
+      [],
+      [],
+      [
+        8
+      ],
+      [
+        8
+      ],
+      [
+        14
+      ],
+      [
+        14
+      ],
+      [
+        4
+      ],
+      [
+        4
+      ]
+    ],
+    [
+      [
+        11
+      ],
+      [
+        11
+      ],
+      [],
+      [],
+      [
+        2
+      ],
+      [
+        2
+      ],
+      [
+        1
+      ],
+      [
+        1
+      ]
+    ],
+    [
+      [
+        3
+      ],
+      [
+        3
+      ],
+      [
+        14
+      ],
+      [
+        14
+      ],
+      [],
+      [],
+      [
+        5
+      ],
+      [
+        5
+      ]
+    ],
+    [
+      [
+        0
+      ],
+      [
+        0
+      ],
+      [
+        4
+      ],
+      [
+        4
+      ],
+      [
+        1
+      ],
+      [
+        1
+      ],
+      [],
+      []
+    ]
+  ],
+  "distinct_nonidentity_DX_DZ_commutators": [
+    [
+      1,
+      4,
+      8
+    ],
+    [
+      0,
+      1,
+      11
+    ],
+    [
+      2,
+      3,
+      11
+    ],
+    [
+      4,
+      5,
+      14
+    ],
+    [
+      3,
+      7,
+      14
+    ]
+  ],
+  "additional_redundant_cycle_checks": [
+    [
+      1,
+      4,
+      8
+    ],
+    [
+      4,
+      5,
+      14
+    ]
+  ],
+  "central_Pauli_checks_listed": 38,
+  "central_Pauli_checks_independent": 34,
+  "remaining_checks_listed": {
+    "Gauss": 5,
+    "dressed_X_B": 10,
+    "dressed_Z_B": 10
+  },
+  "gauged_round_subrounds": [
+    "central Pauli",
+    "Gauss",
+    "dressed X_B",
+    "dressed Z_B"
+  ],
+  "paper_unoptimized_schedule_rounds": {
+    "before": 6,
+    "gauged": 6,
+    "after": 6
+  },
+  "static_gauged_code_distance": 6,
+  "static_lower_bound_ingredients": {
+    "matter_code_distance": 6,
+    "gauge_cut_distance": 8,
+    "local_SWAPS_preserve_Pauli_weight": true
+  },
+  "weight_six_witness": {
+    "operator": "logical_X0_on_B",
+    "physical_support": [
+      2,
+      3,
+      8,
+      11,
+      12,
+      15
+    ],
+    "surviving_permutations": 4,
+    "total_permutations": 16,
+    "compressed_operator": "(1/4) P_plus X_B0 P_plus"
+  },
+  "physical_circuit_two_fault_guarantee_established": false,
+  "decoder_for_randomized_detectors_implemented": false
+}

@@ -1,0 +1,578 @@
+{
+  "verified": true,
+  "persistent_version": 2,
+  "graphs": {
+    "compact13": {
+      "root": {
+        "root_degree": 6,
+        "gates": {
+          "PREP": 22,
+          "H": 2,
+          "CX": 68,
+          "TDG": 20,
+          "T": 20,
+          "MZ": 22
+        },
+        "locations_with_all_port_idles": 4450,
+        "local_basis_cases": 14408,
+        "opaque_signatures": 141,
+        "accepted_equal_flag_pairs": 1747,
+        "zero_flag_data_support_per_fault": 1,
+        "graph_support": "unrestricted",
+        "normalization": "modulo U times root X star; graph factors absorbed in environment",
+        "graph_ports_strictly_after_data": true,
+        "T_propagation": "opaque one-site algebras, not Pauli XOR"
+      },
+      "fused_initial": {
+        "two_control_matrix_basis_cases": 16,
+        "exact_phase_modulus": 8,
+        "actual_compiled_port_basis_cases": 160,
+        "gate_location_cones_checked": 76,
+        "maximum_data_blocks_per_fused_gate_fault": 1,
+        "gates": {
+          "TDG": 20,
+          "CX": 36,
+          "T": 20
+        },
+        "control_Z_strings_commute_exactly": true,
+        "method": "participant light cones and exact monomial phases; not XOR through T"
+      },
+      "preparation": {
+        "Z_rank": 13,
+        "constrained_dimension": 32,
+        "Walsh_inner_products": 1024,
+        "coordinate_patterns": 32,
+        "emitted_program_matches_independent_list": true,
+        "clean_gates": {
+          "PREP": 57,
+          "H": 5,
+          "CX": 143,
+          "BOUNDARY": 4,
+          "MZ": 39
+        },
+        "verification_helpers": 1
+      },
+      "ideal_records": {
+        "vertex_records": 32,
+        "edge_words_per_record": 16,
+        "joint_branches": 512,
+        "total_probability": "1",
+        "positive_probability": "3/4",
+        "positive_data_numerator": [
+          2,
+          2,
+          2,
+          0
+        ],
+        "negative_data_numerator": [
+          0,
+          0,
+          0,
+          2
+        ],
+        "edge_dependent_data_correction": false,
+        "status": "exact finite certificate"
+      },
+      "stars": {
+        "nonroot_rank": 4,
+        "all_star_sign_repairs": 256,
+        "auxiliary_graph_dimension": 512,
+        "root_star_product_identity_global": true,
+        "cut_distance": 5,
+        "cut_distance_used_for_recovery": false
+      },
+      "clean_costs": {
+        "gates": {
+          "IDLE": 97581,
+          "PREP": 479,
+          "H": 663,
+          "CX": 1574,
+          "MZ": 459,
+          "TDG": 80,
+          "T": 80
+        },
+        "stages": {
+          "source/raw": {
+            "IDLE": 1337,
+            "PREP": 20,
+            "H": 11,
+            "CX": 51
+          },
+          "source/checks": {
+            "IDLE": 26316,
+            "PREP": 144,
+            "H": 432,
+            "CX": 516,
+            "MZ": 144
+          },
+          "source/correction": {
+            "IDLE": 20
+          },
+          "graph/raw": {
+            "IDLE": 1597,
+            "PREP": 18,
+            "H": 5,
+            "CX": 26
+          },
+          "graph/parity": {
+            "IDLE": 7407,
+            "PREP": 39,
+            "CX": 117,
+            "MZ": 39
+          },
+          "persistent/fused_initial": {
+            "IDLE": 2776,
+            "TDG": 20,
+            "CX": 36,
+            "T": 20
+          },
+          "vertex_readout": {
+            "IDLE": 350,
+            "H": 5,
+            "MZ": 5
+          },
+          "vertex_frame": {
+            "IDLE": 33
+          },
+          "persistent/code": {
+            "IDLE": 37662,
+            "PREP": 180,
+            "CX": 564,
+            "H": 180,
+            "MZ": 180
+          },
+          "persistent/star": {
+            "IDLE": 3504,
+            "PREP": 12,
+            "H": 24,
+            "CX": 60,
+            "MZ": 12
+          },
+          "persistent/transported_Gauss": {
+            "IDLE": 16221,
+            "PREP": 66,
+            "H": 6,
+            "CX": 204,
+            "TDG": 60,
+            "T": 60,
+            "MZ": 66
+          },
+          "persistent/discard_graph": {
+            "IDLE": 358,
+            "MZ": 13
+          }
+        },
+        "peak_live": 39,
+        "allocated_physical_slots": 39,
+        "reinitializations_after_first_use": 440,
+        "T_or_TDG": 160,
+        "one_qubit_Clifford": 663,
+        "atomic_multiqubit_gates": 0
+      }
+    },
+    "current20": {
+      "root": {
+        "root_degree": 8,
+        "gates": {
+          "PREP": 22,
+          "H": 2,
+          "CX": 70,
+          "TDG": 20,
+          "T": 20,
+          "MZ": 22
+        },
+        "locations_with_all_port_idles": 4814,
+        "local_basis_cases": 15526,
+        "opaque_signatures": 147,
+        "accepted_equal_flag_pairs": 2251,
+        "zero_flag_data_support_per_fault": 1,
+        "graph_support": "unrestricted",
+        "normalization": "modulo U times root X star; graph factors absorbed in environment",
+        "graph_ports_strictly_after_data": true,
+        "T_propagation": "opaque one-site algebras, not Pauli XOR"
+      },
+      "fused_initial": {
+        "two_control_matrix_basis_cases": 16,
+        "exact_phase_modulus": 8,
+        "actual_compiled_port_basis_cases": 160,
+        "gate_location_cones_checked": 76,
+        "maximum_data_blocks_per_fused_gate_fault": 1,
+        "gates": {
+          "TDG": 20,
+          "CX": 36,
+          "T": 20
+        },
+        "control_Z_strings_commute_exactly": true,
+        "method": "participant light cones and exact monomial phases; not XOR through T"
+      },
+      "preparation": {
+        "Z_rank": 20,
+        "constrained_dimension": 32,
+        "Walsh_inner_products": 1024,
+        "coordinate_patterns": 32,
+        "emitted_program_matches_independent_list": true,
+        "clean_gates": {
+          "PREP": 85,
+          "H": 5,
+          "CX": 220,
+          "BOUNDARY": 4,
+          "MZ": 60
+        },
+        "verification_helpers": 1
+      },
+      "ideal_records": {
+        "vertex_records": 32,
+        "edge_words_per_record": 16,
+        "joint_branches": 512,
+        "total_probability": "1",
+        "positive_probability": "3/4",
+        "positive_data_numerator": [
+          2,
+          2,
+          2,
+          0
+        ],
+        "negative_data_numerator": [
+          0,
+          0,
+          0,
+          2
+        ],
+        "edge_dependent_data_correction": false,
+        "status": "exact finite certificate"
+      },
+      "stars": {
+        "nonroot_rank": 4,
+        "all_star_sign_repairs": 256,
+        "auxiliary_graph_dimension": 65536,
+        "root_star_product_identity_global": true,
+        "cut_distance": 8,
+        "cut_distance_used_for_recovery": false
+      },
+      "clean_costs": {
+        "gates": {
+          "IDLE": 118945,
+          "PREP": 507,
+          "H": 663,
+          "CX": 1693,
+          "MZ": 487,
+          "TDG": 80,
+          "T": 80
+        },
+        "stages": {
+          "source/raw": {
+            "IDLE": 1337,
+            "PREP": 20,
+            "H": 11,
+            "CX": 51
+          },
+          "source/checks": {
+            "IDLE": 26316,
+            "PREP": 144,
+            "H": 432,
+            "CX": 516,
+            "MZ": 144
+          },
+          "source/correction": {
+            "IDLE": 20
+          },
+          "graph/raw": {
+            "IDLE": 2675,
+            "PREP": 25,
+            "H": 5,
+            "CX": 40
+          },
+          "graph/parity": {
+            "IDLE": 13455,
+            "PREP": 60,
+            "CX": 180,
+            "MZ": 60
+          },
+          "persistent/fused_initial": {
+            "IDLE": 3308,
+            "TDG": 20,
+            "CX": 36,
+            "T": 20
+          },
+          "vertex_readout": {
+            "IDLE": 420,
+            "H": 5,
+            "MZ": 5
+          },
+          "vertex_frame": {
+            "IDLE": 40
+          },
+          "persistent/code": {
+            "IDLE": 45390,
+            "PREP": 180,
+            "CX": 564,
+            "H": 180,
+            "MZ": 180
+          },
+          "persistent/star": {
+            "IDLE": 5664,
+            "PREP": 12,
+            "H": 24,
+            "CX": 96,
+            "MZ": 12
+          },
+          "persistent/transported_Gauss": {
+            "IDLE": 19710,
+            "PREP": 66,
+            "H": 6,
+            "CX": 210,
+            "TDG": 60,
+            "T": 60,
+            "MZ": 66
+          },
+          "persistent/discard_graph": {
+            "IDLE": 610,
+            "MZ": 20
+          }
+        },
+        "peak_live": 46,
+        "allocated_physical_slots": 46,
+        "reinitializations_after_first_use": 461,
+        "T_or_TDG": 160,
+        "one_qubit_Clifford": 663,
+        "atomic_multiqubit_gates": 0
+      }
+    },
+    "tree4": {
+      "root": {
+        "root_degree": 4,
+        "gates": {
+          "PREP": 22,
+          "H": 2,
+          "CX": 66,
+          "TDG": 20,
+          "T": 20,
+          "MZ": 22
+        },
+        "locations_with_all_port_idles": 4094,
+        "local_basis_cases": 13314,
+        "opaque_signatures": 135,
+        "accepted_equal_flag_pairs": 1315,
+        "zero_flag_data_support_per_fault": 1,
+        "graph_support": "unrestricted",
+        "normalization": "modulo U times root X star; graph factors absorbed in environment",
+        "graph_ports_strictly_after_data": true,
+        "T_propagation": "opaque one-site algebras, not Pauli XOR"
+      },
+      "fused_initial": {
+        "two_control_matrix_basis_cases": 16,
+        "exact_phase_modulus": 8,
+        "actual_compiled_port_basis_cases": 160,
+        "gate_location_cones_checked": 76,
+        "maximum_data_blocks_per_fused_gate_fault": 1,
+        "gates": {
+          "TDG": 20,
+          "CX": 36,
+          "T": 20
+        },
+        "control_Z_strings_commute_exactly": true,
+        "method": "participant light cones and exact monomial phases; not XOR through T"
+      },
+      "preparation": {
+        "Z_rank": 4,
+        "constrained_dimension": 32,
+        "Walsh_inner_products": 1024,
+        "coordinate_patterns": 32,
+        "emitted_program_matches_independent_list": true,
+        "clean_gates": {
+          "PREP": 21,
+          "H": 5,
+          "CX": 44,
+          "BOUNDARY": 4,
+          "MZ": 12
+        },
+        "verification_helpers": 1
+      },
+      "ideal_records": {
+        "vertex_records": 32,
+        "edge_words_per_record": 16,
+        "joint_branches": 512,
+        "total_probability": "1",
+        "positive_probability": "3/4",
+        "positive_data_numerator": [
+          2,
+          2,
+          2,
+          0
+        ],
+        "negative_data_numerator": [
+          0,
+          0,
+          0,
+          2
+        ],
+        "edge_dependent_data_correction": false,
+        "status": "exact finite certificate"
+      },
+      "stars": {
+        "nonroot_rank": 4,
+        "all_star_sign_repairs": 256,
+        "auxiliary_graph_dimension": 1,
+        "root_star_product_identity_global": true,
+        "cut_distance": 1,
+        "cut_distance_used_for_recovery": false
+      },
+      "clean_costs": {
+        "gates": {
+          "IDLE": 73569,
+          "PREP": 443,
+          "H": 663,
+          "CX": 1421,
+          "MZ": 423,
+          "TDG": 80,
+          "T": 80
+        },
+        "stages": {
+          "source/raw": {
+            "IDLE": 1337,
+            "PREP": 20,
+            "H": 11,
+            "CX": 51
+          },
+          "source/checks": {
+            "IDLE": 26316,
+            "PREP": 144,
+            "H": 432,
+            "CX": 516,
+            "MZ": 144
+          },
+          "source/correction": {
+            "IDLE": 20
+          },
+          "graph/raw": {
+            "IDLE": 571,
+            "PREP": 9,
+            "H": 5,
+            "CX": 8
+          },
+          "graph/parity": {
+            "IDLE": 1791,
+            "PREP": 12,
+            "CX": 36,
+            "MZ": 12
+          },
+          "persistent/fused_initial": {
+            "IDLE": 2092,
+            "TDG": 20,
+            "CX": 36,
+            "T": 20
+          },
+          "vertex_readout": {
+            "IDLE": 260,
+            "H": 5,
+            "MZ": 5
+          },
+          "vertex_frame": {
+            "IDLE": 24
+          },
+          "persistent/code": {
+            "IDLE": 27726,
+            "PREP": 180,
+            "CX": 564,
+            "H": 180,
+            "MZ": 180
+          },
+          "persistent/star": {
+            "IDLE": 1428,
+            "PREP": 12,
+            "H": 24,
+            "CX": 12,
+            "MZ": 12
+          },
+          "persistent/transported_Gauss": {
+            "IDLE": 11898,
+            "PREP": 66,
+            "H": 6,
+            "CX": 198,
+            "TDG": 60,
+            "T": 60,
+            "MZ": 66
+          },
+          "persistent/discard_graph": {
+            "IDLE": 106,
+            "MZ": 4
+          }
+        },
+        "peak_live": 30,
+        "allocated_physical_slots": 30,
+        "reinitializations_after_first_use": 413,
+        "T_or_TDG": 160,
+        "one_qubit_Clifford": 663,
+        "atomic_multiqubit_gates": 0
+      }
+    }
+  },
+  "resource_meter": {
+    "locations_including_resource_idles": 17,
+    "Pauli_and_report_cases": 96,
+    "merged_signatures": 32,
+    "signature_pairs": 1024,
+    "max_resource_X_support_per_fault": 1,
+    "phase_spread_can_reach_three_resources": true,
+    "scope": "Clifford meter support audit; phases arbitrary in the analytical graph-span lemma"
+  },
+  "passing_rounds": {
+    "accepted_report_patterns_and_bad_round_placements": 136,
+    "global_fault_budget": 2,
+    "three_positive_complete_rounds_contain_a_clean_one": true
+  },
+  "restricted_phase_support_search": {
+    "stabilizer_supports_checked": 512,
+    "allowed_odd_S_supports": [
+      [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19
+      ]
+    ],
+    "scope": "necessary conditions for the same diagonal-S / Pauli-stabilizer involution family; not all logical CZ representatives"
+  },
+  "naive_untransported_root_counterexample": {
+    "naive_operator": "U_a times root X star, incorrectly retained after V",
+    "encoded_computational_expectations": [
+      "1/2",
+      "1/2",
+      "1/2",
+      "1/2"
+    ],
+    "positive_probability_on_genuine_negative_logical_11": "3/4",
+    "scope": "counterexample to using the old root observable in the new frame; not a full-factory trajectory"
+  },
+  "full_factory_location_pairs_enumerated": false,
+  "arbitrary_fault_composition": "analytical",
+  "terminal_recovery": "not required: only physical-site cones after the last clean combined round",
+  "source_sha256": {
+    "single_cz_persistent.py": "e265b91aefa192c57d31ff4f876b9f80b345573c5c1a603308f9970319156b23",
+    "single_cz_controller.py": "69df140debf8d4adaa780cd9f5560d3c3c85d1fc8eeab786fa3f1c1c20a73c90",
+    "single_cz_flagged.py": "e0996922ad3ffc679fe7d879e3627406953811a5bbf1ad1618a7e46c0126a99c",
+    "single_cz_graph_stars.py": "e20a57533b9ed896cfd3d0f5e4b42a3bed854471eaf831f4344f970a6cfd4093",
+    "single_cz_compact_checks.py": "1473b99a434a5619219d0348a88f6394dcadfe6ff0babf5f7fbc6b6ff71c3abf",
+    "single_cz_recovery.py": "779b678abf09a3daaddac1b4889f03010e92aeed3fa5553cb9175daada356a6b",
+    "check_single_cz_persistent.py": "3ad69081095b57de4977c601c27894283b8fd87d62376327bbb656b62c7cfc96",
+    "check_single_cz_flags.py": "a4cad64169f81718fd0a08bea307ab5b82ca902be1f41e8bed04cf126218b1c9",
+    "check_single_cz_graph_parity.py": "d302ef396d8f0598af44b3dcabb6988c544d6eee95783a7cb50a9c8f444b69f8",
+    "simulate_single_block_cz_depolarizing.py": "8d0ca3e9d8afd13db7dbf651ba21bd8ede6ec8195b4341bcc86a42138fe84850"
+  }
+}

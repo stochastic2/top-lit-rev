@@ -1,0 +1,11 @@
+\begin{center}\begin{adjustbox}{max width=\linewidth}
+\begin{quantikz}[row sep={.65cm,between origins},column sep=.7cm]
+\lstick{$\color{groupa}B_q$} & \meter{} & \rstick{$n_q$}\cw \\
+\lstick{$\color{groupa}C_q$} & \qw & \rstick{$\text{retain}$}\qw
+\end{quantikz}
+\end{adjustbox}\end{center}
+\begin{center}\begin{adjustbox}{max width=\linewidth}
+\begin{quantikz}[row sep={.28cm,between origins},column sep=.6cm]
+\lstick{$n_0,\ldots,n_{19}$} & \gate[cwires={1}]{\operatorname{Dec}_{B}} & \gate[cwires={1}]{\ell(n\oplus e)} & \rstick{$\text{keep iff }0$}\cw
+\end{quantikz}
+\end{adjustbox}\end{center}

@@ -1,0 +1,126 @@
+attempt 0: verification_flag:gauged/1/root_Gauss; 0.98s
+attempt 1: accepted; 1.94s
+attempt 2: verification_flag:flag_recovery/6/1/Z/7; 3.59s
+attempt 3: accepted; 3.20s
+attempt 4: verification_flag:flag_recovery/0/0/X/1; 1.28s
+attempt 5: accepted; 2.83s
+attempt 6: verification_flag:gauged/2/root_Gauss; 2.17s
+attempt 7: verification_flag:flag_recovery/2/1/X/6; 2.20s
+attempt 8: flag_data_absent; 2.71s
+attempt 9: flag_data_absent; 3.14s
+attempt 10: accepted; 2.13s
+attempt 11: accepted; 1.02s
+attempt 12: accepted; 1.59s
+attempt 13: accepted; 1.93s
+attempt 14: verification_flag:gauged/2/root_Gauss; 2.64s
+attempt 15: accepted; 2.95s
+attempt 16: accepted; 2.13s
+attempt 17: verification_flag:gauged/1/root_Gauss; 1.82s
+attempt 18: unstable_flag_recovery_history; 0.90s
+attempt 19: accepted; 1.55s
+attempt 20: flag_data_absent; 1.68s
+attempt 21: accepted; 0.96s
+attempt 22: insufficient_positive_gauged_rounds; 2.00s
+attempt 23: verification_flag:flag_recovery/0/1/X/6; 0.97s
+attempt 24: verification_flag:gauged/1/root_Gauss; 0.67s
+attempt 25: flag_data_absent; 1.51s
+attempt 26: verification_flag:flag_recovery/0/0/Z/5; 0.75s
+attempt 27: flag_data_absent; 2.36s
+attempt 28: insufficient_positive_gauged_rounds; 1.26s
+attempt 29: accepted; 7.04s
+attempt 30: verification_flag:flag_recovery/0/1/X/3; 0.91s
+attempt 31: verification_flag:flag_recovery/0/0/Z/5; 0.56s
+attempt 32: verification_flag:terminal_screen_recovery/1/X/3; 2.41s
+attempt 33: insufficient_positive_gauged_rounds; 1.98s
+attempt 34: accepted; 1.47s
+attempt 35: verification_flag:gauged/0/root_Gauss; 1.85s
+attempt 36: verification_flag:gauged/0/root_Gauss; 0.95s
+attempt 37: verification_flag:flag_recovery/0/0/X/3; 1.10s
+attempt 38: insufficient_positive_gauged_rounds; 1.31s
+attempt 39: accepted; 1.47s
+{
+  "attempts": 40,
+  "completed": 40,
+  "unresolved": 0,
+  "accepted": 14,
+  "rejected": 26,
+  "acceptance_among_completed": 0.35,
+  "acceptance_Wilson95": [
+    0.2213452887317629,
+    0.5049411916274231
+  ],
+  "acceptance_bounds_all_attempts": [
+    0.35,
+    0.35
+  ],
+  "rejection_counts": {
+    "verification_flag:gauged/1/root_Gauss": 3,
+    "verification_flag:flag_recovery/6/1/Z/7": 1,
+    "verification_flag:flag_recovery/0/0/X/1": 1,
+    "verification_flag:gauged/2/root_Gauss": 2,
+    "verification_flag:flag_recovery/2/1/X/6": 1,
+    "flag_data_absent": 5,
+    "unstable_flag_recovery_history": 1,
+    "insufficient_positive_gauged_rounds": 4,
+    "verification_flag:flag_recovery/0/1/X/6": 1,
+    "verification_flag:flag_recovery/0/0/Z/5": 2,
+    "verification_flag:flag_recovery/0/1/X/3": 1,
+    "verification_flag:terminal_screen_recovery/1/X/3": 1,
+    "verification_flag:gauged/0/root_Gauss": 2,
+    "verification_flag:flag_recovery/0/0/X/3": 1
+  },
+  "failure_counts": {},
+  "accepted_assessed": 14,
+  "accepted_diagnostics_missing": 0,
+  "mean_decoded_fidelity": 0.9285714285714286,
+  "mean_is_assessed_accepted_subset_only": true,
+  "decoded_fidelity_bounds_all_known_accepted": [
+    0.9285714285714286,
+    0.9285714285714286
+  ],
+  "minimum_decoded_fidelity": 0.0,
+  "accepted_within_target_tolerance": 13,
+  "flag_recovery_episodes": 71,
+  "successful_flag_recoveries": 57,
+  "accepted_after_flag_recovery": 11,
+  "accepted_terminal_screen_outcomes": {
+    "syndrome_fallback": 1,
+    "flag_recovery": 4,
+    "zero_accept": 9
+  },
+  "total_executed_gates_completed": {
+    "IDLE": 9476982,
+    "PREP": 42959,
+    "H": 85578,
+    "CX": 134284,
+    "BOUNDARY": 434,
+    "MZ": 42679,
+    "TDG": 4356,
+    "T": 4356,
+    "Z": 153,
+    "X": 165,
+    "S": 88,
+    "Y": 20,
+    "SDG": 28
+  },
+  "cost_per_accepted_completed": {
+    "IDLE": 676927.2857142857,
+    "PREP": 3068.5,
+    "H": 6112.714285714285,
+    "CX": 9591.714285714286,
+    "BOUNDARY": 31.0,
+    "MZ": 3048.5,
+    "TDG": 311.14285714285717,
+    "T": 311.14285714285717,
+    "Z": 10.928571428571429,
+    "X": 11.785714285714286,
+    "S": 6.285714285714286,
+    "Y": 1.4285714285714286,
+    "SDG": 2.0
+  },
+  "cost_is_matched_fidelity": false,
+  "unresolved_can_bias_completed_subset": false,
+  "two_fault_prediction_violation_shots": [],
+  "ideal_success_probability": 0.75,
+  "target": "encoded_two_logical_qubit_CZ_magic"
+}

@@ -1,0 +1,102 @@
+attempt 0: verification_flag:gauged/0/root_Gauss; 0.67s
+attempt 1: accepted; 0.94s
+attempt 2: verification_flag:flag_recovery/1/1/X/7; 1.26s
+attempt 3: accepted; 2.40s
+attempt 4: accepted; 1.08s
+attempt 5: insufficient_positive_gauged_rounds; 1.48s
+attempt 6: verification_flag:gauged/1/root_Gauss; 1.28s
+attempt 7: shared_retry_limit:known_unused_source:source/certify/3/X/7; 0.37s
+attempt 8: shared_retry_limit:known_unused_source:source/certify/1/X/10; 0.26s
+attempt 9: insufficient_positive_gauged_rounds; 3.79s
+attempt 10: accepted; 1.52s
+attempt 11: accepted; 3.01s
+attempt 12: shared_retry_limit:known_unused_graph_parity; 0.28s
+attempt 13: accepted; 1.13s
+attempt 14: insufficient_positive_gauged_rounds; 0.95s
+attempt 15: accepted; 2.26s
+attempt 16: verification_flag:flag_recovery/0/1/X/5; 1.57s
+attempt 17: verification_flag:gauged/2/root_Gauss; 3.66s
+attempt 18: shared_retry_limit:known_unused_source:source/certify/0/X/9; 0.34s
+attempt 19: verification_flag:gauged/1/root_Gauss; 0.97s
+{
+  "attempts": 20,
+  "completed": 20,
+  "unresolved": 0,
+  "accepted": 7,
+  "rejected": 13,
+  "acceptance_among_completed": 0.35,
+  "acceptance_Wilson95": [
+    0.18119182410108206,
+    0.5671457233147638
+  ],
+  "acceptance_bounds_all_attempts": [
+    0.35,
+    0.35
+  ],
+  "rejection_counts": {
+    "verification_flag:gauged/0/root_Gauss": 1,
+    "verification_flag:flag_recovery/1/1/X/7": 1,
+    "insufficient_positive_gauged_rounds": 3,
+    "verification_flag:gauged/1/root_Gauss": 2,
+    "shared_retry_limit:known_unused_source:source/certify/3/X/7": 1,
+    "shared_retry_limit:known_unused_source:source/certify/1/X/10": 1,
+    "shared_retry_limit:known_unused_graph_parity": 1,
+    "verification_flag:flag_recovery/0/1/X/5": 1,
+    "verification_flag:gauged/2/root_Gauss": 1,
+    "shared_retry_limit:known_unused_source:source/certify/0/X/9": 1
+  },
+  "failure_counts": {},
+  "accepted_assessed": 7,
+  "accepted_diagnostics_missing": 0,
+  "mean_decoded_fidelity": 1.0,
+  "mean_is_assessed_accepted_subset_only": true,
+  "decoded_fidelity_bounds_all_known_accepted": [
+    1.0,
+    1.0
+  ],
+  "minimum_decoded_fidelity": 1.0,
+  "accepted_within_target_tolerance": 7,
+  "flag_recovery_episodes": 21,
+  "successful_flag_recoveries": 19,
+  "accepted_after_flag_recovery": 5,
+  "accepted_terminal_screen_outcomes": {
+    "flag_verified": 4,
+    "syndrome_certified": 1,
+    "zero_accept": 2
+  },
+  "total_executed_gates_completed": {
+    "IDLE": 2960416,
+    "PREP": 14079,
+    "H": 27113,
+    "CX": 47622,
+    "BOUNDARY": 191,
+    "MZ": 13939,
+    "TDG": 1792,
+    "T": 1792,
+    "Z": 54,
+    "SDG": 18,
+    "X": 88,
+    "S": 38,
+    "Y": 5
+  },
+  "cost_per_accepted_completed": {
+    "IDLE": 422916.5714285714,
+    "PREP": 2011.2857142857142,
+    "H": 3873.285714285714,
+    "CX": 6803.142857142857,
+    "BOUNDARY": 27.285714285714285,
+    "MZ": 1991.2857142857142,
+    "TDG": 256.0,
+    "T": 256.0,
+    "Z": 7.714285714285714,
+    "SDG": 2.5714285714285716,
+    "X": 12.571428571428571,
+    "S": 5.428571428571429,
+    "Y": 0.7142857142857143
+  },
+  "cost_is_matched_fidelity": false,
+  "unresolved_can_bias_completed_subset": false,
+  "two_fault_prediction_violation_shots": [],
+  "ideal_success_probability": 0.75,
+  "target": "encoded_two_logical_qubit_CZ_magic"
+}

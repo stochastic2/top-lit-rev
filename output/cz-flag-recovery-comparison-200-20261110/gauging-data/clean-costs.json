@@ -1,0 +1,558 @@
+{
+  "compact13/conservative": {
+    "gates": {
+      "IDLE": 614062,
+      "PREP": 4399,
+      "H": 2694,
+      "CX": 8724,
+      "MZ": 4379,
+      "TDG": 128,
+      "T": 128
+    },
+    "stages": {
+      "source/raw": {
+        "IDLE": 1337,
+        "PREP": 20,
+        "H": 11,
+        "CX": 51
+      },
+      "source/acquire": {
+        "IDLE": 46254,
+        "PREP": 404,
+        "H": 240,
+        "CX": 788,
+        "MZ": 404
+      },
+      "source/verify": {
+        "IDLE": 138762,
+        "PREP": 1212,
+        "H": 720,
+        "CX": 2364,
+        "MZ": 1212
+      },
+      "graph/raw": {
+        "IDLE": 1597,
+        "PREP": 18,
+        "H": 5,
+        "CX": 26
+      },
+      "graph/parity": {
+        "IDLE": 7407,
+        "PREP": 39,
+        "CX": 117,
+        "MZ": 39
+      },
+      "enrichment": {
+        "IDLE": 2200,
+        "TDG": 20,
+        "CX": 20,
+        "T": 20
+      },
+      "vertex_readout": {
+        "IDLE": 350,
+        "H": 5,
+        "MZ": 5
+      },
+      "vertex_frame": {
+        "IDLE": 33
+      },
+      "coordinates/V": {
+        "IDLE": 9120,
+        "TDG": 96,
+        "CX": 96,
+        "T": 96
+      },
+      "gauged/code": {
+        "IDLE": 189942,
+        "PREP": 1086,
+        "H": 678,
+        "CX": 2118,
+        "MZ": 1086
+      },
+      "gauged/cycle": {
+        "IDLE": 38337,
+        "PREP": 219,
+        "H": 252,
+        "CX": 411,
+        "MZ": 219
+      },
+      "gauged/star": {
+        "IDLE": 32232,
+        "PREP": 204,
+        "H": 72,
+        "CX": 396,
+        "MZ": 204
+      },
+      "gauged/root_Gauss": {
+        "IDLE": 20715,
+        "PREP": 111,
+        "H": 33,
+        "CX": 219,
+        "MZ": 111,
+        "TDG": 12,
+        "T": 12
+      },
+      "edge_readout": {
+        "IDLE": 338,
+        "MZ": 13
+      },
+      "byproduct": {
+        "IDLE": 20
+      },
+      "terminal/code": {
+        "IDLE": 125418,
+        "PREP": 1086,
+        "H": 678,
+        "CX": 2118,
+        "MZ": 1086
+      }
+    },
+    "peak_live": 44,
+    "allocated_physical_slots": 44,
+    "reinitializations_after_first_use": 4355,
+    "T_or_TDG": 256,
+    "one_qubit_Clifford": 2694,
+    "atomic_multiqubit_gates": 0
+  },
+  "compact13/recovery": {
+    "gates": {
+      "IDLE": 175637,
+      "PREP": 968,
+      "H": 1323,
+      "CX": 2809,
+      "MZ": 948,
+      "TDG": 128,
+      "T": 128
+    },
+    "stages": {
+      "source/raw": {
+        "IDLE": 1337,
+        "PREP": 20,
+        "H": 11,
+        "CX": 51
+      },
+      "source/checks": {
+        "IDLE": 26316,
+        "PREP": 144,
+        "H": 432,
+        "CX": 516,
+        "MZ": 144
+      },
+      "source/correction": {
+        "IDLE": 20
+      },
+      "graph/raw": {
+        "IDLE": 1597,
+        "PREP": 18,
+        "H": 5,
+        "CX": 26
+      },
+      "graph/parity": {
+        "IDLE": 7407,
+        "PREP": 39,
+        "CX": 117,
+        "MZ": 39
+      },
+      "enrichment": {
+        "IDLE": 2200,
+        "TDG": 20,
+        "CX": 20,
+        "T": 20
+      },
+      "vertex_readout": {
+        "IDLE": 350,
+        "H": 5,
+        "MZ": 5
+      },
+      "vertex_frame": {
+        "IDLE": 33
+      },
+      "coordinates/V": {
+        "IDLE": 9120,
+        "TDG": 96,
+        "CX": 96,
+        "T": 96
+      },
+      "gauged/code": {
+        "IDLE": 62850,
+        "PREP": 300,
+        "H": 420,
+        "CX": 804,
+        "MZ": 300
+      },
+      "gauged/cycle": {
+        "IDLE": 4182,
+        "PREP": 27,
+        "CX": 75,
+        "MZ": 27
+      },
+      "gauged/star": {
+        "IDLE": 13704,
+        "PREP": 84,
+        "H": 24,
+        "CX": 204,
+        "MZ": 84
+      },
+      "gauged/root_Gauss": {
+        "IDLE": 7005,
+        "PREP": 36,
+        "H": 6,
+        "CX": 96,
+        "TDG": 12,
+        "T": 12,
+        "MZ": 36
+      },
+      "edge_readout": {
+        "IDLE": 338,
+        "MZ": 13
+      },
+      "byproduct": {
+        "IDLE": 20
+      },
+      "terminal/code": {
+        "IDLE": 39158,
+        "PREP": 300,
+        "H": 420,
+        "CX": 804,
+        "MZ": 300
+      }
+    },
+    "peak_live": 39,
+    "allocated_physical_slots": 39,
+    "reinitializations_after_first_use": 929,
+    "T_or_TDG": 256,
+    "one_qubit_Clifford": 1323,
+    "atomic_multiqubit_gates": 0
+  },
+  "current20/conservative": {
+    "gates": {
+      "IDLE": 732916,
+      "PREP": 4688,
+      "H": 2874,
+      "CX": 9302,
+      "MZ": 4668,
+      "TDG": 128,
+      "T": 128
+    },
+    "stages": {
+      "source/raw": {
+        "IDLE": 1337,
+        "PREP": 20,
+        "H": 11,
+        "CX": 51
+      },
+      "source/acquire": {
+        "IDLE": 46254,
+        "PREP": 404,
+        "H": 240,
+        "CX": 788,
+        "MZ": 404
+      },
+      "source/verify": {
+        "IDLE": 138762,
+        "PREP": 1212,
+        "H": 720,
+        "CX": 2364,
+        "MZ": 1212
+      },
+      "graph/raw": {
+        "IDLE": 2675,
+        "PREP": 25,
+        "H": 5,
+        "CX": 40
+      },
+      "graph/parity": {
+        "IDLE": 13455,
+        "PREP": 60,
+        "CX": 180,
+        "MZ": 60
+      },
+      "enrichment": {
+        "IDLE": 2620,
+        "TDG": 20,
+        "CX": 20,
+        "T": 20
+      },
+      "vertex_readout": {
+        "IDLE": 420,
+        "H": 5,
+        "MZ": 5
+      },
+      "vertex_frame": {
+        "IDLE": 40
+      },
+      "coordinates/V": {
+        "IDLE": 11136,
+        "TDG": 96,
+        "CX": 96,
+        "T": 96
+      },
+      "gauged/code": {
+        "IDLE": 224718,
+        "PREP": 1086,
+        "H": 678,
+        "CX": 2118,
+        "MZ": 1086
+      },
+      "gauged/cycle": {
+        "IDLE": 65964,
+        "PREP": 312,
+        "H": 390,
+        "CX": 576,
+        "MZ": 312
+      },
+      "gauged/star": {
+        "IDLE": 69252,
+        "PREP": 348,
+        "H": 108,
+        "CX": 684,
+        "MZ": 348
+      },
+      "gauged/root_Gauss": {
+        "IDLE": 30255,
+        "PREP": 135,
+        "H": 39,
+        "CX": 267,
+        "MZ": 135,
+        "TDG": 12,
+        "T": 12
+      },
+      "edge_readout": {
+        "IDLE": 590,
+        "MZ": 20
+      },
+      "byproduct": {
+        "IDLE": 20
+      },
+      "terminal/code": {
+        "IDLE": 125418,
+        "PREP": 1086,
+        "H": 678,
+        "CX": 2118,
+        "MZ": 1086
+      }
+    },
+    "peak_live": 53,
+    "allocated_physical_slots": 53,
+    "reinitializations_after_first_use": 4635,
+    "T_or_TDG": 256,
+    "one_qubit_Clifford": 2874,
+    "atomic_multiqubit_gates": 0
+  },
+  "current20/recovery": {
+    "gates": {
+      "IDLE": 215441,
+      "PREP": 1059,
+      "H": 1323,
+      "CX": 3051,
+      "MZ": 1039,
+      "TDG": 128,
+      "T": 128
+    },
+    "stages": {
+      "source/raw": {
+        "IDLE": 1337,
+        "PREP": 20,
+        "H": 11,
+        "CX": 51
+      },
+      "source/checks": {
+        "IDLE": 26316,
+        "PREP": 144,
+        "H": 432,
+        "CX": 516,
+        "MZ": 144
+      },
+      "source/correction": {
+        "IDLE": 20
+      },
+      "graph/raw": {
+        "IDLE": 2675,
+        "PREP": 25,
+        "H": 5,
+        "CX": 40
+      },
+      "graph/parity": {
+        "IDLE": 13455,
+        "PREP": 60,
+        "CX": 180,
+        "MZ": 60
+      },
+      "enrichment": {
+        "IDLE": 2620,
+        "TDG": 20,
+        "CX": 20,
+        "T": 20
+      },
+      "vertex_readout": {
+        "IDLE": 420,
+        "H": 5,
+        "MZ": 5
+      },
+      "vertex_frame": {
+        "IDLE": 40
+      },
+      "coordinates/V": {
+        "IDLE": 11136,
+        "TDG": 96,
+        "CX": 96,
+        "T": 96
+      },
+      "gauged/code": {
+        "IDLE": 75618,
+        "PREP": 300,
+        "H": 420,
+        "CX": 804,
+        "MZ": 300
+      },
+      "gauged/cycle": {
+        "IDLE": 8286,
+        "PREP": 48,
+        "CX": 114,
+        "MZ": 48
+      },
+      "gauged/star": {
+        "IDLE": 24072,
+        "PREP": 120,
+        "H": 24,
+        "CX": 312,
+        "MZ": 120
+      },
+      "gauged/root_Gauss": {
+        "IDLE": 9678,
+        "PREP": 42,
+        "H": 6,
+        "CX": 114,
+        "TDG": 12,
+        "T": 12,
+        "MZ": 42
+      },
+      "edge_readout": {
+        "IDLE": 590,
+        "MZ": 20
+      },
+      "byproduct": {
+        "IDLE": 20
+      },
+      "terminal/code": {
+        "IDLE": 39158,
+        "PREP": 300,
+        "H": 420,
+        "CX": 804,
+        "MZ": 300
+      }
+    },
+    "peak_live": 46,
+    "allocated_physical_slots": 46,
+    "reinitializations_after_first_use": 1013,
+    "T_or_TDG": 256,
+    "one_qubit_Clifford": 1323,
+    "atomic_multiqubit_gates": 0
+  },
+  "direct_cat/conservative": {
+    "gates": {
+      "IDLE": 353342,
+      "PREP": 2953,
+      "H": 1712,
+      "CX": 5780,
+      "MZ": 2933,
+      "TDG": 60,
+      "T": 60
+    },
+    "stages": {
+      "source/raw": {
+        "IDLE": 1337,
+        "PREP": 20,
+        "H": 11,
+        "CX": 51
+      },
+      "source/acquire": {
+        "IDLE": 46254,
+        "PREP": 404,
+        "H": 240,
+        "CX": 788,
+        "MZ": 404
+      },
+      "source/verify": {
+        "IDLE": 138762,
+        "PREP": 1212,
+        "H": 720,
+        "CX": 2364,
+        "MZ": 1212
+      },
+      "terminal/code": {
+        "IDLE": 125358,
+        "PREP": 1086,
+        "H": 678,
+        "CX": 2118,
+        "MZ": 1086
+      },
+      "terminal/U": {
+        "IDLE": 41631,
+        "PREP": 231,
+        "H": 63,
+        "CX": 459,
+        "MZ": 231,
+        "TDG": 60,
+        "T": 60
+      }
+    },
+    "peak_live": 41,
+    "allocated_physical_slots": 41,
+    "reinitializations_after_first_use": 2912,
+    "T_or_TDG": 120,
+    "one_qubit_Clifford": 1712,
+    "atomic_multiqubit_gates": 0
+  },
+  "direct_cat/recovery": {
+    "gates": {
+      "IDLE": 76645,
+      "PREP": 530,
+      "H": 869,
+      "CX": 1557,
+      "MZ": 510,
+      "TDG": 60,
+      "T": 60
+    },
+    "stages": {
+      "source/raw": {
+        "IDLE": 1337,
+        "PREP": 20,
+        "H": 11,
+        "CX": 51
+      },
+      "source/checks": {
+        "IDLE": 26316,
+        "PREP": 144,
+        "H": 432,
+        "CX": 516,
+        "MZ": 144
+      },
+      "source/correction": {
+        "IDLE": 20
+      },
+      "terminal/code": {
+        "IDLE": 39138,
+        "PREP": 300,
+        "H": 420,
+        "CX": 804,
+        "MZ": 300
+      },
+      "terminal/U": {
+        "IDLE": 9834,
+        "PREP": 66,
+        "H": 6,
+        "CX": 186,
+        "TDG": 60,
+        "T": 60,
+        "MZ": 66
+      }
+    },
+    "peak_live": 24,
+    "allocated_physical_slots": 24,
+    "reinitializations_after_first_use": 506,
+    "T_or_TDG": 120,
+    "one_qubit_Clifford": 869,
+    "atomic_multiqubit_gates": 0
+  }
+}

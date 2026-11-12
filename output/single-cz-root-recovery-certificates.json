@@ -1,0 +1,173 @@
+{
+  "verified": true,
+  "global_fault_budget": 2,
+  "graphs": {
+    "compact13": {
+      "one_root_support_signatures": 63,
+      "root_locations_with_idles": 850,
+      "root_basis_cases": 3048,
+      "reachable_nonzero_one_two_fault_flags": 309,
+      "external_typed_cases": 31,
+      "root_external_affine_specs": 2483,
+      "cycle_indexed_affine_spaces": 2461,
+      "spaces_with_proved_logical_ambiguity_kernel": 48,
+      "distinct_affine_images_certified": 156,
+      "maximum_affine_image_rank": 12,
+      "every_affine_image_class_checked": 52029,
+      "every_affine_report_decision_checked": 32445,
+      "all_affine_syndrome_images_covered_symbolically": true,
+      "root_signature_match_independent": true,
+      "bare_star_masks": [
+        {
+          "vertex": 1,
+          "one_fault_X_masks": 10,
+          "matches_independent_Clifford_propagation": true
+        },
+        {
+          "vertex": 2,
+          "one_fault_X_masks": 10,
+          "matches_independent_Clifford_propagation": true
+        },
+        {
+          "vertex": 3,
+          "one_fault_X_masks": 10,
+          "matches_independent_Clifford_propagation": true
+        },
+        {
+          "vertex": 4,
+          "one_fault_X_masks": 10,
+          "matches_independent_Clifford_propagation": true
+        }
+      ],
+      "all_families_sha256": "3326d4d6abf91eef172304a6d3a5e914b29eaabbe18e13b995e1c82c0bd7d843"
+    },
+    "current20": {
+      "one_root_support_signatures": 75,
+      "root_locations_with_idles": 1134,
+      "root_basis_cases": 3990,
+      "reachable_nonzero_one_two_fault_flags": 474,
+      "external_typed_cases": 50,
+      "root_external_affine_specs": 4125,
+      "cycle_indexed_affine_spaces": 4103,
+      "spaces_with_proved_logical_ambiguity_kernel": 78,
+      "distinct_affine_images_certified": 156,
+      "maximum_affine_image_rank": 12,
+      "every_affine_image_class_checked": 52029,
+      "every_affine_report_decision_checked": 32445,
+      "all_affine_syndrome_images_covered_symbolically": true,
+      "root_signature_match_independent": true,
+      "bare_star_masks": [
+        {
+          "vertex": 1,
+          "one_fault_X_masks": 16,
+          "matches_independent_Clifford_propagation": true
+        },
+        {
+          "vertex": 2,
+          "one_fault_X_masks": 16,
+          "matches_independent_Clifford_propagation": true
+        },
+        {
+          "vertex": 3,
+          "one_fault_X_masks": 16,
+          "matches_independent_Clifford_propagation": true
+        },
+        {
+          "vertex": 4,
+          "one_fault_X_masks": 16,
+          "matches_independent_Clifford_propagation": true
+        }
+      ],
+      "all_families_sha256": "84d2e93d3943edd8547d32e7155ff5e31ea707e0a09dd764797e81ba1bd85ce3"
+    },
+    "direct_flagged_U": {
+      "one_root_support_signatures": 123,
+      "root_locations_with_idles": 3406,
+      "root_basis_cases": 11198,
+      "reachable_nonzero_one_two_fault_flags": 1494,
+      "external_typed_cases": 6,
+      "root_external_affine_specs": 7198,
+      "cycle_indexed_affine_spaces": 7120,
+      "spaces_with_proved_logical_ambiguity_kernel": 773,
+      "distinct_affine_images_certified": 1556,
+      "maximum_affine_image_rank": 14,
+      "every_affine_image_class_checked": 827217,
+      "every_affine_report_decision_checked": 421009,
+      "all_affine_syndrome_images_covered_symbolically": true,
+      "root_signature_match_independent": true,
+      "bare_star_masks": [],
+      "all_families_sha256": "b49308234d109d4e7217449b07295cf69aa232eac3e7311b627ba5856991fc5b"
+    }
+  },
+  "W_phases": {
+    "exact_local_W_Pauli_expansions": 4,
+    "field": "Z[zeta8]",
+    "extension": "tensor products; all Pauli terms retained as independent allowed coefficients (conservative)",
+    "Pauli_XOR_through_T": false
+  },
+  "conditional_one_remaining_fault_programs": [
+    {
+      "axis": "X",
+      "ports": 4,
+      "one_fault_signatures": 25,
+      "locations_with_idles": 63,
+      "CX": 6,
+      "H": 2
+    },
+    {
+      "axis": "X",
+      "ports": 8,
+      "one_fault_signatures": 49,
+      "locations_with_idles": 147,
+      "CX": 10,
+      "H": 2
+    },
+    {
+      "axis": "Z",
+      "ports": 4,
+      "one_fault_signatures": 25,
+      "locations_with_idles": 64,
+      "CX": 6,
+      "H": 2
+    },
+    {
+      "axis": "Z",
+      "ports": 8,
+      "one_fault_signatures": 49,
+      "locations_with_idles": 148,
+      "CX": 10,
+      "H": 2
+    }
+  ],
+  "graph_information_witness": {
+    "flag_word": 48,
+    "data_syndrome": 0,
+    "cycle_syndrome": 0,
+    "joint": {
+      "correction": [
+        0,
+        0
+      ],
+      "status": "unique",
+      "logical_class": 0,
+      "matching_families": 12,
+      "families_checked": 12
+    },
+    "graph_blind": {
+      "correction": null,
+      "status": "ambiguous",
+      "matching_families": 18,
+      "families_checked": 26
+    }
+  },
+  "external_cone_completeness": "analytical stage-by-stage; NOT a full-factory location-pair enumeration",
+  "full_factory_fault_pairs_enumerated": false,
+  "source_sha256": {
+    "single_cz_root_recovery.py": "0416516408a83a816388a1d1ce058d73067329cb7429bf5de81b18c09d01b07a",
+    "single_cz_controller.py": "14002b9c0956dc95f37fea31bf17045963bca44f09684c53bdbf6248bc7c4829",
+    "single_cz_flagged.py": "8f852415c2c3ff47d135b874beb25ec4a015e3b27612e13c3e9de79faba073c4",
+    "check_single_cz_root_recovery.py": "5dd05f4f0ab6186c23e2751f613124a8d65d5d7f164e2598423ede3c11d19555",
+    "check_single_cz_flags.py": "a4cad64169f81718fd0a08bea307ab5b82ca902be1f41e8bed04cf126218b1c9",
+    "check_optimized_extraction.py": "ef874506eeba9bf388afee13a5bd0ebe6ccfc6db720cc3279f2a295393b475e4"
+  }
+}

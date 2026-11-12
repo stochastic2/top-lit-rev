@@ -1,0 +1,154 @@
+{
+  "conditional_algebra_verified": true,
+  "new_factory_implemented": false,
+  "graph_or_flag_location_inference_proved": false,
+  "hypothesis": "data error support in certified block b plus at most one other unknown inner block",
+  "reduced_two_block_representatives": 40960,
+  "fixed_pair_checks": [
+    {
+      "known_pair": [
+        0,
+        1
+      ],
+      "reduced_Paulis": 4096,
+      "syndromes": 4096,
+      "unique_class_per_syndrome": true
+    },
+    {
+      "known_pair": [
+        0,
+        2
+      ],
+      "reduced_Paulis": 4096,
+      "syndromes": 4096,
+      "unique_class_per_syndrome": true
+    },
+    {
+      "known_pair": [
+        0,
+        3
+      ],
+      "reduced_Paulis": 4096,
+      "syndromes": 4096,
+      "unique_class_per_syndrome": true
+    },
+    {
+      "known_pair": [
+        0,
+        4
+      ],
+      "reduced_Paulis": 4096,
+      "syndromes": 4096,
+      "unique_class_per_syndrome": true
+    },
+    {
+      "known_pair": [
+        1,
+        2
+      ],
+      "reduced_Paulis": 4096,
+      "syndromes": 4096,
+      "unique_class_per_syndrome": true
+    },
+    {
+      "known_pair": [
+        1,
+        3
+      ],
+      "reduced_Paulis": 4096,
+      "syndromes": 4096,
+      "unique_class_per_syndrome": true
+    },
+    {
+      "known_pair": [
+        1,
+        4
+      ],
+      "reduced_Paulis": 4096,
+      "syndromes": 4096,
+      "unique_class_per_syndrome": true
+    },
+    {
+      "known_pair": [
+        2,
+        3
+      ],
+      "reduced_Paulis": 4096,
+      "syndromes": 4096,
+      "unique_class_per_syndrome": true
+    },
+    {
+      "known_pair": [
+        2,
+        4
+      ],
+      "reduced_Paulis": 4096,
+      "syndromes": 4096,
+      "unique_class_per_syndrome": true
+    },
+    {
+      "known_pair": [
+        3,
+        4
+      ],
+      "reduced_Paulis": 4096,
+      "syndromes": 4096,
+      "unique_class_per_syndrome": true
+    }
+  ],
+  "full_unknown_pair_ambiguous_syndromes": 3855,
+  "located_block_results": [
+    {
+      "certified_fault_block": 0,
+      "newly_unique_formerly_ambiguous_syndromes": 2895,
+      "remaining_ambiguous_syndromes": 960,
+      "accepted_candidate_checks": 12544
+    },
+    {
+      "certified_fault_block": 1,
+      "newly_unique_formerly_ambiguous_syndromes": 2895,
+      "remaining_ambiguous_syndromes": 960,
+      "accepted_candidate_checks": 12544
+    },
+    {
+      "certified_fault_block": 2,
+      "newly_unique_formerly_ambiguous_syndromes": 2895,
+      "remaining_ambiguous_syndromes": 960,
+      "accepted_candidate_checks": 12544
+    },
+    {
+      "certified_fault_block": 3,
+      "newly_unique_formerly_ambiguous_syndromes": 2895,
+      "remaining_ambiguous_syndromes": 960,
+      "accepted_candidate_checks": 12544
+    },
+    {
+      "certified_fault_block": 4,
+      "newly_unique_formerly_ambiguous_syndromes": 2895,
+      "remaining_ambiguous_syndromes": 960,
+      "accepted_candidate_checks": 12544
+    }
+  ],
+  "newly_unique_syndromes_sha256": "3d97d2afedf2104b48207e19ab8619311cd782b1b8bee26289bc3a27402cdf63",
+  "example": {
+    "X_first": [
+      2,
+      3
+    ],
+    "X_second": [
+      8,
+      11,
+      12,
+      15
+    ],
+    "same_syndrome": 160,
+    "difference": "logical X0",
+    "certified_block_0_restricted_classes": 1
+  },
+  "acceptance_or_yield_prediction": false,
+  "source_sha256": {
+    "check_single_cz_located_block.py": "97cbcac67e5a056a11da2a3476d6ef39e7d344edaaf687dc10d45531fc38e79d",
+    "check_single_cz_flag_recovery.py": "01ec8a004239a9fd58bc4d4bcf6b6fe6f4e839d5af92d37390a6dac90f2407ee",
+    "c4_helix_single_block_cz.py": "08c73e06ce89c8f75812882f9a23da96ca1a817498015f3bd3cbc0945f50d166"
+  }
+}

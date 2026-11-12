@@ -1,0 +1,344 @@
+{
+  "verified": true,
+  "scope": "finite graph/Clifford/algebra certificates, not full factory fault pairs",
+  "proof": "notes/single_block_cz_bare_graph_stars.md",
+  "global_fault_budget": 2,
+  "non_Clifford_Pauli_XOR_used": false,
+  "graphs": {
+    "compact13": {
+      "edges": 13,
+      "cycle_sectors": 512,
+      "all_graph_words_checked": 8192,
+      "all_chord_decisions_sha256": "12124b1820b91157b2ceb71a85e7daa2977a7adabed8a19f5709d09f305204a0",
+      "chord_inverse_pivots": [
+        [
+          8,
+          256,
+          4096
+        ],
+        [
+          7,
+          128,
+          2048
+        ],
+        [
+          6,
+          64,
+          1024
+        ],
+        [
+          5,
+          32,
+          512
+        ],
+        [
+          4,
+          16,
+          256
+        ],
+        [
+          3,
+          8,
+          128
+        ],
+        [
+          2,
+          4,
+          64
+        ],
+        [
+          1,
+          2,
+          32
+        ],
+        [
+          0,
+          1,
+          16
+        ]
+      ],
+      "late_two_error_readout_cases": 1472,
+      "star_product_identity_on_full_Hilbert_space": true,
+      "star_sign_character_repairs_checked": 256,
+      "chord_corrections_disjoint_from_V_controls": true,
+      "star_gadgets": [
+        {
+          "vertex": 1,
+          "ports": 5,
+          "CX": 5,
+          "flags": 0,
+          "locations_with_edge_idles": 49,
+          "one_fault_Pauli_signatures": 56,
+          "two_fault_pairs_covered_by_graph_algebra_closure": 3136,
+          "max_single_fault_X_spread": 5,
+          "fault_algebra": "graph only, unrestricted X/Z support"
+        },
+        {
+          "vertex": 2,
+          "ports": 5,
+          "CX": 5,
+          "flags": 0,
+          "locations_with_edge_idles": 49,
+          "one_fault_Pauli_signatures": 56,
+          "two_fault_pairs_covered_by_graph_algebra_closure": 3136,
+          "max_single_fault_X_spread": 5,
+          "fault_algebra": "graph only, unrestricted X/Z support"
+        },
+        {
+          "vertex": 3,
+          "ports": 5,
+          "CX": 5,
+          "flags": 0,
+          "locations_with_edge_idles": 49,
+          "one_fault_Pauli_signatures": 56,
+          "two_fault_pairs_covered_by_graph_algebra_closure": 3136,
+          "max_single_fault_X_spread": 5,
+          "fault_algebra": "graph only, unrestricted X/Z support"
+        },
+        {
+          "vertex": 4,
+          "ports": 5,
+          "CX": 5,
+          "flags": 0,
+          "locations_with_edge_idles": 49,
+          "one_fault_Pauli_signatures": 56,
+          "two_fault_pairs_covered_by_graph_algebra_closure": 3136,
+          "max_single_fault_X_spread": 5,
+          "fault_algebra": "graph only, unrestricted X/Z support"
+        }
+      ],
+      "broad_hook_example": {
+        "faults": [
+          {
+            "vertex": 1,
+            "after_edge": 0,
+            "Pauli_on_syndrome": "X"
+          },
+          {
+            "vertex": 2,
+            "after_edge": 4,
+            "Pauli_on_syndrome": "X"
+          }
+        ],
+        "edge_X_mask": 3568,
+        "cycle_bits": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          0,
+          1,
+          1,
+          0
+        ],
+        "old_radius_decoder": "rejects",
+        "new_chord_correction": [
+          4,
+          5,
+          6,
+          7,
+          8,
+          10,
+          11
+        ]
+      }
+    },
+    "current20": {
+      "edges": 20,
+      "cycle_sectors": 65536,
+      "all_graph_words_checked": 1048576,
+      "all_chord_decisions_sha256": "941a636b23c298fb51d806998108fc4617ad0d8c01b3380d277fa824a83c48db",
+      "chord_inverse_pivots": [
+        [
+          15,
+          33280,
+          32
+        ],
+        [
+          14,
+          16640,
+          2
+        ],
+        [
+          13,
+          8320,
+          4
+        ],
+        [
+          12,
+          4160,
+          16
+        ],
+        [
+          11,
+          2080,
+          16384
+        ],
+        [
+          10,
+          1040,
+          256
+        ],
+        [
+          9,
+          512,
+          131072
+        ],
+        [
+          8,
+          256,
+          262144
+        ],
+        [
+          7,
+          128,
+          8192
+        ],
+        [
+          6,
+          64,
+          512
+        ],
+        [
+          5,
+          32,
+          65536
+        ],
+        [
+          4,
+          16,
+          524288
+        ],
+        [
+          3,
+          8,
+          1024
+        ],
+        [
+          2,
+          4,
+          64
+        ],
+        [
+          1,
+          2,
+          4096
+        ],
+        [
+          0,
+          1,
+          32768
+        ]
+      ],
+      "late_two_error_readout_cases": 3376,
+      "star_product_identity_on_full_Hilbert_space": true,
+      "star_sign_character_repairs_checked": 256,
+      "chord_corrections_disjoint_from_V_controls": true,
+      "star_gadgets": [
+        {
+          "vertex": 1,
+          "ports": 8,
+          "CX": 8,
+          "flags": 0,
+          "locations_with_edge_idles": 100,
+          "one_fault_Pauli_signatures": 92,
+          "two_fault_pairs_covered_by_graph_algebra_closure": 8464,
+          "max_single_fault_X_spread": 8,
+          "fault_algebra": "graph only, unrestricted X/Z support"
+        },
+        {
+          "vertex": 2,
+          "ports": 8,
+          "CX": 8,
+          "flags": 0,
+          "locations_with_edge_idles": 100,
+          "one_fault_Pauli_signatures": 92,
+          "two_fault_pairs_covered_by_graph_algebra_closure": 8464,
+          "max_single_fault_X_spread": 8,
+          "fault_algebra": "graph only, unrestricted X/Z support"
+        },
+        {
+          "vertex": 3,
+          "ports": 8,
+          "CX": 8,
+          "flags": 0,
+          "locations_with_edge_idles": 100,
+          "one_fault_Pauli_signatures": 92,
+          "two_fault_pairs_covered_by_graph_algebra_closure": 8464,
+          "max_single_fault_X_spread": 8,
+          "fault_algebra": "graph only, unrestricted X/Z support"
+        },
+        {
+          "vertex": 4,
+          "ports": 8,
+          "CX": 8,
+          "flags": 0,
+          "locations_with_edge_idles": 100,
+          "one_fault_Pauli_signatures": 92,
+          "two_fault_pairs_covered_by_graph_algebra_closure": 8464,
+          "max_single_fault_X_spread": 8,
+          "fault_algebra": "graph only, unrestricted X/Z support"
+        }
+      ],
+      "broad_hook_example": {
+        "faults": [
+          {
+            "vertex": 1,
+            "after_edge": 4,
+            "Pauli_on_syndrome": "X"
+          },
+          {
+            "vertex": 1,
+            "after_edge": 14,
+            "Pauli_on_syndrome": "X"
+          }
+        ],
+        "edge_X_mask": 17280,
+        "cycle_bits": [
+          1,
+          0,
+          0,
+          0,
+          1,
+          1,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0
+        ],
+        "old_radius_decoder": "rejects",
+        "new_chord_correction": [
+          4,
+          15,
+          16,
+          19
+        ]
+      }
+    }
+  },
+  "logical_checks": {
+    "compact13": {
+      "representation": "exact small Gaussian-integer coefficients in an abstract logical register",
+      "coherent_cycle_branches": 4,
+      "positive_logical_amplitudes": "equal on 00,01,10; zero on 11"
+    },
+    "current20": {
+      "representation": "exact small Gaussian-integer coefficients in an abstract logical register",
+      "coherent_cycle_branches": 4,
+      "positive_logical_amplitudes": "equal on 00,01,10; zero on 11"
+    }
+  },
+  "source_sha256": {
+    "single_cz_graph_stars.py": "e20a57533b9ed896cfd3d0f5e4b42a3bed854471eaf831f4344f970a6cfd4093",
+    "single_cz_recovery.py": "779b678abf09a3daaddac1b4889f03010e92aeed3fa5553cb9175daada356a6b",
+    "check_single_cz_graph_stars.py": "67176dee07fb68f5a77d1f4f304eed7f08f3c7dcd4706a7891c2c4f463ee1cb3",
+    "check_optimized_extraction.py": "ef874506eeba9bf388afee13a5bd0ebe6ccfc6db720cc3279f2a295393b475e4"
+  }
+}

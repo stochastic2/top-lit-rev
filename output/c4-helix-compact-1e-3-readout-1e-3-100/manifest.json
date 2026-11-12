@@ -1,0 +1,208 @@
+{
+  "schema_version": 1,
+  "procedure": "reduced_rejection",
+  "noise_model": {
+    "name": "pauli_depolarizing",
+    "gate_rate_convention": "average_gate_infidelity",
+    "rates": {
+      "two_qubit_infidelity": "1/1000",
+      "one_qubit_infidelity": "0",
+      "three_qubit_infidelity": "0",
+      "idle_infidelity": "0",
+      "preparation_flip_probability": "0",
+      "readout_flip_probability": "1/1000"
+    },
+    "nonidentity_gate_probabilities": {
+      "1": "0",
+      "2": "1/800",
+      "3": "0"
+    },
+    "idle_nonidentity_probability": "0",
+    "quantum_noise_timing": "gate: after ideal operation; idle: before operation",
+    "preparation_noise": "X after zero preparation",
+    "readout_noise": "classical report flip after actual destructive Z measurement",
+    "fredkin_implementation": "atomic_three_qubit",
+    "idle_interval": "one interval per serial physical operation, no calibrated duration",
+    "noise_correlations": "independent channel draws; joint Pauli within a gate",
+    "fault_count_cap": null
+  },
+  "graph": {
+    "name": "current20",
+    "edges": [
+      [
+        0,
+        4
+      ],
+      [
+        2,
+        4
+      ],
+      [
+        2,
+        3
+      ],
+      [
+        0,
+        3
+      ],
+      [
+        1,
+        4
+      ],
+      [
+        3,
+        4
+      ],
+      [
+        0,
+        3
+      ],
+      [
+        0,
+        1
+      ],
+      [
+        1,
+        2
+      ],
+      [
+        1,
+        4
+      ],
+      [
+        0,
+        4
+      ],
+      [
+        0,
+        2
+      ],
+      [
+        0,
+        2
+      ],
+      [
+        2,
+        3
+      ],
+      [
+        1,
+        3
+      ],
+      [
+        0,
+        1
+      ],
+      [
+        1,
+        3
+      ],
+      [
+        3,
+        4
+      ],
+      [
+        2,
+        4
+      ],
+      [
+        1,
+        2
+      ]
+    ],
+    "cycles": [
+      [
+        7,
+        15
+      ],
+      [
+        11,
+        12
+      ],
+      [
+        3,
+        6
+      ],
+      [
+        0,
+        10
+      ],
+      [
+        8,
+        19
+      ],
+      [
+        14,
+        16
+      ],
+      [
+        4,
+        9
+      ],
+      [
+        2,
+        13
+      ],
+      [
+        1,
+        18
+      ],
+      [
+        5,
+        17
+      ],
+      [
+        7,
+        8,
+        11
+      ],
+      [
+        7,
+        14,
+        3
+      ],
+      [
+        7,
+        4,
+        0
+      ],
+      [
+        11,
+        2,
+        3
+      ],
+      [
+        11,
+        1,
+        0
+      ],
+      [
+        3,
+        5,
+        0
+      ]
+    ],
+    "tree_edges": [
+      7,
+      11,
+      3,
+      0
+    ]
+  },
+  "extraction": "optimized",
+  "source_preparation": "encoded",
+  "history_policy": "adaptive",
+  "terminal_extraction": "compact_flagged",
+  "terminal_flag_policy": "repair_then_protected",
+  "seed": 0,
+  "noise_seed_base": null,
+  "attempts_requested": 100,
+  "measurement_seed_rule": "seed + shot_index",
+  "noise_seed_rule": "first 8 bytes of SHA256('depolarizing-noise:' + str(measurement_seed)), big endian",
+  "attempt_timeout_seconds": 60,
+  "max_terms": 4096,
+  "workers": 1,
+  "worker_lifetime": "one isolated process per attempt",
+  "diagnostic_decoder": "ideal syndrome projection; fixed weight<=2 lookup; fixed GF2 fallback",
+  "noise_study_enabled": true
+}

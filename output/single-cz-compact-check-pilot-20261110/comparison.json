@@ -1,0 +1,412 @@
+{
+  "arms": {
+    "gauging-rolling": {
+      "summary": {
+        "attempts": 20,
+        "completed": 20,
+        "unresolved": 0,
+        "accepted": 2,
+        "rejected": 18,
+        "acceptance_among_completed": 0.1,
+        "acceptance_Wilson95": [
+          0.027866481213768224,
+          0.3010336452284873
+        ],
+        "acceptance_bounds_all_attempts": [
+          0.1,
+          0.1
+        ],
+        "rejection_counts": {
+          "flag_data_absent": 6,
+          "insufficient_positive_gauged_rounds": 3,
+          "shared_retry_limit:known_unused_source:source/certify/3/X/7": 1,
+          "shared_retry_limit:known_unused_source:source/certify/1/X/10": 1,
+          "verification_flag:flag_recovery/0/1/X/5": 1,
+          "verification_flag:flag_recovery/2/1/Z/8": 1,
+          "shared_retry_limit:known_unused_graph_parity": 1,
+          "verification_flag:flag_recovery/0/1/Z/6": 1,
+          "unstable_flag_recovery_history": 1,
+          "shared_retry_limit:known_unused_source:source/certify/0/X/9": 1,
+          "verification_flag:flag_recovery/0/1/X/7": 1
+        },
+        "failure_counts": {},
+        "accepted_assessed": 2,
+        "accepted_diagnostics_missing": 0,
+        "mean_decoded_fidelity": 1.0,
+        "mean_is_assessed_accepted_subset_only": true,
+        "decoded_fidelity_bounds_all_known_accepted": [
+          1.0,
+          1.0
+        ],
+        "minimum_decoded_fidelity": 1.0,
+        "accepted_within_target_tolerance": 2,
+        "flag_recovery_episodes": 30,
+        "successful_flag_recoveries": 19,
+        "accepted_after_flag_recovery": 2,
+        "accepted_terminal_screen_outcomes": {
+          "zero_accept": 2
+        },
+        "total_executed_gates_completed": {
+          "IDLE": 3972954,
+          "PREP": 17943,
+          "H": 37743,
+          "CX": 56756,
+          "BOUNDARY": 177,
+          "MZ": 17903,
+          "TDG": 1596,
+          "T": 1596,
+          "Z": 52,
+          "SDG": 6,
+          "X": 51,
+          "S": 10,
+          "Y": 5
+        },
+        "cost_per_accepted_completed": {
+          "IDLE": 1986477.0,
+          "PREP": 8971.5,
+          "H": 18871.5,
+          "CX": 28378.0,
+          "BOUNDARY": 88.5,
+          "MZ": 8951.5,
+          "TDG": 798.0,
+          "T": 798.0,
+          "Z": 26.0,
+          "SDG": 3.0,
+          "X": 25.5,
+          "S": 5.0,
+          "Y": 2.5
+        },
+        "cost_is_matched_fidelity": false,
+        "unresolved_can_bias_completed_subset": false,
+        "two_fault_prediction_violation_shots": [],
+        "ideal_success_probability": 0.75,
+        "target": "encoded_two_logical_qubit_CZ_magic",
+        "finished": true
+      },
+      "verified": {
+        "verified": true,
+        "histories_checked": 24,
+        "completed": 20,
+        "accepted_outputs_recomputed": 2,
+        "source_tree_matches_saved_run": true,
+        "saved_source_snapshot_verified": true,
+        "scope": "saved report/control certificates, noise accounting, complex output diagnostics; not gate replay",
+        "two_fault_prediction_violation_shots": []
+      },
+      "clean_CX": 2129,
+      "data_checks": "rolling_flags",
+      "mean_raw_physical_fidelity": 1.0,
+      "clean_T_TDG": 256,
+      "peak_live": 39,
+      "successful_attempt_CX": {
+        "mean": 4501,
+        "median": 4501.0,
+        "min": 2517,
+        "max": 6485
+      }
+    },
+    "gauging-compact": {
+      "summary": {
+        "attempts": 20,
+        "completed": 20,
+        "unresolved": 0,
+        "accepted": 7,
+        "rejected": 13,
+        "acceptance_among_completed": 0.35,
+        "acceptance_Wilson95": [
+          0.18119182410108206,
+          0.5671457233147638
+        ],
+        "acceptance_bounds_all_attempts": [
+          0.35,
+          0.35
+        ],
+        "rejection_counts": {
+          "verification_flag:gauged/0/root_Gauss": 1,
+          "verification_flag:flag_recovery/1/1/X/7": 1,
+          "insufficient_positive_gauged_rounds": 3,
+          "verification_flag:gauged/1/root_Gauss": 2,
+          "shared_retry_limit:known_unused_source:source/certify/3/X/7": 1,
+          "shared_retry_limit:known_unused_source:source/certify/1/X/10": 1,
+          "shared_retry_limit:known_unused_graph_parity": 1,
+          "verification_flag:flag_recovery/0/1/X/5": 1,
+          "verification_flag:gauged/2/root_Gauss": 1,
+          "shared_retry_limit:known_unused_source:source/certify/0/X/9": 1
+        },
+        "failure_counts": {},
+        "accepted_assessed": 7,
+        "accepted_diagnostics_missing": 0,
+        "mean_decoded_fidelity": 1.0,
+        "mean_is_assessed_accepted_subset_only": true,
+        "decoded_fidelity_bounds_all_known_accepted": [
+          1.0,
+          1.0
+        ],
+        "minimum_decoded_fidelity": 1.0,
+        "accepted_within_target_tolerance": 7,
+        "flag_recovery_episodes": 21,
+        "successful_flag_recoveries": 19,
+        "accepted_after_flag_recovery": 5,
+        "accepted_terminal_screen_outcomes": {
+          "flag_verified": 4,
+          "syndrome_certified": 1,
+          "zero_accept": 2
+        },
+        "total_executed_gates_completed": {
+          "IDLE": 2960416,
+          "PREP": 14079,
+          "H": 27113,
+          "CX": 47622,
+          "BOUNDARY": 191,
+          "MZ": 13939,
+          "TDG": 1792,
+          "T": 1792,
+          "Z": 54,
+          "SDG": 18,
+          "X": 88,
+          "S": 38,
+          "Y": 5
+        },
+        "cost_per_accepted_completed": {
+          "IDLE": 422916.5714285714,
+          "PREP": 2011.2857142857142,
+          "H": 3873.285714285714,
+          "CX": 6803.142857142857,
+          "BOUNDARY": 27.285714285714285,
+          "MZ": 1991.2857142857142,
+          "TDG": 256.0,
+          "T": 256.0,
+          "Z": 7.714285714285714,
+          "SDG": 2.5714285714285716,
+          "X": 12.571428571428571,
+          "S": 5.428571428571429,
+          "Y": 0.7142857142857143
+        },
+        "cost_is_matched_fidelity": false,
+        "unresolved_can_bias_completed_subset": false,
+        "two_fault_prediction_violation_shots": [],
+        "ideal_success_probability": 0.75,
+        "target": "encoded_two_logical_qubit_CZ_magic",
+        "finished": true
+      },
+      "verified": {
+        "verified": true,
+        "histories_checked": 33,
+        "completed": 20,
+        "accepted_outputs_recomputed": 7,
+        "source_tree_matches_saved_run": true,
+        "saved_source_snapshot_verified": true,
+        "scope": "saved report/control certificates, noise accounting, complex output diagnostics; not gate replay",
+        "two_fault_prediction_violation_shots": []
+      },
+      "clean_CX": 1889,
+      "data_checks": "compact_flags",
+      "mean_raw_physical_fidelity": 1.0,
+      "clean_T_TDG": 256,
+      "peak_live": 39,
+      "successful_attempt_CX": {
+        "mean": 3003.5714285714284,
+        "median": 2733,
+        "min": 2221,
+        "max": 4216
+      }
+    },
+    "cat-rolling": {
+      "summary": {
+        "attempts": 20,
+        "completed": 20,
+        "unresolved": 0,
+        "accepted": 9,
+        "rejected": 11,
+        "acceptance_among_completed": 0.45,
+        "acceptance_Wilson95": [
+          0.2581978582556243,
+          0.6579146575496577
+        ],
+        "acceptance_bounds_all_attempts": [
+          0.45,
+          0.45
+        ],
+        "rejection_counts": {
+          "verification_flag:flag_recovery/1/1/X/7": 1,
+          "verification_flag:flag_recovery/3/0/X/5": 1,
+          "verification_flag:flag_recovery/0/0/Z/4": 1,
+          "shared_retry_limit:known_unused_source:source/certify/3/X/7": 1,
+          "shared_retry_limit:known_unused_source:source/certify/1/X/10": 1,
+          "verification_flag:flag_recovery/0/0/Z/7": 1,
+          "verification_flag:flag_recovery/6/2/X/5": 1,
+          "verification_flag:flag_recovery/0/1/X/7": 1,
+          "verification_flag:flag_recovery/1/1/X/5": 1,
+          "verification_flag:flag_recovery/0/1/X/2": 1,
+          "shared_retry_limit:known_unused_source:source/certify/0/X/9": 1
+        },
+        "failure_counts": {},
+        "accepted_assessed": 9,
+        "accepted_diagnostics_missing": 0,
+        "mean_decoded_fidelity": 1.0,
+        "mean_is_assessed_accepted_subset_only": true,
+        "decoded_fidelity_bounds_all_known_accepted": [
+          1.0,
+          1.0
+        ],
+        "minimum_decoded_fidelity": 1.0,
+        "accepted_within_target_tolerance": 9,
+        "flag_recovery_episodes": 32,
+        "successful_flag_recoveries": 24,
+        "accepted_after_flag_recovery": 6,
+        "accepted_terminal_screen_outcomes": {},
+        "total_executed_gates_completed": {
+          "IDLE": 2851055,
+          "PREP": 17824,
+          "H": 36881,
+          "CX": 53179,
+          "BOUNDARY": 86,
+          "MZ": 17644,
+          "X": 35,
+          "TDG": 720,
+          "T": 720,
+          "Z": 16,
+          "Y": 7
+        },
+        "cost_per_accepted_completed": {
+          "IDLE": 316783.8888888889,
+          "PREP": 1980.4444444444443,
+          "H": 4097.888888888889,
+          "CX": 5908.777777777777,
+          "BOUNDARY": 9.555555555555555,
+          "MZ": 1960.4444444444443,
+          "X": 3.888888888888889,
+          "TDG": 80.0,
+          "T": 80.0,
+          "Z": 1.7777777777777777,
+          "Y": 0.7777777777777778
+        },
+        "cost_is_matched_fidelity": false,
+        "unresolved_can_bias_completed_subset": false,
+        "two_fault_prediction_violation_shots": [],
+        "ideal_success_probability": 0.75,
+        "target": "encoded_two_logical_qubit_CZ_magic",
+        "finished": true
+      },
+      "verified": {
+        "verified": true,
+        "histories_checked": 20,
+        "completed": 20,
+        "accepted_outputs_recomputed": 9,
+        "source_tree_matches_saved_run": true,
+        "saved_source_snapshot_verified": true,
+        "scope": "saved report/control certificates, noise accounting, complex output diagnostics; not gate replay",
+        "two_fault_prediction_violation_shots": []
+      },
+      "clean_CX": 1716,
+      "data_checks": "rolling_flags",
+      "mean_raw_physical_fidelity": 1.0,
+      "clean_T_TDG": 120,
+      "peak_live": 41,
+      "successful_attempt_CX": {
+        "mean": 3268.4444444444443,
+        "median": 2766,
+        "min": 1716,
+        "max": 6353
+      }
+    },
+    "cat-compact": {
+      "summary": {
+        "attempts": 20,
+        "completed": 20,
+        "unresolved": 0,
+        "accepted": 13,
+        "rejected": 7,
+        "acceptance_among_completed": 0.65,
+        "acceptance_Wilson95": [
+          0.43285427668523624,
+          0.818808175898918
+        ],
+        "acceptance_bounds_all_attempts": [
+          0.65,
+          0.65
+        ],
+        "rejection_counts": {
+          "verification_flag:flag_recovery/1/0/X/4": 1,
+          "verification_flag:flag_recovery/0/1/Z/7": 1,
+          "shared_retry_limit:known_unused_source:source/certify/3/X/7": 1,
+          "shared_retry_limit:known_unused_source:source/certify/1/X/10": 1,
+          "insufficient_terminal_rounds": 1,
+          "flag_data_absent": 1,
+          "shared_retry_limit:known_unused_source:source/certify/0/X/9": 1
+        },
+        "failure_counts": {},
+        "accepted_assessed": 13,
+        "accepted_diagnostics_missing": 0,
+        "mean_decoded_fidelity": 1.0,
+        "mean_is_assessed_accepted_subset_only": true,
+        "decoded_fidelity_bounds_all_known_accepted": [
+          1.0,
+          1.0
+        ],
+        "minimum_decoded_fidelity": 1.0,
+        "accepted_within_target_tolerance": 13,
+        "flag_recovery_episodes": 21,
+        "successful_flag_recoveries": 18,
+        "accepted_after_flag_recovery": 7,
+        "accepted_terminal_screen_outcomes": {},
+        "total_executed_gates_completed": {
+          "IDLE": 2573776,
+          "PREP": 15980,
+          "H": 27724,
+          "CX": 49244,
+          "BOUNDARY": 101,
+          "MZ": 15720,
+          "X": 20,
+          "Z": 13,
+          "TDG": 1020,
+          "T": 1020,
+          "Y": 3
+        },
+        "cost_per_accepted_completed": {
+          "IDLE": 197982.76923076922,
+          "PREP": 1229.2307692307693,
+          "H": 2132.6153846153848,
+          "CX": 3788.0,
+          "BOUNDARY": 7.769230769230769,
+          "MZ": 1209.2307692307693,
+          "X": 1.5384615384615385,
+          "Z": 1.0,
+          "TDG": 78.46153846153847,
+          "T": 78.46153846153847,
+          "Y": 0.23076923076923078
+        },
+        "cost_is_matched_fidelity": false,
+        "unresolved_can_bias_completed_subset": false,
+        "two_fault_prediction_violation_shots": [],
+        "ideal_success_probability": 0.75,
+        "target": "encoded_two_logical_qubit_CZ_magic",
+        "finished": true
+      },
+      "verified": {
+        "verified": true,
+        "histories_checked": 27,
+        "completed": 20,
+        "accepted_outputs_recomputed": 13,
+        "source_tree_matches_saved_run": true,
+        "saved_source_snapshot_verified": true,
+        "scope": "saved report/control certificates, noise accounting, complex output diagnostics; not gate replay",
+        "two_fault_prediction_violation_shots": []
+      },
+      "clean_CX": 1476,
+      "data_checks": "compact_flags",
+      "mean_raw_physical_fidelity": 0.9230769230769231,
+      "clean_T_TDG": 120,
+      "peak_live": 41,
+      "successful_attempt_CX": {
+        "mean": 2825.4615384615386,
+        "median": 2587,
+        "min": 1476,
+        "max": 5321
+      }
+    }
+  },
+  "matched_population_fidelity_claim": false,
+  "paired_fault_trajectories": false,
+  "clean_counts_are_not_amortized_costs": true
+}

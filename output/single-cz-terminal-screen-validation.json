@@ -1,0 +1,32 @@
+{
+  "release_terminal_screen_version": 3,
+  "tests": {
+    "command": "/Users/kevinhemery/pytket-venv/bin/python -m pytest -q src/test_single_cz_terminal_screen.py src/test_single_cz_graph_stars.py src/test_single_cz_flag_recovery.py src/test_single_cz_simulation.py src/test_single_cz_cat_simulation.py",
+    "passed": 84,
+    "failed": 0
+  },
+  "finite_certificate": {
+    "verified": true,
+    "locations_including_idles_and_boundary": 13675,
+    "one_location_signatures": 1431,
+    "accepted_upstream_plus_screen_cases": 2364,
+    "accepted_two_screen_signature_pairs": 14425,
+    "raw_two_upstream_block_cases": 655360,
+    "accepted_two_upstream_cases": 160,
+    "accepted_decisions_sha256": "52fd3ad0a30a3cda43421fa371746fc16bed07537b2ca6c79417c645ec223839"
+  },
+  "full_factory_location_pairs_enumerated": false,
+  "global_arbitrary_fault_budget": 2,
+  "analytical_proof": "notes/single_block_cz_terminal_screen.md",
+  "figure_inspected": "notes/figures/c4-helix/single-block-cz/13-ordered-terminal-screen.png",
+  "matched_pilot": "output/single-cz-terminal-screen-matched-pilot-20261110",
+  "accepted": {
+    "gauging-certified": 8,
+    "gauging-screen": 12,
+    "cat-data": 16
+  },
+  "all_pilot_accepted_outputs_match": true,
+  "population_matched_fidelity_claim": false,
+  "generic_syndrome_recovery_matched_to_comparator": true,
+  "SWAP_files_modified": false
+}

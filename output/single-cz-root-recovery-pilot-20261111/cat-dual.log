@@ -1,0 +1,94 @@
+attempt 0: accepted; 0.60s
+attempt 1: accepted; 0.51s
+attempt 2: accepted; 0.72s
+attempt 3: accepted; 0.62s
+attempt 4: verification_flag:flag_recovery/4/2/Z/5; 0.60s
+attempt 5: flag_data_absent; 0.38s
+attempt 6: accepted; 0.44s
+attempt 7: shared_retry_limit:known_unused_source:source/certify/3/X/7; 0.33s
+attempt 8: shared_retry_limit:known_unused_source:source/certify/1/X/10; 0.22s
+attempt 9: accepted; 0.63s
+attempt 10: accepted; 0.32s
+attempt 11: accepted; 0.29s
+attempt 12: accepted; 0.45s
+attempt 13: verification_flag:flag_recovery/1/2/Z/4; 0.36s
+attempt 14: verification_flag:flag_recovery/0/0/Z/6; 0.40s
+attempt 15: accepted; 0.63s
+attempt 16: accepted; 0.47s
+attempt 17: accepted; 0.43s
+attempt 18: shared_retry_limit:known_unused_source:source/certify/0/X/9; 0.31s
+attempt 19: accepted; 0.35s
+{
+  "attempts": 20,
+  "completed": 20,
+  "unresolved": 0,
+  "accepted": 13,
+  "rejected": 7,
+  "acceptance_among_completed": 0.65,
+  "acceptance_Wilson95": [
+    0.43285427668523624,
+    0.818808175898918
+  ],
+  "acceptance_bounds_all_attempts": [
+    0.65,
+    0.65
+  ],
+  "rejection_counts": {
+    "verification_flag:flag_recovery/4/2/Z/5": 1,
+    "flag_data_absent": 1,
+    "shared_retry_limit:known_unused_source:source/certify/3/X/7": 1,
+    "shared_retry_limit:known_unused_source:source/certify/1/X/10": 1,
+    "verification_flag:flag_recovery/1/2/Z/4": 1,
+    "verification_flag:flag_recovery/0/0/Z/6": 1,
+    "shared_retry_limit:known_unused_source:source/certify/0/X/9": 1
+  },
+  "failure_counts": {},
+  "accepted_assessed": 13,
+  "accepted_diagnostics_missing": 0,
+  "mean_decoded_fidelity": 1.0,
+  "mean_is_assessed_accepted_subset_only": true,
+  "decoded_fidelity_bounds_all_known_accepted": [
+    1.0,
+    1.0
+  ],
+  "minimum_decoded_fidelity": 1.0,
+  "accepted_within_target_tolerance": 13,
+  "flag_recovery_episodes": 23,
+  "successful_flag_recoveries": 19,
+  "accepted_after_flag_recovery": 7,
+  "root_recovery_episodes": 0,
+  "successful_root_recoveries": 0,
+  "accepted_after_root_recovery": 0,
+  "accepted_terminal_screen_outcomes": {},
+  "total_executed_gates_completed": {
+    "IDLE": 2616010,
+    "PREP": 17108,
+    "H": 24193,
+    "CX": 52919,
+    "BOUNDARY": 100,
+    "MZ": 16848,
+    "X": 30,
+    "TDG": 1000,
+    "T": 1000,
+    "Z": 22,
+    "Y": 4
+  },
+  "cost_per_accepted_completed": {
+    "IDLE": 201231.53846153847,
+    "PREP": 1316.0,
+    "H": 1861.0,
+    "CX": 4070.6923076923076,
+    "BOUNDARY": 7.6923076923076925,
+    "MZ": 1296.0,
+    "X": 2.3076923076923075,
+    "TDG": 76.92307692307692,
+    "T": 76.92307692307692,
+    "Z": 1.6923076923076923,
+    "Y": 0.3076923076923077
+  },
+  "cost_is_matched_fidelity": false,
+  "unresolved_can_bias_completed_subset": false,
+  "two_fault_prediction_violation_shots": [],
+  "ideal_success_probability": 0.75,
+  "target": "encoded_two_logical_qubit_CZ_magic"
+}

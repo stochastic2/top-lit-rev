@@ -5472,6 +5472,17 @@ The rest of this section derives this statement.  The logical information
 never has to be decoded into individual physical qubits; all operations are
 performed on the qLDPC blocks and the ancillary qubits.
 
+**Where the zero-coboundary condition enters the proof.** A vertex pattern
+\(\mu\) has zero coboundary when \(d^a_0\mu=0\): it produces no edge
+flips. This condition has two distinct roles. First, two expansion labels
+\(\phi,\phi_0\) give the same measured edge string exactly when their
+difference \(\mu=\phi+\phi_0\) has zero coboundary. Second, these patterns
+are ancillary symmetries, and the enrichment circuit is required to attach
+logical matter gates to them. The first statement follows from linear
+algebra; the second is a design condition on \(\Omega\), Eq. (121), not
+a consequence of linear algebra alone. The offset correction connects the
+two statements by leaving a sum indexed by these symmetry patterns.
+
 ### Ingredients and notation
 
 Let \(|\Psi\rangle_{BC}\) be an arbitrary state in the two input code
@@ -5484,8 +5495,108 @@ cluster state from
 \]
 
 In the Hadamard convention used here, \(C_A\) is a product of CNOT gates
-from temporary controls \(a_v\) to the adjacent \(A\) qubits. The complete
-measurement procedure is:
+from temporary controls \(a_v\) to the adjacent \(A\) qubits.
+
+**The enrichment circuit and its required properties.** The unitary
+\(\Omega=\Omega_{a,BC}\) couples the temporary vertex qubits to the
+matter blocks \(B,C\), and acts trivially on the surviving edge register
+\(A\). In the controlled-\(\mathsf{CZ}\) construction considered here,
+it is a product of \(\mathsf{CCZ}\) gates, with one temporary qubit as
+control and a pair of matter qubits as targets. More explicitly, it has
+the controlled form
+
+\[
+\Omega=\sum_{r\in\{0,1\}^{|V_A|}}
+|r\rangle_a\langle r|_a\otimes W_r^{BC}\otimes I_A,
+\]
+
+where \(W_r^{BC}\) is the matter CZ circuit selected by the control
+string \(r\). The cluster CNOTs also leave these control bits unchanged
+and act only on \(A\). Consequently,
+
+\[
+[\Omega,C_A]=0.
+\]
+
+This compatibility is what allows us to move the cluster circuit past
+enrichment in Step 1; acting on different targets alone would not be
+sufficient for arbitrary circuits with shared controls.
+
+The essential **symmetry-enrichment condition** concerns the kernel of
+the ancillary coboundary map, \(d^a_0:A^0\to A^1\), whose notation is
+explained below. A label \(\mu\in A^0\) assigns a bit to each temporary
+vertex, and
+
+\[
+X^a_\mu:=\prod_v(X_{a_v})^{\mu(v)}.
+\]
+
+For **every** zero-coboundary label \(\mu\in\ker d^a_0\), we require
+
+\[
+\boxed{
+\Omega^\dagger X^a_\mu\Omega=X^a_\mu U_\mu,
+\qquad d^a_0\mu=0.
+}
+\]
+
+Here \(U_\mu\) acts only on \(B,C\), preserves their input codespace,
+and implements the intended transversal logical Clifford symmetry on
+that space. At least one such symmetry must have a nontrivial logical
+action for the logical measurement to be nontrivial. Zero coboundary
+identifies an ancillary symmetry pattern; it does **not**, by itself,
+prove that the attached matter operation is logical. That is a design
+requirement on \(\Omega\) and the input codes.
+
+The paper states this requirement with the conjugation direction
+\(\Omega X^a_\mu\Omega^\dagger=X^a_\mu U_\mu\) in its
+[Eq. (23)](https://arxiv.org/html/2602.12228v1#S3.SS2.SSS2), corresponding
+to Eq. (121) of this note. For the CCZ circuit here,
+\(\Omega^\dagger=\Omega\), so both directions coincide. The paper
+explicitly uses the inverse-conjugation identity above immediately after
+[Eq. (124)](https://arxiv.org/html/2602.12228v1#S6.SS1) in the logical
+measurement derivation. Its Eqs. (36)--(39) construct the enrichment
+circuit and verify the attached code symmetry.
+
+Conjugation preserves products, while the ancilla patterns satisfy
+\(X^a_{\mu+\nu}=X^a_\mu X^a_\nu\). Therefore the attached operators
+compose consistently:
+
+\[
+U_0=I,\qquad U_{\mu+\nu}=U_\mu U_\nu,
+\qquad U_\mu^2=I,\qquad [U_\mu,U_\nu]=0.
+\]
+
+These identities hold for the physical CZ representatives used here,
+and hence for their restrictions to the codespace. Unitarity and
+\(U_\mu^2=I\) also imply \(U_\mu^\dagger=U_\mu\). These are the
+properties that let Step 3 rewrite a sum over kernel labels as a product
+of commuting measurement projectors \((I+x_{\mu_i}U_{\mu_i})/2\).
+
+For a connected graph, the kernel contains only the zero pattern and the
+all-ones pattern. The nontrivial requirement is then simply
+
+\[
+\Omega^\dagger X^a_{\mathrm{all}}\Omega
+=X^a_{\mathrm{all}}U_{\mathrm{all}}.
+\]
+
+For an arbitrary label \(\phi\) outside the kernel, the CCZ circuit
+still attaches a physical CZ product \(V_\phi\):
+
+\[
+\Omega^\dagger X^a_\phi\Omega=X^a_\phi V_\phi.
+\]
+
+However, \(V_\phi\) need not preserve the codespace. This explains the
+role of the offset correction in Step 2: the measured record initially
+leaves labels in \(\phi_0+\ker d^a_0\); multiplication by
+\(X^a_{\phi_0}\) leaves only kernel labels, precisely where the logical
+symmetry guarantee applies. The kernel is that of \(d^a_0\), not of
+the chosen label \(\phi_0\).
+
+**The complete measurement procedure.** With these ingredients, the
+operations are:
 
 1. Apply \(C_A\), then the enrichment circuit \(\Omega\).
 2. Measure each \(a_v\) in the \(X\) basis and record \(x_v\).
@@ -5594,8 +5705,24 @@ vertex:       v1   v2   v3
 phi(v):        1    0    1
 ```
 
-The coboundary \(d^a_0\boldsymbol\phi\) assigns bits to edges.  On an edge,
-it asks whether the endpoint bits differ:
+The coboundary \(d^a_0\boldsymbol\phi\) assigns bits to edges. The
+endpoint rule follows from its definition, rather than being an additional
+assumption. For an ordinary graph edge \(e=\langle u,w\rangle\),
+
+\[
+\begin{aligned}
+(d^a_0\phi)(e)
+&=\phi(\partial^a_1[e])\\
+&=\phi([u]+[w])\\
+&=\phi(u)+\phi(w)\pmod2.
+\end{aligned}
+\]
+
+The first equality defines the coboundary as the dual of the boundary;
+the second uses the edge's two endpoints; the third uses the linearity
+of a cochain. This is the evaluation form of
+\(d^a_0=(\partial^a_1)^{\mathsf T}\). Thus, on an edge, the coboundary
+asks whether the endpoint bits differ:
 
 \[
 (d^a_0\boldsymbol\phi)(e_{12})
@@ -5865,6 +5992,155 @@ x_{\boldsymbol\phi}:=\prod_vx_v^{\boldsymbol\phi(v)}.
 \tag{206}
 \]
 
+---
+
+**Explanation of the equation above**
+
+Start with exactly your expression:
+\[
+\prod_{v\in V_A}
+\left(I+x_vX^a_vX^A_{d^a_0\mathbf v}\right).
+\]
+
+Here \(x_v\) is a number, \(+1\) or \(-1\), while the uppercase \(X\)'s are operators. We will expand the product first, then simplify the operators.
+
+**1. Write out two brackets to see what the product does.**
+
+For two vertices,
+\[
+\left(I+x_1X^a_1X^A_{d^a_0\mathbf1}\right)
+\left(I+x_2X^a_2X^A_{d^a_0\mathbf2}\right).
+\]
+
+Distributing gives four terms:
+\[
+\begin{aligned}
+&I\\
+&+x_1X^a_1X^A_{d^a_0\mathbf1}\\
+&+x_2X^a_2X^A_{d^a_0\mathbf2}\\
+&+x_1x_2
+X^a_1X^A_{d^a_0\mathbf1}
+X^a_2X^A_{d^a_0\mathbf2}.
+\end{aligned}
+\]
+
+Each term comes from choosing **one contribution from each bracket**: either \(I\), or the other contribution.
+
+**2. Introduce a bit to record each choice.**
+
+At every vertex \(v\), define
+\[
+\phi(v)=
+\begin{cases}
+0 & \text{if we choose }I,\\
+1 & \text{if we choose }x_vX^a_vX^A_{d^a_0\mathbf v}.
+\end{cases}
+\]
+
+For one specified set of choices \(\phi\), the resulting term is therefore
+\[
+\prod_{v\in V_A}
+\left(x_vX^a_vX^A_{d^a_0\mathbf v}\right)^{\phi(v)}.
+\]
+
+An exponent zero gives \(I\); an exponent one keeps the contribution.
+
+To include **every possible choice**, sum over all bit assignments:
+\[
+\boxed{
+\prod_{v\in V_A}
+\left(I+x_vX^a_vX^A_{d^a_0\mathbf v}\right)
+=
+\sum_{\phi:V_A\to\{0,1\}}
+\prod_{v\in V_A}
+\left(x_vX^a_vX^A_{d^a_0\mathbf v}\right)^{\phi(v)}.
+}
+\]
+
+This is where \(\phi\) enters. “Zero cochain” simply means a bit assignment to vertices.
+
+**3. Separate each term into signs, temporary-qubit operators, and surviving-qubit operators.**
+
+All the operators here are products of Pauli \(X\)'s, so they commute. We can regroup:
+\[
+\boxed{
+\sum_\phi
+\left[\prod_{v\in V_A}x_v^{\phi(v)}\right]
+\left[\prod_{v\in V_A}(X^a_v)^{\phi(v)}\right]
+\left[\prod_{v\in V_A}
+\left(X^A_{d^a_0\mathbf v}\right)^{\phi(v)}\right].
+}
+\]
+
+At this stage, **all three products run over vertices**, independently.
+
+The first two brackets have the abbreviations
+\[
+x_\phi:=\prod_{v\in V_A}x_v^{\phi(v)},
+\qquad
+X^a_\phi:=\prod_{v\in V_A}(X^a_v)^{\phi(v)}.
+\]
+
+**4. Unpack the third bracket.**
+
+For an ordinary graph,
+\[
+X^A_{d^a_0\mathbf v}
+=\prod_{e\ni v}X_{A_e}.
+\]
+It applies \(X\) to every edge qubit incident on vertex \(v\).
+
+Consequently, the third bracket is
+\[
+\prod_{v\in V_A}
+\left(\prod_{e\ni v}X_{A_e}\right)^{\phi(v)}.
+\]
+
+Consider one edge \(e\) with endpoints \(u,w\). It receives one \(X_{A_e}\) from \(u\) if \(\phi(u)=1\), and another from \(w\) if \(\phi(w)=1\). Its total factor is
+\[
+(X_{A_e})^{\phi(u)}(X_{A_e})^{\phi(w)}
+=(X_{A_e})^{\phi(u)+\phi(w)}.
+\]
+
+Because \(X_{A_e}^2=I\), only the parity matters. Thus
+\[
+\prod_{v\in V_A}
+\left(\prod_{e\ni v}X_{A_e}\right)^{\phi(v)}
+=
+\prod_{e\in E_A}
+(X_{A_e})^{[\phi(u_e)+\phi(w_e)]\bmod2}.
+\]
+
+The edge bit in this exponent is precisely
+\[
+(d^a_0\phi)(e)
+=[\phi(u_e)+\phi(w_e)]\bmod2.
+\]
+
+So we abbreviate the edge product as
+\[
+X^A_{d^a_0\phi}
+:=
+\prod_{e\in E_A}(X_{A_e})^{(d^a_0\phi)(e)}.
+\]
+
+**5. Put the three abbreviations together.**
+
+We obtain equation (206):
+\[
+\boxed{
+\prod_{v\in V_A}
+\left(I+x_vX^a_vX^A_{d^a_0\mathbf v}\right)
+=
+\sum_{\phi\in A^0}
+x_\phi\,X^a_\phi\,X^A_{d^a_0\phi}.
+}
+\]
+
+Each summand represents one choice from every original bracket. Its three factors record the resulting sign, the selected vertex \(X\)'s, and the surviving edge \(X\)'s after cancellations.
+
+---
+
 The subscript on \(x_{\boldsymbol\phi}\) denotes a product of signs,
 whereas the entries of \(\boldsymbol\phi\) are exponents:
 
@@ -5944,153 +6220,246 @@ algebraic expansion of the fixed-record projector.  It is useful because the
 co-boundary \(d^a_0\boldsymbol\phi\) will be tested by the later \(Z_A\)
 measurements.
 
-### Step 2: the \(Z_A\) record fixes a coset of cocycles
+### Step 2: undo the cluster circuit, measure the edge qubits, and correct the offset
 
-Ungauging first applies \(C_A^\dagger\), removing the leftmost cluster
-entangler in Step 1. The \(A\) register is not yet reset to zero: each
-summand contains \(X^A_{d^a_0\boldsymbol\phi}|0\rangle_A
-=|d^a_0\boldsymbol\phi\rangle_A\).  Let the subsequent
-\(Z_A\) measurement record be a binary 1-cochain \(\boldsymbol z\):
-\(z(f)=1\) means the outcome on edge \(f\) is \(-1\).
+Step 1 measured the temporary vertex qubits \(a_v\) in the \(X\) basis,
+giving the recorded signs \(x_v=\pm1\). Step 2 performs three operations:
 
-Here the cleanest way to read the notation is: choose the natural bases of
-vertices and edges, then represent each cochain by its list of values on
-those basis objects.  Thus \(\boldsymbol\phi\in A^0\) is formally a linear
-function on vertex chains, but we draw it as vertex bits; likewise,
-\(\boldsymbol z\in A^1\) is formally a linear function on edge chains, but
-we draw it as edge bits.  The important point is that \(\boldsymbol z\) and
-\(d^a_0\boldsymbol\phi\) belong to the same space, \(A^1\).  Equation (207)
-is an equality of two edge cochains, meaning
+1. Apply \(C_A^\dagger\), which undoes the cluster circuit.
+2. Measure each surviving edge qubit \(A_e\) in the \(Z\) basis.
+3. Use the edge measurement record to correct an offset on the temporary
+   vertex qubits.
+
+Let us first write the state between the first two operations, before
+discussing what the measurement does.
+
+**The state just before the \(Z\) measurements**
+
+Set
 
 \[
-z(e)=(d^a_0\boldsymbol\phi_0)(e)
-\qquad\text{for every edge }e.
+|\Phi_0\rangle=|\Psi\rangle_{BC}|0\rangle_A|+\rangle_a,
+\qquad N=|V_A|=\dim A^0.
 \]
 
-Take the concrete vertex assignment
-
-```text
-vertex:       v1   v2   v3
-phi(v):        1    0    1
-```
-
-Its coboundary is
+Using Step 1's expansion, undoing the cluster circuit gives
 
 \[
-(d^a_0\boldsymbol\phi)(e_{12})=1+0=1,
-\qquad
-(d^a_0\boldsymbol\phi)(e_{23})=0+1=1.
+\boxed{
+C_A^\dagger\Pi_{\boldsymbol x}\Omega C_A|\Phi_0\rangle
+=
+2^{-N}\sum_{\phi\in A^0}
+x_\phi X^a_\phi\Omega
+\Bigl(|\Psi\rangle_{BC}|d^a_0\phi\rangle_A|+\rangle_a\Bigr).
+}
 \]
 
-Thus its edge values are
-
-```text
-edge:             e12  e23
-(d phi)(e):         1    1
-```
-
-The operator \(X^A_{d^a_0\boldsymbol\phi}\) applies \(X\) precisely on
-those edge qubits with assigned bit \(1\).  Therefore
+The important new feature is the middle ket, \(|d^a_0\phi\rangle_A\).
+It follows directly from
 
 \[
-X^A_{d^a_0\boldsymbol\phi}|0\rangle_A
-=X_{A_{12}}X_{A_{23}}
-\bigl(|0\rangle_{A_{12}}|0\rangle_{A_{23}}\bigr)
-=|1\rangle_{A_{12}}|1\rangle_{A_{23}}.
+X^A_{d^a_0\phi}|0\rangle_A=|d^a_0\phi\rangle_A:
 \]
 
-The later \(Z_A\) measurement reads this computational-basis string.  With
-the convention \(z(e)=0\) for a \(+1\) \(Z_{A_e}\) outcome and \(z(e)=1\)
-for a \(-1\) outcome, the displayed state has only one possible record:
+an \(X\) flips an edge qubit from \(|0\rangle\) to \(|1\rangle\)
+wherever the corresponding edge bit is one. The enrichment circuit
+\(\Omega\) does not act on \(A\), so it leaves this edge string unchanged.
 
-```text
-edge:       e12  e23
-z(e):         1    1
-```
+Thus, in each term of the sum, the \(A\) register contains the edge-bit
+string \(d^a_0\phi\). Different \(\phi\)'s can give the same edge string.
+The labels \(\phi\) still index terms in the algebraic expansion; they
+are not additional recorded measurement outcomes.
 
-Hence \(\boldsymbol z=d^a_0\boldsymbol\phi\).  If instead the measurement
-reported \(\boldsymbol z=(0,1)\), its overlap with this branch would vanish:
+**What \(Z\) is, and what the record \(z\) means**
+
+Uppercase \(Z_{A_e}\) is the Pauli operator measured on edge qubit
+\(A_e\):
 
 \[
-\langle 0,1|1,1\rangle=0.
+Z|0\rangle=+|0\rangle,
+\qquad Z|1\rangle=-|1\rangle.
 \]
 
-This is the meaning of “its overlap with the observed record is nonzero only
-if” there is some 0-cochain \(\boldsymbol\phi_0\) with
+The measurement therefore returns a sign, \(+1\) or \(-1\), on each
+edge. We encode those signs using lowercase bits:
 
 \[
-\boldsymbol z=d^a_0\boldsymbol\phi_0
+z(e)=
+\begin{cases}
+0,&\text{if the measured sign is }+1,\\
+1,&\text{if the measured sign is }-1.
+\end{cases}
+\]
+
+The full record \(\boldsymbol z\) is simply the list of these bits over
+all edges. Calling it a **1-cochain** means that it assigns a bit to each
+edge. Both \(\boldsymbol z\) and \(d^a_0\phi\) belong to \(A^1\), so
+we can compare their bits edge by edge. In homological gauging, the same
+statement applies to the surviving qubits indexed by \(A_1\); the
+ordinary-graph interpretation is only needed for the example below.
+
+For a specified record \(\boldsymbol z\), the measurement projector is
+
+\[
+P^A_{\boldsymbol z}
+=\prod_{e\in E_A}\frac{I+(-1)^{z(e)}Z_{A_e}}{2}
+=|\boldsymbol z\rangle_A\langle\boldsymbol z|_A,
+\]
+
+with the identity on the other registers understood.
+
+**How the measurement selects terms in the sum**
+
+Apply this projector to the edge ket in one term:
+
+\[
+P^A_{\boldsymbol z}|d^a_0\phi\rangle_A
+=
+\begin{cases}
+|\boldsymbol z\rangle_A,&d^a_0\phi=\boldsymbol z,\\
+0,&d^a_0\phi\ne\boldsymbol z.
+\end{cases}
+\]
+
+So the measurement keeps exactly those terms whose edge string agrees
+with the observed record, on every edge. This gives the overall equation
+for the measurement part of Step 2:
+
+\[
+\boxed{
+\begin{aligned}
+&P^A_{\boldsymbol z}C_A^\dagger\Pi_{\boldsymbol x}
+\Omega C_A|\Phi_0\rangle\\
+&\qquad=
+2^{-N}\sum_{\substack{\phi\in A^0\\d^a_0\phi=\boldsymbol z}}
+x_\phi X^a_\phi\Omega
+\Bigl(|\Psi\rangle_{BC}|\boldsymbol z\rangle_A|+\rangle_a\Bigr).
+\end{aligned}
+}
+\]
+
+The change is in the sum: before measurement, we sum over every
+\(\phi\); after obtaining record \(\boldsymbol z\), we sum only over
+those satisfying \(d^a_0\phi=\boldsymbol z\). These are unnormalized
+states. For a normalized initial state, the squared norm of the displayed
+state gives the joint probability of the records
+\(\boldsymbol x,\boldsymbol z\).
+
+Every record that actually occurs in the ideal protocol is accepted.
+The condition in the sum describes the measurement's effect; it is not
+an extra postselection requirement. In particular, any occurring record
+belongs to \(\operatorname{im}d^a_0\). On an ordinary graph, its bits
+sum to zero modulo two around any loop.
+
+**Why we introduce \(\phi_0\), and what the coset means**
+
+The edge measurement does not necessarily determine a unique vertex
+assignment. Choose one compatible assignment and call it \(\phi_0\):
+
+\[
+d^a_0\phi_0=\boldsymbol z.
 \tag{207}
 \]
 
-The subscript \(0\) says only: choose one cochain whose coboundary matches
-the actual record.  It need not be unique.  This is an outcome constraint,
-not a postselection condition: the actual record automatically has this form
-because it came from the state in Eq. (206).
-
-Indeed, if \(\boldsymbol\mu\in\ker d^a_0\), then
+For any other compatible assignment \(\phi\), linearity over
+\(\mathbb F_2\) gives
 
 \[
-d^a_0(\boldsymbol\phi_0+\boldsymbol\mu)
-=d^a_0\boldsymbol\phi_0
-=\boldsymbol z.
-\]
-
-These alternative \(\boldsymbol\phi\)'s are precisely the branches that
-remain after the \(Z_A\) measurement, and they differ by ancilla symmetries.
-
-Now compare any other surviving summand \(\boldsymbol\phi\) with
-\(\boldsymbol\phi_0\).  It must obey
-
-\[
-d^a_0\boldsymbol\phi=d^a_0\boldsymbol\phi_0
+d^a_0\phi=d^a_0\phi_0
 \quad\Longleftrightarrow\quad
-d^a_0(\boldsymbol\phi+\boldsymbol\phi_0)=0.
+d^a_0(\phi+\phi_0)=0.
 \tag{208}
 \]
 
-Thus every surviving label has the form
+**Why zero appears here.** The measurement does not require the surviving
+\(\phi\)'s to have zero coboundary: their coboundary is the recorded
+\(\boldsymbol z\). What must have zero coboundary is the difference
+\(\phi+\phi_0\), because it cannot change any recorded edge bit. Indeed,
+\(d^a_0(\phi+\phi_0)=\boldsymbol z+\boldsymbol z=0\).
+
+Writing \(\mu=\phi+\phi_0\), every compatible assignment therefore has
+exactly the form
 
 \[
-\boldsymbol\phi=\boldsymbol\phi_0+\boldsymbol\mu,
-\qquad
-\boldsymbol\mu\in\ker d^a_0.
+\phi=\phi_0+\mu,
+\qquad \mu\in\ker d^a_0.
 \tag{209}
 \]
 
-The surviving set is the **coset**
-\(\boldsymbol\phi_0+\ker d^a_0\): the set obtained by adding
-\(\boldsymbol\phi_0\) to every vector in the kernel. Unless the observed
-edge string is zero, the surviving \(\boldsymbol\phi\)'s are not themselves
-cocycles. Their differences are. Subtracting the known offset (the same as
-adding it over \(\mathbb F_2\)) leaves only the symmetry labels.
+Here \(\ker d^a_0\) is the set of vertex assignments with zero
+coboundary. The set \(\phi_0+\ker d^a_0\) is called a **coset**: it
+contains all vertex assignments compatible with the edge record that was
+measured. Unless \(\boldsymbol z=0\), the compatible assignments do
+not themselves have zero coboundary; their differences do.
 
-On the three-vertex line, take \(\boldsymbol z=(1,1)\). The equations are
-\(\phi_1+\phi_2=1\) and \(\phi_2+\phi_3=1\), with exactly two solutions:
-\((1,0,1)\) and \((0,1,0)\). Their difference is \((1,1,1)\), which has
-zero coboundary. Neither solution has zero coboundary. This small example
-is why the coset, rather than just the kernel, appears before feedforward.
-
-The binary string \(\boldsymbol z\) is a **coboundary**, belonging to
-\(\operatorname{im}d^a_0\). On a graph with loops, not every edge string
-has this property: around any loop the endpoint differences sum to zero.
-These restrictions hold automatically for ideal outcomes in this protocol;
-no experiment is rejected to enforce them.
-
-The offset \(\boldsymbol\phi_0\) is an ordinary measurement byproduct.
-Applying \(X^a_{\boldsymbol\phi_0}\) before undoing enrichment removes it.  After this
-feedforward, the part that acts nontrivially on the input blocks is
+For example, on the three-vertex line, the record
+\(\boldsymbol z=(1,1)\) requires
 
 \[
-\sum_{\boldsymbol\mu\in\ker d^a_0}
-x_{\boldsymbol\mu}X^a_{\boldsymbol\mu}\,\Omega.
+\phi_1+\phi_2=1,\qquad \phi_2+\phi_3=1
+\quad\text{modulo two}.
+\]
+
+There are two solutions, \((1,0,1)\) and \((0,1,0)\). Their difference,
+computed modulo two, is \((1,1,1)\), whose coboundary is zero. Thus,
+choosing \(\phi_0=(1,0,1)\), the two surviving labels are
+\(\phi_0+(0,0,0)\) and \(\phi_0+(1,1,1)\).
+
+**Correct the offset before Step 3**
+
+Substitute \(\phi=\phi_0+\mu\) in the surviving sum. The sign and
+operator products factor as
+
+\[
+x_{\phi_0+\mu}=x_{\phi_0}x_\mu,
+\qquad
+X^a_{\phi_0+\mu}=X^a_{\phi_0}X^a_\mu.
+\]
+
+Consequently,
+
+\[
+\sum_{\phi:\,d^a_0\phi=\boldsymbol z}x_\phi X^a_\phi
+=
+x_{\phi_0}X^a_{\phi_0}
+\sum_{\mu\in\ker d^a_0}x_\mu X^a_\mu.
+\]
+
+We now apply \(X^a_{\phi_0}\) to the temporary vertex qubits: apply an
+\(X\) at each vertex where \(\phi_0(v)=1\). This correction is chosen
+from the measured record, a procedure called **feedforward**. Since
+\((X^a_{\phi_0})^2=I\), it cancels the offset operator. The corrected
+state is
+
+\[
+\boxed{
+2^{-N}x_{\phi_0}
+\sum_{\mu\in\ker d^a_0}x_\mu X^a_\mu\Omega
+\Bigl(|\Psi\rangle_{BC}|\boldsymbol z\rangle_A|+\rangle_a\Bigr).
+}
 \tag{210}
 \]
 
-Notice the contrast with the previous measurement-preparation section.
-Local byproducts such as \(\boldsymbol\phi_0\) are correctable.  The signs
-\(x_{\boldsymbol\mu}\) attached to genuine cocycles are not local syndrome
-data to erase: they are the logical measurement outcomes we want to retain.
+The scalar \(x_{\phi_0}\) is only a global sign. The \(A\) register
+remains in the measured state \(|\boldsymbol z\rangle_A\); it has not
+been reset to \(|0\rangle_A\). The remaining sum is precisely what
+Step 3 needs before undoing \(\Omega\).
+
+**Why remove this offset?** Every remaining operator is now labelled by
+\(\mu\in\ker d^a_0\), the domain on which enrichment is guaranteed to
+produce the logical gates \(U_\mu\). Before correction, the labels were
+\(\phi_0+\mu\), which need not lie in that domain. This does not mean
+that conjugating those operators is impossible. In the CCZ construction,
+conjugation still attaches a physical matter circuit, but it can leave an
+extra, known circuit that is not guaranteed to preserve the original
+codespace. The correction cancels that byproduct before undoing enrichment.
+It does not create a logical projector from nothing; it removes the extra
+operation accompanying it. The worked conjugation below makes this
+physical-versus-logical distinction explicit.
+
+The signs \(x_\mu\) remain because they encode the logical measurement
+outcomes. We correct the offset \(\phi_0\), while retaining those signs
+for the logical projector revealed in Step 3.
 
 ### Step 3: remove the ancilla and reveal the logical projector
 
@@ -6102,6 +6471,14 @@ identity,
 =X^a_{\boldsymbol\mu}U_{\boldsymbol\mu}.
 \tag{211}
 \]
+
+**What the kernel condition guarantees here.** The \(\mu\)'s in this
+sum are zero-coboundary patterns because Step 2 corrected the offset.
+Equation (121) requires enrichment to associate a logical code symmetry
+\(U_\mu\) with every such ancillary symmetry. The word *logical* is
+essential: a physical matter operator can exist without preserving the
+codespace. Equation (211) uses the guaranteed logical operators. It does
+not assert that every non-cocycle fails to produce a logical operator.
 
 After conjugating through \(\Omega\), the remaining ancilla operators
 act on the original \(|+\rangle_a\) factors. Hence each
@@ -6129,6 +6506,22 @@ belongs to it means
 \qquad\Longleftrightarrow\qquad
 d^a_0\boldsymbol\mu=0.
 \]
+
+**Why such a pattern is an ancillary symmetry.** Recall the cluster
+stabilizer \(K^A_e=Z_{A_e}Z^a_{\partial^a_1[e]}\). Conjugating it by
+\(X^a_\mu\) changes its sign by
+
+\[
+X^a_\mu K^A_e X^a_\mu
+=(-1)^{\mu(\partial^a_1[e])}K^A_e
+=(-1)^{(d^a_0\mu)(e)}K^A_e.
+\]
+
+Thus zero coboundary means no edge stabilizer changes sign. The vertex
+stabilizers also commute with \(X^a_\mu\), because their temporary-qubit
+factors are X's. This is the concrete reason the kernel labels ancillary
+symmetries: they leave all the cluster constraints unchanged. Enrichment
+is designed to attach logical matter symmetries to these patterns.
 
 For an ordinary ancilla graph, on an edge \(e=\langle v,w\rangle\), this
 condition says
@@ -6160,7 +6553,7 @@ so \(d^a_0\boldsymbol\mu=0\) requires
 \ker d^a_0=\{(0,0,0),(1,1,1)\}.
 \]
 
-Why do precisely these cochains survive Step 2?  Suppose one vertex cochain
+Why do precisely these differences remain after the offset correction in Step 2? Suppose one vertex cochain
 \(\boldsymbol\phi_0\) explains the final edge record:
 
 \[
@@ -6269,6 +6662,311 @@ The projector's factor of two and the state's normalization are different
 things. A general Clifford gate need not satisfy \(U^2=I\); the binary
 projector formula here applies to the involutions in this construction.
 
+---
+
+**Proof of Step 3**
+
+There are **two separate steps** hidden in the compact expression:
+
+1. Undoing \(\Omega\) turns the ancilla operators \(X^a_\mu\) into matter
+   operators \(U_\mu\).
+2. A separate algebraic identity rewrites the **sum over all \(\mu\)** as
+   a **product over a basis of \(\mu\)'s**.
+
+The sum-to-product conversion does not come from \(\Omega\). Let us
+derive both steps.
+
+**1. Start with the state at the end of Step 2**
+
+After correcting the offset, the state is
+
+\[
+2^{-N}x_{\phi_0}
+\sum_{\mu\in\ker d^a_0}
+x_\mu X^a_\mu\Omega
+\Bigl(|\Psi\rangle_{BC}|\boldsymbol z\rangle_A|+\rangle_a\Bigr).
+\]
+
+For the moment, suppress the measured \(A\) register and the common
+scalar \(2^{-N}x_{\phi_0}\). Neither affects the following algebra. What
+remains is
+
+\[
+\boxed{
+\sum_{\mu\in\ker d^a_0}
+x_\mu X^a_\mu\Omega
+\bigl(|\Psi\rangle_{BC}|+\rangle_a\bigr).
+}
+\]
+
+Here \(|+\rangle_a\) means the product of \(|+\rangle\) states on all
+temporary qubits.
+
+**2. Apply \(\Omega^\dagger\) to undo enrichment**
+
+Applying \(\Omega^\dagger\) to the whole state gives
+
+\[
+\sum_{\mu\in\ker d^a_0}
+x_\mu
+\underbrace{\Omega^\dagger X^a_\mu\Omega}_{\text{conjugated operator}}
+\bigl(|\Psi\rangle_{BC}|+\rangle_a\bigr).
+\]
+
+For each zero-coboundary pattern \(\mu\), the enrichment identity is
+
+\[
+\Omega^\dagger X^a_\mu\Omega=X^a_\mu U_\mu.
+\]
+
+**Why the zero-coboundary qualification matters.** It identifies the
+patterns for which the attached matter operator is guaranteed to be a
+logical gate. In the CCZ construction, let \(V_v\) be the product of
+matter CZ gates controlled by \(a_v\). For an arbitrary pattern \(\phi\),
+including one with nonzero coboundary, the one-gate CCZ identity gives
+
+\[
+\Omega^\dagger X^a_\phi\Omega=X^a_\phi V_\phi,
+\qquad V_\phi=\prod_{v:\,\phi(v)=1}V_v.
+\]
+
+This identity holds for all patterns. What is special about
+\(\mu\in\ker d^a_0\) is the requirement that \(V_\mu=U_\mu\) implements
+a logical symmetry of the input codes. For a general \(\phi\),
+\(V_\phi\) is only a physical CZ circuit and need not preserve those codes.
+Zero coboundary alone does not prove that a gate is logical; the
+construction of \(\Omega\) must satisfy the enrichment condition.
+
+For example, the uncorrected three-vertex sum, after undoing enrichment,
+would give the matter state
+
+\[
+\begin{aligned}
+\bigl[x_1x_3V_{101}+x_2V_{010}\bigr]|\Psi\rangle
+&=x_1x_3V_{101}
+\bigl[I+(x_1x_2x_3)U_{111}\bigr]|\Psi\rangle.
+\end{aligned}
+\]
+
+Here \(V_{010}=V_{101}V_{111}=V_{101}U_{111}\), since these CZ products
+commute and square to identity. The desired logical projector is already
+inside the brackets, but an extra physical byproduct \(V_{101}\) remains.
+Correcting \(X^a_{101}\) before undoing enrichment removes that byproduct.
+Equivalently, in this CCZ construction, one could cancel \(V_{101}\)
+on the matter after undoing enrichment. Neither approach requires the
+measurement record itself to be zero.
+
+Thus the corrected state becomes
+
+\[
+\sum_{\mu\in\ker d^a_0}
+x_\mu X^a_\mu U_\mu
+\bigl(|\Psi\rangle_{BC}|+\rangle_a\bigr).
+\]
+
+The two operators act on different registers:
+
+- \(U_\mu\) acts on the matter \(BC\).
+- \(X^a_\mu\) acts on the temporary qubits \(a\).
+
+Since \(X|+\rangle=|+\rangle\), any product of those ancilla \(X\)'s
+leaves \(|+\rangle_a\) unchanged:
+
+\[
+X^a_\mu|+\rangle_a=|+\rangle_a.
+\]
+
+This last equality holds for every X pattern, not just a cocycle. The
+kernel condition was needed to identify the attached matter operation as
+a guaranteed logical symmetry, not to make the ancilla X's act trivially
+on \(|+\rangle_a\).
+
+Consequently,
+
+\[
+\boxed{
+\left[\sum_{\mu\in\ker d^a_0}x_\mu U_\mu\right]
+|\Psi\rangle_{BC}\otimes|+\rangle_a.
+}
+\]
+
+**This is everything that undoing \(\Omega\) has done. We still have a sum.**
+
+**3. Write every \(\mu\) using a basis**
+
+Let the kernel have dimension \(k\), and choose a basis
+
+\[
+\mu_1,\ldots,\mu_k.
+\]
+
+Every element of the kernel can be written uniquely as
+
+\[
+\mu=b_1\mu_1+\cdots+b_k\mu_k,
+\qquad b_i\in\{0,1\}.
+\]
+
+So summing over \(\mu\) means summing over all \(2^k\) choices of the
+bits \(b_1,\ldots,b_k\).
+
+For example, with two basis elements, the kernel consists of
+
+\[
+0,\qquad \mu_1,\qquad \mu_2,\qquad \mu_1+\mu_2.
+\]
+
+We now need to understand the sign and operator associated with each
+combination.
+
+**4. Both the signs and the operators multiply when the labels add**
+
+Recall
+
+\[
+x_\mu=\prod_v x_v^{\mu(v)},\qquad x_v=\pm1.
+\]
+
+Because \(x_v^2=1\), adding labels modulo two gives
+
+\[
+x_{\mu+\nu}=x_\mu x_\nu.
+\]
+
+Likewise,
+
+\[
+U_{\mu+\nu}=U_\mu U_\nu.
+\]
+
+This operator identity follows from the enrichment identity. Indeed, the
+ancilla operators satisfy
+
+\[
+X^a_{\mu+\nu}=X^a_\mu X^a_\nu.
+\]
+
+Conjugating both sides by \(\Omega\) gives
+
+\[
+\begin{aligned}
+X^a_{\mu+\nu}U_{\mu+\nu}
+&=\Omega^\dagger X^a_\mu X^a_\nu\Omega\\
+&=(\Omega^\dagger X^a_\mu\Omega)
+  (\Omega^\dagger X^a_\nu\Omega)\\
+&=(X^a_\mu U_\mu)(X^a_\nu U_\nu)\\
+&=X^a_{\mu+\nu}U_\mu U_\nu.
+\end{aligned}
+\]
+
+Cancel the common ancilla operator to obtain the claimed identity.
+The kernel is closed under addition:
+\(d^a_0(\mu+\nu)=d^a_0\mu+d^a_0\nu=0\). Thus all three labels in this
+argument remain in the domain where the logical enrichment identity is
+guaranteed. This is why we can use that identity consistently to turn the
+sum over the kernel into a product of logical projectors.
+
+Therefore, if \(\mu=\sum_i b_i\mu_i\),
+
+\[
+x_\mu U_\mu
+=\prod_{i=1}^k\bigl(x_{\mu_i}U_{\mu_i}\bigr)^{b_i}.
+\]
+
+**5. Expand a product and recognize the sum**
+
+First take \(k=2\). Our sum is
+
+\[
+\begin{aligned}
+\sum_{\mu\in\ker d^a_0}x_\mu U_\mu
+={}&I+x_{\mu_1}U_{\mu_1}+x_{\mu_2}U_{\mu_2}\\
+&+x_{\mu_1}x_{\mu_2}U_{\mu_1}U_{\mu_2}.
+\end{aligned}
+\]
+
+But these are exactly the four terms obtained by expanding
+
+\[
+\boxed{(I+x_{\mu_1}U_{\mu_1})(I+x_{\mu_2}U_{\mu_2}).}
+\]
+
+For arbitrary \(k\), the same reasoning gives
+
+\[
+\boxed{
+\sum_{\mu\in\ker d^a_0}x_\mu U_\mu
+=\prod_{i=1}^k(I+x_{\mu_i}U_{\mu_i}).
+}
+\]
+
+Each bracket contributes either \(I\) or \(x_{\mu_i}U_{\mu_i}\).
+A choice from all brackets corresponds to one basis-bit assignment
+\((b_1,\ldots,b_k)\), hence to exactly one \(\mu\).
+
+This is **the same binomial expansion used in Step 1, now read in reverse**.
+
+**6. Where do the divisions by two come from?**
+
+The exact identity above contains no divisions by two. To write each
+factor as a measurement projector, use
+
+\[
+I+x_{\mu_i}U_{\mu_i}
+=2\left(\frac{I+x_{\mu_i}U_{\mu_i}}2\right).
+\]
+
+There are \(k\) factors, so
+
+\[
+\boxed{
+\sum_{\mu\in\ker d^a_0}x_\mu U_\mu
+=2^k\prod_{i=1}^k\frac{I+x_{\mu_i}U_{\mu_i}}2.
+}
+\]
+
+Restoring the scalar and registers suppressed at the start, the exact
+unnormalized output is
+
+\[
+\boxed{
+2^{k-N}x_{\phi_0}
+\left[\prod_{i=1}^k\frac{I+x_{\mu_i}U_{\mu_i}}2\right]
+|\Psi\rangle_{BC}\otimes|\boldsymbol z\rangle_A\otimes|+\rangle_a.
+}
+\]
+
+Equation (212) omits the common scalar because it describes the
+conditional matter state up to normalization.
+
+**7. Why these factors are projectors**
+
+The \(U_{\mu_i}\)'s commute and satisfy \(U_{\mu_i}^2=I\). A factor
+
+\[
+\frac{I+x_{\mu_i}U_{\mu_i}}2
+\]
+
+keeps the component with \(U_{\mu_i}\) eigenvalue \(x_{\mu_i}\), and
+removes the component with the opposite eigenvalue. Their product imposes
+all those conditions together.
+
+For the connected three-vertex example, the kernel has only two elements,
+\(000\) and \(111\), so \(k=1\). The entire calculation reduces to
+
+\[
+\begin{aligned}
+\sum_{\mu\in\{000,111\}}x_\mu U_\mu
+&=I+(x_1x_2x_3)U_{111}\\
+&=2\,\frac{I+(x_1x_2x_3)U_{111}}2.
+\end{aligned}
+\]
+
+There, the “sum becoming a product” is simply a two-term sum becoming a
+product with **one factor**.
+
+---
+
 ### The complete protocol with the ancillary registers retained
 
 The following calculation keeps the normalization factors and the measured
@@ -6318,6 +7016,454 @@ identify their coboundaries, leaving a coset of the kernel. Correcting its
 offset and undoing enrichment converts the remaining symmetry sum into
 logical projectors. In a connected graph, the only logical measurement bit
 left is \(x_{\mathrm{all}}=\prod_vx_v\).
+
+### Worked example: all three steps on a three-vertex line with encoded matter
+
+We now carry out the whole calculation on the line
+
+```text
+v1 ---- e12 ---- v2 ---- e23 ---- v3
+```
+
+There are three temporary vertex qubits \(a_1,a_2,a_3\) and two surviving
+edge qubits \(A_{12},A_{23}\). To make the matter operation explicit,
+we attach two simple encoded blocks \(B,C\). This is a finite toy example
+of the measurement algebra, not a three-vertex realization of the ALP
+topological code or its anyons.
+
+**1. Specify the codes and the operation we want to measure**
+
+Each block is a three-qubit repetition code:
+
+\[
+|\overline0\rangle_B=|000\rangle_B,
+\qquad |\overline1\rangle_B=|111\rangle_B,
+\]
+
+and likewise for \(C\). The checks on \(B\) are
+\(Z_{B_1}Z_{B_2}\) and \(Z_{B_2}Z_{B_3}\); their common \(+1\)
+eigenspace is spanned by these two states. The same checks define \(C\).
+This code protects against a single bit flip, but is not a full
+single-error-correcting quantum code.
+
+Attach the matter pair \((B_i,C_i)\) to vertex \(v_i\). Define
+
+\[
+V_i=\mathsf{CZ}_{B_i,C_i},
+\qquad U=V_1V_2V_3.
+\]
+
+On encoded basis states, for \(b,c\in\{0,1\}\), each pair contains the
+bits \((b,c)\). Therefore
+
+\[
+U|\overline b\rangle_B|\overline c\rangle_C
+=(-1)^{3bc}|\overline b\rangle_B|\overline c\rangle_C
+=(-1)^{bc}|\overline b\rangle_B|\overline c\rangle_C.
+\]
+
+Thus \(U\) implements a logical \(\overline{\mathsf{CZ}}\). The protocol
+will **measure** this logical operator, producing its \(+1\) or \(-1\)
+eigenspace projection; it does not simply apply the unitary \(U\).
+
+Keep \(|\Psi\rangle_{BC}\) arbitrary in the two-block codespace until
+we evaluate a particular input at the end.
+
+**2. Specify the cluster and enrichment circuits**
+
+Initialize the edge qubits in \(|00\rangle_A\) and the temporary qubits
+in \(|+++\rangle_a\):
+
+\[
+|\Phi_0\rangle=|\Psi\rangle_{BC}|00\rangle_A|+++\rangle_a.
+\]
+
+The cluster circuit has four CNOTs:
+
+\[
+C_A=
+\mathsf{CNOT}_{a_1\to A_{12}}
+\mathsf{CNOT}_{a_2\to A_{12}}
+\mathsf{CNOT}_{a_2\to A_{23}}
+\mathsf{CNOT}_{a_3\to A_{23}}.
+\]
+
+These gates commute. On a temporary computational-basis string
+\(r=(r_1,r_2,r_3)\), they write the endpoint differences onto the edges:
+
+\[
+C_A|00\rangle_A|r_1r_2r_3\rangle_a
+=|r_1+r_2,\ r_2+r_3\rangle_A|r_1r_2r_3\rangle_a,
+\]
+
+where the additions are modulo two.
+
+The enrichment circuit is
+
+\[
+\Omega=\prod_{i=1}^3\mathsf{CCZ}_{a_i,B_i,C_i}.
+\]
+
+For a temporary bit \(r_i=0\), its CCZ does nothing to the matter pair;
+for \(r_i=1\), it applies \(V_i\). Explicitly,
+
+\[
+\Omega\bigl(|\Psi\rangle_{BC}|r\rangle_a\bigr)
+=\bigl(V_1^{r_1}V_2^{r_2}V_3^{r_3}|\Psi\rangle_{BC}\bigr)
+\otimes|r\rangle_a.
+\]
+
+Both circuits use the temporary qubits as controls and act on different
+targets, so they commute. The prepared state is \(\Omega C_A|\Phi_0\rangle\).
+
+**Translation to chains and cochains.** A vertex chain is a binary
+selection of vertices, and an edge chain is a binary selection of edges.
+Their spaces are \(A_0=\mathbb F_2^3\) and \(A_1=\mathbb F_2^2\).
+The boundary sends an edge to its endpoints:
+
+\[
+\partial^a_1 e_{12}=v_1+v_2,
+\qquad \partial^a_1 e_{23}=v_2+v_3,
+\qquad
+\partial^a_1=
+\begin{pmatrix}1&0\\1&1\\0&1\end{pmatrix}.
+\]
+
+A vertex cochain \(\phi\) assigns bits to vertices. Its coboundary assigns
+bits to edges by evaluating \(\phi\) on each edge's boundary:
+
+\[
+(d^a_0\phi)(e)=\phi(\partial^a_1 e),
+\qquad
+d^a_0=(\partial^a_1)^{\mathsf T}
+=\begin{pmatrix}1&1&0\\0&1&1\end{pmatrix}.
+\]
+
+Thus \(d^a_0\phi=(\phi_1+\phi_2,\phi_2+\phi_3)\). This is exactly the
+endpoint-difference calculation implemented by the cluster CNOTs. A
+computational-basis string \(r\) can be identified with a vertex cochain
+in these coordinates; below, \(\phi\) instead labels terms in a projector
+expansion, not an additional measured string.
+
+**3. Step 1: measure the temporary qubits and expand the projectors**
+
+Suppose the three \(X\) measurements give
+
+\[
+(x_1,x_2,x_3)=(+1,-1,+1).
+\]
+
+The projector describing this record is
+
+\[
+\Pi_{\boldsymbol x}
+=\frac{I+X_{a_1}}2\frac{I-X_{a_2}}2\frac{I+X_{a_3}}2.
+\]
+
+Pulling it through \(C_A\) replaces each \(X_{a_i}\) by
+
+\[
+K_1=X_{a_1}X_{A_{12}},\qquad
+K_2=X_{a_2}X_{A_{12}}X_{A_{23}},\qquad
+K_3=X_{a_3}X_{A_{23}}.
+\]
+
+The unnormalized post-measurement state is therefore
+
+\[
+\Pi_{\boldsymbol x}\Omega C_A|\Phi_0\rangle
+=\frac18 C_A(I+K_1)(I-K_2)(I+K_3)\Omega|\Phi_0\rangle.
+\]
+
+Distributing the brackets gives all eight terms:
+
+\[
+\frac18 C_A
+\left[I+K_1-K_2+K_3-K_1K_2+K_1K_3-K_2K_3-K_1K_2K_3\right]
+\Omega|\Phi_0\rangle.
+\]
+
+The following table spells out their cochain labels and edge strings.
+Here \(X_i\) in the third column means \(X_{a_i}\).
+
+| Vertex cochain \(\phi\) | Sign \(x_\phi=(-1)^{\phi_2}\) | Temporary operator \(X^a_\phi\) | Edge string \(d^a_0\phi\) |
+|---|---|---|---|
+| \(000\) | \(+1\) | \(I\) | \(00\) |
+| \(100\) | \(+1\) | \(X_1\) | \(10\) |
+| \(010\) | \(-1\) | \(X_2\) | \(11\) |
+| \(001\) | \(+1\) | \(X_3\) | \(01\) |
+| \(110\) | \(-1\) | \(X_1X_2\) | \(01\) |
+| \(101\) | \(+1\) | \(X_1X_3\) | \(11\) |
+| \(011\) | \(-1\) | \(X_2X_3\) | \(10\) |
+| \(111\) | \(-1\) | \(X_1X_2X_3\) | \(00\) |
+
+For instance, \(K_1K_2\) contains two \(X_{A_{12}}\)'s, which cancel,
+leaving one \(X_{A_{23}}\). That is the \(110\) row with edge string
+\(01\).
+
+**Translation to the proof.** The three bits of \(\phi\in A^0\) say
+which brackets contributed their nonidentity term. The product of the
+chosen edge operators is \(X^A_{d^a_0\phi}\). Cancellation of duplicate
+\(X\)'s is addition modulo two in the coboundary calculation. Nothing
+has measured \(\phi\); the eight rows are terms of one algebraic sum.
+
+**4. Step 2: undo the cluster circuit and measure the two edges**
+
+Apply \(C_A^\dagger\), canceling the leftmost \(C_A\). The state becomes
+
+\[
+\frac18\sum_{\phi\in\{0,1\}^3}
+x_\phi X^a_\phi\Omega
+\bigl(|\Psi\rangle_{BC}|d^a_0\phi\rangle_A|+++\rangle_a\bigr).
+\]
+
+**Reading the edge ket \(|d^a_0\phi\rangle_A\).** For each term in this
+sum, \(\phi=(\phi_1,\phi_2,\phi_3)\) is a choice of vertex bits, and
+\(d^a_0\phi\) is the resulting list of edge bits. The subscript \(A\)
+on the ket identifies the edge-qubit register; it does not add another
+operation. Explicitly,
+
+\[
+|d^a_0\phi\rangle_A
+=|\phi_1+\phi_2\rangle_{A_{12}}
+\otimes|\phi_2+\phi_3\rangle_{A_{23}},
+\]
+
+with both sums taken modulo two. This ket was obtained by applying the
+edge operators from Step 1 to \(|00\rangle_A\):
+
+\[
+\begin{aligned}
+X^A_{d^a_0\phi}|00\rangle_A
+&=(X_{A_{12}})^{\phi_1}
+  (X_{A_{12}}X_{A_{23}})^{\phi_2}
+  (X_{A_{23}})^{\phi_3}|00\rangle_A\\
+&=(X_{A_{12}})^{\phi_1+\phi_2}
+  (X_{A_{23}})^{\phi_2+\phi_3}|00\rangle_A\\
+&=|d^a_0\phi\rangle_A.
+\end{aligned}
+\]
+
+Each vertex with \(\phi_i=1\) contributes an \(X\) to every incident
+edge. If both endpoints contribute to the same edge, the two \(X\)'s
+cancel because \(X^2=I\). Thus an edge bit is one precisely when
+**exactly one of its endpoints is selected**, rather than whenever at
+least one endpoint is selected. For example, \(\phi=110\) flips
+\(A_{12}\) twice and \(A_{23}\) once, producing \(|01\rangle_A\).
+These operations describe the terms already present in the state; they
+are not additional gates applied during the following measurement.
+
+Now measure \(Z_{A_{12}}\) and \(Z_{A_{23}}\). Suppose both signs are
+\(-1\), so the binary record is \(\boldsymbol z=(1,1)\). Its projector is
+
+\[
+P^A_{11}=\frac{I-Z_{A_{12}}}2\frac{I-Z_{A_{23}}}2
+=|11\rangle_A\langle11|_A.
+\]
+
+For each term, compare its two edge bits with the observed record.
+The projector acts as
+
+\[
+P^A_{11}|d^a_0\phi\rangle_A
+=\langle11|d^a_0\phi\rangle_A\,|11\rangle_A.
+\]
+
+The overlap is one if both bits agree, and zero if either bit disagrees.
+This is how the ordinary \(Z\)-basis measurement projects out the
+incompatible terms; no separate search or measurement of \(\phi\) is
+performed physically.
+
+Look at the last column of the table: only \(\phi=101\) and
+\(\phi=010\) match \(11\). All other rows are annihilated. Thus
+
+\[
+\boxed{
+|\psi_{\boldsymbol x,11}\rangle
+=\frac18\left(X_{a_1}X_{a_3}-X_{a_2}\right)\Omega
+\bigl(|\Psi\rangle_{BC}|11\rangle_A|+++\rangle_a\bigr).
+}
+\]
+
+These two contributions remain coherent: the edge measurement cannot
+distinguish them because they have the same edge string.
+
+**Translation to the proof.** The edge record is a cochain
+\(\boldsymbol z\in A^1\). The selection rule is \(d^a_0\phi=\boldsymbol z\),
+or explicitly \(\phi_1+\phi_2=1\), \(\phi_2+\phi_3=1\). Its two
+solutions form a coset. Choose \(\phi_0=101\); then
+
+\[
+\ker d^a_0=\{000,111\},\qquad
+\{101,010\}=101+\{000,111\}.
+\]
+
+The kernel is the remaining ambiguity: flipping all three vertex bits
+leaves both endpoint differences unchanged.
+
+**5. Finish Step 2: remove the offset with two X gates**
+
+Our choice \(\phi_0=101\) tells us to apply \(X_{a_1}X_{a_3}\).
+This operation acts on the whole state, including both surviving terms:
+
+\[
+\begin{aligned}
+(X_{a_1}X_{a_3})(X_{a_1}X_{a_3})&=I,\\
+(X_{a_1}X_{a_3})X_{a_2}&=X_{a_1}X_{a_2}X_{a_3}.
+\end{aligned}
+\]
+
+The corrected state is
+
+\[
+\boxed{
+|\psi_{\mathrm{corrected}}\rangle
+=\frac18\left(I-X_{a_1}X_{a_2}X_{a_3}\right)\Omega
+\bigl(|\Psi\rangle_{BC}|11\rangle_A|+++\rangle_a\bigr).
+}
+\]
+
+The edge register stays in \(|11\rangle_A\). We have changed the
+operator patterns on the temporary register from \(101,010\) to
+\(000,111\), not changed the recorded edge outcomes.
+
+**Translation to the proof.** Multiplication by \(X^a_{\phi_0}\)
+adds \(\phi_0\) modulo two to each operator label:
+\(101+101=000\), \(010+101=111\). The labels now lie in the kernel.
+Here \(x_{\phi_0}=x_1x_3=+1\), and
+\(x_{111}=x_1x_2x_3=-1\), explaining the retained minus sign.
+
+**6. Step 3: undo enrichment, one CCZ at a time**
+
+For the CCZ at vertex \(i\), the exact identity is
+
+\[
+\mathsf{CCZ}_{a_i,B_i,C_i}X_{a_i}
+\mathsf{CCZ}_{a_i,B_i,C_i}=X_{a_i}V_i.
+\]
+
+One way to see it is to apply the left side to bits \((r,b,c)\).
+The two CCZ phases multiply to
+\((-1)^{rbc+(r+1)bc}=(-1)^{bc}\), while \(X_{a_i}\) flips \(r\).
+These are exactly the actions of \(X_{a_i}\mathsf{CZ}_{B_i,C_i}\).
+
+Combining the three identities gives
+
+\[
+\Omega^\dagger X_{a_1}X_{a_2}X_{a_3}\Omega
+=X_{a_1}X_{a_2}X_{a_3}V_1V_2V_3
+=X_{a_1}X_{a_2}X_{a_3}U.
+\]
+
+Apply \(\Omega^\dagger\) to the corrected state:
+
+\[
+\begin{aligned}
+|\psi_{\mathrm{out}}\rangle
+&=\frac18\left(I-X_{a_1}X_{a_2}X_{a_3}U\right)
+\bigl(|\Psi\rangle_{BC}|11\rangle_A|+++\rangle_a\bigr)\\
+&=\frac18(I-U)|\Psi\rangle_{BC}
+\otimes|11\rangle_A\otimes|+++\rangle_a\\
+&=\frac14\left(\frac{I-U}{2}\right)|\Psi\rangle_{BC}
+\otimes|11\rangle_A\otimes|+++\rangle_a.
+\end{aligned}
+\]
+
+The second line uses \(X_{a_1}X_{a_2}X_{a_3}|+++\rangle_a=|+++\rangle_a\).
+The matter has undergone the \(-1\) eigenspace projection of logical
+\(\overline{\mathsf{CZ}}\).
+
+**Translation to the proof.** The kernel has dimension \(k=1\), with
+basis \(\mu_1=111\). Its two-element sum is
+\(I+x_{111}U_{111}=I-U\); the product of projectors has just one factor,
+\((I-U)/2\). With \(N=3\), the prefactor is exactly
+\(2^{k-N}x_{\phi_0}=1/4\), as in the complete protocol above.
+
+**7. Evaluate an actual encoded input and its probability**
+
+Take
+
+\[
+|\Psi\rangle_{BC}=|\overline+\rangle_B|\overline+\rangle_C
+=\frac12\left(|\overline{00}\rangle+|\overline{01}\rangle
++|\overline{10}\rangle+|\overline{11}\rangle\right).
+\]
+
+Logical CZ has eigenvalue \(+1\) on the first three basis states and
+\(-1\) on \(|\overline{11}\rangle\). Hence
+
+\[
+\frac{I-U}{2}|\Psi\rangle_{BC}=\frac12|\overline{11}\rangle,
+\qquad
+|\psi_{\mathrm{out}}\rangle
+=\frac18|\overline{11}\rangle_{BC}|11\rangle_A|+++\rangle_a.
+\]
+
+The normalized conditional matter output is therefore
+\(|\overline{11}\rangle=|111\rangle_B|111\rangle_C\). The probability
+of this particular full record, \(\boldsymbol x=(+1,-1,+1)\) and
+\(\boldsymbol z=(1,1)\), is its squared norm, \(1/64\).
+The probability of the logical \(-1\) outcome alone is \(1/4\): many
+full ancillary records have the same logical parity.
+
+Every ideal ancillary record is handled by the same procedure: solve for
+one compatible \(\phi_0\), correct it, and retain
+\(x_{111}=x_1x_2x_3\). A positive parity would instead produce
+\((I+U)/2\), whose normalized output for this input is
+\((|\overline{00}\rangle+|\overline{01}\rangle+|\overline{10}\rangle)/\sqrt3\).
+
+**What this example says about the offset.** The edge measurement keeps
+all vertex labels \(\phi\) satisfying \(d^a_0\phi=\boldsymbol z\).
+Choose one compatible label \(\phi_0\), so that
+\(d^a_0\phi_0=\boldsymbol z\). Every other compatible label can be
+written uniquely, for this choice of \(\phi_0\), as
+
+\[
+\phi=\phi_0+\mu,
+\qquad \mu\in\ker d^a_0.
+\]
+
+Adding a kernel element does not change the edge record, because
+
+\[
+d^a_0(\phi_0+\mu)=d^a_0\phi_0+d^a_0\mu
+=\boldsymbol z+0=\boldsymbol z.
+\]
+
+The correction is \(X^a_{\phi_0}\), with lowercase \(a\): it acts on
+the temporary **vertex qubits**, not the surviving edge qubits. Applying
+it to the whole state multiplies the operator in each surviving term:
+
+\[
+X^a_{\phi_0}X^a_\phi=X^a_{\phi_0+\phi}.
+\]
+
+The labels add modulo two because two \(X\)'s on the same qubit cancel.
+Substituting \(\phi=\phi_0+\mu\) gives
+
+\[
+\phi_0+\phi=\phi_0+(\phi_0+\mu)=\mu,
+\]
+
+since \(\phi_0+\phi_0=0\). Therefore the correction removes the same
+offset from every term and leaves only kernel labels. In our example,
+
+\[
+101+101=000,\qquad 101+010=111.
+\]
+
+The whole sum still contains **all the kernel elements**; the correction
+does not select just one. It transforms the coset
+\(\phi_0+\ker d^a_0\) into \(\ker d^a_0\), while leaving the recorded
+edge state \(|\boldsymbol z\rangle_A\) unchanged. On this connected
+graph, the remaining operator patterns are the identity and the flip of
+all temporary qubits. These are precisely the ancilla symmetry patterns
+used in Step 3 to reveal the logical projector.
+
+The graph bookkeeping and the code action have different jobs: the
+boundary and coboundary determine which vertex patterns share an edge
+record; the enrichment and the chosen matter code determine which
+logical operator the remaining kernel symmetry produces.
 
 ### The magic-state example
 

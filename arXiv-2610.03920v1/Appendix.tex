@@ -1,0 +1,156 @@
+\ifdefined\ismainfile
+\else
+    \documentclass[11pt]{article}
+    \input{preamble.tex}
+    \begin{document}
+    \title{Appendices}
+    \date{\today}
+    \maketitle
+    \appendix
+\fi
+
+\makeatletter
+\@ifundefined{appendixproofenv}{}{}
+\@ifundefined{c@appendixproof}{\newcounter{appendixproof}}{}
+\makeatother
+
+\section{Alternate forms for $\mathbb{Z}_2$ stabilizers}
+
+Here we derive an alternate form for the gauged stabilizers in the case $\T^2 = \id$. This alternate form replaces the generalized phase gates $\Sg$ which are supported on multiple qubits with an increased number of $CZ$ gates. The choice of which stabilizer generators to use may depend on which kind of gate is most convenient for the given purpose or platform.
+
+First, we prove the following identity. Let $U^2 = (-1)^m$. Consider an edge of the gauging graph $e$ whose boundary consists of vertices $v, v'$. Then
+\begin{equation}
+    C_v U \xrightarrow[L_e = +1]{} C_e U \cdot C_{v'} U [C Z_{e,v'}]^m 
+\end{equation}
+\begin{proof}
+    \begin{equation}
+\begin{aligned}
+    C_v U &= \frac{1 + Z_v}{2} \otimes \id + \frac{1 - Z_v}{2} \otimes U \\
+    &\xrightarrow[L_e = +1]{} \frac{1 + Z_e Z_{v'}}{2} \otimes \id + \frac{1 - Z_e Z_{v'}}{2} \otimes (-1)^m U^2 U \\
+    &= \left [ \left ( \frac{1 + Z_e}{2} \right ) \left ( \frac{1 + Z_{v'}}{2}\right ) + \left ( \frac{1 - Z_e}{2} \right ) \left ( \frac{1 - Z_{v'}}{2}\right ) \right ] \otimes \id \\
+    & \quad \quad + \left [ \left ( \frac{1 + Z_e}{2} \right ) \left ( \frac{1 - Z_{v'}}{2}\right ) + \left ( \frac{1 - Z_e}{2} \right ) \left ( \frac{1 + Z_{v'}}{2}\right ) \right ] \otimes U  \\
+    &= \left ( \frac{1 + Z_e}{2} \right ) \left ( \frac{1 + Z_{v'}}{2}\right ) \otimes \id  + \left ( \frac{1 - Z_e}{2} \right ) \left ( \frac{1 - Z_{v'}}{2}\right ) \otimes (-1)^{m n_{v'}} U^2 \\
+    & \quad \quad + \left ( \frac{1 + Z_e}{2} \right ) \left ( \frac{1 - Z_{v'}}{2}\right ) \otimes U + \left ( \frac{1 - Z_e}{2} \right ) \left ( \frac{1 + Z_{v'}}{2}\right ) \otimes (-1)^{m n_{v'}} U  \\
+    &= \left [\left ( \frac{1 + Z_e}{2} \right ) \otimes \id + \left ( \frac{1 - Z_{e}}{2}\right ) \otimes(-1)^{m n_{v'}} U \right ] \left [ \left ( \frac{1 + Z_{v'}}{2}\right ) \otimes \id + \left ( \frac{1 - Z_{v'}}{2}\right ) \otimes U\right ] \\
+    &= \left [\left ( \frac{1 + Z_e}{2} \right ) \otimes \id + \left ( \frac{1 - Z_{e}}{2}\right ) \otimes U \right ] \left [ \left ( \frac{1 + Z_e}{2} \right ) \otimes \id + \left ( \frac{1 - Z_{e}}{2}\right ) \otimes Z_{v'}^m \right ] \\
+    & \quad \quad \quad \cdot \left [ \left ( \frac{1 + Z_{v'}}{2}\right ) \otimes \id + \left ( \frac{1 - Z_{v'}}{2}\right ) \otimes U\right ] \\
+    &= C_e U \cdot [CZ_{e,v'}]^m \cdot C_{v'} U
+\end{aligned}
+\end{equation}
+\end{proof}
+Similarly, if $v, v'$ are joined by a longer set of edges $p(v, v') = \{e_1, e_2, \cdots, e_n\}$, we can derive an equivalent identity. Let $\partial e_i = \{v_{i-1}, v_i\}$, and $v_0 \equiv v$, $v_n \equiv v'$. 
+\begin{equation}
+\begin{aligned}
+    C_v U &= C_{v_1} U C_{e_1} U (CZ_{e_1, v_1})^m \\
+    &= [C_{v_2} U C_{e_2} U (CZ_{e_2, v_2})^m] C_{e_1} U (CZ_{e_1, v_1})^m \\
+    &= C_{v'} U \left ( \prod_{e \in p(v, v')} C_e U \right ) \prod_{i = 1}^n (CZ_{e_i, v_i})^m \\
+\end{aligned}
+\end{equation}
+Note that, since $Z^2 = 1$, we can apply our identity to the last set of CZ terms, setting $m = 0$:
+\begin{equation}
+    \begin{aligned}
+        CZ_{v_i, e_i} = CZ_{v', e_i} \prod_{j > i} CZ_{e_j, e_i} 
+    \end{aligned}
+\end{equation}
+Plugging back into the general case: 
+\begin{equation}
+    C_v U = C_{v'} U \left ( \prod_{e \in p(v, v')} C_e U \right ) \left [\prod_{i = 1}^n (CZ_{v', e_i})^m \left  (\prod_{j > i} CZ_{e_j, e_i} \right )^m \right ]
+\end{equation}
+Thus, an equivalent form of the decorated stabilizers is given by: 
+\begin{equation}
+\begin{aligned}
+    \Circo_2{[S]} &= S \cdot \prod_{v \in \invvertexset{S}} C_v (i^{\mu_v} (N_S)_v) \\
+    &= S \cdot \prod_{v \in \invvertexset{S} \backslash v_0} \left ( \prod_{e \in p(v, v_0)} C_e (i^{\mu_v} N_S) \right ) \left (\prod_{j > i} CZ_{e_j, e_i} \right )^{\mu_v}
+\end{aligned}
+\end{equation}
+
+
+\section{Deferred proofs for the gauging procedure}\label{app:gauging-procedure-proofs}
+
+\refstepcounter{appendixproof}\label{proof:vertex-ancilla-dropout}
+\begin{proof}[Proof~\theappendixproof\ of Eq.~\eqref{eq:vertex-ancilla-dropout}]
+Recall the setting of Section~\ref{sec:gauging-procedure}: $\omega=e^{2\pi i/p}$, $\Zp$ is the generalized Pauli-$Z$ acting on the $p$-dimensional vertex and edge ancillas, and every dyad admits the expansion $\dyad{a}=\frac{1}{p}\sum_{b=0}^{p-1}\omega^{ab}\Zp^{b}$. After applying the cluster entangler, every edge $e=v \to v'$ of the gauging graph satisfies $L_e=\Zp_{v}^\dagger \Zp_e \Zp_{v'}=+1$, and $p(v,v_0)$ denotes a path of edges from the vertex $v$ to the root $v_0$ with orientation signs $\eta_p(e)=\pm1$.  Then:
+\begin{equation}
+    \begin{aligned}
+        \sum_{a_0 = 0}^{p-1} \dyad{a_0}_{v_0} \otimes \dyad{\mathbf{a'} + a_0}_{v \neq v_0} &= \sum_{a_0=0}^{p-1} \left (\frac{1}{p} \sum_{n = 0}^{p-1} \omega^{a_0 n} \Zp^n_{v_0} \right ) \otimes \left (\frac{1}{p^{|v\neq v_0|} }\sum_{\mathbf{m} \in \mathbb{Z}_p^{|v\neq v_0|}} \omega^{(\mathbf{a'} + a_0)\cdot \mathbf{m}} \Zp^{\mathbf{m}}_{v\neq v_0} \right ) \\
+        &= \frac{1}{p^{|v|}} \sum_{n, \mathbf{m}} \sum_{a_0} \omega^{(n + |m|) a_0 + \mathbf{a'}\cdot \mathbf{m}} \Zp_{v_0}^n \Zp_{v \neq v_0}^{\mathbf{m}} \\
+        &\xrightarrow{L_e = +1} \frac{1}{p^{|v|}} \sum_{n, \mathbf{m}} \sum_{a_0} \omega^{(n + |m|) a_0 + \mathbf{a'}\cdot \mathbf{m}} \Zp_{v_0}^{n + |m|} \prod_{v \neq v_0} \prod_{e \in p(v, v_0)} \Zp_{e}^{\eta_p(e) m_v} \\
+        &= \frac{1}{p^{|v \neq v_0|}} \sum_{a_0, \mathbf{m}} \left ( \frac{1}{p} \sum_{n'} \omega^{n' a_0} \Zp_{v_0}^{n'} \right ) \prod_{v \neq v_0} \prod_{e \in p(v, v_0)} \omega^{a'_v m_v} \Zp_{e}^{\eta_p(e) m_v} \\
+        &=\frac{1}{p^{|v \neq v_0|}} \sum_{\mathbf{m}} \left ( \sum_{a_0} \dyad{a_0}_{v_0} \right )  \prod_{v \neq v_0} \prod_{e \in p(v, v_0)} \omega^{a'_v m_v} \Zp_{e}^{\eta_p(e) m_v} \\
+        &=\frac{1}{p^{|v \neq v_0|}} \sum_{\mathbf{m}} \id_{v_0} \otimes \prod_{v \neq v_0} \prod_{e \in p(v, v_0)} \omega^{a'_v m_v} \Zp_{e}^{\eta_p(e) m_v} \\
+        &=\id_{v_0} \otimes \prod_{v \neq v_0} \prod_{e \in p(v, v_0)} \dyad{\eta_p(e) a_v'}_e \\
+    \end{aligned}
+\end{equation}
+\end{proof}
+
+\refstepcounter{appendixproof}\label{proof:clifford-decorated-commutation-relations}
+\begin{proof}[Proof~\theappendixproof\ of Corollary~\ref{cor:z2-commutation-relations}]
+Recall from Eq.~\eqref{eq:z2-decorated-stabilizers} that $\gaugedS=\Circo_2[S]=S\cdot\bigl(\prod_{v\neq v_0}\mathsf{S}^{\mu_v}_{p(v,v_0)}\prod_{e\in p(v,v_0)}C_e(N_S)_v\bigr)$, with decorations $\mathsf{S}^{\mu_v}_{p(v,v_0)}$ and $C_e(N_S)_v$ along rooted paths, where $N_S=\ComGrp{S}{\T}$, $\ComGrp{S_v}{\T_v}=i^{\mu_v}(N_S)_v$, and $\sum_v\mu_v=0 \pmod 4$.
+
+\[
+\resizebox{\textwidth}{!}{$\displaystyle
+\begin{aligned}
+   & \ComGrp{\gaugedS}{\mathbb{A}_{v_0}} \nonumber\\
+   =& \left ( \prod_{v \neq v_0} \mathsf{S}^{\mu_v}_{p(v, v_0)} \prod_{e \in p(v, v_0)} C_e (N_S)_v \right )  S  \T_{v_0} \prod_{e \in \delta v_0} X_e
+      S  \left ( \prod_{v \neq v_0} \mathsf{S}^{-\mu_v}_{p(v, v_0)} \prod_{e \in p(v, v_0)} C_e (N_S)_v \right )  \T_{v_0} \prod_{e \in \delta v_0 } X_e \nonumber\\
+    =&\left ( \prod_{v \neq v_0} \mathsf{S}^{\mu_v}_{p(v, v_0)} \prod_{e \in p(v, v_0)} C_e (N_S)_v \right )  ( S \T_{v_0} S \T_{v_0})
+      \prod_{e \in \delta v_0 } X_e \left ( \prod_{v \neq v_0} \mathsf{S}^{-\mu_v}_{p(v, v_0)} \prod_{e \in p(v, v_0)} C_e (N_S)_v \right ) \prod_{e \in \delta v_0 } X_e \nonumber\\
+    =& i^{\mu_{v_0}} (N_S)_{v_0} \left ( \prod_{v \neq v_0} \mathsf{S}^{\mu_v}_{p(v, v_0)} \prod_{e \in p(v, v_0)} C_e (N_S)_v \right )
+     \prod_{e \in \delta v_0 } X_e \left ( \prod_{v \neq v_0} \mathsf{S}^{-\mu_v}_{p(v, v_0)} \prod_{e \in p(v, v_0)} C_e (N_S)_v \right ) \prod_{e \in \delta v_0 } X_e \nonumber\\
+    =& i^{\mu_{v_0}}(N_S)_{v_0} \left ( \prod_{v \neq v_0} \mathsf{S}^{\mu_v}_{p(v, v_0)} \prod_{e \in p(v, v_0)} C_e (N_S)_v \right )
+      \prod_{v \neq v_0} i^{\mu_v} \mathsf{S}^{-2\mu_v}_{p(v, v_0)} \mathsf{S}^{\mu_v}_{p(v, v_0)} \prod_{e \in \delta v_0 } X_e \prod_{e \in p(v, v_0)} C_e (N_S)_v \prod_{e \in \delta v_0 } X_e \nonumber\\
+    =& i^{\sum_{v} \mu_{v}}(N_S)_{v_0}  \prod_{v \neq v_0} \mathsf{S}^{-2\mu_v}_{p(v, v_0)}
+    \prod_{e \in p(v, v_0)} C_e (N_S)_v \prod_{e \in \delta v_0 } X_e \prod_{e \in p(v, v_0)} C_e (N_S)_v \prod_{e \in \delta v_0 } X_e \nonumber\\
+    =& (N_S)_{v_0}  \prod_{v \neq v_0} \mathsf{S}^{-2\mu_v}_{p(v, v_0)} (N_S)_v
+        = N_S \prod_{v \neq v_0} \prod_{e \in p(v, v_0)} Z^{\mu_v}_e
+        = \mathbb{N}_S
+\end{aligned}$}
+\]
+\[
+\resizebox{\textwidth}{!}{$\displaystyle
+\begin{aligned}
+    &\ComGrp{\gaugedS}{\mathbb{A}_u} \nonumber\\
+    =& \left ( \prod_{v \neq v_0} \mathsf{S}^{\mu_v}_{p(v, v_0)} \prod_{e \in p(v, v_0)} C_e (N_S)_v \right )  S  \T_{u} \prod_{e \in \delta u} X_e
+      S  \left ( \prod_{v \neq v_0} \mathsf{S}^{-\mu_v}_{p(v, v_0)} \prod_{e \in p(v, v_0)} C_e (N_S)_v \right )  \T_{u} \prod_{e \in \delta u } X_e \nonumber\\
+    =& \left ( \prod_{v \neq v_0} \mathsf{S}^{\mu_v}_{p(v, v_0)} \prod_{e \in p(v, v_0)} C_e (N_S)_v \right )  (i^{-\mu_u} (N_S)_u)
+      \prod_{e \in \delta u } X_e \T_{u} \left ( \prod_{v \neq v_0} \mathsf{S}^{-\mu_v}_{p(v, v_0)} \prod_{e \in p(v, v_0)} C_e (N_S)_v \right ) \T_{u} \prod_{e \in \delta u } X_e \nonumber\\
+    =& i^{-\mu_u} (N_S)_u \left ( \prod_{v \neq v_0} \mathsf{S}^{\mu_v}_{p(v, v_0)} \prod_{e \in p(v, v_0)} C_e (N_S)_v \right )
+     \prod_{e \in \delta u } X_e \left ( \prod_{e \in p(u, v_0)} Z_e^{\mu_u}\right )\left (\prod_{v \neq v_0} \mathsf{S}^{-\mu_v}_{p(v, v_0)} \prod_{e \in p(v, v_0)} C_e (N_S)_v \right ) \prod_{e \in \delta u } X_e \nonumber\\
+    =& i^{-\mu_u} (N_S)_u \left ( \prod_{v \neq v_0} \mathsf{S}^{\mu_v}_{p(v, v_0)} \prod_{e \in p(v, v_0)} C_e (N_S)_v \right )
+       (-1)^{\mu_u} \left ( \prod_{e \in p(u, v_0)} Z_e^{\mu_u}\right ) \prod_{e \in \delta u } X_e \prod_{v \neq v_0} \mathsf{S}^{-\mu_v}_{p(v, v_0)}  \prod_{e \in p(v, v_0)} C_e (N_S)_v \prod_{e \in \delta u } X_e  \nonumber\\
+    =& i^{\mu_u} (N_S)_u \left ( \prod_{v \neq v_0} \mathsf{S}^{\mu_v}_{p(v, v_0)} \prod_{e \in p(v, v_0)} C_e (N_S)_v \right ) \left ( \prod_{e \in p(u, v_0)} Z_e^{\mu_u}\right ) \nonumber\\
+    &  \left (i^{-\mu_u} \mathsf{S}^{-2\mu_u}_{p(u, v_0)} \right ) \prod_{v \neq v_0} \mathsf{S}^{-\mu_v}_{p(v, v_0)} \prod_{e \in \delta u } X_e \prod_{e \in p(v, v_0)} C_e (N_S)_v \prod_{e \in \delta u } X_e \nonumber\\
+    =& (N_S)^2_u \left ( \prod_{v \neq v_0} \mathsf{S}^{\mu_v}_{p(v, v_0)} \prod_{e \in p(v, v_0)} C_e (N_S)_v \right ) \left ( \prod_{e \in p(u, v_0)} Z_e^{\mu_u}\right )^2
+      \prod_{v \neq v_0} \mathsf{S}^{-\mu_v}_{p(v, v_0)} \prod_{e \in \delta u } C_e (N_S)_v      = \id ,\qquad \text{for $u\neq v_0$.}
+\end{aligned}$}
+\]
+
+Consider two decorated stabilizers that overlap on some degrees of freedom.
+\[
+\resizebox{\textwidth}{!}{$\displaystyle
+\begin{aligned}
+    \ComGrp{\gaugedS_i}{\gaugedS_j} &= \left ( \prod_{v \neq v_0} \mathsf{S}^{\mu_v}_{p(v, v_0)} \prod_{e \in p(v, v_0)} C_e(N_{S_i})_v \right )  S_i \left ( \prod_{u \neq u_0} \mathsf{S}^{\mu_u}_{p(u, u_0)} \prod_{e \in p(u, u_0)} C_e(N_{S_j})_u \right ) S_j S_i \nonumber\\
+    &\qquad  \left ( \prod_{v \neq v_0} \mathsf{S}^{-\mu_v}_{p(v, v_0)} \prod_{e \in p(v, v_0)} C_e(N_{S_i})_v \right ) S_j \left ( \prod_{u \neq u_0} \mathsf{S}^{-\mu_u}_{p(u, u_0)} \prod_{e \in p(u, u_0)} C_e(N_{S_j})_u \right ) \nonumber\\
+    &= \left ( \prod_{v \neq v_0} \mathsf{S}^{\mu_v}_{p(v, v_0)} \prod_{e \in p(v, v_0)} C_e(N_{S_i})_v \right )  S_i \left ( \prod_{u \neq u_0} \mathsf{S}^{\mu_u}_{p(u, u_0)} \prod_{e \in p(u, u_0)} C_e(N_{S_j})_u \right ) S_i \nonumber\\
+    &\qquad  S_j \left ( \prod_{v \neq v_0} \mathsf{S}^{-\mu_v}_{p(v, v_0)} \prod_{e \in p(v, v_0)} C_e(N_{S_i})_v \right ) S_j \left ( \prod_{u \neq u_0} \mathsf{S}^{-\mu_u}_{p(u, u_0)} \prod_{e \in p(u, u_0)} C_e(N_{S_j})_u \right ) \\
+    &= \left ( \prod_{v \neq v_0} \mathsf{S}^{\mu_v}_{p(v, v_0)} \prod_{e \in p(v, v_0)} C_e(N_{S_i})_v  \right )   \left ( \prod_{u \neq u_0} \mathsf{S}^{\mu_u}_{p(u, u_0)}  \prod_{e \in p(u, u_0)}  C_e((S_i)_u (N_{S_j})_u (S_i)_u)   \right )\nonumber\\
+    &\qquad \left ( \prod_{v \neq v_0} \mathsf{S}^{-\mu_v}_{p(v, v_0)}  \prod_{e \in p(v, v_0)} C_e( (S_j)_v (N_{S_i})_v (S_j)_v)\right )  \left ( \prod_{u \neq u_0} \mathsf{S}^{-\mu_u}_{p(u, u_0)} \prod_{e \in p(u, u_0)} C_e(N_{S_j})_u \right ) \\
+     &= \left ( \prod_{v \neq v_0} \mathsf{S}^{\mu_v}_{p(v, v_0)} \prod_{e \in p(v, v_0)} C_e(N_{S_i})_v  \right )   \left ( \prod_{u \neq u_0} \mathsf{S}^{\mu_u}_{p(u, u_0)}  \prod_{e \in p(u, u_0)} Z^{\gamma(i,j)}_e C_e(N_{S_j})_u   \right )\nonumber\\
+    &\qquad \left ( \prod_{v \neq v_0} \mathsf{S}^{-\mu_v}_{p(v, v_0)}  \prod_{e \in p(v, v_0)} Z^{\gamma(j, i)}_e C_e(N_{S_i})_v\right )  \left ( \prod_{u \neq u_0} \mathsf{S}^{-\mu_u}_{p(u, u_0)} \prod_{e \in p(u, u_0)} C_e(N_{S_j})_u \right ) \\
+    &= \prod_{v \neq u_0, v_0} \prod_{e \in p(v, u_0)} Z^{\gamma_v(i, j)}_e \prod_{f \in p(v, v_0)} Z_f^{\gamma_v(j, i)}, \quad \text{ as } \gamma \neq 0 \text{ in places where } S_i, S_j \text{ overlap.}
+\end{aligned}$}
+\]
+In the above, we have defined $(N_{S_j})_u (S_i)_u = (-1)^{\gamma_u (i, j)} (S_i)_u (N_{S_j})_u$. Note that $\gamma_u(i, j) = \gamma_u(j, i)$.
+
+The middle equality follows by conjugating the second commutator by $\T$ and using the symmetry of Pauli commutator signs.
+The remaining uncancelled gauge-$Z$ support is precisely a cycle obtained by comparing the two paths $p(v, u_0)$ and $p(v, v_0)$ used for the decoration of either stabilizer, giving the flux check $\mathbb{B}_{p(i,j)}$.  
+
+Finally, $\bp$ commutes with $\av$ by cycle-boundary parity, and $\bp$ commutes with $\gaugedS$ because the gauge support of $\gaugedS$ is $Z$-type or diagonal in the gauge computational basis.
+\end{proof}
+
+\ifdefined\ismainfile
+\else
+    \bibliographystyle{unsrt}
+    \bibliography{bib}
+    \end{document}
+\fi

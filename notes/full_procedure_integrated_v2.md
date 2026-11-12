@@ -1,0 +1,1785 @@
+# C4-Helix magic preparation: circuit, state, and fault tolerance (V2)
+
+This note follows one complete preparation attempt in execution order.
+At each stage it gives the ideal state, the physical circuit, and a fault
+example explaining the required protection. The protocol uses one
+gauging/ungauging cycle, three rounds of checks while gauged, and
+postselection: a failed required test rejects the entire attempt.
+
+This expanded edition keeps the circuit order and examples of V1.
+Before the first circuit, Sections 2 and 3 state the four proof steps
+and prove the code lemma used later. Each circuit section then identifies
+which proof step it establishes. The gauge readout and SWAP correction
+are worked out together in Sections 12 and 13.
+
+![The graph used throughout: each labelled line represents two edges, with one gauge qubit per edge.](figures/c4-helix/synthesis/03-graph.png)
+
+The [compiled PDF](../output/pdf/full_procedure_integrated_v2.pdf) and
+[editable LaTeX](integrated-procedure-v2-latex/main.tex) contain the same text
+and vector quantum circuits. This Markdown version embeds images of those circuits.
+
+## 1. Registers, target state, and the fault allowance
+
+There are twenty data qubits \(B_0,\ldots,B_{19}\), another twenty
+\(C_0,\ldots,C_{19}\), twenty gauge ancillas \(A_0,\ldots,A_{19}\), and
+five temporary vertex qubits a,b,c,d,e. Cat leaves are labelled \(\ell_j\);
+w is a resettable parity-measurement helper. A bar denotes a logical
+operator or encoded state.
+
+Each data copy is a \([[20,2,6]]\) code. Its inner four-qubit C4 blocks
+have labels a:0--3, b:4--7, c:8--11, d:12--15, e:16--19.
+A **matched pair** means the corresponding inner blocks in B and C.
+For example, matched pair a contains \(B_0,\ldots,B_3,C_0,\ldots,C_3\).
+Two affected matched pairs can therefore contain four actual C4 blocks.
+
+For either data copy D, the original checks are
+
+\[
+S^X_{D,s}=\prod_{q\in R_s}X_{D_q},
+\qquad S^Z_{D,s}=\prod_{q\in R_s}Z_{D_q},\qquad s=0,\ldots,8.
+\]
+
+The complete supports \(R_s\) are in Appendix A. For example,
+\(R_0=\{0,1,2,3\}\) gives the inner XXXX and ZZZZ checks. Nine independent
+checks of each type specify the original code space on each copy.
+An encoded state is a common +1 eigenstate of these checks. Distance
+six means that a Pauli commuting with every check but changing the
+encoded information must act on at least six physical qubits. It
+guarantees correction of two physical-qubit errors, not two arbitrary
+faults in a circuit.
+
+Prepare the inputs and define the partial and complete SWAPs by
+
+\[
+\begin{aligned}
+|\psi\rangle&=|\overline{00}\rangle_B|\overline{+0}\rangle_C,\\
+T_v&=\prod_{q\in J_v}\operatorname{SWAP}(B_q,C_q),\qquad
+U=T_aT_bT_cT_dT_e,\qquad \Pi_+=\frac{I+U}{2}.
+\end{aligned}
+\]
+
+Here \(J_v\) is the four-position inner block labelled v. The ideal
+state after gauging and ungauging is proportional to
+\(|\psi_+\rangle:=\Pi_+|\psi\rangle\). The final decoded B readout selects
+logical \(B_0=0\), leaving C in
+
+\[
+|\overline{M0}\rangle_C,\qquad |M\rangle=\frac{2|0\rangle+|1\rangle}{\sqrt5}.
+\]
+
+**Fault model and claim.** At most two locations fail in the entire
+attempt. A location is a preparation, gate, physical measurement, or
+single-qubit waiting interval. A faulty gate may apply an arbitrary error
+on its participating qubits; reports may be wrong. Classical processing
+is reliable. Fredkins act on their specified three qubits, or are
+decomposed on those same qubits. All operations are scheduled serially;
+unused live qubits have counted idles. Helpers are prepared inside their
+own gadget and reset before reuse.
+
+The claim is that every accepted attempt within this bound has the
+correct **decoded** logical output. Correctable physical errors may
+remain. There is no new two-fault allowance at each stage.
+
+A clean round includes all its helper preparation and idles; boundary
+idles belong to the following interval. Of any three complete rounds,
+at least one is clean. This is a fact used in the proof, not information
+the decoder receives.
+
+## 2. The four proof steps, before following the circuit
+
+The circuit sections below are in execution order. The four **proof
+steps** describe what must be established across those sections; they
+are not four additional operations on the computer.
+
+**Proof step 1 - bound how physical damage spreads.** Show that each
+fault can add errors in at most one new matched pair. A matched pair
+contains one four-qubit inner C4 block in B and its corresponding
+four-qubit block in C. For example, every SWAP controlled by a has
+both data targets in
+\(B_0,\ldots,B_3,C_0,\ldots,C_3\). Damage can move between those two
+inner blocks, but that controller cannot carry it into b,c,d,e.
+Verified source preparation and one cat leaf per target port supply
+the same bound for the other gadgets. Two faults consequently permit
+at most two matched pairs, or four actual inner C4 blocks. The bound
+holds term by term in an operator expansion; it does not assume that
+a general quantum fault is a randomly chosen Pauli.
+
+This step also bounds residual gauge bit errors. It does not certify
+the logical SWAP outcome: a phase fault can change the operation from
+\(I+U\) to \(I-U\) without damaging many physical targets.
+
+**Proof step 2 - enforce the intended positive SWAP projection.** Prove
+that the paired, cycle, and Gauss checks in one clean gauged round
+remove the negative SWAP contribution. The paired checks first reject
+local errors that could disguise it; the Gauss checks then enforce
+\(U=+1\). Three complete rounds guarantee at least one clean round.
+After subsequent ungauging the state is a sum of terms
+
+\[
+E_\nu|\psi_+\rangle,\qquad
+|\psi_+\rangle=\frac{I+U}{2}|\psi\rangle,
+\]
+
+where the \(E_\nu\) obey proof step 1. The data are not yet necessarily
+free of errors.
+
+**Proof step 3 - remove the inherited larger errors.** Decode all
+twenty gauge reports before choosing the ordinary SWAP correction.
+That restores the original B/C code frame without sending a readout
+fault into a wrong group-wide correction. Then measure the original
+checks separately on B and C, in three positive rounds. The two-group
+lemma proved next shows that a clean round either rejects the inherited
+errors or leaves the intended encoded state. Errors remaining after
+the last clean round are due to later faults, with at most one damaged
+physical data qubit per fault.
+
+**Proof step 4 - protect recovery and readout themselves.** Use repeated
+syndrome records to choose a correction despite wrong reports. Decode
+the complete B-Z readout before evaluating its logical parity. These
+operations can still fail or introduce new errors, so their faulty
+locations and C waiting errors remain in the same global budget.
+The final guarantee concerns the decoded C state; physical correctable
+errors may remain.
+
+The same circuit fact may serve two proof steps. For instance, full
+gauge decoding both permits removal of the ancillas in proof step 3
+and prevents an incorrect correction from violating the spatial bound
+in proof step 1.
+
+## 3. The two-group lemma, with proof
+
+### 3.1. Statement and the three code facts used
+
+**Lemma.** On one twenty-qubit C4-Helix copy, a Pauli error supported
+on at most two inner C4 blocks either anticommutes with an original
+check, and is detected, or acts as the identity up to phase on every
+encoded state. It cannot pass all checks while changing the encoded
+information.
+
+For an arbitrary error operator supported on those same blocks, the
+component retained by all positive original-code checks is a scalar
+times the original encoded state. This is a detectability statement:
+it does not assert that an unknown error on two whole blocks can be
+corrected without rejection.
+
+The proof uses three properties of this code:
+
+- Each inner block has the checks XXXX and ZZZZ.
+- Every full-code generator consists entirely of X or entirely of Z.
+  This is the meaning of CSS here.
+- Distance six means that any undetected Pauli acting nontrivially on
+  the encoded information has weight at least six. Weight counts the
+  physical positions on which a Pauli is not I.
+
+The construction and parameters are given in
+[Berthusen and Durso-Sabina, Section 2.1 and Table 1](https://quantum-journal.org/papers/q-2026-08-19-2195/pdf/)
+and in the experimental manuscript's Appendix A. The lemma is derived
+here from these properties, rather than quoted as a separately named
+result.
+
+For a valid encoded state \(|\varphi\rangle\), every stabilizer S
+satisfies \(S|\varphi\rangle=|\varphi\rangle\). Consequently,
+
+\[
+(ES)|\varphi\rangle=E|\varphi\rangle.
+\]
+
+Multiplying E by S is a mathematical replacement with the same action
+on the code. No physical correction is being performed in this step.
+
+### 3.2. X-only errors: reduce each block to at most two factors
+
+Assume E contains only X operators and passes all checks. Passing the
+inner ZZZZ check requires an even number of X factors in each inner
+block: each X contributes one minus sign.
+
+- Zero X factors: leave that block unchanged.
+- Two X factors: leave that block unchanged.
+- Four X factors: multiply by its XXXX stabilizer to remove all four,
+  using \((XXXX)(XXXX)=IIII\).
+
+After doing this on both affected blocks, the equivalent operator E'
+still passes every check, acts identically on encoded states, and has
+
+\[
+\operatorname{weight}(E')\le2+2=4<6.
+\]
+
+Distance six therefore excludes a nontrivial logical action. The
+original E also acts trivially. An error failing a check is detected
+instead.
+
+### 3.3. Z-only and mixed Pauli errors
+
+For a Z-only error, exchange X and Z in the preceding argument:
+the inner XXXX check requires an even number of Z factors, and
+multiplication by ZZZZ removes four. The equivalent error again has
+weight at most four and cannot be an undetected logical operator.
+
+For a mixed Pauli use \(Y=iXZ\) and write
+
+\[
+E=\omega E_XE_Z,
+\]
+
+where \(E_X\) contains only X operators, \(E_Z\) only Z operators,
+and \(\omega\) is an overall phase. Both parts occupy the same two
+allowed inner blocks. If E passes every check, each part does too:
+against a Z-type check only \(E_X\) contributes a commutation sign,
+and against an X-type check only \(E_Z\) does. Their own-type checks
+commute automatically.
+
+The preceding reductions apply separately to both parts. Each acts
+trivially on encoded states, so their product does as well. This
+proves the Pauli statement. Such a Pauli is proportional to a product
+of stabilizer generators, including the identity.
+
+### 3.4. Arbitrary errors and application to the two copies
+
+Expand an arbitrary operator on the two inner blocks in Pauli products.
+Positive measurements project out each term anticommuting with a check.
+Every remaining term acts as a scalar on the encoded state. Adding
+those surviving terms gives \(c|\varphi\rangle\): reject if \(c=0\);
+otherwise normalization restores \(|\varphi\rangle\).
+
+For the two-copy circuit, two matched pairs permit two inner blocks
+in B and two in C. Expand the joint error in products of B and C
+Paulis and apply the lemma to each copy. The conclusion holds even
+when the encoded B/C state is entangled: the surviving operator acts
+as a scalar throughout their product code space.
+
+Commuting with checks alone does not bound physical weight. Distance
+six detects damaging errors below weight six and corrects unknown
+errors of weight at most two; those are different guarantees.
+The lemma additionally excludes undetected logical errors on two
+inner blocks even though those blocks contain eight physical qubits.
+
+### 3.5. Concrete examples of the distinction
+
+On one copy, the two-block error \(F=X_2X_3X_8X_{11}\) is detected by
+
+\[
+S^Z_6=Z_4Z_7Z_8Z_9Z_{14}Z_{15}Z_{16}Z_{19},
+\qquad S^Z_6F=-FS^Z_6,
+\]
+
+because the overlap is only at position 8. In contrast,
+\((X_0X_1X_2X_3)(X_8X_9X_{10}X_{11})\) passes the checks but is a
+product of inner stabilizers and does nothing to the encoded state.
+
+Adding a third inner block changes what is possible:
+
+\[
+X_2X_3X_8X_{11}X_{12}X_{15}=\overline X_0.
+\]
+
+This logical X passes every check and can change encoded information.
+The restriction to two inner blocks in the lemma is essential.
+
+## 4. The measurement circuit used for every check
+
+**Ideal preparation.** To measure \(Q=Q_0\cdots Q_{m-1}\), with disjoint
+target ports, prepare one m-leaf cat. A port is one physical qubit for
+a Pauli factor or one data pair for a SWAP factor. The four-leaf example is
+
+\[
+|0^4\rangle\xrightarrow{H_{\ell_0},\ {\rm CNOT}_{0\to1},\ {\rm CNOT}_{1\to2},\ {\rm CNOT}_{2\to3}}
+\frac{|0000\rangle+|1111\rangle}{\sqrt2}.
+\]
+
+![Raw cat preparation. A box containing zero denotes reset.](figures/c4-helix/integrated-v2/cat-preparation.png)
+
+Extend the chain for larger m. Verify every adjacent ZZ parity three
+times in complete scans, using the following circuit for each pair.
+Reset w before each test and require every raw Z report to be zero.
+Reported bit zero means +1; bit one means -1.
+
+![One adjacent-ZZ test. The parity helper w is a CNOT target.](figures/c4-helix/integrated-v2/cat-verification.png)
+
+Then leaf j controls \(Q_j\): CNOT for X, CZ for Z, Fredkin for SWAP.
+After all controlled factors, measure each leaf in X. The circuits show
+X measurement as H followed by a Z meter. The check bit is
+
+\[
+y=\lambda_0\oplus\cdots\oplus\lambda_{m-1}.
+\]
+
+A positive check requires \(y=0\), not every \(\lambda_j=0\). Each check
+uses a fresh cat. Each leaf has only one target port.
+Turquoise labels are gauge qubits; gold labels are cat leaves. A dot
+and circled plus denote CNOT, two dots denote CZ, and a quantum control
+with two crosses denotes Fredkin. Double wires carry classical bits.
+Panels sharing a cat are parts of one measurement; complete all its
+controlled factors before reading any of its meters.
+
+**Example of the conditional operation.** With a possibly imperfect cat
+\(c_0|0^m\rangle+c_1|1^m\rangle\), coupling gives
+
+\[
+c_0|0^m\rangle|\phi\rangle+c_1|1^m\rangle Q|\phi\rangle.
+\]
+
+An actual leaf-X sign product \(r=\pm1\) leaves a data state proportional
+to \((c_0I+r c_1Q)|\phi\rangle\). The ideal cat and positive outcome
+therefore give the positive projector \((I+Q)/2\), up to a common
+factor for the individual leaf reports.
+
+**Proof step 1 - each faulty leaf has one target port.** Verification
+must first prevent errors from raw cat preparation reaching many
+ports. The calculation below establishes that local bound. The
+remaining uncertainty in the measured projector is kept for proof
+steps 2--4; it is not being assumed away.
+
+**Fault example and bound.** Put X on \(\ell_1\) after the first cat CNOT
+but before the second. After the two remaining CNOTs the leaves are in
+
+\[
+\frac{|0111\rangle+|1000\rangle}{\sqrt2}.
+\]
+
+The error spread to later leaves, but \(Z_{\ell_0}Z_{\ell_1}=-1\), so
+a clean verification rejects it. In general a clean ZZ scan rejects all
+nonuniform bit patterns and projects onto
+\(\operatorname{span}\{|0^m\rangle,|1^m\rangle\}\). It does not certify the
+relative phase: the minus cat also passes every ZZ test.
+
+After the clean scan there are no leaf-to-leaf gates. A faulty
+leaf--w interaction can flip only its one leaf. X on w does not spread
+back to the controls; Z on w can spread phases. Thus each subsequent
+fault adds at most one bad leaf bit, and hence one faulty target factor.
+For example, X on a CNOT control leaf can produce X on its own target,
+but no other data target.
+
+An operator expansion of a faulty gadget has terms
+
+\[
+D(aI+bQ).
+\]
+
+D is the local target damage: at most one target port per fault, also
+counting separately faulty data idles. The coefficients a,b include
+cat-phase faults and wrong reports. They need not give the desired
+projector. For instance, a minus cat with actual positive leaf parity
+implements \(I-Q\) instead of \(I+Q\). Repetition of complete later
+verification rounds must protect against this error; ZZ verification
+alone does not.
+
+## 5. Prepare the encoded B and C inputs
+
+The postselected preparation below is illustrative and simplifies the
+proof; an efficient implementation would instead prepare the known
+encoded inputs using measurement-dependent Pauli corrections or an
+encoding circuit, followed by fault-tolerant verification.
+
+**Ideal operation.** Reset all forty data qubits to zero. For each copy,
+measure its eighteen original checks and two logical checks, requiring
+positive outcomes. Execute three complete rounds on B, then three on C:
+
+\[
+\begin{aligned}
+\mathcal F_B&=(S^X_{B,0:8},S^Z_{B,0:8},\overline Z^B_0,\overline Z^B_1),\\
+\mathcal F_C&=(S^X_{C,0:8},S^Z_{C,0:8},\overline X^C_0,\overline Z^C_1).
+\end{aligned}
+\]
+
+Here \(0{:}8\) means the nine checks in increasing s order. The logical
+supports are listed in Appendix A. The positive projector for a full
+B source round is \(|\overline{00}\rangle\langle\overline{00}|\); for C
+it is \(|\overline{+0}\rangle\langle\overline{+0}|\).
+
+![Physical circuits for inner XXXX and ZZZZ checks; D denotes either data copy.](figures/c4-helix/integrated-v2/pauli-checks.png)
+
+Replace the four targets by \(R_s\) for another code check, or by a
+logical support for an input logical check. Use one shared cat per
+panel, with six leaves for a logical check and eight for an upper check.
+
+**Proof step 1 - initialize the local-error bound.** The claim starts
+after a clean complete source round. Raw preparation may have caused
+widespread errors before that point, but its accepted projection has
+a unique output state. The later gadget faults are counted individually.
+
+**Fault example.** After a correct source state has been prepared,
+\(X_{B_0}\) makes its inner ZZZZ outcome negative. A later clean positive
+source round rejects this component. A fault in raw preparation can
+cause a more complicated state; the clean full round projects onto the
+unique intended source state or rejects it.
+
+Later measurement faults leave local damage. If F is an existing error,
+Q a measured source stabilizer, and \(|\sigma\rangle\) the intended source,
+
+\[
+(aI+bQ)F|\sigma\rangle=(aF+bQFQ)|\sigma\rangle,
+\qquad Q|\sigma\rangle=|\sigma\rangle.
+\]
+
+Pauli conjugation by Q does not enlarge F's support. A gadget's additional
+D contributes only its faulty targets. Thus residual source errors have
+at most one physical source-qubit error per fault after its clean round.
+B waiting while C and the graph are prepared is included in this count.
+
+## 6. Prepare and verify the graph resource
+
+**Ideal operation.** Reset the five vertices and twenty A qubits to zero.
+Apply H to each vertex. For every edge q with endpoints \(u_q,v_q\),
+apply CNOT from \(u_q\) to \(A_q\), then from \(v_q\) to \(A_q\).
+Use increasing q and alphabetic endpoint order. There are forty CNOTs.
+
+The state is
+
+\[
+|\Gamma\rangle_{VA}=\frac1{\sqrt{32}}\sum_{t\in\{0,1\}^5}
+|t\rangle_V|p(t)\rangle_A,\qquad p(t)_q=t_{u_q}\oplus t_{v_q}.
+\]
+
+![The resource gates for edges 0 (a--e) and 1 (c--e).](figures/c4-helix/integrated-v2/graph-preparation.png)
+
+The subscript V denotes the five temporary vertices. The twenty-bit
+string \(p(t)\) lists the actual computational-basis values of A.
+For example, \(t=00000\) and \(t=11111\) both give \(p(t)=0^{20}\):
+each edge receives either no flips or two flips. Both terms are present
+in the superposition, together with the other thirty terms.
+
+Verify the 25 checks in the order shown below, in three complete positive
+rounds. They specify \(|\Gamma\rangle\) uniquely:
+
+\[
+K_v=X_v\prod_{q\in E_v}X_{A_q},\qquad
+K_q=Z_{u_q}Z_{A_q}Z_{v_q},\qquad
+(K_a,\ldots,K_e,K_0,\ldots,K_{19}).
+\]
+
+Here \(E_v\) is the eight-edge star incident on v. In particular,
+\(E_a=\{0,3,6,7,10,11,12,15\}\). Each resource-edge check has three
+ports; each vertex check has nine, including the still-live vertex.
+
+![One edge check: \(K_1\) has targets c, \(A_1\), e.](figures/c4-helix/integrated-v2/resource-edge-check.png)
+
+![All nine ports of \(K_a\), split across two panels sharing one cat.](figures/c4-helix/integrated-v2/resource-star-check.png)
+
+**Proof step 1 - verify before using a source as a controller.** This
+is necessary both for the data matched-pair bound and for limiting bad
+A bits before the decoder in proof step 3. The raw graph circuit alone
+does not have the required one-bit-per-fault property.
+
+**Fault example.** Let an X fault occur on a after its CNOTs to
+\(A_0,A_3,A_6\), but before its five remaining CNOTs. Propagation through
+those remaining gates leaves
+
+\[
+X_aX_{A_7}X_{A_{10}}X_{A_{11}}X_{A_{12}}X_{A_{15}}|\Gamma\rangle
+=X_{A_0}X_{A_3}X_{A_6}|\Gamma\rangle.
+\]
+
+The equality uses \(K_a|\Gamma\rangle=|\Gamma\rangle\). One raw fault
+can therefore produce more than one bad gauge bit. Clean verification
+rejects this component: \(K_0,K_3,K_6\) are negative.
+
+A clean complete source round projects any accepted input onto
+\(|\Gamma\rangle\). Later Pauli-check gadgets preserve local residual
+support by the same calculation as in Section 5. A remaining vertex
+error can affect one matched pair during enrichment; an A bit error
+affects only its one gauge position. Raw graph preparation is not being
+assumed fault tolerant by itself.
+
+## 7. Apply the twenty enrichment Fredkins
+
+**Ideal operation.** Vertex v controls the four SWAPs with physical
+labels in \(J_v\). With \(V_t=\prod_vT_v^{t_v}\),
+
+\[
+|\Gamma\rangle|\psi\rangle
+\longmapsto
+\frac1{\sqrt{32}}\sum_t |t\rangle_V|p(t)\rangle_A V_t|\psi\rangle.
+\]
+
+![Four Fredkins controlled by a. Complete all twenty Fredkins before any vertex meter is read.](figures/c4-helix/integrated-v2/enrichment.png)
+
+The controller assignment is a:0--3, b:4--7, c:8--11, d:12--15,
+e:16--19. It differs from the edge endpoints. For example, \(A_1\)
+has endpoints c,e, while the pair \(B_1,C_1\) is controlled by a.
+
+**Example of the superposition.** The vertex strings \(t=01000\) and
+\(\bar t=10111\) give the same A string: ones on the eight edges touching
+b, zeros elsewhere. Their data states after enrichment are, respectively,
+
+\[
+T_b|\psi\rangle,\qquad T_aT_cT_dT_e|\psi\rangle=T_bU|\psi\rangle.
+\]
+
+These are two components passing through one circuit. The bar flips all
+five vertex bits; it does not denote logical encoding.
+All physical SWAPs here act on disjoint data pairs and square to I.
+Multiplying \(V_t\) by U therefore removes the SWAPs for which \(t_v=1\)
+and adds those for which \(t_v=0\): the result is \(V_{\bar t}\).
+
+**Proof step 1 - SWAPs preserve the matched-pair label.** Each Fredkin
+controlled by v has data targets \(B_q,C_q\) with \(q\in J_v\).
+These are corresponding positions in the two four-qubit C4 blocks
+labelled v. A fault may spread to several of those positions, but none
+of that controller's data couplings reaches another label.
+
+**Fault example.** An X fault on a after its first Fredkin is propagated
+through the remaining three as an X on a times ordinary SWAPs on pairs
+1,2,3. For one controlled-SWAP gate F,
+
+\[
+F X_a F=X_a\,\operatorname{SWAP}(B_q,C_q).
+\]
+
+Several data pairs can therefore be damaged, but all are in matched
+pair a. A faulty Fredkin can also damage its own data targets; they
+belong to the same matched pair as its controller. Existing data errors
+may exchange B/C positions, but not matched-pair labels. This is why
+one controller is assigned to only one matched pair.
+
+## 8. Read the vertices and apply the ancilla-Z corrections
+
+### 8.1. These operations are required even without faults
+
+Measuring the vertices and selecting the positive SWAP outcome are part
+of the **noiseless protocol**. The known measurement-dependent phases
+must also be accounted for even with perfect preparations, gates, and
+measurements. This note applies physical Z gates so that every later
+Gauss check is expected to be positive. Alternatively, those known
+phases can be tracked classically if the expected check signs are
+adjusted, as explained in Section 8.5.
+
+The Z gates remove known signs introduced by the vertex measurements.
+This is **feedforward**: a recorded measurement result determines the
+next gate. It is different from recovering an unknown error using a
+syndrome. Sections 9--11 add checks against faults; Section 8.7 explains
+what those checks must protect at this stage.
+
+The vertices are measured in **X**. In the circuit, this means applying
+H and then measuring Z on each vertex. Thus a Z meter following H
+implements the X measurement discussed here. The edge ancillas
+\(A_0,\ldots,A_{19}\) are not yet measured in Z; that readout occurs in
+Section 12.
+
+### 8.2. The state immediately after reading the vertices
+
+Recall the ideal state at the end of enrichment:
+
+\[
+\frac1{\sqrt{32}}\sum_{t\in\{0,1\}^5}
+|t\rangle_V|p(t)\rangle_A V_t|\psi\rangle.
+\]
+
+Here \(t=(t_a,t_b,t_c,t_d,t_e)\) contains the five vertex bits.
+An edge joining vertices v and w contains the bit
+\(p(t)_q=t_v\oplus t_w\); the twenty bits together form \(p(t)\).
+The operator \(V_t=\prod_vT_v^{t_v}\) swaps the matched four-qubit
+blocks for which \(t_v=1\). For example, \(V_{01010}=T_bT_d\).
+The full data SWAP is \(U=T_aT_bT_cT_dT_e\).
+
+Measure each vertex in X and record
+
+\[
+b_v=0\ \text{for outcome }+1,\qquad
+b_v=1\ \text{for outcome }-1.
+\]
+
+The overlaps with a computational-basis bit \(t_v\) are
+
+\[
+\langle+|t_v\rangle=\frac1{\sqrt2},\qquad
+\langle-|t_v\rangle=\frac{(-1)^{t_v}}{\sqrt2}.
+\]
+
+Consequently, for a fixed five-bit report
+\(b=(b_a,b_b,b_c,b_d,b_e)\), the remaining qubits have the conditional
+state
+
+\[
+|\chi_b\rangle
+=\frac1{32}\sum_t
+(-1)^{b_at_a+b_bt_b+b_ct_c+b_dt_d+b_et_e}
+|p(t)\rangle_A V_t|\psi\rangle.
+\]
+
+This state is unnormalized: its squared norm is the probability of
+that report. Even a perfect measurement introduces the displayed
+outcome-dependent signs.
+
+### 8.3. Even parity selects the positive SWAP outcome
+
+Compute the bit
+
+\[
+r=b_a\oplus b_b\oplus b_c\oplus b_d\oplus b_e.
+\]
+
+**Require even parity** means keep the attempt only if \(r=0\): zero,
+two, or four vertices gave outcome \(-1\). It does not mean that all
+five outcomes must be \(+1\). The bit r takes values 0 or 1; the
+corresponding measured SWAP eigenvalue is \((-1)^r\), taking values
+\(+1\) or \(-1\).
+
+To see why this parity measures SWAP, pair each vertex pattern t with
+its bitwise complement \(\bar t=t\oplus(1,1,1,1,1)\). They have
+
+\[
+p(\bar t)=p(t),\qquad V_{\bar t}=V_tU.
+\]
+
+They therefore contribute to the same edge-ancilla ket. Their
+measurement signs differ by
+
+\[
+(-1)^{\sum_v b_v(1-t_v)}
+=(-1)^r(-1)^{\sum_v b_vt_v}.
+\]
+
+Their combined contribution to \(|\chi_b\rangle\) is thus
+
+\[
+\frac1{32}(-1)^{\sum_vb_vt_v}
+|p(t)\rangle_A V_t\bigl(I+(-1)^rU\bigr)|\psi\rangle.
+\]
+
+Hence \(r=0\) selects \(I+U\), whereas \(r=1\) selects \(I-U\).
+This is an ideal measurement outcome, not an error syndrome. An odd
+result can occur without any fault. Section 8.6 explains why this
+magic-preparation protocol selects the positive outcome.
+
+### 8.4. Apply the known ancilla-Z correction
+
+Even for \(r=0\), different t terms may still have different signs.
+Remove them by applying
+
+\[
+F_b=Z_{A_7}^{b_b}Z_{A_{11}}^{b_c}Z_{A_3}^{b_d}Z_{A_0}^{b_e}.
+\]
+
+Here \(Z^0=I\) and \(Z^1=Z\). These are physical Z gates controlled
+by classical reports. The four selected edges join the root a to
+b,c,d,e, respectively, so their bits are
+
+\[
+p(t)_7=t_a\oplus t_b,\quad
+p(t)_{11}=t_a\oplus t_c,\quad
+p(t)_3=t_a\oplus t_d,\quad
+p(t)_0=t_a\oplus t_e.
+\]
+
+![The four classical report-to-Z corrections. Double wires carry measured bits.](figures/c4-helix/integrated-v2/vertex-frame.png)
+
+**Example.** Let the report be
+
+\[
+(b_a,b_b,b_c,b_d,b_e)=(0,1,0,1,0).
+\]
+
+Its parity is even, so it is accepted. The measurements have multiplied
+each t term by \((-1)^{t_b+t_d}\). Apply \(Z_{A_7}Z_{A_3}\).
+These gates contribute
+
+\[
+(-1)^{(t_a\oplus t_b)+(t_a\oplus t_d)}
+=(-1)^{t_b+t_d},
+\]
+
+which cancels the measurement sign.
+
+For a general report b, the product of the measurement sign and the
+correction sign is
+
+\[
+(-1)^{\sum_vb_vt_v}
+(-1)^{\sum_{v\ne a}b_v(t_a\oplus t_v)}
+=(-1)^{r t_a}.
+\]
+
+All sign exponents are evaluated modulo two. The non-root terms cancel
+in pairs; the remaining coefficient of \(t_a\) is the parity r.
+For an accepted report, \(r=0\), so every term has sign \(+1\).
+There is no separate correction controlled by \(b_a\): the even-parity
+condition already fixes it from the other four reports.
+
+Reset the measured vertices for helper reuse.
+
+### 8.5. The corrected gauged state and its check signs
+
+For any report, combining each t term with its complement gives
+
+\[
+F_b|\chi_b\rangle
+=\frac1{32}\sum_{t:t_a=0}
+|p(t)\rangle_A V_t\bigl(I+(-1)^rU\bigr)|\psi\rangle.
+\]
+
+Choosing the member with \(t_a=0\) only labels each pair once; it
+does not measure or reset a vertex, and it does not discard the
+complementary contribution. For accepted even parity, this becomes
+
+\[
+\frac1{16}\sum_{t:t_a=0}|p(t)\rangle_A V_t|\psi_+\rangle,
+\qquad |\psi_+\rangle=\frac{I+U}{2}|\psi\rangle.
+\]
+
+This is the same conditional state for every accepted ideal report.
+The two computational components supplied \(V_t|\psi\rangle\) and
+\(V_tU|\psi\rangle\); X readout combines them, and \(F_b\) removes
+their remaining known signs.
+
+**Why the correction matters for the later checks.** The Gauss check
+at vertex v is
+
+\[
+G_v=\left(\prod_{q:\,q\text{ touches }v}X_{A_q}\right)T_v.
+\]
+
+Before correction, the ideal conditional state satisfies
+\(G_v|\chi_b\rangle=(-1)^{b_v}|\chi_b\rangle\). This follows from
+the stabilizer \(X_vG_v\) of the enriched state: measuring \(X_v\)
+with outcome \((-1)^{b_v}\) leaves that same sign for \(G_v\).
+These signs reflect the ideal measurement results, not unknown faults.
+
+A Z on an edge flips the Gauss-check signs at both endpoints of that
+edge. The correction \(F_b\) makes the signs at b,c,d,e all positive;
+the remaining sign at a is \((-1)^r\), also positive on an accepted
+attempt. For the example \(b=01010\), \(Z_{A_7}\) flips the signs
+at a and b, and \(Z_{A_3}\) flips those at a and d. The sign at a
+is flipped twice, while the negative signs at b and d are removed.
+
+Without \(F_b\), even parity would still select the positive SWAP
+component, but some Gauss checks could be negative solely because of
+the ideal measurement outcomes. The correction puts every accepted
+ideal outcome into the prescribed state with all Gauss signs positive.
+
+**If the known correction were omitted.** Consider again the even-parity
+vertex report
+
+\[
+(b_a,b_b,b_c,b_d,b_e)=(0,1,0,1,0).
+\]
+
+Let \(|\Phi_+\rangle\) denote the intended joint state of the gauge
+ancillas and data, with all Gauss checks positive (the reference vector
+defined in Section 8.7). Without the correction \(Z_{A_7}Z_{A_3}\),
+the state would instead be proportional to
+
+\[
+Z_{A_7}Z_{A_3}|\Phi_+\rangle.
+\]
+
+The first Z flips the Gauss-check signs at a and b; the second flips
+them at a and d. The two flips at a cancel. Writing \(g_v\) for the
+outcome of measuring \(G_v\), the uncorrected state therefore gives
+
+\[
+(g_a,g_b,g_c,g_d,g_e)=(+1,-1,+1,-1,+1).
+\]
+
+Our current protocol would reject this otherwise valid attempt,
+because it requires every Gauss check to be positive. These negative
+outcomes would be caused by the known vertex-measurement signs,
+even though no fault had occurred.
+
+This does **not** change the positive SWAP projection into the negative
+one. The vertex parity is even, and \(Z_{A_7}Z_{A_3}\) acts only on the
+gauge ancillas, so the state still satisfies \(U=+1\).
+
+To see what would happen without the intervening Gauss tests, suppose
+we proceeded directly through perfect edge-Z readout and ungauging.
+Let \(m_7,m_3\in\{0,1\}\) be the recorded edge bits, with zero for
+Z outcome \(+1\) and one for outcome \(-1\). The omitted correction
+would leave the scalar sign \((-1)^{m_7+m_3}\) in that measurement
+branch. After reading the edges, the data state would be proportional
+to \((-1)^{m_7+m_3}V_t|\psi_+\rangle\), and applying the decoded
+correction would give
+
+\[
+V_t\bigl[(-1)^{m_7+m_3}V_t|\psi_+\rangle\bigr]
+=(-1)^{m_7+m_3}|\psi_+\rangle.
+\]
+
+For this fixed measurement record, the sign is an irrelevant global
+phase. The final projected data state would be unchanged. The purpose
+of physically applying \(F_b\) is therefore to put the intermediate
+state into our chosen **all-positive Gauss-check convention**, rather
+than to repair an unknown fault or to change the ideal SWAP outcome.
+
+One could instead record the known phases classically and adjust the
+expected Gauss-check signs; for this example, the expected signs at b
+and d would be negative. Simply omitting the Z gates while retaining
+the all-positive acceptance rule would cause unnecessary rejection.
+The circuit and fault-tolerance proof in this note use the physical
+correction \(F_b\).
+
+### 8.6. Why this protocol selects the positive outcome
+
+Gauging followed by ungauging can in principle retain both outcomes
+and record which projector was applied:
+
+\[
+\Pi_+=\frac{I+U}{2}\quad(r=0),\qquad
+\Pi_-=\frac{I-U}{2}\quad(r=1).
+\]
+
+This is a measurement of U. The original gauging manuscript likewise
+retains the symmetry-measurement eigenvalues in its final projectors
+(see its discussion of gauging and ungauging near the end of
+[the source manuscript](../arXiv-2602.12228v1/main.tex)).
+Selecting \(+1\) here is a choice of our magic-preparation protocol,
+not a requirement for defining the general measurement.
+
+For our chosen input, however, the negative branch supplies no magic.
+The input is \(|\overline{00}\rangle_B|\overline{+0}\rangle_C\).
+Both second logical qubits remain in \(|0\rangle\), so omit them and
+write the first logical pair simply as \(|0+\rangle\). Its normalized
+negative branch is
+
+\[
+\frac{(I-U)|0+\rangle}{\|(I-U)|0+\rangle\|}
+=\frac{|01\rangle-|10\rangle}{\sqrt2}.
+\]
+
+This is a stabilizer Bell state. Measuring B in Z leaves C in
+\(|1\rangle\) or \(|0\rangle\), neither a magic state. In contrast,
+the positive branch gives
+
+\[
+\frac{(I+U)|0+\rangle}{\|(I+U)|0+\rangle\|}
+=\frac{2|00\rangle+|01\rangle+|10\rangle}{\sqrt6}.
+\]
+
+Selecting logical B zero then gives
+\((2|0\rangle+|1\rangle)/\sqrt5\) in C, as worked out in Section 16.
+Thus we select the positive outcome for this particular input and
+output resource. Keeping both outcomes would also require changing
+the later Gauss-check acceptance rules; the present protocol and proof
+require all those signs to be positive.
+
+### 8.7. What the fault-tolerance proof must add
+
+The preceding operations assume accurate reports and perfect gates.
+They remove known measurement-dependent signs. They do not by
+themselves certify that an unknown fault has not changed the state.
+A wrong report can select an incorrect \(F_b\), a faulty correction
+gate can damage an edge ancilla, and a phase fault can change the
+SWAP projection itself.
+
+For the subsequent proof define the reference vectors
+
+\[
+|\psi_\pm\rangle=\frac{I\pm U}{2}|\psi\rangle,\qquad
+|\Phi_\pm\rangle=\frac14\sum_{t:t_a=0}|p(t)\rangle_A V_t|\psi_\pm\rangle.
+\]
+
+They may be unnormalized; the corrected ideal branch above is
+\(|\Phi_+\rangle/4\). U acts only on the data and commutes with every
+\(V_t\), hence \(U|\Phi_\pm\rangle=\pm|\Phi_\pm\rangle\).
+
+**Proof steps 1 and 2 - separate physical damage from the measured
+projection.** Local damage is still bounded by matched pairs. Phase
+faults and wrong reports need a different argument: the spatial bound
+alone cannot force equal coefficients of I and U.
+
+**Fault example.** A Z fault on a just before its X measurement multiplies
+the t component by \((-1)^{t_a}\). For reported b=00000, the two terms
+t and its complement now combine with a minus sign: the branch can
+contain \(|\Phi_-\rangle\) instead of \(|\Phi_+\rangle\).
+This does not require many damaged data qubits. The measured SWAP
+projection itself is wrong. The checks in the next sections are needed
+to detect it; the spatial error bound alone cannot do so.
+
+More general wrong amplitudes can depend on \(t_b,t_c,t_d,t_e\) when
+the representative has \(t_a=0\). Any function of these four bits is
+a linear combination of the sixteen products of their signs
+\((-1)^{t_v}\). On A, those signs are supplied by
+\(Z_{A_7},Z_{A_{11}},Z_{A_3},Z_{A_0}\), respectively, since the four
+tree-edge bits equal \(t_b,t_c,t_d,t_e\). Thus those amplitude errors
+can be expanded as gauge-Z operators. Including the bounded gauge-bit
+and local data errors, the state before a clean round is a sum of
+terms \(F_A E|\Phi_\pm\rangle\), where \(F_A\) acts only on A.
+Its X part has weight at most the number of faults; its Z part can
+be unrestricted. E occupies at most one new matched-pair label per
+fault. This accounts for unequal or missing contributions rather
+than assuming they already combine correctly.
+
+## 9. While gauged: measure the eighteen paired checks
+
+**Ideal operation.** Measure, in order, the nine X products and nine Z
+products
+
+\[
+N_s^P=S^P_{B,s}S^P_{C,s},\qquad s=0,\ldots,8,\quad P=X,Z.
+\]
+
+Use one cat across both copies for each check, with B targets first.
+All leaf-X parities must be zero. Both \(|\Phi_+\rangle\) and
+\(|\Phi_-\rangle\) satisfy these paired checks: the original inputs do,
+and matched factors \(P_{B_q}P_{C_q}\) commute with SWAP.
+
+![One eight-leaf cat for \(N_0^X\). The panels yield one combined parity.](figures/c4-helix/integrated-v2/paired-check.png)
+
+For an eight-position upper support \(R_s\), the cat has sixteen leaves.
+Z products use CZ gates instead of CNOTs. Individual B and C stabilizers
+are not measured separately at this stage.
+
+**Error examples.** \(X_{B_0}\) flips the paired inner-Z check and is
+rejected by a clean positive measurement. In contrast, keep the following
+example through the rest of the protocol:
+
+\[
+E=X_{B_0}X_{C_1}X_{C_2}X_{C_3}.
+\]
+
+It gives one minus sign on B and three on C, so their paired inner-Z
+product stays positive. In fact it passes every paired check. Write
+its one-copy patterns as \(P=X_0,\ R=X_1X_2X_3\). Then
+
+\[
+P^\dagger R=X_0X_1X_2X_3=S,\qquad
+E=(P_BP_C)S_C.
+\]
+
+Here S is the inner XXXX stabilizer. \(P_C\) is the same pattern as P
+applied to C; it cancels an extra \(X_{C_0}\) in \(S_C\). P on B has
+not been changed. The dagger is the inverse of P.
+
+**Proof step 2, using the lemma from Section 3.** The code has the
+following two-group property: a Pauli on at most two inner C4 blocks of
+one copy, commuting with all its checks, is a stabilizer up to phase.
+To see it, separate its X and Z parts, using \(Y=iXZ\). Inner checks force an even number
+of each per block. Multiplying by inner XXXX or ZZZZ removes four equal
+factors, leaving each part at weight at most four. Since every generator
+contains only X or only Z, both parts individually commute with all
+checks. Distance six excludes a
+nontrivial logical action for either part.
+
+For a general two-matched-pair Pauli \(E=P_BR_C\), passing paired checks
+means P and R have the same commutation sign with every original check.
+Thus \(P^\dagger R\) is an undetected one-copy Pauli on at most two
+inner blocks, and the property just proved gives \(P^\dagger R=S\).
+Consequently \(E=(P_BP_C)S_C\), up to phase.
+Here the common pair labels from proof step 1 are essential: two
+unrelated labels in B and two different labels in C would give up to
+four labels in \(P^\dagger R\), outside the lemma's hypothesis.
+
+On states passing paired checks, \(S_BS_C=+1\), hence S on B and C act
+identically. The factor \(P_BP_C\) is unchanged by exchanging copies.
+It follows that
+
+\[
+UE|\chi\rangle=EU|\chi\rangle
+\quad\text{if all paired checks on }|\chi\rangle\text{ are positive}.
+\]
+
+For the worked example this can be checked without the general argument:
+
+\[
+UEU=X_{C_0}X_{B_1}X_{B_2}X_{B_3}=E N_0^X.
+\]
+
+On paired-positive states, E and its exchanged version therefore act
+identically. A surviving error cannot convert a negative U eigenvalue
+to a positive one. Phase and bit operators on A commute with U and do
+not change this conclusion.
+
+## 10. While gauged: measure the sixteen cycle checks
+
+**Ideal operation.** For each cycle support \(\eta\), measure
+\(L_\eta=\prod_{q\in\eta}Z_{A_q}\), with one fresh cat and CZ couplings.
+The ideal strings \(p(t)\) give +1: along a closed cycle, each vertex
+bit occurs twice in the XOR of the edge bits.
+
+![Parallel-edge and triangle cycle-check circuits.](figures/c4-helix/integrated-v2/cycle-checks.png)
+
+The ordered supports are
+
+\[
+\begin{aligned}
+&(7,15),(11,12),(3,6),(0,10),(8,19),\\
+&(14,16),(4,9),(2,13),(1,18),(5,17),\\
+&(7,8,11),(7,14,3),(7,4,0),\\
+&(11,2,3),(11,1,0),(3,5,0).
+\end{aligned}
+\]
+
+**Proof step 2 - check the ancilla bit constraints.** The cycle tests
+are part of the same clean gauged round as the paired and Gauss tests.
+Their bit constraints also support the decoding argument in proof
+step 3.
+
+**Fault example.** \(X_{A_7}\) changes the sign of
+\(L_{(7,15)}=Z_{A_7}Z_{A_{15}}\), so a clean positive cycle check rejects
+it. A gauge Z error does not change this outcome; cycle checks certify
+bit consistency, not all possible phase errors.
+
+These sixteen independent constraints characterize the sixteen valid
+strings \(p(t)\). Different such strings are separated by at least eight
+positions, as proved in Section 12. Thus a nonzero X pattern of weight
+one or two cannot move one valid string to another; a clean complete
+cycle measurement rejects those terms. Faulty cycle gadgets touch only
+individual A ports, while their cat-phase uncertainty is allowed in the
+coefficients of \(aI+bL_\eta\).
+
+## 11. While gauged: Gauss checks protect the SWAP projection
+
+**Ideal operation.** For v=a,b,c,d,e, measure
+
+\[
+G_v=\left(\prod_{q\in E_v}X_{A_q}\right)T_v.
+\]
+
+Use one twelve-leaf cat: eight CNOT ports to the gauge star, then four
+Fredkin ports to the corresponding data pairs. Measure all twelve leaves
+in X only after all controlled factors. Require their one parity to be zero.
+
+![All twelve ports of \(G_a\). All four panels share one cat.](figures/c4-helix/integrated-v2/gauss-check.png)
+
+A Gauss operation flips the star bits and applies the corresponding
+partial data SWAP together. On a component \(|p(t)\rangle_A V_t|\phi\rangle\),
+it toggles the label \(t_v\) consistently. Its eight gauge flips are not
+eight independent errors. Relabelling the sixteen terms gives
+
+\[
+G_a|\Phi_\pm\rangle=\pm|\Phi_\pm\rangle,\qquad
+G_v|\Phi_\pm\rangle=|\Phi_\pm\rangle\quad(v=b,c,d,e).
+\]
+
+For a, toggling the root requires complementing the representative to
+make the root zero again, adding U to the data; this gives the sign above.
+For a nonroot vertex it only permutes the sixteen terms.
+
+**Proof step 2 - the accepted clean round enforces \(U=+1\).** The
+paired checks prevent a bounded local error from disguising a negative
+SWAP sign. These Gauss measurements now select that sign, while their
+local couplings continue to obey proof step 1.
+
+**Examples of the protection.** The vertex-Z fault in Section 8 can leave
+\(|\Phi_-\rangle\). A clean \(G_a\) measurement gives -1 and rejects it.
+The worked data error E of Section 9 still passes on the positive state:
+
+\[
+G_aEG_a=E N_0^X,\qquad
+G_aE|\Phi_\pm\rangle=\pm E|\Phi_\pm\rangle.
+\]
+
+E cannot hide the negative sign; it may remain on a positive state.
+For comparison, a Gauss measurement alone acting on an \(X_{B_0}\) error
+gives
+
+\[
+\frac{I+G_a}{2}X_{B_0}|\Phi_+\rangle
+=\frac{X_{B_0}+X_{C_0}}2|\Phi_+\rangle.
+\]
+
+The physical damage can remain or become a superposition, but is still
+inside matched pair a. In a clean complete round the paired checks
+would reject that single-X error first.
+
+**Why all three check families are repeated together.** A full gauged
+round consists of 18 paired checks, 16 cycle checks, then five Gauss
+checks. Execute three such rounds. These 39 observables commute. Their
+positive Gauss projector contains the positive SWAP projector because
+
+\[
+G_aG_bG_cG_dG_e=U,\qquad
+\prod_v\frac{I+G_v}{2}=\left[\prod_{v=b}^e\frac{I+G_v}{2}\right]\Pi_+.
+\]
+
+In a clean accepted round, paired measurements first eliminate Pauli
+terms that fail their checks. Each surviving E preserves the U sign,
+by Section 9, so
+
+\[
+\Pi_+E|\Phi_-\rangle=0,\qquad
+\Pi_+E|\Phi_+\rangle=E|\Phi_+\rangle.
+\]
+
+There is at least one clean complete round under the two-fault budget.
+It removes the negative reference contribution. The remaining projectors
+preserve the local-error bound. Indeed every measured Q stabilizes
+\(|\Phi_+\rangle\), so clean or faulty subsequent check operations obey
+
+\[
+D(aI+bQ)F|\Phi_+\rangle=D(aF+bQFQ)|\Phi_+\rangle.
+\]
+
+Pauli conjugation does not spread support; Gauss conjugation only exchanges
+B and C within matched pairs. D adds only its own faulty ports. Thus
+later false reports cannot restore a free negative reference component:
+their remaining damage stays in the bounded error operators multiplying
+\(|\Phi_+\rangle\). No fresh fault allowance begins after the clean round.
+
+## 12. Read and decode the twenty gauge bits
+
+**Section 12 determines which correcting SWAPs to apply.** After
+measuring the edge ancillas, the ideal data state is
+
+\[
+V_t|\psi_+\rangle.
+\]
+
+We decode the twenty measurement reports to reconstruct
+\(t=(0,t_b,t_c,t_d,t_e)\). Each bit equal to one identifies a matched
+pair of four-qubit blocks to swap.
+
+**Section 13 physically applies those SWAPs**, namely \(V_t\). Since
+each SWAP is its own inverse,
+
+\[
+V_t\bigl(V_t|\psi_+\rangle\bigr)=|\psi_+\rangle.
+\]
+
+For example, if Section 12 finds \(t=(0,1,0,1,0)\), the data carry
+\(T_bT_d\). Section 13 applies \(T_bT_d\) again, cancelling it.
+
+The additional purpose of decoding in Section 12 is to prevent wrong
+measurement reports from selecting the wrong correcting SWAPs.
+
+**Ideal operation.** Measure every \(A_q\) in Z, in increasing q order,
+giving reports \(m_0,\ldots,m_{19}\). Decode all twenty before deciding
+which data SWAPs to apply.
+
+### 12.1. The reported bits and the bits being estimated
+
+The physical Z measurements give a recorded twenty-bit vector
+
+\[
+m=(m_0,\ldots,m_{19}),\qquad
+m_q=0\text{ for reported }+1,\quad m_q=1\text{ for reported }-1.
+\]
+
+The letter m always denotes these reports, including possible wrong
+bits. In an ideal component of the quantum state, the actual ancilla
+bits are \(p(t)_q=t_{u_q}\oplus t_{v_q}\), as prepared in Section 6.
+The decoder estimates that valid vector; call the estimate
+\(\widehat p\). The hat means an estimate made from m, not another
+physical measurement.
+
+We compare a candidate p with m by counting differing positions:
+
+\[
+d_H(m,p)=\#\{q\in\{0,\ldots,19\}:m_q\ne p_q\}.
+\]
+
+This is the Hamming distance. For example, a single wrong report at
+position 7 gives distance one from the underlying valid vector.
+
+![Individual gauge-Z readout, followed by classical full-word decoding.](figures/c4-helix/integrated-v2/gauge-readout-decode.png)
+
+### 12.2. Why choose the reconstructed root bit to be zero?
+
+The edge measurements cannot distinguish the vertex pattern \(t\) from
+its complement \(\bar t\), obtained by flipping all five bits. Both
+patterns give the same edge bits, because flipping both endpoints leaves
+their XOR unchanged.
+
+To choose one definite correction, use the pattern whose bit at vertex
+\(a\) is zero. If a candidate pattern starts with zero, keep it. If it
+starts with one, flip all five bits.
+
+For example, the patterns
+
+\[
+(t_a,t_b,t_c,t_d,t_e)=(1,0,1,0,1)
+\quad\text{and}\quad
+(0,1,0,1,0)
+\]
+
+give identical edge bits. We choose \((0,1,0,1,0)\), because its first
+bit is zero. The corresponding correction is \(V_t=T_bT_d\).
+
+The decoder therefore tests the sixteen patterns
+
+\[
+t=(0,t_b,t_c,t_d,t_e),
+\qquad t_b,t_c,t_d,t_e\in\{0,1\}.
+\]
+
+Setting \(t_a=0\) is only a convention for choosing the correction. It
+does not assert that the original vertex was in state \(|0\rangle\),
+and it does not require another measurement.
+
+The reason this is safe for the data will be shown explicitly in
+Section 13: the two possible corrections differ by the complete
+SWAP U, which acts as +1 on the intended positive-projection state.
+
+### 12.3. The actual classical decoding rule
+
+The classical box in the drawing uses the set
+\(\mathcal W=\{p(t):t_a=0\}\). Enumerate its sixteen strings. Choose the string
+\(\widehat p\) differing from m in at most two positions; reject if none
+exists. From the decoded string set
+
+\[
+\widehat t_a=0,\quad \widehat t_b=\widehat p_7,\quad
+\widehat t_c=\widehat p_{11},\quad
+\widehat t_d=\widehat p_3,\quad \widehat t_e=\widehat p_0.
+\]
+
+These four edges join the root a to the other vertices. The formulas
+follow directly from their endpoints:
+
+\[
+\begin{aligned}
+p(t)_7&=t_a\oplus t_b,&p(t)_{11}&=t_a\oplus t_c,\\
+p(t)_3&=t_a\oplus t_d,&p(t)_0&=t_a\oplus t_e.
+\end{aligned}
+\]
+
+When the representative has \(t_a=0\), each of these edge bits equals
+the other endpoint's bit. First correct the entire report m to
+\(\widehat p\); only then read these four positions to obtain
+\(\widehat t\).
+
+**Fault example.** Suppose the actual A string is \(0^{20}\), but the
+report \(m_7\) is wrong and equals one. Reading that tree bit directly
+would wrongly select \(T_b\). Full-word decoding returns \(0^{20}\), so
+the correction contains no SWAPs. An existing \(X_{B_2}\) data error is
+not removed by this classical decoding; it is still handled later.
+
+### 12.4. Worked example: reconstruct b and d despite a wrong tree bit
+
+Consider the valid representative and its complement
+
+\[
+t=(0,1,0,1,0),\qquad \bar t=(1,0,1,0,1).
+\]
+
+For either choice the ancillas have ones at exactly these positions:
+
+\[
+\{q:p(t)_q=1\}=\{2,3,4,5,6,7,8,9,13,15,17,19\}.
+\]
+
+For example, edge 7 joins a and b, so \(p_7=0\oplus1=1\).
+Edge 14 joins b and d, so \(p_{14}=1\oplus1=0\).
+In increasing physical order \(q=0,\ldots,19\), the full vector is
+
+\[
+p(t)=(0,0,1,1,1,1,1,1,1,1,0,0,0,1,0,1,0,1,0,1).
+\]
+
+Suppose the only wrong report is \(m_7=0\) instead of 1; all other
+reported bits agree with this vector. Its distance from the valid
+candidate above is one, so the decoder returns
+\(\widehat p=p(t)\). Uniqueness within radius two is proved below.
+The reconstructed bits are then
+
+\[
+\widehat t=(0,\widehat p_7,\widehat p_{11},\widehat p_3,\widehat p_0)
+=(0,1,0,1,0).
+\]
+
+The correction therefore applies \(T_bT_d\). Reading the noisy
+report \(m_7\) directly would instead give the wrong b bit and apply
+only \(T_d\), omitting all four required b SWAPs.
+
+![Worked decoding example: the corrected bits select b and d, with physical SWAPs on labels 4--7 and 12--15.](figures/c4-helix/synthesis/12-ungauging.png)
+
+The five vertex labels in this drawing show the reconstructed
+classical bits. The physical vertices have already been measured;
+the drawing does not introduce five new quantum controllers. Its
+letter w denotes our decoded vector \(\widehat p\), and its displayed
+vertex bits are our \(\widehat t\).
+
+### 12.5. Why the complete report has a unique correction
+
+**Proof steps 1 and 3 - protect the correction choice.** The previous
+support bound limits the number of corrupt gauge bits. Decoding all
+twenty prevents those bits from selecting the wrong ordinary SWAPs.
+
+**Why the decoder is reliable.** Before readout, each error term has at
+most one erroneous gauge bit per faulty location; there are no remaining
+vertex-to-gauge preparation CNOTs. Gauss star flips are changes between
+valid \(p(t)\) strings. Each new readout fault changes at most its own
+reported position. Therefore
+
+\[
+m=p(t)\oplus e,\qquad |e|\le2
+\]
+
+under the same global budget. For any choice of k vertices, there are
+\(2k(5-k)\) edges joining them to the other vertices; the minimum
+nonzero count is eight. The difference of two valid strings has ones
+precisely on the edges separating the vertices whose t bits differ
+from those whose t bits agree. Distinct strings therefore differ on at
+least eight positions. Two candidates within distance two of m would differ
+on at most four positions, which is impossible.
+
+Thus the decoder recovers the correct string for each term. Coherent
+terms sharing a report must share that decoded string. Gauge-Z phases
+become scalar amplitudes after readout. This establishes consistent
+feedforward without assuming stochastic, rather than coherent, errors.
+
+## 13. Undo the partial data SWAPs
+
+**Ideal operation.** Apply \(T_v\) when \(\widehat t_v=1\), using ordinary
+physical SWAPs, not coherent Fredkins. Visit physical labels q in order.
+Discard/reset A after its readout.
+
+![A decoded classical bit selects an ordinary SWAP of \(B_q\) and \(C_q\).](figures/c4-helix/integrated-v2/ungauge-swaps.png)
+
+For example, \(\widehat t=01000\) applies the four SWAPs on labels 4--7.
+On the corresponding component the ideal data operation is
+
+\[
+V_t\bigl[V_t|\psi_+\rangle\bigr]=|\psi_+\rangle.
+\]
+
+### 13.1. Following the two complementary vertex patterns
+
+For the worked example in Section 12.4,
+
+\[
+V_t=T_bT_d,\qquad V_{\bar t}=T_aT_cT_e=V_tU.
+\]
+
+The same ancilla string \(p(t)\) was present with both vertex
+components. Before the vertex-X measurements, their contributions
+after the enrichment Fredkins were
+
+\[
+\begin{aligned}
+&|01010\rangle_V|p(t)\rangle_A\,T_bT_d|\psi\rangle\\
+{}+{}&|10101\rangle_V|p(t)\rangle_A\,T_aT_cT_e|\psi\rangle.
+\end{aligned}
+\]
+
+These are two terms in one coherent state, not two observed
+computational-basis outcomes. Only these terms are displayed and
+their common normalization factor is omitted.
+
+For all five vertex-X outcomes positive,
+\(\langle+|^{\otimes5}|01010\rangle
+=\langle+|^{\otimes5}|10101\rangle=1/\sqrt{32}\).
+After that readout, their common ancilla component carries the data
+sum
+
+\[
+T_bT_d|\psi\rangle+T_aT_cT_e|\psi\rangle
+=V_t(I+U)|\psi\rangle.
+\]
+
+Other accepted vertex-X outcomes give the same sum after the
+ancilla-Z corrections of Section 8. The ideal gauged checks do not
+change it. Later, measuring A selects its recorded component; full
+decoding recovers \(p(t)\) and chooses \(t_a=0\) as above.
+The eight ordinary SWAPs selected by \(V_t=T_bT_d\) act on physical
+pairs 4,5,6,7,12,13,14,15 and give
+
+\[
+\begin{aligned}
+T_bT_d\bigl[T_bT_d|\psi\rangle+T_aT_cT_e|\psi\rangle\bigr]
+&=|\psi\rangle+U|\psi\rangle\\
+&=2\Pi_+|\psi\rangle.
+\end{aligned}
+\]
+
+Had we chosen the complementary representative, its correction
+\(V_{\bar t}=V_tU\) would instead give \(U|\psi\rangle+|\psi\rangle\):
+the same state. Equivalently,
+
+\[
+V_t\bigl[V_t|\psi_+\rangle\bigr]=|\psi_+\rangle,\qquad
+V_{\bar t}\bigl[V_t|\psi_+\rangle\bigr]=U|\psi_+\rangle=|\psi_+\rangle.
+\]
+
+Thus \(t_a=0\) chooses a definite classical correction; it does not
+discard one of the two coherent contributions or infer a past
+vertex-Z outcome. The positive U eigenvalue established in proof
+step 2 is what makes the two ideal corrections equivalent.
+
+### 13.2. Why the correcting SWAPs preserve the error bound
+
+Section 12 determines which SWAPs to apply despite the allowed errors
+in the edge-measurement reports. We now check what those SWAPs do to
+physical errors already present on B and C, and what happens if a
+correcting SWAP itself fails.
+
+**First consider the example \(t=(0,1,0,1,0)\).** The required
+correction is \(V_t=T_bT_d\). Without errors,
+
+\[
+T_bT_d\bigl[T_bT_d|\psi_+\rangle\bigr]
+=|\psi_+\rangle.
+\]
+
+Recall that \(T_b\) swaps \(B_4,\ldots,B_7\) with
+\(C_4,\ldots,C_7\), while \(T_d\) swaps positions 12--15.
+
+**Now put an X error on \(B_4\) before the correction.** The state
+entering this stage is
+
+\[
+X_{B_4}T_bT_d|\psi_+\rangle.
+\]
+
+Applying the correction gives
+
+\[
+\begin{aligned}
+T_bT_d\bigl[X_{B_4}T_bT_d|\psi_+\rangle\bigr]
+&=X_{C_4}|\psi_+\rangle.
+\end{aligned}
+\]
+
+The unwanted \(T_bT_d\) has disappeared. The X error remains, but has
+moved from \(B_4\) to \(C_4\).
+
+Both positions belong to **matched pair b**, consisting of the
+four-qubit block 4--7 in B and the corresponding block in C. The
+error has changed copies without reaching another matched pair.
+
+The same reasoning applies to several errors. For example,
+
+\[
+T_bT_d
+\bigl[X_{B_4}Z_{C_6}T_bT_d|\psi_+\rangle\bigr]
+=X_{C_4}Z_{B_6}|\psi_+\rangle.
+\]
+
+Both errors remain in matched pair b.
+
+**The general calculation is the same.** Let \(F\) denote a product
+of physical Pauli errors present just before the correction, so that
+the state is
+
+\[
+F V_t|\psi_+\rangle.
+\]
+
+After applying \(V_t\), it becomes
+
+\[
+V_t F V_t|\psi_+\rangle
+=F'|\psi_+\rangle,
+\qquad
+F'=V_t F V_t.
+\]
+
+At each position \(q\), conjugation by a correcting SWAP only exchanges
+the labels B and C:
+
+\[
+X_{B_q}\leftrightarrow X_{C_q},\qquad
+Y_{B_q}\leftrightarrow Y_{C_q},\qquad
+Z_{B_q}\leftrightarrow Z_{C_q}.
+\]
+
+The physical position \(q\), and therefore its matched-pair label,
+stays unchanged. Thus an error confined to two matched pairs before
+the correction remains confined to those same two matched pairs
+afterwards.
+
+**Choosing the complementary vertex pattern does not change this
+bound.** The alternative correction is \(V_{\bar t}=UV_t\). On the
+ideal state, the additional complete SWAP U has no effect because
+
+\[
+U|\psi_+\rangle=|\psi_+\rangle.
+\]
+
+On an erroneous state it can exchange the errors between B and C.
+For example, the two correction choices applied to our erroneous
+input give
+
+\[
+\begin{aligned}
+V_t\bigl[X_{B_4}V_t|\psi_+\rangle\bigr]
+&=X_{C_4}|\psi_+\rangle,\\
+V_{\bar t}\bigl[X_{B_4}V_t|\psi_+\rangle\bigr]
+&=X_{B_4}|\psi_+\rangle.
+\end{aligned}
+\]
+
+These are generally different physical states, but both errors occupy
+matched pair b. The convention \(t_a=0\) simply fixes which correction
+we implement.
+
+**Finally, include faults in the correcting gates themselves.** Each
+correcting gate is an ordinary SWAP between \(B_q\) and \(C_q\).
+A fault in that gate may damage both targets, but both belong to
+one matched pair.
+
+For example, suppose one earlier fault left damage in matched pair b.
+If a correcting SWAP between \(B_{13}\) and \(C_{13}\) then fails,
+it can add damage in matched pair d. The total affected set is now
+b and d.
+
+These are the two faults allowed in the entire attempt. We do not
+allow two earlier faults followed by two more during correction.
+
+Consequently, after this stage the unwanted partial SWAP has been
+removed, while every remaining error term is supported on at most
+two matched pairs. If a fault produces a superposition of Pauli
+errors, the calculation applies to each term separately. Different
+terms may affect different pairs, but each term satisfies the same
+two-pair bound.
+
+This establishes **proof step 1 through the SWAP correction**.
+Section 14 then uses the original code checks and the two-group
+lemma to reject the damaging errors that remain.
+
+## 14. Filter using the original B and C checks separately
+
+**Ideal operation.** Measure the original 36-check family in three
+positive rounds, ordered B-X, B-Z, C-X, C-Z, increasing s in each:
+
+\[
+\mathcal O=(S^X_{B,0:8},S^Z_{B,0:8},S^X_{C,0:8},S^Z_{C,0:8}).
+\]
+
+Use the ordinary Pauli gadgets below, extending target lists to the
+eight-body supports where required. All 108 check bits must be zero.
+
+![Original XXXX and ZZZZ circuits, now applied separately to each copy.](figures/c4-helix/integrated-v2/pauli-checks.png)
+
+Since both copies of \(|\psi_+\rangle\) are in their original code spaces,
+all these ideal measurements give +1 and leave the state unchanged.
+
+**The worked error is now detected.** For
+\(E=X_{B_0}X_{C_1}X_{C_2}X_{C_3}\),
+
+\[
+S^Z_{B,0}E|\psi_+\rangle=-E|\psi_+\rangle,\qquad
+S^Z_{C,0}E|\psi_+\rangle=-E|\psi_+\rangle.
+\]
+
+The paired product was positive, but both individual outcomes are
+negative. A clean original-code round rejects this component.
+
+**Proof step 3 - use the two-group lemma after restoring the original
+code.** This is postselection, not recovery of an arbitrary unknown
+error on two entire inner blocks.
+
+**Why all larger inherited errors are harmless or rejected.** For a Pauli
+term anticommuting with any original check S,
+
+\[
+\frac{I+S}{2}E_\nu|\psi_+\rangle=0.
+\]
+
+For a term commuting with every original B/C check, apply the two-group
+lemma of Section 3 separately to each copy. It acts as a stabilizer up
+to phase, hence \(E_\nu|\psi_+\rangle=\eta_\nu|\psi_+\rangle\).
+This is where the matched-pair support bound is used: physical weight
+alone could be as large as eight per copy, beyond the five-qubit
+detectability threshold supplied by distance six alone.
+
+A complete clean round therefore maps the sum of error terms to
+
+\[
+\sum_\nu c_\nu E_\nu|\psi_+\rangle\ \longmapsto\ c|\psi_+\rangle.
+\]
+
+If \(c=0\), the branch is rejected; otherwise normalization gives the
+intended state. Harmless stabilizer errors are allowed to pass.
+
+Among the three rounds, choose the last clean one as a proof reference.
+Every subsequent fault in these Pauli gadgets damages at most one
+physical data qubit, and
+
+\[
+(aI+bS)F|\psi_+\rangle=(aF+bSFS)|\psi_+\rangle
+\]
+
+does not enlarge F's support. All SWAP gates have finished. Thus at
+the end of this stage only small errors caused after that clean round
+remain, within the remaining fault budget. A late \(X_{C_0}\), after
+the last interaction able to detect it, can escape the filter with
+all reports positive. Recovery is still needed.
+
+## 15. Recover with repeated syndromes and single-qubit corrections
+
+**Ideal operation.** Measure the same joint 36-bit family \(\mathcal O\)
+using fresh verified cats. Retain either check sign, apply no correction
+between rounds, and stop at the first three consecutive identical
+records. Allow at most nine rounds. Reject failed cat verification,
+failure to stop, or absence of a weight-at-most-two correction.
+
+On each copy choose the fixed minimum-weight Pauli of weight at most
+two matching its eighteen stopping bits. Apply its single-qubit factors
+in physical-label order, B then C; omit identity factors. In the
+noiseless case the first three records are zero and the correction is I.
+
+![The classical decoder selects a single-qubit Pauli at each data position.](figures/c4-helix/integrated-v2/recovery-correction.png)
+
+In this diagram \(P_{0,0}=I,\ P_{1,0}=X,\ P_{0,1}=Z,\ P_{1,1}=Y\).
+For Y, use one physical Y gate. The lookup is classical, not a coherent
+many-qubit operation.
+
+**Example.** A late \(X_{C_0}\) produces negative C Z checks at s=0 and
+s=5, and no negative X checks; all B checks are positive. A stable
+record of that syndrome selects \(R_C=X_{C_0}\), which cancels it.
+
+**Proof step 4 - choose a logically correct recovery despite noisy
+records.** The earlier filter has reduced the inherited error class
+from whole matched pairs to at most two physical qubits. Only this
+smaller class is passed to the recovery lookup.
+
+**Why the reports suffice.** Of a stopping triple, at least one round
+is clean. Its common record is a true syndrome at that reference time.
+Nine rounds contain three consecutive clean ones: with two bad rounds,
+at most three clean runs of length two would give only eight rounds.
+No decoder is told which rounds are clean.
+
+At the reference time, each copy's Pauli error F has weight at most two.
+The selected correction R has the same syndrome, so RF commutes with
+every check and has weight at most four. Distance six makes it a
+stabilizer up to phase:
+
+\[
+RF|\psi_+\rangle=e^{i\theta}|\psi_+\rangle.
+\]
+
+Later errors remain local through Pauli corrections. For example, if a
+new X fault on \(C_0\) occurs after its detecting interactions in the
+third round, three zero records may still select I. The residual
+\(X_{C_0}\) is not magically removed, but is a correctable physical
+error. Correction-gate faults and later waiting faults are counted
+in the remaining global allowance.
+
+## 16. Read B, decode the reports, and retain magic in C
+
+**Ideal operation.** Measure all twenty B qubits in Z. Define the nine
+parities of a binary report x by
+
+\[
+h_s(x)=\bigoplus_{q\in R_s}x_q,\qquad s=0,\ldots,8.
+\]
+
+For the full reported word n, choose a minimum-weight bit-flip mask e
+with \(|e|\le2\) and \(h(e)=h(n)\). Reject if no candidate exists.
+Break ties lexicographically by flipped-position lists. Set \(n'=n\oplus e\)
+and keep only
+
+\[
+\ell=n'_0\oplus n'_3\oplus n'_6\oplus n'_7\oplus n'_{18}\oplus n'_{19}=0.
+\]
+
+![Physical B-Z readout and classical decoding; C remains a quantum output.](figures/c4-helix/integrated-v2/logical-readout.png)
+
+On the first logical pair, with both second logical qubits in zero,
+
+\[
+\frac{(I+U)|0+\rangle}{\|(I+U)|0+\rangle\|}
+=\frac{2|00\rangle+|01\rangle+|10\rangle}{\sqrt6}.
+\]
+
+Selecting decoded logical B zero gives
+
+\[
+\frac{2|0\rangle+|1\rangle}{\sqrt5}\quad\text{in logical }C_0.
+\]
+
+Discard B. The twenty-qubit C block is the retained resource.
+
+**Readout fault example.** An allowed ideal physical report is all zeros.
+If only its position zero is misreported, the raw six-position logical
+parity is wrong. Full decoding finds the single-position mask e at zero,
+returns \(n'=0^{20}\), and gives the correct logical outcome.
+An X or Y error before readout acts like another flipped bit. A Z-only
+error on measured B contributes only a scalar in that branch:
+
+\[
+\langle n|_B Z_{B_q}|\Psi\rangle=(-1)^{n_q}\langle n|_B|\Psi\rangle.
+\]
+
+Thus it does not alter the retained C state for that physical result.
+
+**Proof step 4 - include readout faults and C waiting errors.** No
+error-free measurement or final recovery is assumed after this point.
+
+**Why decoding preserves the logical decision.** The combined B bit
+errors and wrong reports occupy at most two positions under the same
+remaining budget. Two masks of weight at most two with the same Z-check
+syndrome differ by an X Pauli of weight at most four commuting with all
+Z checks and automatically all X checks. Distance six makes it a
+stabilizer, which cannot change the logical-Z parity. The chosen and
+true corrections therefore give the same logical decision.
+
+C waiting errors during B readout are included. For example, an X fault
+on \(C_0\) can leave \(X_{C_0}|\overline{M0}\rangle\). It is a physical
+error in the correctable space, not a wrong logical resource. The claim
+is correctness of the decoded C state, without adding an unbudgeted
+fault-free physical recovery after the circuit.
+
+## 17. What the complete argument establishes
+
+Known-state verification removes arbitrary raw-source errors or rejects.
+The subsequent circuits charge at most one new matched-pair label per
+fault. A clean gauged round fixes the positive logical SWAP projection.
+Full gauge decoding makes the SWAP correction consistent and preserves
+the local-error labels. A clean original-code filtering round removes
+the inherited two-matched-pair damage or rejects. All later errors are
+physical-qubit errors handled by noisy recovery and decoded readout
+within the same two-fault budget.
+
+Therefore every accepted attempt with at most two faulty locations has
+decoded C state \(|M\rangle\otimes|0\rangle\). The number of faults,
+the number of damaged physical qubits, and the number of affected inner
+blocks are distinct quantities throughout this argument.
+
+With serial helper reuse, 77 physical qubits suffice: 40 data, 20 gauge,
+and 17 helpers. Five helpers initially serve as vertices. Resource
+checks need at most nine leaves plus w; after vertex readout the largest
+paired check needs sixteen leaves plus w. The Fredkin count is
+
+\[
+20+3(5\cdot4)=80.
+\]
+
+Ungauging adds at most sixteen ordinary SWAPs. The syndrome recovery
+uses at most nine rounds; all its faults and idles are included.
+In the absence of faults, conditioned on successful input preparation,
+positive SWAP selection succeeds with probability \(3/4\), and logical
+extraction with conditional probability \(5/6\), giving \(5/8\) overall.
+This is not a noisy-yield or optimal-overhead claim.
+
+## Appendix A. Physical supports and logical operators
+
+The following rows specify both all-X and all-Z original checks.
+Measure only s=0 through 8 as independent code checks. Row 9 is their
+redundant upper row used in the graph construction.
+
+\[
+\begin{aligned}
+R_0&=\{0,1,2,3\},&R_1&=\{4,5,6,7\},\\
+R_2&=\{8,9,10,11\},&R_3&=\{12,13,14,15\},\\
+R_4&=\{16,17,18,19\},\\
+R_5&=\{0,3,6,7,10,11,12,15\},\\
+R_6&=\{4,7,8,9,14,15,16,19\},\\
+R_7&=\{1,2,8,11,12,13,18,19\},\\
+R_8&=\{2,3,5,6,13,14,16,17\},\\
+R_9&=\{0,1,4,5,9,10,17,18\}.
+\end{aligned}
+\]
+
+The stars are \(E_a=R_5,E_b=R_6,E_c=R_7,E_d=R_8,E_e=R_9\).
+For either copy D, the logical operators needed are
+
+\[
+\begin{aligned}
+\overline X^D_0&=\prod_{q\in\{2,3,8,11,12,15\}}X_{D_q},\\
+\overline Z^D_0&=\prod_{q\in\{0,3,6,7,18,19\}}Z_{D_q},\\
+\overline Z^D_1&=\prod_{q\in\{2,3,8,11,12,15\}}Z_{D_q}.
+\end{aligned}
+\]
+
+## Appendix B. Sources and reproducibility
+
+The manuscript's [Appendix A](../arXiv-2609.03194v1/appendix.tex) gives
+the C4-Helix construction and Table-I stabilizers. The original
+[SWAP-gauging construction](../arXiv-2602.12228v1/main.tex) and
+[Magic Quantum Code Surgery](../arXiv-2610.03920v1/spacetime.tex) supply
+the background. The specific postselected single-cycle schedule and
+its two-fault argument are the construction developed in these notes;
+they are not obtained by directly quoting a general distance-six
+circuit theorem from those papers.
+
+The standalone [proof](full_procedure_proof.md),
+[equation-level procedure](full_procedure.md), and
+[circuit atlas](full_circuit.md) remain available. The classical
+acceptance and correction routines are implemented in
+[the decoder](c4_helix_intrinsic_decoder.py). The
+[finite certificate script](check-c4-helix-intrinsic-gauged-verification.py)
+checks code, graph, decoding, and algebraic ingredients, not every
+physical fault pair. The [integrated-note builder](build-integrated-procedure-v2.py)
+reuses the atlas's original quantikz circuits and builds the LaTeX,
+PDF, and circuit images for this note.

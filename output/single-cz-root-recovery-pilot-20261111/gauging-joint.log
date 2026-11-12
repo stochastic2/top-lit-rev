@@ -1,0 +1,104 @@
+attempt 0: unstable_root_recovery_history; 0.73s
+attempt 1: accepted; 1.11s
+attempt 2: insufficient_positive_gauged_rounds; 2.30s
+attempt 3: verification_flag:flag_recovery/0/1/X/6; 0.48s
+attempt 4: accepted; 1.02s
+attempt 5: verification_flag:flag_recovery/0/0/Z/6; 0.51s
+attempt 6: insufficient_positive_gauged_rounds; 0.98s
+attempt 7: shared_retry_limit:known_unused_source:source/certify/3/X/7; 0.32s
+attempt 8: shared_retry_limit:known_unused_source:source/certify/1/X/10; 0.23s
+attempt 9: insufficient_positive_gauged_rounds; 1.87s
+attempt 10: accepted; 2.45s
+attempt 11: accepted; 1.82s
+attempt 12: shared_retry_limit:known_unused_graph_parity; 0.24s
+attempt 13: verification_flag:flag_recovery/0/1/Z/4; 0.76s
+attempt 14: insufficient_positive_gauged_rounds; 0.77s
+attempt 15: accepted; 1.72s
+attempt 16: accepted; 1.75s
+attempt 17: accepted; 4.74s
+attempt 18: shared_retry_limit:known_unused_source:source/certify/0/X/9; 0.32s
+attempt 19: accepted; 1.57s
+{
+  "attempts": 20,
+  "completed": 20,
+  "unresolved": 0,
+  "accepted": 8,
+  "rejected": 12,
+  "acceptance_among_completed": 0.4,
+  "acceptance_Wilson95": [
+    0.21880653237281705,
+    0.6134184992377469
+  ],
+  "acceptance_bounds_all_attempts": [
+    0.4,
+    0.4
+  ],
+  "rejection_counts": {
+    "unstable_root_recovery_history": 1,
+    "insufficient_positive_gauged_rounds": 4,
+    "verification_flag:flag_recovery/0/1/X/6": 1,
+    "verification_flag:flag_recovery/0/0/Z/6": 1,
+    "shared_retry_limit:known_unused_source:source/certify/3/X/7": 1,
+    "shared_retry_limit:known_unused_source:source/certify/1/X/10": 1,
+    "shared_retry_limit:known_unused_graph_parity": 1,
+    "verification_flag:flag_recovery/0/1/Z/4": 1,
+    "shared_retry_limit:known_unused_source:source/certify/0/X/9": 1
+  },
+  "failure_counts": {},
+  "accepted_assessed": 8,
+  "accepted_diagnostics_missing": 0,
+  "mean_decoded_fidelity": 1.0,
+  "mean_is_assessed_accepted_subset_only": true,
+  "decoded_fidelity_bounds_all_known_accepted": [
+    1.0,
+    1.0
+  ],
+  "minimum_decoded_fidelity": 1.0,
+  "accepted_within_target_tolerance": 8,
+  "flag_recovery_episodes": 24,
+  "successful_flag_recoveries": 21,
+  "accepted_after_flag_recovery": 6,
+  "root_recovery_episodes": 3,
+  "successful_root_recoveries": 2,
+  "accepted_after_root_recovery": 1,
+  "accepted_terminal_screen_outcomes": {
+    "full_fallback": 3,
+    "syndrome_certified": 2,
+    "zero_accept": 3
+  },
+  "total_executed_gates_completed": {
+    "IDLE": 3279133,
+    "PREP": 16917,
+    "H": 24817,
+    "CX": 56844,
+    "BOUNDARY": 200,
+    "MZ": 16757,
+    "TDG": 1916,
+    "T": 1916,
+    "Z": 54,
+    "SDG": 14,
+    "X": 90,
+    "S": 42,
+    "Y": 7
+  },
+  "cost_per_accepted_completed": {
+    "IDLE": 409891.625,
+    "PREP": 2114.625,
+    "H": 3102.125,
+    "CX": 7105.5,
+    "BOUNDARY": 25.0,
+    "MZ": 2094.625,
+    "TDG": 239.5,
+    "T": 239.5,
+    "Z": 6.75,
+    "SDG": 1.75,
+    "X": 11.25,
+    "S": 5.25,
+    "Y": 0.875
+  },
+  "cost_is_matched_fidelity": false,
+  "unresolved_can_bias_completed_subset": false,
+  "two_fault_prediction_violation_shots": [],
+  "ideal_success_probability": 0.75,
+  "target": "encoded_two_logical_qubit_CZ_magic"
+}

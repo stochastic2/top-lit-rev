@@ -1,0 +1,278 @@
+{
+  "scope": "specific deterministic replay; not new Monte Carlo samples",
+  "saved_run": "/Users/kevinhemery/quanti/top-order-lit-rev/output/cz-matched-20261105-172605/cat-cats",
+  "shot": 27,
+  "seed": 1027,
+  "saved_runtime_snapshot_hashes_verified": true,
+  "original_faults": [
+    {
+      "operation": "CX",
+      "timing": "after",
+      "paulis": {
+        "L6": "Z",
+        "L7": "Y"
+      },
+      "event": 1707,
+      "context": "terminal/0/Z/6",
+      "targets": [
+        "L6",
+        "L7"
+      ]
+    },
+    {
+      "operation": "MZ",
+      "timing": "report",
+      "flip_report": true,
+      "event": 2940,
+      "context": "terminal/0/U",
+      "targets": [
+        "L13"
+      ]
+    },
+    {
+      "operation": "MZ",
+      "timing": "report",
+      "flip_report": true,
+      "event": 4525,
+      "context": "terminal/1/U",
+      "targets": [
+        "L3"
+      ]
+    },
+    {
+      "operation": "CX",
+      "timing": "after",
+      "paulis": {
+        "L2": "Z",
+        "D18": "Y"
+      },
+      "event": 4806,
+      "context": "terminal/2/Z/4",
+      "targets": [
+        "L2",
+        "D18"
+      ]
+    },
+    {
+      "operation": "CX",
+      "timing": "after",
+      "paulis": {
+        "L7": "Z",
+        "w": "Z"
+      },
+      "event": 8562,
+      "context": "terminal/2/U",
+      "targets": [
+        "L7",
+        "w"
+      ]
+    }
+  ],
+  "five_fault_replay": {
+    "accepted": true,
+    "reason": null,
+    "faults": 5,
+    "diagnostics": {
+      "diagnostic_only": true,
+      "decoder": "ideal syndrome projection; fixed weight<=2 table, then GF2 fallback",
+      "syndrome_convention": "Z bits 0..8; X bits 9..17",
+      "decoded_target_fidelity": 0.0,
+      "decoded_target_infidelity": 1.0,
+      "decoded_target_within_tolerance": false,
+      "raw_physical_target_fidelity": 0.0,
+      "probability_in_weight_two_lookup": 1.0,
+      "active_syndrome_sectors": 1,
+      "syndrome_probability_sum": 1.0,
+      "logical_density_real": [
+        [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "logical_density_imag": [
+        [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      ],
+      "numerical_diagnostic_tolerance": 1e-10,
+      "trajectory_arithmetic": "exact Z[zeta8] before output conversion"
+    },
+    "saved_state_overlap": 1.0000000000000004
+  },
+  "three_fault_witness": [
+    {
+      "context": "terminal/0/U",
+      "operation": "MZ",
+      "targets": [
+        "L13"
+      ],
+      "timing": "report",
+      "flip_report": true
+    },
+    {
+      "context": "terminal/1/U",
+      "operation": "MZ",
+      "targets": [
+        "L3"
+      ],
+      "timing": "report",
+      "flip_report": true
+    },
+    {
+      "context": "terminal/2/U",
+      "operation": "CX",
+      "targets": [
+        "L7",
+        "w"
+      ],
+      "timing": "after",
+      "occurrence": 0,
+      "paulis": {
+        "L7": "Z",
+        "w": "Z"
+      }
+    }
+  ],
+  "three_fault_result": {
+    "accepted": true,
+    "reason": null,
+    "faults": 3,
+    "diagnostics": {
+      "diagnostic_only": true,
+      "decoder": "ideal syndrome projection; fixed weight<=2 table, then GF2 fallback",
+      "syndrome_convention": "Z bits 0..8; X bits 9..17",
+      "decoded_target_fidelity": 0.0,
+      "decoded_target_infidelity": 1.0,
+      "decoded_target_within_tolerance": false,
+      "raw_physical_target_fidelity": 0.0,
+      "probability_in_weight_two_lookup": 1.0,
+      "active_syndrome_sectors": 1,
+      "syndrome_probability_sum": 1.0,
+      "logical_density_real": [
+        [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "logical_density_imag": [
+        [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      ],
+      "numerical_diagnostic_tolerance": 1e-10,
+      "trajectory_arithmetic": "exact Z[zeta8] before output conversion"
+    }
+  },
+  "two_fault_subsets": [
+    {
+      "kept_fault_indices": [
+        0,
+        1
+      ],
+      "accepted": false,
+      "reason": "insufficient_terminal_rounds",
+      "faults": 2
+    },
+    {
+      "kept_fault_indices": [
+        0,
+        2
+      ],
+      "accepted": false,
+      "reason": "insufficient_terminal_rounds",
+      "faults": 2
+    },
+    {
+      "kept_fault_indices": [
+        1,
+        2
+      ],
+      "accepted": false,
+      "reason": "insufficient_terminal_rounds",
+      "faults": 2
+    }
+  ],
+  "global_two_fault_guarantee_violated": false
+}

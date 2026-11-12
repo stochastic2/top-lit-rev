@@ -1,0 +1,80 @@
+{
+  "scope": "Executed noiseless circuits on the current graph; both trajectories use twelve ungauging SWAPs",
+  "baseline": {
+    "run": "output/c4-helix-reduced-noiseless-trace",
+    "two_qubit_gates": 17577,
+    "Fredkins": 80,
+    "peak_live_qubits": 77,
+    "by_stage": {
+      "input_encoders": {
+        "CX": 101
+      },
+      "source_checking": {
+        "CX": 4362,
+        "CZ": 366
+      },
+      "graph_preparation": {
+        "CX": 40
+      },
+      "graph_checking": {
+        "CX": 1815,
+        "CZ": 180
+      },
+      "enrichment": {
+        "FREDKIN": 20
+      },
+      "gauged_checking": {
+        "CX": 6039,
+        "CZ": 426,
+        "FREDKIN": 60
+      },
+      "ungauging": {
+        "SWAP": 12
+      },
+      "terminal_recovery": {
+        "CX": 3924,
+        "CZ": 312
+      }
+    }
+  },
+  "optimized": {
+    "run": "output/c4-helix-optimized-smoke",
+    "two_qubit_gates": 8052,
+    "Fredkins": 80,
+    "peak_live_qubits": 75,
+    "by_stage": {
+      "input_encoders": {
+        "CX": 101
+      },
+      "source_checking": {
+        "CX": 666,
+        "CZ": 366
+      },
+      "graph_preparation": {
+        "CX": 40
+      },
+      "graph_checking": {
+        "CX": 1335,
+        "CZ": 180
+      },
+      "enrichment": {
+        "FREDKIN": 20
+      },
+      "gauged_checking": {
+        "CX": 1722,
+        "CZ": 426,
+        "FREDKIN": 60
+      },
+      "ungauging": {
+        "SWAP": 12
+      },
+      "terminal_recovery": {
+        "CX": 2892,
+        "CZ": 312
+      }
+    }
+  },
+  "saved_C_amplitudes_identical": true,
+  "two_qubit_gate_reduction_percent": 54.190134835296135,
+  "realistic_noise_model": "not implemented"
+}

@@ -1,0 +1,366 @@
+"""Graph-parameterized conservative and recovery profiles for one-block CZ.
+
+Recovery: commuting cat/source/code/cycle histories; unique single-block
+two-inner-block error-class recovery; three passing combined gauged rounds
+in at most five, then certified terminal recovery. No global commuting-history
+assumption for dressed checks. Direct-cat rounds combine code and U checks.
+The original documented controller remains unchanged and is the superclass.
+"""
+import c4_helix_single_block_cz as m
+from run_single_block_cz_controller import Controller,Reject
+from single_cz_recovery import COMPACT13,clean_reference,pure_error,data_table,cycle_table
+
+
+class KnownSourceFlag(Exception):
+    pass
+
+
+class SimulationController(Controller):
+    def __init__(self,backend,route="gauging",graph=COMPACT13,profile="recovery",history_policy="triple",
+                 source_extraction=None):
+        super().__init__(backend,route)
+        if profile not in ("conservative","recovery"):
+            raise ValueError(profile)
+        graph.validate()
+        self.graph_choice,self.profile = graph,profile
+        if history_policy not in ("triple","adaptive"):
+            raise ValueError(history_policy)
+        self.history_policy = history_policy
+        self.source_extraction = source_extraction or ("decoded_flags" if profile == "recovery" else "verified_cat")
+        if self.source_extraction not in ("decoded_flags","verified_cat"):
+            raise ValueError(source_extraction)
+        if profile == "conservative" and self.source_extraction != "verified_cat":
+            raise ValueError("Conservative profile retains documented source gadgets")
+
+    def reference(self,records):
+        if self.history_policy == "adaptive":
+            return clean_reference(records)
+        if len(records) >= 3 and records[-3:] == [records[-1]]*3:
+            return {"selected":len(records)-1,"occurrences":list(range(len(records)-3,len(records))),
+                    "kind":"three_identical_complete_records"}
+        return None
+
+    @property
+    def history_limit(self):
+        return 5 if self.history_policy == "adaptive" else 9
+
+    def context(self,name):
+        self.b.context = name
+
+    def check(self,name,ports):
+        self.context(name)
+        return super().check(name,ports)
+
+    def code(self,prefix,source=False,require_zero=False):
+        reports=super().code(prefix,source,require_zero)
+        if hasattr(self.b,"compress_data"):
+            self.b.compress_data()  # exact representation only; no quantum operation
+        return reports
+
+    def acquire(self,name,measure,initial=None):
+        records = [] if initial is None else [list(initial)]
+        while True:
+            cert = self.reference(records) if records else None
+            if cert is not None:
+                selected = records[cert["selected"]]
+                self.record.append({"history":name,"records":records,"reference":cert,"selected_record":selected})
+                return selected
+            if len(records) == self.history_limit:
+                raise Reject("unstable_commuting_history:"+name)
+            records.append(list(measure(len(records))))
+
+    def cat(self,size,name):
+        if self.profile == "conservative":
+            return super().cat(size,name)
+        leaves = [f"L{j}" for j in range(size)]
+        for leaf in leaves:
+            self.prep(leaf)
+        self.gate("H",leaves[0])
+        for j in range(size-1):
+            self.gate("CX",leaves[j],leaves[j+1])
+        records = []
+        while True:
+            row = []
+            for j in range(size-1):
+                self.prep("w")
+                self.gate("CX",leaves[j],"w")
+                self.gate("CX",leaves[j+1],"w")
+                row.append(self.mz("w"))
+            records.append(row)
+            if len(records) == 2 and not any(any(r) for r in records):
+                selected,certificate = row,{"kind":"two_initial_zero_scans"}
+                break
+            certificate = self.reference(records)
+            if certificate is not None:
+                selected = records[certificate["selected"]]
+                break
+            if len(records) == self.history_limit:
+                raise Reject("unstable_cat_history")
+        pattern,bit = [0],0
+        for parity in selected:
+            bit ^= parity
+            pattern.append(bit)
+        for j,bit in enumerate(pattern):
+            if bit:
+                self.gate("X",leaves[j])
+        self.record.append({"cat":name,"flags":records,"repair_pattern":pattern,"reference":certificate})
+        return leaves
+
+    def pauli_correction(self,x,z,labels):
+        for q,label in enumerate(labels):
+            p = ((x >> q)&1) | (((z >> q)&1) << 1)
+            if p:
+                self.gate({1:"X",2:"Z",3:"Y"}[p],label)
+
+    def source(self):
+        self.context("source/raw")
+        if self.profile == "conservative":
+            return super().source()
+        while True:
+            self.context("source/raw")
+            for q in range(20):
+                self.prep(f"D{q}")
+            pivots,gates = m.rref_encoder()
+            for q in pivots:
+                self.gate("H",f"D{q}")
+            for a,b in gates:
+                self.gate("CX",f"D{a}",f"D{b}")
+            self.b.boundary()
+            try:
+                reports = self.acquire("known_source",lambda r:self.source_code(f"source/certify/{r}"))
+            except (KnownSourceFlag,Reject) as exc:
+                self.dispose([f"D{q}" for q in range(20)])
+                self.retry("known_unused_source:"+str(exc))
+                continue
+            self.context("source/correction")
+            correction = m.source_correction(reports)
+            self.pauli_correction(*correction,[f"D{q}" for q in range(20)])
+            self.record.append({"known_source_correction":list(correction),"syndrome":reports})
+            self.b.boundary()
+            return
+
+    def source_code(self,name):
+        if self.source_extraction == "verified_cat":
+            return self.code(name,source=True)
+        reports = []
+        for axis,supports in (("Z",m.SUPPORTS),("X",m.SUPPORTS+(m.X0,m.X1))):
+            for s,support in enumerate(supports):
+                prefix = f"{name}/{axis}/{s}"
+                self.context(prefix)
+                groups = [[q for q in support if q//4 == v] for v in range(5)]
+                groups = [group for group in groups if group]
+                assert list(map(len,groups)) in ([4],[2,2,2],[2,2,2,2])
+                leaves = [f"L{j}" for j in range(len(groups))]
+                for leaf in leaves:
+                    self.prep(leaf)
+                self.gate("H",leaves[0])
+                for leaf in leaves[1:]:
+                    self.gate("CX",leaves[0],leaf)
+                for port in range(len(groups[0])):
+                    for leaf,group in zip(leaves,groups):
+                        target = f"D{group[port]}"
+                        if axis == "Z":
+                            self.gate("H",target)
+                        self.gate("CX",leaf,target)
+                        if axis == "Z":
+                            self.gate("H",target)
+                for leaf in reversed(leaves[1:]):
+                    self.gate("CX",leaves[0],leaf)
+                flags = [self.mz(leaf) for leaf in leaves[1:]]
+                self.gate("H",leaves[0])
+                report = self.mz(leaves[0])
+                self.record.append({"source_flag":prefix,"flags":flags,"reported_parity":report,
+                                    "block_groups":groups})
+                if any(flags):
+                    raise KnownSourceFlag(prefix)
+                reports.append(report)
+        return reports
+
+    def graph_family(self):
+        g = self.graph_choice
+        return ([[('X',f'a{v}')]+[('X',f'A{e}') for e,ends in enumerate(g.edges) if v in ends]
+                 for v in range(5)] +
+                [[('Z',f'a{a}'),('Z',f'A{e}'),('Z',f'a{b}')] for e,(a,b) in enumerate(g.edges)])
+
+    def graph(self):
+        g = self.graph_choice
+        roles = [f"a{v}" for v in range(5)]+[f"A{e}" for e in range(len(g.edges))]
+        while True:
+            self.context("graph/raw")
+            for v in range(5):
+                self.prep(f"a{v}")
+                self.gate("H",f"a{v}")
+            for e in range(len(g.edges)):
+                self.prep(f"A{e}")
+            for e,(a,b) in enumerate(g.edges):
+                self.gate("CX",f"a{a}",f"A{e}")
+                self.gate("CX",f"a{b}",f"A{e}")
+            self.b.boundary()
+            family = self.graph_family()
+            if self.profile == "recovery":
+                try:
+                    selected = self.acquire("known_graph",lambda r:self.family(f"graph/certify/{r}",family))
+                except Reject:
+                    self.dispose(roles)
+                    self.retry("known_unused_graph_history")
+                    continue
+                generators = []
+                for ports in family:
+                    x = sum(1 << roles.index(q) for axis,q in ports if axis == "X")
+                    z = sum(1 << roles.index(q) for axis,q in ports if axis == "Z")
+                    generators.append((x,z))
+                correction = pure_error(generators,selected,len(roles))
+                self.context("graph/correction")
+                self.pauli_correction(*correction,roles)
+                self.record.append({"known_graph_correction":list(correction),"syndrome":selected})
+                self.b.boundary()
+                return
+            failed = False
+            for r in range(3):
+                failed = any(self.family(f"graph/verify/{r}",family))
+                self.b.boundary()
+                if failed:
+                    break
+            if not failed:
+                return
+            self.dispose(roles)
+            self.retry("known_graph_source")
+
+    def coordinates(self):
+        self.context("coordinates/V")
+        for v,e in enumerate(self.graph_choice.tree,1):
+            for q in range(4*v,4*v+4):
+                self.cw(f"A{e}",q)
+
+    def data_recover(self,name,initial):
+        record = self.acquire(name,lambda r:self.code(f"{name}/{r}"),initial)
+        self.apply_data_reference(name,record)
+
+    def apply_data_reference(self,name,record):
+        s = sum(bit << j for j,bit in enumerate(record))
+        row = data_table().get(s)
+        correction = row["correction"] if row else None
+        details = {"data_recovery":name,"syndrome":record,"candidate_classes":row["classes"] if row else 0,
+                   "correction":list(correction) if correction is not None else None}
+        self.record.append(details)
+        if correction is None:
+            raise Reject("data_ambiguity" if row else "data_absent")
+        self.context(name+"/correction")
+        self.pauli_correction(*correction,[f"D{q}" for q in range(20)])
+
+    def cycle_reports(self,name):
+        return self.family(name,[[('Z',f'A{e}') for e in cycle] for cycle in self.graph_choice.cycles])
+
+    def gauging(self):
+        self.graph()
+        g = self.graph_choice
+        self.context("enrichment")
+        for q in range(20):
+            self.cw(f"a{q//4}",q)
+        self.context("vertex_readout")
+        bits = []
+        for v in range(5):
+            self.gate("H",f"a{v}")
+            bits.append(self.mz(f"a{v}"))
+        self.record.append({"vertex_reports":bits,"parity_deferred":self.profile == "recovery"})
+        if self.profile == "conservative" and sum(bits)%2:
+            raise Reject("reported_negative_vertex_parity")
+        self.context("vertex_frame")
+        for v,e in enumerate(g.tree,1):
+            if bits[v]:
+                self.gate("Z",f"A{e}")
+        self.b.boundary()
+        passed = 0
+        for r in range(5 if self.profile == "recovery" else 3):
+            self.coordinates()
+            reports = self.code(f"gauged/{r}/code",require_zero=self.profile == "conservative")
+            code_ok = not any(reports)
+            if not code_ok:
+                self.data_recover(f"gauged/{r}/data_recovery",reports)
+            cycles = self.cycle_reports(f"gauged/{r}/cycle")
+            cycles_ok = not any(cycles)
+            if not cycles_ok:
+                if self.profile == "conservative":
+                    raise Reject("nonzero_cycle")
+                reference = self.acquire(f"gauged/{r}/cycle_recovery",
+                                         lambda k:self.cycle_reports(f"gauged/{r}/cycle_recovery/{k}"),cycles)
+                edges = cycle_table(g).get(tuple(reference))
+                self.record.append({"cycle_recovery":r,"syndrome":reference,"X_edges":edges})
+                if edges is None:
+                    raise Reject("cycle_absent")
+                self.context(f"gauged/{r}/cycle_correction")
+                for e in edges:
+                    self.gate("X",f"A{e}")
+            for v,e in enumerate(g.tree,1):
+                bit = self.check(f"gauged/{r}/star/{v}",[("X",f"A{k}") for k,ends in enumerate(g.edges) if v in ends])
+                if bit:
+                    self.gate("Z",f"A{e}")
+            self.coordinates()
+            root = self.check(f"gauged/{r}/root_Gauss",[("W",f"D{q}") for q in range(4)]+
+                              [("X",f"A{e}") for e,ends in enumerate(g.edges) if 0 in ends])
+            # A clean round may start with a nonzero syndrome. A certified,
+            # unambiguous correction restores its code/graph sector before
+            # the root measurement, so that round can also certify magic.
+            success = root == 0 if self.profile == "recovery" else code_ok and cycles_ok and root == 0
+            passed += success
+            self.record.append({"passing_gauged_round":r,"code_zero":code_ok,"cycle_zero":cycles_ok,
+                                "code_recovery_certified":not code_ok,"cycle_recovery_certified":not cycles_ok,
+                                "root_report":root,"passing":success,"passes":passed})
+            self.b.boundary()
+            if self.profile == "conservative" and root:
+                raise Reject("negative_root_Gauss")
+            if passed == 3:
+                break
+            if self.profile == "recovery" and passed+(4-r) < 3:
+                raise Reject("insufficient_positive_gauged_rounds")
+        self.context("edge_readout")
+        word = sum(self.mz(f"A{e}") << e for e in range(len(g.edges)))
+        decoded = g.decode(word,2 if self.profile == "conservative" else None)
+        self.record.append({"edge_reports":word,"decoded":decoded})
+        if decoded is None:
+            raise Reject("edge_cut_ambiguity_or_outside_radius")
+        self.context("byproduct")
+        for v in range(1,5):
+            if decoded["eta"] >> v & 1:
+                for q in range(4*v,4*v+4):
+                    self.gate("S" if m.SIGNS[q] == 1 else "SDG",f"D{q}")
+                    self.gate("X",f"D{q}")
+        self.b.boundary()
+
+    def run(self):
+        if self.profile == "conservative":
+            return super().run()
+        try:
+            self.source()
+            if self.route == "gauging":
+                self.gauging()
+                record = self.acquire("terminal_recovery",lambda r:self.code(f"terminal/{r}"))
+                self.apply_data_reference("terminal_recovery",record)
+                self.b.boundary()
+                assert self.live == {f"D{q}" for q in range(20)}
+                return {"accepted":True,"retries":self.retries,"record":self.record,
+                        "output_roles":[f"D{q}" for q in range(20)]}
+            passed = 0
+            for r in range(5):
+                reports = self.code(f"terminal/{r}")
+                success = not any(reports)
+                if not success:
+                    self.data_recover(f"terminal/{r}/recovery",reports)
+                    success = True
+                if self.route == "direct_cat":
+                    success &= self.check(f"terminal/{r}/U",[("W",f"D{q}") for q in range(20)]) == 0
+                passed += success
+                self.record.append({"passing_terminal_round":r,"passing":bool(success),"passes":passed,
+                                    "code_recovery_certified":any(reports)})
+                self.b.boundary()
+                if passed == 3:
+                    break
+                if passed+(4-r) < 3:
+                    raise Reject("insufficient_terminal_rounds")
+        except Reject as exc:
+            self.context("rejected_disposal")
+            self.dispose(sorted(self.live))
+            return {"accepted":False,"reason":str(exc),"retries":self.retries,"record":self.record}
+        assert self.live == {f"D{q}" for q in range(20)}
+        return {"accepted":True,"retries":self.retries,"record":self.record,
+                "output_roles":[f"D{q}" for q in range(20)]}

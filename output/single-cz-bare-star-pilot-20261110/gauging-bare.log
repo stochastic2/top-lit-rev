@@ -1,0 +1,124 @@
+attempt 0: verification_flag:gauged/1/root_Gauss; 0.81s
+attempt 1: accepted; 2.00s
+attempt 2: verification_flag:flag_recovery/6/1/Z/7; 4.80s
+attempt 3: flag_recovery_limit; 3.93s
+attempt 4: verification_flag:flag_recovery/0/0/X/1; 1.26s
+attempt 5: verification_flag:flag_recovery/4/0/X/5; 2.93s
+attempt 6: verification_flag:gauged/2/root_Gauss; 2.31s
+attempt 7: verification_flag:flag_recovery/2/1/X/6; 2.24s
+attempt 8: flag_data_absent; 2.89s
+attempt 9: flag_data_absent; 3.49s
+attempt 10: accepted; 2.55s
+attempt 11: accepted; 0.98s
+attempt 12: verification_flag:flag_recovery/1/0/X/2; 1.31s
+attempt 13: accepted; 1.31s
+attempt 14: verification_flag:gauged/2/root_Gauss; 1.75s
+attempt 15: accepted; 2.99s
+attempt 16: verification_flag:flag_recovery/6/0/X/7; 2.37s
+attempt 17: verification_flag:gauged/1/root_Gauss; 1.57s
+attempt 18: unstable_flag_recovery_history; 0.86s
+attempt 19: flag_recovery_limit; 1.98s
+attempt 20: flag_data_absent; 1.23s
+attempt 21: accepted; 1.72s
+attempt 22: insufficient_positive_gauged_rounds; 1.90s
+attempt 23: verification_flag:flag_recovery/0/1/X/6; 0.92s
+attempt 24: verification_flag:gauged/1/root_Gauss; 0.65s
+attempt 25: flag_data_absent; 1.45s
+attempt 26: verification_flag:flag_recovery/0/0/Z/5; 0.72s
+attempt 27: flag_data_absent; 2.30s
+attempt 28: insufficient_positive_gauged_rounds; 1.21s
+attempt 29: accepted; 6.35s
+attempt 30: flag_data_absent; 1.30s
+attempt 31: verification_flag:flag_recovery/0/0/Z/5; 0.46s
+attempt 32: verification_flag:flag_recovery/3/0/X/0; 2.87s
+attempt 33: insufficient_positive_gauged_rounds; 1.59s
+attempt 34: unstable_flag_recovery_history; 1.50s
+attempt 35: verification_flag:gauged/0/root_Gauss; 1.81s
+attempt 36: verification_flag:gauged/0/root_Gauss; 0.92s
+attempt 37: verification_flag:flag_recovery/0/0/X/3; 0.87s
+attempt 38: insufficient_positive_gauged_rounds; 1.07s
+attempt 39: accepted; 1.35s
+{
+  "attempts": 40,
+  "completed": 40,
+  "unresolved": 0,
+  "accepted": 8,
+  "rejected": 32,
+  "acceptance_among_completed": 0.2,
+  "acceptance_Wilson95": [
+    0.10499989725437704,
+    0.347573063463995
+  ],
+  "acceptance_bounds_all_attempts": [
+    0.2,
+    0.2
+  ],
+  "rejection_counts": {
+    "verification_flag:gauged/1/root_Gauss": 3,
+    "verification_flag:flag_recovery/6/1/Z/7": 1,
+    "flag_recovery_limit": 2,
+    "verification_flag:flag_recovery/0/0/X/1": 1,
+    "verification_flag:flag_recovery/4/0/X/5": 1,
+    "verification_flag:gauged/2/root_Gauss": 2,
+    "verification_flag:flag_recovery/2/1/X/6": 1,
+    "flag_data_absent": 6,
+    "verification_flag:flag_recovery/1/0/X/2": 1,
+    "verification_flag:flag_recovery/6/0/X/7": 1,
+    "unstable_flag_recovery_history": 2,
+    "insufficient_positive_gauged_rounds": 4,
+    "verification_flag:flag_recovery/0/1/X/6": 1,
+    "verification_flag:flag_recovery/0/0/Z/5": 2,
+    "verification_flag:flag_recovery/3/0/X/0": 1,
+    "verification_flag:gauged/0/root_Gauss": 2,
+    "verification_flag:flag_recovery/0/0/X/3": 1
+  },
+  "failure_counts": {},
+  "accepted_assessed": 8,
+  "accepted_diagnostics_missing": 0,
+  "mean_decoded_fidelity": 1.0,
+  "mean_is_assessed_accepted_subset_only": true,
+  "decoded_fidelity_bounds_all_known_accepted": [
+    1.0,
+    1.0
+  ],
+  "minimum_decoded_fidelity": 1.0,
+  "accepted_within_target_tolerance": 8,
+  "flag_recovery_episodes": 98,
+  "successful_flag_recoveries": 79,
+  "accepted_after_flag_recovery": 5,
+  "total_executed_gates_completed": {
+    "IDLE": 10810687,
+    "PREP": 52067,
+    "H": 103734,
+    "CX": 160872,
+    "BOUNDARY": 428,
+    "MZ": 51907,
+    "TDG": 4356,
+    "T": 4356,
+    "Z": 167,
+    "X": 181,
+    "S": 88,
+    "Y": 23,
+    "SDG": 28
+  },
+  "cost_per_accepted_completed": {
+    "IDLE": 1351335.875,
+    "PREP": 6508.375,
+    "H": 12966.75,
+    "CX": 20109.0,
+    "BOUNDARY": 53.5,
+    "MZ": 6488.375,
+    "TDG": 544.5,
+    "T": 544.5,
+    "Z": 20.875,
+    "X": 22.625,
+    "S": 11.0,
+    "Y": 2.875,
+    "SDG": 3.5
+  },
+  "cost_is_matched_fidelity": false,
+  "unresolved_can_bias_completed_subset": false,
+  "two_fault_prediction_violation_shots": [],
+  "ideal_success_probability": 0.75,
+  "target": "encoded_two_logical_qubit_CZ_magic"
+}

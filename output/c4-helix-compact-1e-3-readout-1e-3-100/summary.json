@@ -1,0 +1,131 @@
+{
+  "attempts_requested": 100,
+  "circuit_attempts_completed": 99,
+  "accepted": 17,
+  "rejected": 82,
+  "unresolved_attempts": 1,
+  "rejection_counts": {
+    "negative_swap": 21,
+    "source_retry_limit": 8,
+    "terminal_ambiguity": 14,
+    "terminal_absent": 29,
+    "logical_B_one": 4,
+    "cycle_syndrome": 4,
+    "cycle_limit": 2
+  },
+  "computational_failure_counts": {
+    "timeout": 1
+  },
+  "observed_rejection_fraction_among_completed": "82/99",
+  "rejection_fraction_Wilson95_among_completed": {
+    "low": 0.7421074301408758,
+    "high": 0.8899333902186316,
+    "confidence": 0.95,
+    "method": "Wilson"
+  },
+  "rejection_fraction_bounds_over_all_requested": [
+    "41/50",
+    "83/100"
+  ],
+  "completed_subset_may_be_selection_biased": true,
+  "ideal_noiseless_rejection_reference": "3/8",
+  "accepted_diagnostics_completed": 17,
+  "accepted_diagnostics_unavailable": 0,
+  "accepted_decoded_exact": 17,
+  "accepted_decoded_imperfect": 0,
+  "mean_decoded_fidelity_among_assessed_accepted": "1",
+  "mean_decoded_infidelity_among_assessed_accepted": "0",
+  "decoded_fidelity_bounds_among_known_accepted": [
+    "1",
+    "1"
+  ],
+  "accepted_raw_exact_target_matches": 17,
+  "noise_event_counts_by_channel_completed": {
+    "gate_2q_depolarizing": 1612,
+    "readout_flip": 609
+  },
+  "pauli_factor_counts_completed": {
+    "X": 864,
+    "Y": 839,
+    "Z": 875
+  },
+  "noise_events_per_completed_attempt": {
+    "28": 2,
+    "25": 7,
+    "7": 6,
+    "15": 2,
+    "29": 2,
+    "37": 1,
+    "8": 1,
+    "5": 1,
+    "19": 4,
+    "22": 7,
+    "21": 2,
+    "14": 3,
+    "27": 4,
+    "17": 4,
+    "43": 1,
+    "11": 4,
+    "6": 3,
+    "40": 2,
+    "30": 4,
+    "42": 3,
+    "13": 4,
+    "4": 4,
+    "50": 1,
+    "24": 1,
+    "3": 3,
+    "51": 1,
+    "12": 2,
+    "33": 3,
+    "9": 1,
+    "26": 3,
+    "52": 2,
+    "23": 1,
+    "32": 1,
+    "16": 1,
+    "34": 1,
+    "45": 1,
+    "70": 1,
+    "18": 1,
+    "20": 2,
+    "46": 1,
+    "49": 1
+  },
+  "max_worker_peak_rss_bytes": 4746395648,
+  "max_peak_coherent_terms_completed": 2048,
+  "max_fallback_overlaps_completed": 0,
+  "two_fault_prediction_violation_shots": [],
+  "completed": true,
+  "elapsed_seconds": 1020.7238018339849,
+  "noise_model": {
+    "name": "pauli_depolarizing",
+    "gate_rate_convention": "average_gate_infidelity",
+    "rates": {
+      "two_qubit_infidelity": "1/1000",
+      "one_qubit_infidelity": "0",
+      "three_qubit_infidelity": "0",
+      "idle_infidelity": "0",
+      "preparation_flip_probability": "0",
+      "readout_flip_probability": "1/1000"
+    },
+    "nonidentity_gate_probabilities": {
+      "1": "0",
+      "2": "1/800",
+      "3": "0"
+    },
+    "idle_nonidentity_probability": "0",
+    "quantum_noise_timing": "gate: after ideal operation; idle: before operation",
+    "preparation_noise": "X after zero preparation",
+    "readout_noise": "classical report flip after actual destructive Z measurement",
+    "fredkin_implementation": "atomic_three_qubit",
+    "idle_interval": "one interval per serial physical operation, no calibrated duration",
+    "noise_correlations": "independent channel draws; joint Pauli within a gate",
+    "fault_count_cap": null
+  },
+  "graph": "current20",
+  "extraction": "optimized",
+  "history_policy": "adaptive",
+  "terminal_extraction": "compact_flagged",
+  "terminal_flag_policy": "repair_then_protected"
+}

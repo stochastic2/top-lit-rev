@@ -1,0 +1,155 @@
+{
+  "accepted": true,
+  "retries": 0,
+  "output_roles": [
+    "D0",
+    "D1",
+    "D2",
+    "D3",
+    "D4",
+    "D5",
+    "D6",
+    "D7",
+    "D8",
+    "D9",
+    "D10",
+    "D11",
+    "D12",
+    "D13",
+    "D14",
+    "D15",
+    "D16",
+    "D17",
+    "D18",
+    "D19"
+  ],
+  "seed": 1010,
+  "noise_seed": 7862242134032465629,
+  "graph": "compact13",
+  "profile": "recovery",
+  "history_policy": "triple",
+  "route": "direct_cat",
+  "source_extraction": "decoded_flags",
+  "metrics": {
+    "physical_operations_and_boundaries": 3964,
+    "gate_counts": {
+      "IDLE": 102253,
+      "PREP": 636,
+      "H": 767,
+      "CX": 1779,
+      "BOUNDARY": 6,
+      "MZ": 616,
+      "TDG": 80,
+      "T": 80
+    },
+    "peak_live_qubits": 41,
+    "peak_coherent_terms": 32,
+    "peak_cached_factors": 586,
+    "factor_collections": 0,
+    "exact_CSS_basis_compressions": 0,
+    "elapsed_seconds": 0.18277662500622682,
+    "channel_opportunities": {
+      "idle": 102253,
+      "preparation": 636,
+      "one_qubit": 767,
+      "two_qubit": 1779,
+      "readout": 616,
+      "T": 160
+    },
+    "noise_event_counts": {
+      "readout": 1
+    },
+    "sampled_noise_events": 1,
+    "injected_fault_events": 0
+  },
+  "verification_extraction": "flags",
+  "direct_cz_extraction": "cat",
+  "flag_recovery": "data",
+  "max_flag_recoveries": 8,
+  "graph_stars": "flags",
+  "data_checks": "compact_flags",
+  "gauss_frame": "round_trip",
+  "conditional_checks": "dual_flags",
+  "root_recovery": "reject",
+  "root_recovery_episodes": 0,
+  "successful_root_recoveries": 0,
+  "persistent_version": null,
+  "terminal_policy": "certified",
+  "terminal_screen_outcome": null,
+  "terminal_screen_version": null,
+  "flag_recovery_episodes": 0,
+  "successful_flag_recoveries": 0,
+  "execution_status": "completed",
+  "diagnostic_status": "completed",
+  "shot_index": 10,
+  "detail_directory": "/Users/kevinhemery/quanti/top-order-lit-rev/output/single-cz-root-recovery-pilot-20261111/cat-dual/attempts/000010",
+  "output_reference": "/Users/kevinhemery/quanti/top-order-lit-rev/output/single-cz-root-recovery-pilot-20261111/cat-dual/attempts/000010/output.npz",
+  "output_sha256": "37ac3cbea93f8d228744d16ff180ed216d95585976ce396942152417bb6c7b3d",
+  "diagnostics": {
+    "diagnostic_only": true,
+    "decoder": "ideal syndrome projection; fixed weight<=2 table, then GF2 fallback",
+    "syndrome_convention": "Z bits 0..8; X bits 9..17",
+    "decoded_target_fidelity": 1.0,
+    "decoded_target_infidelity": 0.0,
+    "decoded_target_within_tolerance": true,
+    "raw_physical_target_fidelity": 1.0,
+    "probability_in_weight_two_lookup": 1.0,
+    "active_syndrome_sectors": 1,
+    "syndrome_probability_sum": 1.0000000000000095,
+    "logical_density_real": [
+      [
+        0.3333333333333333,
+        0.3333333333333333,
+        0.3333333333333333,
+        0.0
+      ],
+      [
+        0.3333333333333333,
+        0.3333333333333333,
+        0.3333333333333333,
+        0.0
+      ],
+      [
+        0.3333333333333333,
+        0.3333333333333333,
+        0.3333333333333333,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    ],
+    "logical_density_imag": [
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    ],
+    "numerical_diagnostic_tolerance": 1e-10,
+    "trajectory_arithmetic": "exact Z[zeta8] before output conversion"
+  },
+  "peak_rss_bytes": 55181312
+}

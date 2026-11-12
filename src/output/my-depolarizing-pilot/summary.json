@@ -1,0 +1,84 @@
+{
+  "attempts_requested": 6,
+  "circuit_attempts_completed": 6,
+  "accepted": 0,
+  "rejected": 6,
+  "unresolved_attempts": 0,
+  "rejection_counts": {
+    "unstable_record": 3,
+    "negative_swap": 1,
+    "source_retry_limit": 1,
+    "terminal_absent": 1
+  },
+  "computational_failure_counts": {},
+  "observed_rejection_fraction_among_completed": "1",
+  "rejection_fraction_Wilson95_among_completed": {
+    "low": 0.6096657120978346,
+    "high": 1,
+    "confidence": 0.95,
+    "method": "Wilson"
+  },
+  "rejection_fraction_bounds_over_all_requested": [
+    "1",
+    "1"
+  ],
+  "completed_subset_may_be_selection_biased": false,
+  "ideal_noiseless_rejection_reference": "3/8",
+  "accepted_diagnostics_completed": 0,
+  "accepted_diagnostics_unavailable": 0,
+  "accepted_decoded_exact": 0,
+  "accepted_decoded_imperfect": 0,
+  "mean_decoded_fidelity_among_assessed_accepted": null,
+  "mean_decoded_infidelity_among_assessed_accepted": null,
+  "decoded_fidelity_bounds_among_known_accepted": null,
+  "accepted_raw_exact_target_matches": 0,
+  "noise_event_counts_by_channel_completed": {
+    "gate_2q_depolarizing": 127
+  },
+  "pauli_factor_counts_completed": {
+    "X": 70,
+    "Y": 73,
+    "Z": 63
+  },
+  "noise_events_per_completed_attempt": {
+    "18": 1,
+    "8": 1,
+    "6": 1,
+    "51": 1,
+    "30": 1,
+    "14": 1
+  },
+  "max_worker_peak_rss_bytes": 2738831360,
+  "max_peak_coherent_terms_completed": 1024,
+  "max_fallback_overlaps_completed": 0,
+  "two_fault_prediction_violation_shots": [],
+  "completed": false,
+  "elapsed_seconds": 83.04057533398736,
+  "noise_model": {
+    "name": "pauli_depolarizing",
+    "gate_rate_convention": "average_gate_infidelity",
+    "rates": {
+      "two_qubit_infidelity": "1/1000",
+      "one_qubit_infidelity": "0",
+      "three_qubit_infidelity": "0",
+      "idle_infidelity": "0",
+      "preparation_flip_probability": "0",
+      "readout_flip_probability": "0"
+    },
+    "nonidentity_gate_probabilities": {
+      "1": "0",
+      "2": "1/800",
+      "3": "0"
+    },
+    "idle_nonidentity_probability": "0",
+    "quantum_noise_timing": "gate: after ideal operation; idle: before operation",
+    "preparation_noise": "X after zero preparation",
+    "readout_noise": "classical report flip after actual destructive Z measurement",
+    "fredkin_implementation": "atomic_three_qubit",
+    "idle_interval": "one interval per serial physical operation, no calibrated duration",
+    "noise_correlations": "independent channel draws; joint Pauli within a gate",
+    "fault_count_cap": null
+  },
+  "graph": "current20",
+  "extraction": "optimized"
+}

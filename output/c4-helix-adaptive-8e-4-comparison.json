@@ -1,0 +1,72 @@
+{
+  "comparison": "Same configured circuit, rates and seed rules; random trajectories diverge after different stopping decisions",
+  "results": {
+    "triple": {
+      "run_directory": "src/output/my-depolarizing-pilot6",
+      "attempts": 50,
+      "accepted": 7,
+      "rejected": 43,
+      "unresolved": 0,
+      "rejection_counts": {
+        "unstable_record": 32,
+        "negative_swap": 7,
+        "source_retry_limit": 2,
+        "logical_B_one": 1,
+        "terminal_absent": 1
+      },
+      "decoded_exact": 7,
+      "decoded_imperfect": 0,
+      "mean_accepted_decoded_fidelity": "1",
+      "fidelity_weighted_accepted_fraction": "7/50",
+      "rejection_Wilson95": {
+        "low": 0.7381380628941446,
+        "high": 0.9304916657298371,
+        "confidence": 0.95,
+        "method": "Wilson"
+      },
+      "two_qubit_gates_total": 629152,
+      "two_qubit_gates_per_accepted_output": "629152/7",
+      "two_qubit_gates_per_decoded_exact_output": "629152/7",
+      "max_worker_peak_rss_bytes": 3763634176,
+      "max_coherent_terms": 2048,
+      "imperfect_outputs": []
+    },
+    "adaptive": {
+      "run_directory": "output/c4-helix-adaptive-8e-4-50",
+      "attempts": 50,
+      "accepted": 17,
+      "rejected": 33,
+      "unresolved": 0,
+      "rejection_counts": {
+        "terminal_ambiguity": 11,
+        "terminal_absent": 7,
+        "negative_swap": 9,
+        "source_retry_limit": 2,
+        "cycle_syndrome": 2,
+        "logical_B_one": 2
+      },
+      "decoded_exact": 16,
+      "decoded_imperfect": 1,
+      "mean_accepted_decoded_fidelity": "84/85",
+      "fidelity_weighted_accepted_fraction": "42/125",
+      "rejection_Wilson95": {
+        "low": 0.521538260502326,
+        "high": 0.7756305077749992,
+        "confidence": 0.95,
+        "method": "Wilson"
+      },
+      "two_qubit_gates_total": 749703,
+      "two_qubit_gates_per_accepted_output": "749703/17",
+      "two_qubit_gates_per_decoded_exact_output": "749703/16",
+      "max_worker_peak_rss_bytes": 3202236416,
+      "max_coherent_terms": 2048,
+      "imperfect_outputs": [
+        {
+          "shot_index": 12,
+          "fidelity": "4/5",
+          "noise_events": 26
+        }
+      ]
+    }
+  }
+}

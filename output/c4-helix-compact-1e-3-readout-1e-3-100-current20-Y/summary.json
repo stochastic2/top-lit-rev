@@ -1,0 +1,114 @@
+{
+  "attempts_requested": 36,
+  "circuit_attempts_completed": 35,
+  "accepted": 13,
+  "rejected": 22,
+  "unresolved_attempts": 1,
+  "rejection_counts": {
+    "negative_swap": 2,
+    "source_retry_limit": 4,
+    "terminal_absent": 11,
+    "terminal_ambiguity": 4,
+    "cycle_limit": 1
+  },
+  "computational_failure_counts": {
+    "timeout": 1
+  },
+  "observed_rejection_fraction_among_completed": "22/35",
+  "rejection_fraction_Wilson95_among_completed": {
+    "low": 0.4633693684359532,
+    "high": 0.7683418049663429,
+    "confidence": 0.95,
+    "method": "Wilson"
+  },
+  "rejection_fraction_bounds_over_all_requested": [
+    "11/18",
+    "23/36"
+  ],
+  "completed_subset_may_be_selection_biased": true,
+  "ideal_noiseless_rejection_reference": "1/4",
+  "accepted_diagnostics_completed": 13,
+  "accepted_diagnostics_unavailable": 0,
+  "accepted_decoded_exact": 12,
+  "accepted_decoded_imperfect": 1,
+  "mean_decoded_fidelity_among_assessed_accepted": "12/13",
+  "mean_decoded_infidelity_among_assessed_accepted": "1/13",
+  "decoded_fidelity_bounds_among_known_accepted": [
+    "12/13",
+    "12/13"
+  ],
+  "accepted_raw_exact_target_matches": 11,
+  "noise_event_counts_by_channel_completed": {
+    "gate_2q_depolarizing": 607,
+    "readout_flip": 224
+  },
+  "pauli_factor_counts_completed": {
+    "Y": 332,
+    "X": 321,
+    "Z": 326
+  },
+  "noise_events_per_completed_attempt": {
+    "6": 3,
+    "7": 3,
+    "15": 1,
+    "30": 1,
+    "19": 4,
+    "5": 1,
+    "28": 2,
+    "59": 1,
+    "14": 1,
+    "42": 1,
+    "22": 1,
+    "57": 1,
+    "11": 1,
+    "40": 1,
+    "45": 1,
+    "25": 1,
+    "17": 1,
+    "9": 1,
+    "52": 1,
+    "32": 1,
+    "21": 3,
+    "43": 1,
+    "41": 1,
+    "4": 1,
+    "34": 1
+  },
+  "max_worker_peak_rss_bytes": 4857282560,
+  "max_peak_coherent_terms_completed": 2048,
+  "max_fallback_overlaps_completed": 0,
+  "two_fault_prediction_violation_shots": [],
+  "completed": false,
+  "elapsed_seconds": 408.7635693330085,
+  "noise_model": {
+    "name": "pauli_depolarizing",
+    "gate_rate_convention": "average_gate_infidelity",
+    "rates": {
+      "two_qubit_infidelity": "1/1000",
+      "one_qubit_infidelity": "0",
+      "three_qubit_infidelity": "0",
+      "idle_infidelity": "0",
+      "preparation_flip_probability": "0",
+      "readout_flip_probability": "1/1000"
+    },
+    "nonidentity_gate_probabilities": {
+      "1": "0",
+      "2": "1/800",
+      "3": "0"
+    },
+    "idle_nonidentity_probability": "0",
+    "quantum_noise_timing": "gate: after ideal operation; idle: before operation",
+    "preparation_noise": "X after zero preparation",
+    "readout_noise": "classical report flip after actual destructive Z measurement",
+    "fredkin_implementation": "atomic_three_qubit",
+    "idle_interval": "one interval per serial physical operation, no calibrated duration",
+    "noise_correlations": "independent channel draws; joint Pauli within a gate",
+    "fault_count_cap": null
+  },
+  "graph": "compact13",
+  "extraction": "optimized",
+  "history_policy": "adaptive",
+  "terminal_extraction": "compact_flagged",
+  "terminal_flag_policy": "repair_then_protected",
+  "magic_output": "y"
+}

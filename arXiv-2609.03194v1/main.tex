@@ -1,0 +1,281 @@
+\documentclass[aps,prx,reprint,showpacs,twocolumn,superscriptaddress,eqsecnum]{revtex4-2}
+
+\usepackage{graphicx}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{rotating}
+\usepackage{amsmath,amssymb,graphics,amsthm,isomath}
+\usepackage{amsfonts,dsfont,mathtools}
+\usepackage{bbm}
+\usepackage{bm}
+\usepackage{float}
+\usepackage{array}
+\usepackage{appendix}
+\newcolumntype{P}[1]{>{\centering\arraybackslash}p{#1}}
+\usepackage{multirow}
+\usepackage{physics}
+\usepackage{braket}
+\usepackage{adjustbox}
+\usepackage{stmaryrd}
+\usepackage{blkarray, bigstrut}
+\usepackage{tikz-cd}
+\usepackage{booktabs}
+\usepackage{afterpage}
+\usepackage{quantikz}
+\usepackage{multirow}
+\usepackage{colortbl}
+\usepackage[colorlinks=true, urlcolor=blue, linkcolor=blue, citecolor=blue, hyperindex=true, linktocpage=true]{hyperref}
+\usepackage[capitalise,compress]{cleveref}
+\usepackage{enumitem}
+\setlist[itemize]{label=$\bullet$}
+
+\usepackage[normalem]{ulem}
+\usepackage{comment}
+
+\newtheorem{theorem}{Theorem}
+\newtheorem*{theorem*}{Theorem}
+\newtheorem{lemma}[theorem]{Lemma}
+% \newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{claim}[theorem]{Claim}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{procedure}[theorem]{Procedure}
+% \newtheorem{fact}[theorem]{Fact}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{example}[theorem]{Example}
+% \usepackage{authblk}
+
+\newcommand{\chelix}{C$_4$-Helix}
+
+% commenting
+\newcommand{\nb}[1]{\textbf{\textcolor{orange}{#1}}}
+\newcommand{\drewcmt}[1]{\textcolor{red}{\it\small Drew: #1}}
+\newcommand{\drew}[1]{\textcolor{red}{#1}}
+
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\cP}{\mathcal{P}}
+% \newcommand{\cT}{\mathcal{T}}
+% \newcommand{\cB}{\mathcal{B}}
+% \newcommand{\cU}{\mathcal{U}}
+% \newcommand{\cN}{\mathcal{N}}
+\newcommand{\cS}{\mathcal{S}}
+\newcommand{\cG}{\mathcal{G}}
+\newcommand{\cC}{\mathcal{C}}
+\newcommand{\cQ}{\mathcal{Q}}
+% \newcommand{\cE}{\mathcal{E}}
+% \newcommand{\cR}{\mathcal{R}}
+% \newcommand{\cL}{\mathcal{L}}
+% \newcommand{\cD}{\mathcal{D}}
+
+
+\begin{document}
+
+
+\title{Experimental validation of a compact fault-tolerant architecture for trapped ions}
+
+\author{Noah Berthusen}
+\affiliation{ Quantinuum, Broomfield, CO 80021, USA}
+\author{Ali Lavasani}
+\affiliation{ Quantinuum, Broomfield, CO 80021, USA}
+\author{Asmae Benhemou}
+\affiliation{ Quantinuum, Partnership House, Carlisle Place, London, SW1P 1BX, UK}
+% experimentalist
+\author{M.S. Allman}
+\affiliation{ Quantinuum, Broomfield, CO 80021, USA}
+\author{Joan Dreiling}
+\affiliation{ Quantinuum, Broomfield, CO 80021, USA}
+\author{Brian Estey}
+\affiliation{ Quantinuum, Broomfield, CO 80021, USA}
+\author{Cameron Foltz}
+\affiliation{ Quantinuum, Broomfield, CO 80021, USA}
+\author{Trent Jacobs}
+\affiliation{ Quantinuum, Broomfield, CO 80021, USA}
+\author{Michael Mills}
+\affiliation{ Quantinuum, Broomfield, CO 80021, USA}
+\author{Annie Jihyun Park}
+\affiliation{ Quantinuum, Broomfield, CO 80021, USA}
+\author{Adam P. Reed}
+\affiliation{ Quantinuum, Broomfield, CO 80021, USA}
+% PIs/managers
+\author{David Hayes}
+\affiliation{ Quantinuum, Broomfield, CO 80021, USA}
+\author{Tzvetan S. Metodi}
+\affiliation{ Quantinuum, Broomfield, CO 80021, USA}
+\author{Andrew C. Potter}
+\affiliation{ Quantinuum, Broomfield, CO 80021, USA}
+% \date{\today}
+
+\begin{abstract}
+Quantum error correction (QEC) is beginning to enable logical operations that outperform their unencoded physical counterparts, but useful fault-tolerant computation will require more than low-error quantum memory. An effective architecture must orchestrate efficient logical encoding, low-overhead logical operations, and access to the non-Clifford resources required for universal computation. Here, we introduce and experimentally validate such an architecture based on the $[[20,2,6]]$ \chelix\ code, designed for the early fault-tolerant regime. Using Quantinuum Helios, a 98-qubit trapped-ion quantum processor, we experimentally demonstrate the principal components of this architecture: we perform repeated quantum error correction with an error of $4.6^{+6.2}_{-2.6}\times10^{-5}$ per logical qubit per QEC cycle. We benchmark the complete Clifford group on the two logical qubits of a single codeblock under active error correction, obtaining an error of $2.8^{+1.0}_{-1.6}\times 10^{-4}$ per two-qubit logical Clifford. We further demonstrate a fault-tolerant chain-map interface between \chelix\ and a distance-5 surface code, preparing a heterogeneous three-logical-qubit GHZ state with a fidelity lower bound of $99.925^{+0.068}_{-0.245}\%$. In each case, the encoded implementation outperforms its corresponding unencoded physical baseline without relying on postselection. Circuit-level simulations indicate that improvements in physical fidelity bring the same architecture into the $10^{-6}$--$10^{-8}$ logical-error regime targeted for early fault-tolerant computation. Together, these results establish \chelix\ as a hardware-validated fault-tolerant architecture rather than a bare quantum memory.
+\end{abstract}
+
+% \date{}
+
+\maketitle
+
+% \tableofcontents
+
+\section{Introduction}
+
+Harnessing the full potential of quantum computers requires encoding many noisy physical qubits into a smaller number of logical qubits protected by quantum error correction (QEC)~\cite{shor1995}.
+Encoding and performing fault-tolerant (FT) computation requires significant spatial (qubit number) and temporal (circuit complexity) overhead.
+Above a physical error threshold, this additional overhead introduces more errors than are corrected, and only recently have demonstrations emerged in which QEC components have begun to break-even over their unencoded physical counterparts~\cite{anderson2021, Sivak_2023, Gupta2024, Hong_2024, bedalov2024, paetznick2024, google2024, Lacroix_2025, reichardt2025, dasu2025, dasu2026, Sivak2026}. 
+Atomic platforms with arbitrary qubit connectivity offer a distinctive pathway to reduce these overheads by enabling access to long-range connected codes that provide much higher encoding rates than conventional planar topological codes, as well as access to fast logical operations through transversal and permutation gates.
+While demanding applications like factoring and high-precision chemical modeling require extremely low logical error rates, the early-FT regime with modest LERs in the range of $10^{-6}$--$10^{-8}$ per logical gate would already unlock a variety of scientifically and commercially valuable computations beyond the reach of even the largest classical supercomputers.
+
+Here, we introduce and experimentally validate a FT architecture suitable for this early-FT regime based on the \chelix\ code: a [[20,2,6]] concatenated symplectic double (CSD) code~\cite{berthusen2025simple} arising from concatenation of a [[10,2,3]] twisted Toric code, with the  [[4,2,2]] C$_4$ code~\cite{Vaidman_1996, Grassl_1997}. The \chelix\ code provides a $\sim 3.5\times$ reduction in spatial overhead compared to conventional rotated surface codes~\cite{bravyi1998quantum, Kitaev_2003} of comparable distance, achieving an encoding rate competitive with bivariate- and generalized-bicycle codes~\cite{Kovalev_2013, bravyi2023highthreshold}.
+In contrast to many high-rate codes, in which logical computation is mediated predominantly through generalized lattice surgery~\cite{Cohen_2022, he2025extractors, zheng2025, baspin2025, cowtan2025}, the \chelix\ code permits efficient logical Clifford computation almost entirely through depth-1 transversal gates and automorphisms, with the latter requiring only physical single-qubit gates and qubit relabeling.
+Beyond the code itself, we provide a complete blueprint for a fault-tolerant architecture built around the \chelix\ code, combining its native transversal and automorphism operations with a depth-4 fold-transversal~\cite{Breuckmann_2024} S-gate for complete Clifford control and chain-map CNOT interfaces~\cite{benhemou2026} to codes capable of magic-state production for universal computation.
+
+\begin{figure*}
+    \centering
+    \includegraphics[width=0.8\linewidth]{figures/fig_1_combined.png}
+    \caption{\textbf{\chelix\ code memory and distance scaling. a.} Schematic of the $[[10,2,3]]$ and $[[20,2,6]]$ \chelix\ codes having been mapped onto a torus. The underlying lattice corresponds to the plaquettes of the $[[10,2,3]]$ twisted Toric code. Dashed lines represent the pairing taken when performing the $C_4$ concatenation for the $C_4$-Helix code. \textbf{b.} Same schematic of the Helix code sequence, but on a flattened torus. \textbf{c.} Logical error rate per LQ, per cycle $\varepsilon_d$ as a function of the code distance. We report results for the $[[10,2,3]]$, and $[[20,2,6]]$ \chelix code with/out forced-gap postselection. All uncertainties reported through this work denote 95\% Wilson confidence intervals unless otherwise noted. \textbf{d.} Probability distribution of the Frontier decoder's confidence gap between logical classes, in nats. Specifying a postselection parameter $\gamma$ corresponds to discarding shots that lie to the left of a vertical line at $x=\gamma$. Plotted as the red, vertical, dashed line is $\gamma = 3.9$, the smallest gap that postselects out every logical failure in the \chelix\ code.
+    }
+    \label{fig:memory_main}
+\end{figure*}
+
+We then implement and benchmark the essential components of this early-FT architecture on Quantinuum Helios: a 98-qubit trapped-ion quantum processor (QPU)~\cite{Ransford2026}. 
+First, we benchmark repeated QEC in a memory setting and observe logical-error suppression under $C_4$ concatenation, reducing the per LQ, per QEC cycle error from $2.1^{+1.0}_{-0.7}\times10^{-4}$ for the $[[10,2,3]]$ code to $4.6^{+6.2}_{-2.6}\times10^{-5}$ for the $[[20,2,6]]$ \chelix\ code.
+Second, we test the computational model directly by performing two-qubit randomized benchmarking (TQRB)~\cite{magesan2011, combes2017} of the complete logical Clifford group while interleaving active adaptive syndrome extraction~\cite{Berthusen_2025}, achieving an error per Clifford of $\varepsilon_C = 2.8^{+1.0}_{-1.6}\times 10^{-4}$, well below the physical unencoded TQRB result: $1.2\times 10^{-3}$.
+Third, we test the heterogeneous-code interface required for magic state injection by using a chain-map CNOT to prepare a three-logical-qubit GHZ state spanning \chelix\ and a distance-5 rotated surface code, obtaining a logical GHZ-fidelity lower bound of $99.93\pm0.04\%$, which again improves upon the physical result of $99.54 \pm 0.04\%$.
+
+Finally, circuit-level simulations show that moderate improvements in physical gate fidelity, already achieved in trapped-ion testbeds~\cite{hughes2025}, can reduce logical error rates by orders of magnitude and bring the same $[[20,2,6]]$ code into the $10^{-6}$--$10^{-8}$ regime.
+Together, these results establish \chelix\ as a hardware-validated architecture for early-FT quantum computation, combining protected memory, complete low-overhead Clifford control, and a FT interface to non-Clifford resources.
+
+
+\section{Logical Gadgets}
+
+\begin{figure*}
+    \centering
+    \includegraphics[width=\linewidth]{figures/rnd_bench.png}
+    \caption{\textbf{Logical randomized Clifford benchmarking. a.} A RB experiment on four qubits, where $G_i \in \mathcal{C}_4$ and $G_1 G_2...G_mG^{-1} = I$. \textbf{b.} Each four-qubit Clifford is broken up into two-qubit Cliffords, $U \in \mathcal{C}_2$, on each \chelix\ codeblock and interblock CNOT gates. \textbf{c.} A two-qubit Clifford is decomposed into single-qubit and CNOT gates. \textbf{d.} The decomposed two-qubit Clifford is expressed in the logical gateset of the \chelix\ code: $\{ \overline{H}_0\overline{H}_1\overline{SWAP}_{0,1}$, $\overline{CNOT}_{0,1}\overline{SWAP}_{0,1}$, $\overline{SWAP}_{0,1}$, $\overline{CZ}_{0,1}$, $\overline{S}_0 \overline{S}_1 \}$. \textbf{e.} Logical circuit error rate $p_L(m)$ as a function of TQRB sequence length. Logical error rates can again be reduced via forced-gap postselection for a fixed per-round rejection rate (see inset). \textbf{f.} Distribution of physical two-qubit gates per shot for a nonadaptive TQRB protocol versus the adaptive protocol that was run on Helios. The real-time circuit pruning done by ASE yields a reduction in the two-qubit gate count by $33\%$, while also reducing the wall-clock shot time by $23\%$.}
+    \label{fig:clifford_bench_main}
+\end{figure*}
+
+\subsection{Error-corrected memory}
+
+First, we benchmark the memory capabilities of the \chelix\ code and demonstrate logical-error suppression under $C_4$ concatenation, increasing the code distance from [[10,2,3]] to [[20,2,6]]. 
+The memory experiments proceed as follows: we prepare the codes in the $\ket{++}$ logical state by projectively measuring the $Z$-type stabilizer generators. We then perform $r=20$ rounds of syndrome extraction in which we have paid special attention to mitigating leakage, a dominant error source on Helios. When a qubit leaks out of the computational subspace, any subsequent gates involving the leaked qubit can fail to enact their intended operation, producing persistent and temporally correlated faults. To mitigate leakage, we leverage a hardware-based leakage repump capability on Helios~\cite{lavasani2026} as well as circuit-level leakage reduction units (LRUs)~\cite{paetznick2024}; see Appendix~\ref{apx:syndrome_extraction}. 
+Finally, we destructively measure the data qubits in the $X$-basis, from which we can construct a final round of $X$-type stabilizer generators as well as the $X$-type logical operators. 
+We decode offline over the entire circuit volume using the Frontier decoder~\cite{leverrier2026}. The block logical error rate for an $r$-round memory experiment, $p_L(r)$, is the fraction of shots that have a logical error after decoding. We extract the block logical error per round for each effective distance, $\varepsilon_{d,\text{block}}$, according to the equation: $\varepsilon_{d,\text{block}} = 1 - (1 - p_L(r))^{1/r}$. Throughout, we report the corresponding per LQ error rate normalized by the number of encoded logical qubits $\varepsilon_d = \varepsilon_{d,\text{block}} / k$.
+% This endpoint-derived equation slightly overestimates the per-cycle error rate because state preparation and measurement (SPAM) errors are amortized over all $20$ QEC cycles rather than treated as a constant offset. A sweep over $r$ would instead permit a SPAM-corrected exponential fit~\cite{anderson2021, Lacroix_2025}, which separately resolves the SPAM contribution $\varepsilon_0$ and the per-cycle logical error $\varepsilon_d$.
+
+The results are shown in Fig.~\ref{fig:memory_main}(c). For the $[[10,2,3]]$ code, we obtain a per LQ, per round error of $\varepsilon_3 = 2.1^{+1.0}_{-0.7}\times10^{-4}$. 
+% $\varepsilon_3 = 4.2^{+1.9}_{-1.3}\times10^{-4}$. 
+For the $[[20,2,6]]$ \chelix\ code, we obtain $\varepsilon_6 = 4.6^{+6.2}_{-2.6}\times10^{-5}$.
+% $\varepsilon_6 = 9.3^{+12}_{-5}\times10^{-5}$. 
+All uncertainties are reported as 95\% Wilson confidence intervals. This $4.52\times$ reduction in logical error rate per round from $\varepsilon_3$ to $\varepsilon_6$ demonstrates logical-error suppression under $C_4$-concatenation at the operating point of Helios. 
+We only sample the $X$-basis, and as such are unable to fully characterize the logical Pauli error channel; however, since the dominant memory error on Helios is pure dephasing ($Z$), the $X$-basis experiment is expected to provide a conservative proxy for the worse-performing memory basis.
+
+A distance-6 code can correct all double faults and detect but not necessarily correct all triple faults.
+We exploit this additional information using forced-gap postselection. Specifically, the Frontier decoder~\cite{leverrier2026} provides a confidence gap between competing logical classes, allowing shots with low-confidence corrections to be rejected; see Appendix~\ref{apx:decoder}. Related confidence-based postselection procedures have been proposed for other decoders~\cite{gidney2023, lee2026, xie2026, wills2026}. Applying forced-gap postselection to the Helios memory experiment allows us to dramatically reduce the logical error rate at a relatively minor discard rate: indeed, by only postselecting on 0.4\% of shots ($1\times 10^{-4}$ amortized per LQ, per round), we obtain a logical error rate of $\varepsilon_{6,PS} = 9.3^{+43}_{-7.6}\times 10^{-6}$. Although the absolute rejection rate is small, it exceeds the $\sim$0.2\% logical-failure probability of the unpostselected 20-round experiment, illustrating the tradeoff between logical accuracy and sampling overhead.
+
+
+\subsection{Clifford randomized benchmarking}
+
+A central feature of the \chelix\ architecture is that encoding multiple logical qubits does not require correspondingly expensive logical computation. By construction, CSD codes have a variety of CNOT, Hadamard, and CZ-type logical gates all implementable with only physical single-qubit gates and qubit relabeling. These SWAP-transversal, or automorphism, gates provide the ability to do some logical circuits essentially for free, as permutations are facilitated by ion-transport and qubit-relabeling in software. The automorphism gates of the \chelix\ code, when supplemented with a depth-4, fold-transversal~\cite{Breuckmann_2024}, global phase gate ($\overline{S}_0\overline{S}_1$), generate the full Clifford group on its two logical qubits. Moreover, because the two-qubit Clifford symplectic group is small, we can brute-force enumerate an $\overline{S}_0\overline{S}_1$-optimal decomposition of every Clifford and construct a lookup-table compiler. 
+% We find that any Clifford can be implemented with at most three global phase gates. 
+Together with transversal CNOTs or interblock chain maps~\cite{benhemou2026}, these operations extend to Clifford computation across multiple \chelix\ codeblocks.
+% Combined with transversal CNOT gates or interblock chain maps~\cite{benhemou2026}, any Clifford operator on $m$ codeblocks can be realized in $O(m)$ depth~\cite{maslov2022, Maslov2023}.
+
+We experimentally test this computational model using two-qubit randomized benchmarking (TQRB) on the two logical qubits of a single \chelix\ codeblock. As illustrated in Fig.~\ref{fig:clifford_bench_main}(a), each benchmark consists of a sequence of $m$ random Clifford operators $G_i \in \mathcal{C}_2$, followed by an inverse Clifford $G^{-1}$ such that the ideal logical action of the complete sequence is the identity. Previous experimental demonstrations of logical randomized benchmarking have used $k=1$ color-code blocks~\cite{mayer2024, Lacroix_2025}, whose transversal Clifford gates make such benchmarks particularly convenient. The similarly efficient logical gates of the \chelix\ code allow us to extend this approach to the complete two-logical-qubit Clifford group encoded within a single $k=2$ codeblock.
+
+% Fig.~\ref{fig:ft_phase_gate}(c). However, this circuit is not immediately fault-tolerant, as the physical $CZ$ gates can cause error propagation within a codeblock. We remedy this by replacing each physical $CZ$ gate with a flag gadget~\cite{Chao_2018} to catch correlated faults; see Fig.~\ref{fig:ft_phase_gate}. Additionally, we follow each application of $\overline{S}_0 \overline{S}_1$ with a round of adaptive syndrome extraction (ASE)~\cite{Berthusen_2025}. 
+
+% Using the real-time compilation of dynamic programs on Helios, we can leverage ASE to drive down logical error rates and reduce circuit depth. In particular, we employ a modified ASE scheme: if a $-1$ measurement result is obtained from any of the lower-level $C_4$ codeblocks, then all upper-level, weight-8 stabilizer generators are measured. If no $C_4$ detectors trigger, then only a subset of the $X$-type upper-level generators are measured. The reason for this choice is to detect certain harmful errors that occur during the $\overline{S}_0 \overline{S}_1$ gate; see Appendix~\ref{section:ase}.
+
+For each sampled Clifford $G_i$, we query the lookup-table compiler to obtain a sequence of native \chelix\ logical gates, as illustrated in Fig.~\ref{fig:clifford_bench_main}(c)--(d). The resulting sequence may contain up to three applications of the non-automorphism gate $\overline{S}_0\overline{S}_1$, each followed by a round of adaptive syndrome extraction (ASE)~\cite{Berthusen_2025}. The full length-$m$ Clifford sequence is generated and executed at runtime using Guppy~\cite{koch2025}, yielding an independent random sequence for every shot, while we track its accumulated symplectic action to construct the final inverse Clifford that ideally returns the logical state to $\ket{\overline{00}}$, up to Pauli corrections. Because the intervening logical gates transform both the stabilizer generators and logical observables, the corresponding detector structure depends on the particular Clifford sequence executed and is updated accordingly; details of this sign tracking are given in Appendix~\ref{apx:simulations}. We then decode the complete circuit volume using the Frontier decoder and count a shot as a logical error if the expected initial logical state is not recovered.
+
+We perform TQRB at sequence lengths $m=\{5,7,13\}$ (including the final corrective Clifford), with the longest sequences requiring up to 27 rounds of adaptive syndrome extraction. Fitting the observed survival probabilities to 
+$
+  p_L(m) = \tfrac{1}{2}\left[\,1 - (1-2\varepsilon_C)^{\,m}\,\right]$,
+we extract a logical error rate per Clifford of $\varepsilon_C = 2.8^{+1.0}_{-1.6}\times 10^{-4}$. Asymmetric 95\% confidence intervals are obtained via standard parametric bootstrap. This is a $4.3^{+5.9}_{-1.1} \times$ improvement over Helios' physical TQRB error per Clifford of $\approx 1.2\times 10^{-3}$~\cite{Ransford2026}, achieved without postselection. The performance is partially enabled by ASE: as shown in Fig.~\ref{fig:clifford_bench_main}(f), ASE reduces the number of physical two-qubit gates per $\overline{S}_0 \overline{S}_1$ gate by $\sim 33\%$. This pruning also shortens the physical run time, lowering the mean per-shot wall-clock duration by $\sim 23\%$. Two-qubit gates and idling significantly contribute to the physical error budget, and so these reductions translate into a lower logical error rate. While only the adaptive scheme was run on hardware, simulations (Fig.~\ref{fig:logic_sims_adapt}) indicate that the non-adaptive protocol would have performed worse under the same conditions, a gap that is expected to widen as the physical error rate improves.
+
+The same compilation strategy extends naturally to multiple \chelix\ codeblocks. An arbitrary $m$-block Clifford $G \in \mathcal{C}_{2m}$ onto the \chelix\ gateset can be decomposed into two-qubit Cliffords $U_i \in \mathcal{C}_2$ fully supported on each \chelix\ codeblock and CNOT (CZ) gates between codeblocks~\cite{Aaronson_2004, maslov2017}. Either these inter-block CNOT gates are transversal, or targeted logical CNOT gates are required, Fig.~\ref{fig:cnot-circuit}. Then, each $U_i$ is decomposed into the native logical generators by means of the lookup-table compiler. This entire procedure is illustrated in Fig.~\ref{fig:clifford_bench_main}(a)-(d).
+% \drewcmt{Can we say anything quantitative here? Is it worth simulating any inter-block gates/benchmarking? or maybe it suffices to benchmark transversal CNOTs and figure out how many C2's and CNOTs a typical 4 qubit clifford requires?} 
+We note that the uniformly random two-qubit Cliffords used in this benchmark constitute a worst case workload for a single \chelix\ codeblock. The per-Clifford logical fidelities reported here should therefore be regarded as a conservative lower bound. The individual Clifford operations arising in practical quantum algorithms, whose structure can be compiled to favor cheap automorphism gates, are implemented at substantially higher fidelity and lower cost~\cite{LeBlond2026InPrep}.
+
+
+% \subsection{Transversal CNOTs}
+
+\subsection{Inter-code GHZ state}
+\label{sec:ghz}
+
+\begin{figure}[t]
+\centering
+
+\includegraphics[width=0.9\linewidth]{figures/ghz_state.png}
+
+\vspace{12pt}
+
+\begin{tabular}{lcc}
+\toprule
+GHZ experiment & $\bar{z}$ mismatch (\%) & $\bar{x}$ mismatch (\%) \\
+\midrule
+Physical & $0.209^{+0.056}_{-0.047}$ & $0.253^{+0.061}_{-0.052}$ \\
+Logical  & $0.025^{+0.114}_{-0.024}$ & $0.050^{+0.130}_{-0.044}$ \\
+\bottomrule
+\end{tabular}
+
+% \caption{}
+\caption{
+\textbf{Inter-code GHZ experiment schematic and results.} For each experiment we report $\bar{z} = \Tr(P_Z^-\rho)$ and $\bar{x} = \Tr(P_X^-\rho)$, the fraction of shots violating the $Z$-basis agreement and $X$-basis parity conditions,
+respectively. The physical baseline comprises 32 three-qubit GHZ states prepared in parallel and sampled over $N=32{,}000$ groups per basis; the logical experiment uses the three-qubit logical GHZ state sampled over $N=4{,}000$ shots per basis. Uncertainties are $95\%$ Clopper--Pearson intervals.}
+\label{fig:ghz_results}
+\end{figure}
+
+Efficient Clifford operations alone are insufficient for universal fault-tolerant computation; the architecture must also provide access to non-Clifford resource states. Rather than requiring such states to be prepared directly within the \chelix\ code, we consider an architecture in which magic states are prepared in a code optimized for that task and subsequently transferred into \chelix. Several approaches can mediate computation across code boundaries. Code switching temporarily transforms a logical state from one code into another~\cite{pogorelov2024, daguerre2025, Bluvstein2026}, while homomorphic CNOT gates directly couple logical qubits encoded in related CSS codes~\cite{huang2023}. Chain-map CNOTs generalize this latter approach to distinct CSS codes, enabling fault-tolerant entangling operations between codes with different block sizes and stabilizer structure~\cite{benhemou2026}. This provides a natural interface for a heterogeneous architecture in which \chelix\ serves as the computational code while non-Clifford resource states are prepared elsewhere.
+
+Using an optimization-based method for finding chain maps~\cite{benhemou2026}, we obtain a fault-tolerant, depth-2 logical CNOT between a $[[25,1,5]]$ rotated surface code and the first logical qubit of the $[[20,2,6]]$ \chelix\ code. This operation provides the inter-code primitive required by our proposed state-injection scheme. Here, rather than performing magic-state injection directly, we experimentally benchmark the interface by using the chain-map CNOT to prepare a three-logical-qubit GHZ state spanning the two code families.
+
+As illustrated in Fig.~\ref{fig:ghz_results}, we prepare a three-logical-qubit GHZ state between the surface-code logical qubit and the two logical qubits of the \chelix\ code. After preparing the rotated surface code and \chelix\ code in the $Z$-basis, we apply a SWAP-transversal logical Hadamard gate~\cite{chen2026} to the surface code followed by the chain map implementing the first CNOT gate. The second CNOT between the two \chelix\ logical qubits is implemented as an automorphism and therefore requires only qubit relabeling. Finally, we destructively measure out both codes in either the $X$- or $Z$-basis and construct the joint logical operators $\{\overline{Z}_0\overline{Z}_1, \overline{Z}_1 \overline{Z}_2, \overline{X}_0 \overline{X}_1\overline{X}_2\}$. Prior to checking for valid logical measurement outcomes, we apply a correction by decoding over the entire circuit volume. As an unencoded baseline, we prepare 32 three-qubit physical GHZ states in parallel across 96 of the 98 qubits on Helios and measure them in the same bases.
+
+To characterize the resulting state, we follow the approach from Ref.~\cite{Hong_2024}. An $n$-qubit GHZ state is stabilized by
+$\{Z_iZ_{i+1}\}_{i=0}^{n-2}$ together with
+$X_0X_1\cdots X_{n-1}$. Accordingly, a perfect GHZ state produces equal outcomes in the $Z$ basis and even parity in the $X$ basis. Defining $\bar{z}=\Tr(P_Z^-\rho)$ and $\bar{x}=\Tr(P_X^-\rho)$, where $P^{-}_{Z/X}$ is the projector into $-1$ eigenspace in a given basis, as the probabilities of violating these conditions, the GHZ-state fidelity is bounded by
+\begin{equation}
+    1-\Tr(P_Z^- \rho) - \Tr(P_X^- \rho) \le F_{\rm{GHZ}}(\rho) \le 1- \Tr(P_Z^- \rho).
+\end{equation}
+
+
+The results are shown in Fig.~\ref{fig:ghz_results}, from which we obtain the bounds
+\begin{align}
+    99.537^{+0.099}_{-0.118}\% &\le F_\text{GHZ}(\rho) \le 99.791^{+0.047}_{-0.056}\% \\
+    99.925^{+0.068}_{-0.245}\% &\le F_\text{GHZ}(\overline{\rho}) \le 99.975^{+0.024}_{-0.114}\%\end{align}
+where $\rho$ and $\overline{\rho}$ denote the physical (unencoded) and logical GHZ states, respectively. The logical-state lower bound exceeds the physical baseline by $\Delta F\approx0.39\%$, corresponding to a $6.7\sigma$ separation, with non-overlapping 95\% confidence intervals. Because this fidelity bound includes state preparation, logical operations, the surface-code--\chelix\ chain map, and readout, it bounds the aggregate error of the complete logical sequence rather than the chain map in isolation. Nevertheless, the result rules out any large degradation associated with the heterogeneous-code interface and experimentally validates the entangling primitive required by the architecture's proposed route to magic-state injection.
+
+
+\section{Discussion and outlook}
+\label{sec:discussion}
+
+In this work, we have experimentally validated the principal components of a fault-tolerant architecture based on the $[[20,2,6]]$ \chelix\ code: repeated error correction with logical-error suppression under $C_4$ concatenation, randomized benchmarking of the complete Clifford group on two logical qubits encoded within a single $k=2$ codeblock, and entangling operations between \chelix\ and a distinct code family through a chain-map construction. In each experiment, the encoded implementation outperformed the corresponding unencoded physical baseline on Helios, without postselection. A central feature of this architecture is that complete Clifford control is obtained with low logical-gate overhead: the Clifford generators are implemented using automorphisms, transversal operations, and a single depth-4 fold-transversal phase-gate construction, avoiding the ancilla resources and serialization associated with generalized lattice-surgery approaches to computation on many high-rate codes.
+
+Universal computation additionally requires access to non-Clifford resource states. The chain-map interface demonstrated here provides a mechanism for supplying these resources from a code optimized for their preparation, rather than requiring magic-state production within \chelix\ itself. In particular, a cultivated magic state could be prepared in a surface- or color-code block~\cite{gidney2024} and coupled to \chelix\ using the same type of heterogeneous-code CNOT demonstrated in Section~\ref{sec:ghz}. Other source codes, including codes with transversal non-Clifford gates such as triorthogonal codes~\cite{Bravyi_2012}, can be incorporated using chain maps obtained through the same optimization procedure~\cite{benhemou2026}. Alternatively, non-Clifford resources may be prepared directly within \chelix\ through zero-level distillation~\cite{Itogawa_2025} of a logical $\ket{\overline{CZ}}$ state~\cite{Gupta2024}; see Appendix~\ref{apx:non-clifford}. The present experiment does not implement a universal Clifford+$T$ computation, but establishes the Clifford computational substrate and heterogeneous-code interface needed to construct one.
+
+The architecture can also be extended to larger code distances while retaining much of the logical-gate structure of \chelix. In the CSD construction, the inner $C_4$ $[[4,2,2]]$ code can be replaced by higher-distance $k=2$ codes possessing the required $X/Z$ duality and SWAP-transversal two-qubit operations. Concatenating the $[[10,2,3]]$ Helix code with, for example, the $[[12,2,4]]$ Carbon code~\cite{paetznick2024} or with \chelix\ itself produces the $[[60,2,12]]$ Carbon-Helix and $[[100,2,18]]$ Double-Helix codes, respectively, while preserving much of the transversal and automorphism-based Clifford structure. We describe these higher-distance constructions and their logical compilation in Appendix~\ref{apx:big_$C_4$-Helix}; a detailed circuit-level assessment of their performance is left to future work.
+
+Together, these results establish \chelix\ as a hardware-validated fault-tolerant architecture rather than solely a quantum memory. At the physical error rates demonstrated here, the \chelix\ experiments achieve logical error rates at the $\sim10^{-4}$ level per QEC cycle and logical Clifford. Circuit-level simulations indicate that improvements in physical infidelity to the $10^{-4}$ regime drive the same $[[20,2,6]]$ code into the $10^{-6}$--$10^{-8}$ logical-error regime targeted for early fault-tolerant computation, with still lower error rates accessible through modest decoder-based postselection; see Appendix~\ref{apx:simulations}. The higher-distance CSD constructions described here provide a complementary route to lower logical error rates while retaining much of the logical-gate and compilation structure of \chelix. More broadly, the results show that compact, $k>1$, quantum codes can be designed around the requirements of computation from the outset, rather than treating logical operations as an additional layer built on top of memory protection.
+
+%\section*{Author contributions}
+
+\section*{Acknowledgements}
+We acknowledge the entire Quantinuum team for innumerable contributions towards the design, construction, and operation of the Helios quantum computer, and we acknowledge Honeywell for fabricating the trap used in this experiment. We thank Tyler LeBlond and Shival Dasu for insightful conversations.
+
+%\section*{Competing interests}
+%The authors declare no competing interests.
+
+\section*{Additional information}
+Correspondence and requests for materials should be addressed to Noah Berthusen (\href{mailto:noah.berthusen@quantinuum.com}{noah.berthusen@quantinuum.com}) and Andrew C. Potter (\href{mailto:andrew.potter@quantinuum.com}{andrew.potter@quantinuum.com}).
+
+\bibliography{bibliography}
+
+\clearpage
+% \onecolumngrid
+\appendix
+\input{appendix}
+
+\end{document}
+

@@ -1,0 +1,93 @@
+{
+  "scope": "implementation pilot; not a statistically powered or matched-fidelity graph ranking",
+  "all_saved_runs_verified": true,
+  "graph_yield_advantage_established": false,
+  "matched_noisy_fidelity_cost_established": false,
+  "runs": {
+    "noiseless": {
+      "verified": {
+        "verified": true,
+        "histories_checked": 1,
+        "completed": 1,
+        "accepted_outputs_recomputed": 1,
+        "source_tree_matches_saved_run": true,
+        "saved_source_snapshot_verified": true,
+        "scope": "saved report/control certificates, noise accounting, complex output diagnostics; not gate replay",
+        "two_fault_prediction_violation_shots": []
+      },
+      "manifest_reference": "/Users/kevinhemery/quanti/top-order-lit-rev/output/single-cz-cat-baseline-smoke/noiseless/manifest.json",
+      "graph": "compact13",
+      "profile": "recovery",
+      "route": "direct_cat",
+      "graph_allocated": false,
+      "verification_extraction": "flags",
+      "direct_cz_extraction": "cat",
+      "source_extraction": "rolling_flags",
+      "rates": {
+        "two_qubit_infidelity": "0",
+        "one_qubit_infidelity": "0",
+        "t_infidelity": "0",
+        "idle_infidelity": "0",
+        "preparation_flip_probability": "0",
+        "readout_flip_probability": "0"
+      },
+      "attempts": 1,
+      "accepted": 1,
+      "unresolved": 0,
+      "assessed_accepted": 1,
+      "target_matches_within_tolerance": 1,
+      "mean_decoded_fidelity_of_assessed": 1.0,
+      "acceptance_Wilson95": [
+        0.20654931437723745,
+        1
+      ],
+      "sample_CX_per_accepted": 2124.0,
+      "accepted_edge_distance_from_decoded_cut": [],
+      "clean_CX": 2124,
+      "clean_T_TDG": 120,
+      "peak_live": 41
+    },
+    "noisy": {
+      "verified": {
+        "verified": true,
+        "histories_checked": 1,
+        "completed": 1,
+        "source_tree_matches_saved_run": true,
+        "saved_source_snapshot_verified": true,
+        "scope": "saved report/control certificates, noise accounting, complex output diagnostics; not gate replay",
+        "two_fault_prediction_violation_shots": []
+      },
+      "manifest_reference": "/Users/kevinhemery/quanti/top-order-lit-rev/output/single-cz-cat-baseline-smoke/noisy/manifest.json",
+      "graph": "compact13",
+      "profile": "recovery",
+      "route": "direct_cat",
+      "graph_allocated": false,
+      "verification_extraction": "flags",
+      "direct_cz_extraction": "cat",
+      "source_extraction": "rolling_flags",
+      "rates": {
+        "two_qubit_infidelity": "1/1000",
+        "one_qubit_infidelity": "0",
+        "t_infidelity": "0",
+        "idle_infidelity": "0",
+        "preparation_flip_probability": "0",
+        "readout_flip_probability": "1/1000"
+      },
+      "attempts": 1,
+      "accepted": 0,
+      "unresolved": 0,
+      "assessed_accepted": 0,
+      "target_matches_within_tolerance": 0,
+      "mean_decoded_fidelity_of_assessed": null,
+      "acceptance_Wilson95": [
+        0,
+        0.7934506856227626
+      ],
+      "sample_CX_per_accepted": null,
+      "accepted_edge_distance_from_decoded_cut": [],
+      "clean_CX": 2124,
+      "clean_T_TDG": 120,
+      "peak_live": 41
+    }
+  }
+}

@@ -1,0 +1,453 @@
+\makeatletter
+\@ifclassloaded{revtex4-2}{}{\usepackage[margin=1in]{geometry}}
+\makeatother
+\usepackage{amsmath,amsthm,amsfonts,amssymb,mathrsfs}
+\usepackage{graphicx}
+\usepackage{cancel}
+\usepackage{bm}
+\usepackage{tikz}
+\usepackage{csquotes}
+\usepackage{tikz-3dplot}
+\usepackage{physics}
+\usepackage{dsfont}
+\usepackage{float}
+\usepackage{xcolor}
+\usepackage{mathtools}
+\usepackage{tcolorbox}
+\makeatletter
+\@ifclassloaded{revtex4-2}{\let\affil\affiliation
+}{\usepackage{authblk}}
+\makeatother
+
+\tcbuselibrary{breakable}
+\usepackage{keytheorems}
+\newkeytheorem{definition}[parent=section, tcolorbox-no-titlebar={breakable, colback=blue!10}]
+\newkeytheorem{example,lemma,conjecture,claim,theorem,proposition,corollary,fact,assumption,construction}[sibling=definition, tcolorbox-no-titlebar={breakable, colback=blue!10}]
+\theoremstyle{definition}
+\newtheorem{protocol}{Protocol}[section]
+
+\newkeytheorem{remark}[parent=section, tcolorbox-no-titlebar={breakable}]
+\allowdisplaybreaks[4]
+\interdisplaylinepenalty=0
+\makeatletter
+\renewcommand{\log}{\mathop{\operator@font log}\nolimits}
+\makeatother
+\IfFileExists{bbm.sty}{\usepackage{bbm}}{\providecommand{\mathbbm}{\mathds}}
+\usepackage{stmaryrd}
+\usepackage{braket}
+\makeatletter
+\@ifpackageloaded{natbib}{}{\usepackage[numbers,sort&compress]{natbib}}
+\makeatother
+\usepackage{hyperref}
+\usepackage[ruled,noline,longend]{algorithm2e}
+\SetAlgoNoLine
+\AtBeginDocument{\SetAlgoNoLine}
+\SetAlgoLongEnd
+\RestyleAlgo{boxruled}
+\LinesNumbered
+\definecolor{algcommentgray}{gray}{0.35}
+\newcommand{\AlgCommentFont}[1]{\textcolor{algcommentgray}{#1}}
+\SetCommentSty{AlgCommentFont}
+\SetKwComment{tcp}{{\color{algcommentgray}$\blacktriangleright$}\ }{}
+\usepackage{tcolorbox}
+\tcbuselibrary{breakable}
+\renewcommand{\topfraction}{0.9}
+\renewcommand{\bottomfraction}{0.8}
+\renewcommand{\textfraction}{0.07}
+\renewcommand{\floatpagefraction}{0.85}
+\setcounter{topnumber}{3}
+\setcounter{totalnumber}{5}
+\newenvironment{longalgorithm}[2][]{\begin{tcolorbox}[breakable, sharp corners, boxsep=0pt,
+      boxrule=\algoheightrule, colframe=black, colback=white,
+      left=18pt, right=4pt, top=5pt, bottom=5pt, #1]\refstepcounter{algocf}\noindent\hspace*{-14pt}{\textbf{\algorithmcfname~\thealgocf:} #2}\par
+  \addcontentsline{loa}{algocf}{\protect\numberline{\thealgocf}#2}\par\nobreak\vspace{2pt}\nointerlineskip
+  \moveleft18pt\vbox{\hrule width \dimexpr\linewidth+22pt\relax height \algoheightrule}\vspace{3pt}\setcounter{AlgoLine}{0}\RestyleAlgo{plain}}{\end{tcolorbox}}
+\DontPrintSemicolon
+\SetKwInput{KwIn}{Require}
+\SetKwInput{KwOut}{Ensure}
+\SetKwFor{For}{for}{do}{end for}
+\SetKwFor{ForEach}{for each}{do}{end for}
+\SetKwFor{While}{while}{do}{end while}
+\makeatletter
+\newenvironment{breakablealgorithm}{\par\addvspace{\intextsep}\hrule height .8pt\kern2pt
+  \renewcommand{\caption}[2][]{\refstepcounter{algocf}\noindent\textbf{\algorithmcfname~\thealgocf:} ##2\par
+    \kern2pt\hrule\kern2pt
+    \ifx\relax##1\relax
+      \addcontentsline{loa}{algocf}{\protect\numberline{\thealgocf}##2}\else
+      \addcontentsline{loa}{algocf}{\protect\numberline{\thealgocf}##1}\fi
+  }}{\par\kern2pt\hrule\addvspace{\intextsep}}
+\makeatother
+\usepackage{old-arrows}
+\usepackage{color}
+\usepackage{array, tabularx}
+\usepackage{longtable}
+\makeatletter
+\@ifclassloaded{revtex4-2}{\appdef\@mkpream@relax{\let\@endpbox\relax}}{}
+\makeatother
+\usepackage{booktabs}
+\newcolumntype{L}[1]{>{\raggedright\arraybackslash}p{#1}}
+\newcolumntype{C}[1]{>{\centering\arraybackslash}p{#1}}
+\newcolumntype{R}[1]{>{\raggedleft\arraybackslash}p{#1}}
+\newcommand{\Circo}[0]{\mathfrak{C}}
+\newcommand{\restrict}[2]{#1 \vert_{#2}}
+\newcommand{\physq}[0]{\mathcal{M}}
+
+
+\newcommand{\Xp}[0]{\mathcal{X}}
+\newcommand{\Zp}[0]{\mathcal{Z}}
+
+\newcommand{\nS}[1]{\mathbb{N}_{#1}}
+\newcommand{\aS}[1]{\mathbb{C}_{#1}}
+
+\newcommand{\nD}[1]{D^N_{#1}}
+\newcommand{\aD}[1]{D^C_{#1}}
+
+\newcommand{\control}[3]{C_{#1} {#2}_{#3}}
+\usetikzlibrary{3d, shapes, arrows.meta, decorations.pathreplacing, decorations.markings, cd, shapes.geometric, calc}
+\IfFileExists{tikzlibrarycalligraphy.code.tex}{\usetikzlibrary{calligraphy}}{}
+\pgfkeysifdefined{/pgf/decoration/calligraphic brace/.@cmd}{}{\pgfkeys{/pgf/decoration/calligraphic brace/.style={brace}}}
+\tikzstyle{midarrow} = [decoration={markings, mark= at position 0.6 with {\arrow{Stealth}}}, postaction={decorate}]
+\renewcommand{\comment}[1]{{\color{red} #1}}
+
+\newcommand{\YR}[1]{{\color{Teal} [Collin: #1]}}
+
+\newcommand{\kc}[1]{{\color{cyan} [Katie: #1]}}
+
+\newcommand{\bb}[1]{{\color{purple}[BB: #1]}}
+
+
+
+
+\newcommand{\vva}[1]{{\color{magenta} [VVA: #1]}}
+
+
+
+
+
+
+
+
+
+\newcommand{\al}[1]{{\color{DarkGreen} [Ana: #1]}}
+
+\newcommand{\hp}[1]{{\color{brown} [Harry: #1]}}
+
+\newcommand{\NT}[1]{{\color{orange} [NT: #1]}}
+
+\newcommand{\dom}[1]{\textcolor{blue}{[Dom: #1]}}
+
+\newcommand{\todo}[1]{\textcolor{blue}{[TO-DO: #1]}}
+
+\newcommand{\new}[1]{{\color{DarkMagenta}#1}}
+\definecolor{FGreen}{RGB}{58,158,92}
+\definecolor{lightred}{RGB}{223, 123, 84}
+\definecolor{lightbrown}{RGB}{242,216,199}
+\definecolor{invisiblegray}{RGB}{238,238,237}
+\definecolor{lightgreen}{RGB}{222, 235, 218}
+\definecolor{lightcyan}{RGB}{153, 191, 216}
+\definecolor{lightcyan2}{RGB}{208, 224, 235}
+\definecolor{cyan2}{RGB}{144,201,226}
+\definecolor{lightyellow}{RGB}{252, 238, 183}
+\definecolor{OrangeRed}{RGB}{223,123,84}
+\definecolor{CyanGreen}{RGB}{81,177,184}
+\definecolor{rose}{RGB}{226,45,139}
+\definecolor{Ycolor}{RGB}{248,236,104}
+\definecolor{Hcolor}{RGB}{255,255,0}
+\definecolor{Xcolor}{RGB}{246,143,138}
+\definecolor{Zcolor}{RGB}{210,254,206}
+\definecolor{Lred}{RGB}{244,163,163}
+\definecolor{Lgreen}{RGB}{160,211,179}
+\definecolor{Lblue}{RGB}{170,183,240}
+\definecolor{tickcolor}{RGB}{181,0,250}
+\definecolor{DarkBlue}{RGB}{14,38,80}
+\definecolor{greenblue}{RGB}{0,255,127}
+\definecolor{darkblue}{RGB}{57,85,134}
+\definecolor{electrored}{RGB}{244,96,85}
+\definecolor{electrored2}{RGB}{245,107,94}
+\definecolor{BBXcheck}{RGB}{210,234,206}
+\definecolor{BBZcheck}{RGB}{204,204,250}
+\definecolor{softred}{RGB}{245,206,206}
+\definecolor{fuchsiapurple}{RGB}{180, 0, 255}
+\definecolor{Teal}{RGB}{62,138,141}
+\definecolor{gold}{RGB}{233,168,58}
+\definecolor{Crimson}{RGB}{220,20,60}
+\definecolor{RedOrange}{RGB}{255,69,0}
+\definecolor{DarkMagenta}{RGB}{139,0,139}
+\definecolor{DarkGreen}{RGB}{0,100,0}
+\definecolor{MidnightBlue}{RGB}{25,25,112}
+
+
+
+\newcommand{\g}{\mathbf{g}}
+\newcommand{\h}{\mathbf{h}}
+\renewcommand{\k}{\mathbf{k}}
+\newcommand{\f}{\mathbf{f}}
+\newcommand{\C}{\mathbf{C}}
+\newcommand{\Z}{\mathbb{Z}}
+\renewcommand{\S}{\mathcal{S}}
+\newcommand{\CC}{\mathcal{C}}
+\newcommand{\charge}{k}
+\newcommand{\totalcharge}{K}
+\newcommand{\B}{\mathbb{B}}
+\renewcommand{\O}{\mathcal{O}}
+\newcommand{\Ocal}{\mathcal{O}}
+\renewcommand{\Vec}{\mathcal{V}ec}
+\newcommand{\Rep}{\text{Rep}}
+\newcommand{\nnb}{\nonumber}
+\newcommand{\lt}{\triangleleft}
+\newcommand{\rt}{\triangleright}
+\newcommand{\Lcal}{\mathcal{L}}
+\newcommand{\Acal}{\mathcal{A}}
+\newcommand{\Gcal}{\mathcal{G}}
+\newcommand{\XX}{\mathcal{X}}
+\newcommand{\YY}{\mathcal{Y}}
+\newcommand{\ZZ}{\mathcal{Z}}
+\newcommand{\Com}[2]{[ #1, #2 ]}
+\newcommand{\ComGrp}[2]{[ #1, #2 ]_{\text{grp}}}
+\newcommand{\level}{\operatorname{Lv}}
+\newcommand{\code}{\mathcal{C}}
+
+
+\newcommand{\glosym}[0]{\mathsf{L}}
+\newcommand{\im}{\operatorname{im}}
+\newcommand{\rk}{\operatorname{rk}}
+\newcommand{\supp}[1]{\operatorname{Supp}(#1)}
+\newcommand{\Ad}{\operatorname{Ad}}
+\newcommand{\Irrep}{\operatorname{Irrep}}
+\newcommand{\Wt}{\operatorname{Wt}}
+\newcommand{\Lin}{\mathfrak{L}}
+\newcommand{\interior}{\operatorname{int}}
+\newcommand{\T}[0]{\mathsf{U}}
+\newcommand{\orbit}[1]{O^{\mathcal{T}}(#1)}
+\newcommand{\sym}[0]{\overline{S}}
+\newcommand{\av}[0]{\mathbb{A}_v}
+\newcommand{\bp}[0]{\mathbb{B}_f}
+\newcommand{\onsite}[1]{\mathsf{T}|_{#1}}
+\newcommand{\Log}[1]{\overline{#1}}
+\newcommand{\id}[0]{\mathbf{1}}
+\newcommand{\bd}[1]{\delta({#1})}
+\newcommand{\zp}[0]{\mathbb{Z}_p}
+\newcommand{\cX}[0]{\mathcal{X}}
+\newcommand{\cZ}[0]{\mathcal{Z}}
+\newcommand{\cC}[0]{\mathcal{C}}
+\newcommand{\cE}[0]{\mathcal{E}}
+\newcommand{\cx}[2]{CX_{#1\rightarrow#2}}
+\newcommand{\wcp}[2]{\mathcal{C}P_{#1\rightarrow#2}}
+\newcommand{\wcx}[2]{\mathcal{C}X_{#1\rightarrow#2}}
+\newcommand{\wcz}[2]{\mathcal{C}Z_{#1\rightarrow#2}}
+\newcommand{\wcy}[2]{\mathcal{C}Y_{#1\rightarrow#2}}
+\newcommand{\cpw}[2]{C\mathcal{P}_{#1\rightarrow#2}}
+\newcommand{\cxw}[2]{C\mathcal{X}_{#1\rightarrow#2}}
+\newcommand{\czw}[2]{C\mathcal{Z}_{#1\rightarrow#2}}
+\newcommand{\cyw}[2]{C\mathcal{Y}_{#1\rightarrow#2}}
+\newcommand{\wct}[2]{\mathcal{C}\mathcal{T}_{#1\rightarrow#2}}
+\newcommand{\wctdag}[2]{\mathcal{C}\mathcal{T}^\dagger_{#1\rightarrow#2}}
+\newcommand{\cnot}[0]{\CNOT}
+\newcommand{\SWAP}[0]{\mathsf{SWAP}}
+\newcommand{\CNOT}[0]{\mathsf{CNOT}}
+\newcommand{\CSWAP}[0]{\mathsf{CSWAP}}
+\newcommand{\CX}[0]{\mathsf{CX}}
+\newcommand{\CZ}[0]{\mathsf{CZ}}
+\newcommand{\CT}[0]{\mathsf{CU}}
+\newcommand{\swap}[0]{\SWAP}
+\newcommand{\cswap}[0]{\CSWAP}
+
+\newcommand{\overlap}[1]{\Omega(#1)}
+\newcommand{\E}[2]{e_{(#1,#2)}}
+\newcommand{\dec}[1]{\tilde{#1}}
+\newcommand{\insuppof}[2]{#1|_{#2}}
+\newcommand{\plushalf}[1]{{#1+\frac{1}{2}}}
+\newcommand{\minushalf}[1]{{#1-\frac{1}{2}}}
+\newcommand{\scrG}[0]{{\mathscr{G}}}
+\newcommand{\sset}[1]{\Sigma(#1)}
+
+\newcommand{\symOP}{\T}
+\newcommand{\symS}{\overline{S}}
+\newcommand{\haH}{\mathsf{H}}
+\newcommand{\haA}{\mathsf{A}}
+\newcommand{\haB}{\mathsf{B}}
+\newcommand{\haP}{\mathsf{P}}
+\newcommand{\haQ}{\mathsf{Q}}
+\newcommand{\haX}{\mathsf{X}}
+\newcommand{\Deco}{\mathfrak{D}}
+
+\newcommand{\vertexset}[1]{\Sigma^{-1}(#1)}
+\newcommand{\invvertexset}[1]{\Sigma(#1)}
+\newcommand{\faceP}{\mathcal{P}} 
+\newcommand{\vertexV}{\mathsf{V}}
+\newcommand{\edgeE}{\mathsf{E}}
+\newcommand{\faceF}{\mathsf{F}}
+\newcommand{\graphG}{\mathsf{G}}
+\newcommand{\intG}{\mathbb{G}}
+\newcommand{\N}{\mathsf{N}}
+\newcommand{\eigenE}{\mathbf{E}} 
+\newcommand{\gaugedA}{\mathbb{A}}
+\newcommand{\gaugedB}{\mathbb{B}}
+\newcommand{\gaugedS}{\mathbb{S}}
+\newcommand{\Sdec}{\mathfrak{s}}
+\providecommand{\vr}{}
+\renewcommand{\vr}{v_r}
+\newcommand{\gaugedH}{\mathbb{H}}
+\newcommand{\gaugingOP}{\mathscr{G}}
+\newcommand{\chproj}[2]{\llbracket #1\rrbracket _{#2}}
+
+\newcommand{\gX}{\mathcal{X}}
+\newcommand{\gZ}{\mathcal{Z}}
+\newcommand{\mX}{\mathcal{X}}
+\newcommand{\mZ}{\mathcal{Z}}
+\newcommand{\gW}{\mathcal{W}}
+\newcommand{\gY}{\mathcal{Y}}
+\newcommand{\Agrp}{\mathbf{A}}
+\newcommand{\chOmega}{\mathit{\Omega}}
+\newcommand{\Linex}{\Lin_{\rm ex}(\mathcal H_{\rm m})}
+\newcommand{\Linnt}{\Lin_{\rm nt}^{\rm ex}(\mathcal H_{\rm mat})}
+
+
+\newcommand{\K}{\mathcal{K}}
+\newcommand{\gaugedT}{\mathbb{T}}
+\newcommand{\Stab}{\mathcal{G}}
+\newcommand{\F}{\mathcal{F}}
+\newcommand{\Hp}{\mathcal{H}}
+\newcommand{\Poly}{\mathsf{Poly}}
+\newcommand{\Fphys}{F_{\text{phys}}}
+\newcommand{\Fmeas}{F_{\text{meas}}}
+\newcommand{\Fp}{\mathbf{F}_p}
+\newcommand{\Zq}{\mathbb{Z}_q}
+\newcommand{\Sprod}[2]{\Lambda\left( #1, #2 \right)}
+\newcommand{\FT}{F^T}
+\newcommand{\nbhd}{\mathsf{N}}
+
+\newcommand{\Cgeom}{C_{\text{geom}}}
+\newcommand{\CLDPC}{C_{\text{LDPC}}}
+\newcommand{\Cstep}{C_{\text{step}}}
+\newcommand{\Cretract}{C_{\text{retract}}}
+\newcommand{\Ctotal}{C_{\text{total}}}
+\newcommand{\Cgauge}{C_{\text{gauge}}}
+
+\newcommand{\nonabel}[1]{S^\mathrm{N}_{#1}}
+\newcommand{\abel}[1]{S^\mathrm{A}_{#1}}
+\newcommand{\gnonabel}[1]{\mathbb{S}^\mathrm{N}_{#1}}
+\newcommand{\gabel}[1]{\mathbb{S}^\mathrm{A}_{#1}}
+\newcommand{\onset}[2]{{#1}_{\sset{#2}}}
+\newcommand{\ccomm}[2]{[#1,#2]_{\mathrm{grp}}}
+\newcommand{\tu}[0]{t_{\mathrm{u}}}
+\newcommand{\tg}[0]{t_{\mathrm{g}}}
+\newcommand{\tf}[0]{t_\mathrm{f}}
+\newcommand{\Ig}[0]{\mathrm{I}_{\mathrm{g}}}
+\newcommand{\Ifn}[0]{\mathrm{I}_\mathrm{f}}
+\newcommand{\Ib}[0]{\mathrm{I}_0}
+\newcommand{\cA}[0]{\mathcal{A}}
+\newcommand{\cQ}[0]{\mathcal{Q}}
+\newcommand{\cK}[0]{\mathcal{K}}
+\newcommand{\grpcom}[2]{\ComGrp{#1}{#2}}
+\newcommand{\de}[0]{d_\mathcal{E}}
+
+
+
+\definecolor{Teal}{RGB}{0,128,128}
+\definecolor{Crimson}{RGB}{220,20,60}
+\definecolor{RedOrange}{RGB}{255,69,0}
+\definecolor{DarkMagenta}{RGB}{139,0,139}
+\definecolor{DarkGreen}{RGB}{0,100,0}
+\definecolor{MidnightBlue}{RGB}{25,25,112}
+
+
+\hypersetup{
+    colorlinks=true,
+    linkcolor=MidnightBlue,
+    citecolor=MidnightBlue,
+    urlcolor=MidnightBlue,}
+
+\usepackage{amsfonts,latexsym,amsthm,amssymb,amsmath,amscd,euscript,tikz,mathtools}
+\usepackage{framed}
+\usepackage[normalem]{ulem}
+\makeatletter
+\@ifclassloaded{revtex4-2}{}{\usepackage[margin=1in]{geometry}}
+\makeatother
+\usepackage{color}
+
+
+
+
+\usepackage{enumitem}
+\usepackage{environ}
+\usepackage{dcolumn}
+
+\usetikzlibrary{positioning, shadows, arrows, backgrounds, fit}
+\usetikzlibrary{decorations.pathmorphing}
+
+\definecolor{Teal}{RGB}{0,128,128}
+
+\hypersetup{
+    colorlinks=true,
+    linkcolor=MidnightBlue,
+    citecolor=MidnightBlue,
+    urlcolor=MidnightBlue,
+}
+
+\definecolor{GrayOut}{gray}{0.8}
+\NewEnviron{GrayedOut}{\begingroup\color{GrayOut}\BODY\endgroup
+}
+
+\newcommand{\diam}{\operatorname{diam}}
+\newcommand{\dist}{\operatorname{dist}}
+
+\newcommand{\cH}{\mathcal{H}}
+\newcommand{\cT}{\mathcal{T}}
+\newcommand{\cN}{\mathcal{N}}
+\newcommand{\cB}{\mathcal{B}}
+\newcommand{\bbP}{\mathbb{P}}
+\newcommand{\haT}{\mathsf{T}}
+\newcommand{\haD}{\mathsf{D}}
+\newcommand{\cF}{\mathcal{F}}
+
+\newcommand{\CZero}{C_0(\Gcal_0)}
+\newcommand{\COne}{C_1(\Gcal_1)}
+\newcommand{\deltaOne}{\delta_1}
+\newcommand{\jall}{\mathbf{1}}
+\newcommand{\tof}[0]{\ket{\mathsf{Tof}}}
+\newcommand{\Pp}[1]{\mathrm{P}^+_{\Log{#1}}}
+\newcommand{\Ppk}[1]{\mathrm{P}^+_{\Log{#1}^{\otimes k}}}
+\newcommand{\Pm}[1]{\mathrm{P}^-_{\Log{#1}}}
+
+\newcommand{\fa}[0]{F_\mathrm{A}}
+\newcommand{\fn}[0]{F_\mathrm{N}}
+
+\newcommand{\CHANGE}[1]{{\color{DarkMagenta}#1}}
+
+\newcommand{\syndromeSet}{\sigma}
+\newtheorem{axiom}{Axiom}[section]
+\newtheorem{question}{Question}[section]
+
+
+\newcommand{\green}[1]{\textcolor{Teal}{#1}}
+\newcommand{\blue}[1]{\textcolor{blue}{#1}}
+\newcommand{\red}[1]{\textcolor{red}{#1}}
+
+\makeatletter
+\let\UncappedLeft\left
+\let\UncappedRight\right
+\def\left{\@ifnextchar({\CappedLeftParen}{\UncappedLeft}}
+\def\CappedLeftParen(#1\right{\@ifnextchar){\CappedRightParen{#1}}{\UncappedLeft(#1\UncappedRight}}
+\def\CappedRightParen#1){\mathopen{}\bigg(#1\bigg)\mathclose{}}
+\makeatother
+
+\definecolor{vred}{rgb}{0.85,0,0}
+\definecolor{epur}{cmyk}{0.45,0.86,0,0}
+\definecolor{poraBase}{cmyk}{0,0.42,1,0}
+\colorlet{pora}{poraBase!90!black}
+\definecolor{setgray}{RGB}{225,225,225}
+\newcommand{\vC}[1]{{\color{vred}#1}}
+\newcommand{\eC}[1]{{\color{epur}#1}}
+\newcommand{\pC}[1]{{\color{pora}#1}}
+\newcommand{\sq}[9]{\left(\begin{smallmatrix}
+\vC{#1} & \eC{#2} & \vC{#3}\\[1pt]
+\eC{#4} & #5 & \eC{#6}\\[1pt]
+\vC{#7} & \eC{#8} & \vC{#9}
+\end{smallmatrix}\right)}
+\newcommand{\mm}[4]{\begin{smallmatrix}#1 & #2\\ #3 & #4\end{smallmatrix}}
+\newcommand{\sqe}[5]{\sq{\cdot}{#1}{\cdot}{#2}{#3}{#4}{\cdot}{#5}{\cdot}}
+\newcommand{\Sg}{\mathsf{S}}
+\newcommand{\CZbar}{\overline{CZ}}
+
+\setcounter{tocdepth}{1}

@@ -1,0 +1,456 @@
+{
+  "scope": "saved matched-run fidelity analysis; no simulation campaign",
+  "matched_common_settings": true,
+  "common_settings": {
+    "target": "encoded_two_logical_qubit_CZ_magic",
+    "profile": "recovery",
+    "source_extraction": "decoded_flags",
+    "history_policy": "triple",
+    "limits": {
+      "max_terms": 4096,
+      "max_factors": 4096,
+      "max_operations": 200000
+    },
+    "seed": 1000,
+    "noise_seed_base": null,
+    "rates": {
+      "two_qubit_infidelity": "1/1000",
+      "one_qubit_infidelity": "0",
+      "t_infidelity": "0",
+      "idle_infidelity": "0",
+      "preparation_flip_probability": "0",
+      "readout_flip_probability": "1/1000"
+    }
+  },
+  "shared_runtime_hashes_match": true,
+  "confidence_scope": "per-arm exact binomial target-mismatch bounds at saved diagnostic tolerance",
+  "not_a_between_protocol_significance_test": true,
+  "note": "shared seeds couple trajectories; zero observed failures do not imply perfect population fidelity",
+  "runs": {
+    "cat-cats": {
+      "verification": {
+        "verified": true,
+        "histories_checked": 331,
+        "completed": 200,
+        "accepted_outputs_recomputed": 80,
+        "source_tree_matches_saved_run": true,
+        "saved_source_snapshot_verified": true,
+        "scope": "saved report/control certificates, noise accounting, complex output diagnostics; not gate replay",
+        "two_fault_prediction_violation_shots": []
+      },
+      "manifest": "/Users/kevinhemery/quanti/top-order-lit-rev/output/cz-matched-20261105-172605/cat-cats/manifest.json",
+      "route": "direct_cat",
+      "checks": "cats",
+      "attempts": 200,
+      "accepted": 80,
+      "unresolved": 0,
+      "assessed": 80,
+      "missing_accepted_diagnostics": 0,
+      "acceptance": 0.4,
+      "acceptance_interval": {
+        "Clopper_Pearson_two_sided_95": [
+          0.3315462637356731,
+          0.47146432720295506
+        ],
+        "exact_one_sided_95_upper": 0.4603162046302287
+      },
+      "mean_decoded_fidelity": 0.9875,
+      "mean_decoded_infidelity": 0.012499999999999956,
+      "mean_raw_fidelity": 0.95,
+      "target_mismatches": 1,
+      "target_mismatch_intervals": {
+        "Clopper_Pearson_two_sided_95": [
+          0.00031642252763270577,
+          0.06768778446392237
+        ],
+        "exact_one_sided_95_upper": 0.05792868211778168
+      },
+      "fidelity_histogram": {
+        "1.0": 79,
+        "0.0": 1
+      },
+      "correctable_physical_residual_only": 3,
+      "CX_per_accepted": 15680.3375,
+      "T_TDG_per_accepted": 214.5,
+      "cost_is_matched_fidelity": false,
+      "rejection_groups": {
+        "unstable_history": 93,
+        "data_ambiguity": 1,
+        "insufficient_positive_rounds": 19,
+        "data_absent": 2,
+        "source_retry_limit": 5
+      },
+      "accepted_fault_count_histogram": {
+        "12": 4,
+        "6": 10,
+        "8": 6,
+        "7": 8,
+        "13": 1,
+        "27": 1,
+        "23": 1,
+        "10": 6,
+        "5": 5,
+        "16": 1,
+        "9": 6,
+        "4": 5,
+        "14": 5,
+        "3": 6,
+        "11": 3,
+        "0": 5,
+        "15": 2,
+        "17": 1,
+        "1": 3,
+        "2": 1
+      },
+      "accepted_mismatches": [
+        {
+          "shot": 27,
+          "seed": 1027,
+          "faults": 5,
+          "fidelity": 0.0,
+          "logical_density_real": [
+            [
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ],
+          "logical_density_imag": [
+            [
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ]
+          ],
+          "details": "/Users/kevinhemery/quanti/top-order-lit-rev/output/cz-matched-20261105-172605/cat-cats/attempts/000027",
+          "sampled_faults": [
+            {
+              "id": 0,
+              "event": 1707,
+              "context": "terminal/0/Z/6",
+              "channel": "two_qubit",
+              "targets": [
+                "L6",
+                "L7"
+              ],
+              "axes": [
+                "Z",
+                "Y"
+              ],
+              "flip_report": false
+            },
+            {
+              "id": 1,
+              "event": 2940,
+              "context": "terminal/0/U",
+              "channel": "readout",
+              "targets": [
+                "L13"
+              ],
+              "axes": [],
+              "flip_report": true
+            },
+            {
+              "id": 2,
+              "event": 4525,
+              "context": "terminal/1/U",
+              "channel": "readout",
+              "targets": [
+                "L3"
+              ],
+              "axes": [],
+              "flip_report": true
+            },
+            {
+              "id": 3,
+              "event": 4806,
+              "context": "terminal/2/Z/4",
+              "channel": "two_qubit",
+              "targets": [
+                "L2",
+                "D18"
+              ],
+              "axes": [
+                "Z",
+                "Y"
+              ],
+              "flip_report": false
+            },
+            {
+              "id": 4,
+              "event": 8562,
+              "context": "terminal/2/U",
+              "channel": "two_qubit",
+              "targets": [
+                "L7",
+                "w"
+              ],
+              "axes": [
+                "Z",
+                "Z"
+              ],
+              "flip_report": false
+            }
+          ],
+          "CZ_leaf_records": [
+            {
+              "check": "terminal/0/U",
+              "actual_leaf_parity": 1,
+              "reported_leaf_parity": 0
+            },
+            {
+              "check": "terminal/1/U",
+              "actual_leaf_parity": 1,
+              "reported_leaf_parity": 0
+            },
+            {
+              "check": "terminal/2/U",
+              "actual_leaf_parity": 0,
+              "reported_leaf_parity": 0
+            }
+          ]
+        }
+      ]
+    },
+    "cat-flags": {
+      "verification": {
+        "verified": true,
+        "histories_checked": 210,
+        "completed": 200,
+        "accepted_outputs_recomputed": 45,
+        "source_tree_matches_saved_run": true,
+        "saved_source_snapshot_verified": true,
+        "scope": "saved report/control certificates, noise accounting, complex output diagnostics; not gate replay",
+        "two_fault_prediction_violation_shots": []
+      },
+      "manifest": "/Users/kevinhemery/quanti/top-order-lit-rev/output/cz-matched-20261105-172605/cat-flags/manifest.json",
+      "route": "direct_cat",
+      "checks": "flags",
+      "attempts": 200,
+      "accepted": 45,
+      "unresolved": 0,
+      "assessed": 45,
+      "missing_accepted_diagnostics": 0,
+      "acceptance": 0.225,
+      "acceptance_interval": {
+        "Clopper_Pearson_two_sided_95": [
+          0.16910254712985662,
+          0.2892396059687655
+        ],
+        "exact_one_sided_95_upper": 0.2789805321062344
+      },
+      "mean_decoded_fidelity": 1.0,
+      "mean_decoded_infidelity": 0.0,
+      "mean_raw_fidelity": 1.0,
+      "target_mismatches": 0,
+      "target_mismatch_intervals": {
+        "Clopper_Pearson_two_sided_95": [
+          0.0,
+          0.07870510040684303
+        ],
+        "exact_one_sided_95_upper": 0.06440428880778351
+      },
+      "fidelity_histogram": {
+        "1.0": 45
+      },
+      "correctable_physical_residual_only": 0,
+      "CX_per_accepted": 7561.688888888889,
+      "T_TDG_per_accepted": 282.6666666666667,
+      "cost_is_matched_fidelity": false,
+      "rejection_groups": {
+        "source_retry_limit": 5,
+        "post_source_flag": 130,
+        "insufficient_positive_rounds": 20
+      },
+      "accepted_fault_count_histogram": {
+        "6": 2,
+        "0": 15,
+        "2": 9,
+        "4": 4,
+        "3": 6,
+        "1": 8,
+        "5": 1
+      },
+      "accepted_mismatches": []
+    },
+    "gauging-cats": {
+      "verification": {
+        "verified": true,
+        "histories_checked": 434,
+        "completed": 200,
+        "accepted_outputs_recomputed": 52,
+        "source_tree_matches_saved_run": true,
+        "saved_source_snapshot_verified": true,
+        "scope": "saved report/control certificates, noise accounting, complex output diagnostics; not gate replay",
+        "two_fault_prediction_violation_shots": []
+      },
+      "manifest": "/Users/kevinhemery/quanti/top-order-lit-rev/output/cz-matched-20261105-172605/gauging-cats/manifest.json",
+      "route": "gauging",
+      "checks": "cats",
+      "attempts": 200,
+      "accepted": 52,
+      "unresolved": 0,
+      "assessed": 52,
+      "missing_accepted_diagnostics": 0,
+      "acceptance": 0.26,
+      "acceptance_interval": {
+        "Clopper_Pearson_two_sided_95": [
+          0.20068485487637133,
+          0.32657775365714103
+        ],
+        "exact_one_sided_95_upper": 0.3159994777590802
+      },
+      "mean_decoded_fidelity": 1.0,
+      "mean_decoded_infidelity": 0.0,
+      "mean_raw_fidelity": 1.0,
+      "target_mismatches": 0,
+      "target_mismatch_intervals": {
+        "Clopper_Pearson_two_sided_95": [
+          0.0,
+          0.06848220870331959
+        ],
+        "exact_one_sided_95_upper": 0.055982180126235556
+      },
+      "fidelity_histogram": {
+        "1.0": 52
+      },
+      "correctable_physical_residual_only": 0,
+      "CX_per_accepted": 30395.55769230769,
+      "T_TDG_per_accepted": 807.8461538461538,
+      "cost_is_matched_fidelity": false,
+      "rejection_groups": {
+        "unstable_history": 111,
+        "data_ambiguity": 5,
+        "insufficient_positive_rounds": 21,
+        "data_absent": 5,
+        "graph_retry_limit": 1,
+        "source_retry_limit": 5
+      },
+      "accepted_fault_count_histogram": {
+        "10": 7,
+        "15": 2,
+        "22": 1,
+        "13": 3,
+        "24": 2,
+        "9": 4,
+        "16": 2,
+        "14": 5,
+        "20": 5,
+        "26": 1,
+        "8": 5,
+        "19": 1,
+        "12": 2,
+        "6": 3,
+        "7": 1,
+        "1": 1,
+        "11": 1,
+        "18": 1,
+        "5": 2,
+        "21": 1,
+        "3": 1,
+        "17": 1
+      },
+      "accepted_mismatches": []
+    },
+    "gauging-flags": {
+      "verification": {
+        "verified": true,
+        "histories_checked": 227,
+        "completed": 200,
+        "accepted_outputs_recomputed": 13,
+        "source_tree_matches_saved_run": true,
+        "saved_source_snapshot_verified": true,
+        "scope": "saved report/control certificates, noise accounting, complex output diagnostics; not gate replay",
+        "two_fault_prediction_violation_shots": []
+      },
+      "manifest": "/Users/kevinhemery/quanti/top-order-lit-rev/output/cz-matched-20261105-172605/gauging-flags/manifest.json",
+      "route": "gauging",
+      "checks": "flags",
+      "attempts": 200,
+      "accepted": 13,
+      "unresolved": 0,
+      "assessed": 13,
+      "missing_accepted_diagnostics": 0,
+      "acceptance": 0.065,
+      "acceptance_interval": {
+        "Clopper_Pearson_two_sided_95": [
+          0.035060708656991124,
+          0.10858723650381613
+        ],
+        "exact_one_sided_95_upper": 0.10135703959723857
+      },
+      "mean_decoded_fidelity": 1.0,
+      "mean_decoded_infidelity": 0.0,
+      "mean_raw_fidelity": 1.0,
+      "target_mismatches": 0,
+      "target_mismatch_intervals": {
+        "Clopper_Pearson_two_sided_95": [
+          0.0,
+          0.247052638000471
+        ],
+        "exact_one_sided_95_upper": 0.20581666518655067
+      },
+      "fidelity_histogram": {
+        "1.0": 13
+      },
+      "correctable_physical_residual_only": 0,
+      "CX_per_accepted": 29370.46153846154,
+      "T_TDG_per_accepted": 2338.4615384615386,
+      "cost_is_matched_fidelity": false,
+      "rejection_groups": {
+        "post_source_flag": 169,
+        "data_ambiguity": 1,
+        "insufficient_positive_rounds": 11,
+        "graph_retry_limit": 1,
+        "source_retry_limit": 5
+      },
+      "accepted_fault_count_histogram": {
+        "6": 1,
+        "1": 3,
+        "3": 3,
+        "0": 4,
+        "7": 1,
+        "2": 1
+      },
+      "accepted_mismatches": []
+    }
+  }
+}

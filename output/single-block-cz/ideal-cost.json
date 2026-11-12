@@ -1,0 +1,88 @@
+{
+  "scope": "Exact zero-noise repeat-until-success accounting, not noisy matched-fidelity data",
+  "ideal_probability": "3/4",
+  "formula": "C_positive_mean + C_negative/3",
+  "routes": {
+    "gauging": {
+      "negative_attempt_including_disposal": {
+        "gates": {
+          "IDLE": 198435,
+          "PREP": 1693,
+          "H": 981,
+          "CX": 3366,
+          "MZ": 1693,
+          "TDG": 20,
+          "T": 20
+        },
+        "stages": {
+          "negative_prefix_and_disposal": {
+            "IDLE": 198435,
+            "PREP": 1693,
+            "H": 981,
+            "CX": 3366,
+            "MZ": 1693,
+            "TDG": 20,
+            "T": 20
+          }
+        },
+        "peak_live": 39,
+        "allocated_physical_slots": 39,
+        "reinitializations_after_first_use": 1654,
+        "T_or_TDG": 40,
+        "one_qubit_Clifford": 981,
+        "atomic_multiqubit_gates": 0
+      },
+      "expected_per_ideal_accepted_output": {
+        "CX": "9846",
+        "H": "3021",
+        "IDLE": "680575",
+        "MZ": "14830/3",
+        "PREP": "14890/3",
+        "S_or_SDG": "8",
+        "T": "404/3",
+        "TDG": "404/3",
+        "X": "8",
+        "Z": "2"
+      }
+    },
+    "direct_cat": {
+      "negative_attempt_including_disposal": {
+        "gates": {
+          "IDLE": 242186,
+          "PREP": 2075,
+          "H": 1218,
+          "CX": 4062,
+          "MZ": 2075,
+          "TDG": 20,
+          "T": 20
+        },
+        "stages": {
+          "negative_prefix_and_disposal": {
+            "IDLE": 242186,
+            "PREP": 2075,
+            "H": 1218,
+            "CX": 4062,
+            "MZ": 2075,
+            "TDG": 20,
+            "T": 20
+          }
+        },
+        "peak_live": 41,
+        "allocated_physical_slots": 41,
+        "reinitializations_after_first_use": 2034,
+        "T_or_TDG": 40,
+        "one_qubit_Clifford": 1218,
+        "atomic_multiqubit_gates": 0
+      },
+      "expected_per_ideal_accepted_output": {
+        "CX": "7134",
+        "H": "2118",
+        "IDLE": "1302212/3",
+        "MZ": "10874/3",
+        "PREP": "10934/3",
+        "T": "200/3",
+        "TDG": "200/3"
+      }
+    }
+  }
+}

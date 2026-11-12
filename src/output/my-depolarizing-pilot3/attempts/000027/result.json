@@ -1,0 +1,267 @@
+{
+  "schema_version": 2,
+  "procedure": "reduced_rejection",
+  "noise_model": "pauli_depolarizing",
+  "seed": 27,
+  "graph": "current20",
+  "source_preparation": "encoded",
+  "extraction": "optimized",
+  "accepted": false,
+  "rejection_code": "source_retry_limit",
+  "rejection_reason": "Three local source builds flagged",
+  "sources": {
+    "B": {
+      "attempts": [
+        {
+          "attempt_index": 0,
+          "records": [],
+          "outcome": "flag_retry",
+          "flag": {
+            "location": "source/B/round/0/logical/1",
+            "flags": [
+              1,
+              0
+            ],
+            "syndrome": 0
+          }
+        },
+        {
+          "attempt_index": 1,
+          "records": [],
+          "outcome": "flag_retry",
+          "flag": {
+            "location": "source/B/retry/1/round/0/X/7",
+            "flags": [
+              0,
+              1,
+              0
+            ],
+            "syndrome": 1
+          }
+        },
+        {
+          "attempt_index": 2,
+          "records": [],
+          "outcome": "flag_retry",
+          "flag": {
+            "location": "source/B/retry/2/round/0/X/5",
+            "flags": [
+              1,
+              0,
+              0
+            ],
+            "syndrome": 1
+          }
+        }
+      ]
+    }
+  },
+  "cycles": [],
+  "b_z": null,
+  "b_decoding": null,
+  "noise_seed": 8418931464156378460,
+  "rejection_details": {
+    "location": "source/B/retry/2/round/0/X/5",
+    "flags": [
+      1,
+      0,
+      0
+    ],
+    "syndrome": 1
+  },
+  "metrics": {
+    "elapsed_seconds": 0.08957158296834677,
+    "process_peak_rss_bytes": 151699456,
+    "physical_events": 784,
+    "implicit_single_qubit_idles": 29839,
+    "idle_locations_by_register": {
+      "B": 14109,
+      "C": 15070,
+      "L": 660
+    },
+    "idle_locations_by_operation": {
+      "PREP": 4998,
+      "H": 3813,
+      "CX": 14194,
+      "MZ": 4218,
+      "CZ": 2616
+    },
+    "check_gadgets_completed": 34,
+    "cat_scans_completed": 0,
+    "cats_prepared": 34,
+    "flagged_source_checks": 34,
+    "flag_bits_measured": 40,
+    "grouped_protected_checks": 0,
+    "peak_live_qubits": 44,
+    "peak_coherent_terms": 2,
+    "interned_sparse_factors": 349,
+    "fallback_overlaps": 0,
+    "gate_counts": {
+      "PREP": 154,
+      "H": 95,
+      "CX": 357,
+      "MZ": 114,
+      "CZ": 64
+    },
+    "gauging_cycles_started": 0
+  },
+  "global_i_power": 2,
+  "noise": {
+    "sampled_events": 8,
+    "channel_opportunities": {
+      "idle": 29839,
+      "preparation": 154,
+      "gate_1q": 95,
+      "gate_2q": 421,
+      "readout": 114
+    },
+    "event_counts_by_channel": {
+      "gate_2q_depolarizing": 8
+    },
+    "pauli_factor_counts": {
+      "Z": 2,
+      "X": 3,
+      "Y": 6
+    },
+    "sum_of_executed_channel_probabilities": "421/160",
+    "events": [
+      {
+        "id": 0,
+        "physical_event_index": 52,
+        "location": "source/B/encode/CX/3",
+        "timing": "after",
+        "channel": "gate_2q_depolarizing",
+        "operation": "CX",
+        "targets": [
+          "B_0",
+          "B_14"
+        ],
+        "paulis": {
+          "B_14": "Z"
+        },
+        "flip_report": false
+      },
+      {
+        "id": 1,
+        "physical_event_index": 127,
+        "location": "source/B/round/0/X/3/couple/1",
+        "timing": "after",
+        "channel": "gate_2q_depolarizing",
+        "operation": "CX",
+        "targets": [
+          "L_0",
+          "B_13"
+        ],
+        "paulis": {
+          "L_0": "X",
+          "B_13": "X"
+        },
+        "flip_report": false
+      },
+      {
+        "id": 2,
+        "physical_event_index": 397,
+        "location": "source/B/round/0/logical/1/couple/2",
+        "timing": "after",
+        "channel": "gate_2q_depolarizing",
+        "operation": "CZ",
+        "targets": [
+          "L_1",
+          "B_8"
+        ],
+        "paulis": {
+          "L_1": "Y",
+          "B_8": "Z"
+        },
+        "flip_report": false
+      },
+      {
+        "id": 3,
+        "physical_event_index": 467,
+        "location": "source/B/retry/1/encode/CX/10",
+        "timing": "after",
+        "channel": "gate_2q_depolarizing",
+        "operation": "CX",
+        "targets": [
+          "B_1",
+          "B_13"
+        ],
+        "paulis": {
+          "B_1": "Y"
+        },
+        "flip_report": false
+      },
+      {
+        "id": 4,
+        "physical_event_index": 497,
+        "location": "source/B/retry/1/encode/CX/40",
+        "timing": "after",
+        "channel": "gate_2q_depolarizing",
+        "operation": "CX",
+        "targets": [
+          "B_6",
+          "B_18"
+        ],
+        "paulis": {
+          "B_18": "Y"
+        },
+        "flip_report": false
+      },
+      {
+        "id": 5,
+        "physical_event_index": 610,
+        "location": "source/B/retry/1/round/0/X/7/couple/5",
+        "timing": "after",
+        "channel": "gate_2q_depolarizing",
+        "operation": "CX",
+        "targets": [
+          "L_2",
+          "B_13"
+        ],
+        "paulis": {
+          "L_2": "Y",
+          "B_13": "X"
+        },
+        "flip_report": false
+      },
+      {
+        "id": 6,
+        "physical_event_index": 611,
+        "location": "source/B/retry/1/round/0/X/7/couple/7",
+        "timing": "after",
+        "channel": "gate_2q_depolarizing",
+        "operation": "CX",
+        "targets": [
+          "L_3",
+          "B_19"
+        ],
+        "paulis": {
+          "B_19": "Y"
+        },
+        "flip_report": false
+      },
+      {
+        "id": 7,
+        "physical_event_index": 773,
+        "location": "source/B/retry/2/round/0/X/5/couple/3",
+        "timing": "after",
+        "channel": "gate_2q_depolarizing",
+        "operation": "CX",
+        "targets": [
+          "L_1",
+          "B_7"
+        ],
+        "paulis": {
+          "L_1": "Y"
+        },
+        "flip_report": false
+      }
+    ]
+  },
+  "shot_index": 27,
+  "c_state_reference": null,
+  "execution_status": "completed",
+  "diagnostic_status": "not_applicable",
+  "worker_elapsed_seconds": 0.09049037500517443,
+  "worker_peak_rss_bytes": 151764992
+}

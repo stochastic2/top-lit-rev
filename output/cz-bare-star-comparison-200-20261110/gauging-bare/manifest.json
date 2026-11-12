@@ -1,0 +1,184 @@
+{
+  "schema_version": 1,
+  "target": "encoded_two_logical_qubit_CZ_magic",
+  "edge_readout_basis": "Z",
+  "graph_verification": "three_zero_Z_edge_scans",
+  "graph_allocated": true,
+  "entrypoint": "simulate_single_block_cz_depolarizing.py",
+  "direct_cz_extraction": "auto",
+  "noise": {
+    "name": "independent_Pauli_depolarizing",
+    "gate_rate_convention": "average_gate_infidelity",
+    "rates": {
+      "two_qubit_infidelity": "1/1000",
+      "one_qubit_infidelity": "0",
+      "t_infidelity": "0",
+      "idle_infidelity": "0",
+      "preparation_flip_probability": "0",
+      "readout_flip_probability": "1/1000"
+    },
+    "nonidentity_probabilities": {
+      "CX": "1/800",
+      "Clifford_1q": "0",
+      "T_TDG": "0",
+      "idle": "0"
+    },
+    "controlled_W": "T^s,CX,T^-s; individual physical locations",
+    "quantum_timing": "gate noise after ideal gate; idle noise before operation",
+    "readout": "independent classical report flip after actual quantum measurement",
+    "preparation": "X after |0> preparation",
+    "fault_count_cap": null,
+    "idles": "one per live nonparticipant per serial operation, and every live qubit at boundary",
+    "duration_calibrated": false,
+    "atomic_multiqubit_gates": []
+  },
+  "graph": {
+    "name": "compact13",
+    "edges": [
+      [
+        0,
+        1
+      ],
+      [
+        0,
+        2
+      ],
+      [
+        0,
+        3
+      ],
+      [
+        0,
+        4
+      ],
+      [
+        1,
+        2
+      ],
+      [
+        1,
+        3
+      ],
+      [
+        1,
+        4
+      ],
+      [
+        2,
+        3
+      ],
+      [
+        2,
+        4
+      ],
+      [
+        3,
+        4
+      ],
+      [
+        0,
+        1
+      ],
+      [
+        2,
+        3
+      ],
+      [
+        0,
+        4
+      ]
+    ],
+    "cycles": [
+      [
+        0,
+        1,
+        4
+      ],
+      [
+        0,
+        2,
+        5
+      ],
+      [
+        0,
+        3,
+        6
+      ],
+      [
+        1,
+        2,
+        7
+      ],
+      [
+        1,
+        3,
+        8
+      ],
+      [
+        2,
+        3,
+        9
+      ],
+      [
+        0,
+        10
+      ],
+      [
+        1,
+        2,
+        11
+      ],
+      [
+        3,
+        12
+      ]
+    ],
+    "tree": [
+      0,
+      1,
+      2,
+      3
+    ]
+  },
+  "cut_distance": 5,
+  "edge_decode_radius": 2,
+  "profile": "recovery",
+  "history_policy": "triple",
+  "route": "gauging",
+  "verification_extraction": "flags",
+  "flag_recovery": "data",
+  "max_flag_recoveries": 8,
+  "graph_stars": "bare",
+  "cycle_policy": "terminal_chord_flattening",
+  "flag_recovery_scope": "Pauli data stabilizers only; strict one-remaining-fault fallback",
+  "terminal_policy": "certified_commuting_recovery",
+  "source_extraction": "decoded_flags",
+  "shots_requested": 200,
+  "seed": 1000,
+  "noise_seed_base": null,
+  "noise_seed_rule": "noise_seed_base+k or SHA256(single-block-CZ-noise:born_seed)[:8] big-endian",
+  "source_sha256": {
+    "simulate_single_block_cz_depolarizing.py": "4df4d568b94136dff993bc1ffb9fa00d5dab16d18047d3753e62220e38faf7e8",
+    "single_cz_state.py": "f0f373a06c2ad7a45d9f5f5148f7835d411df9214699eeb3b688232821945359",
+    "single_cz_runtime.py": "67520ea3af69e518f4eeddc1d2b2d238a4a7ad31f5e403f3ff27a6646971bd1c",
+    "single_cz_controller.py": "db9a7979e7786e0eb1293060efa7d55a8a3ca53e68264283fb2221dea1576171",
+    "single_cz_flagged.py": "e0996922ad3ffc679fe7d879e3627406953811a5bbf1ad1618a7e46c0126a99c",
+    "single_cz_graph_stars.py": "e20a57533b9ed896cfd3d0f5e4b42a3bed854471eaf831f4344f970a6cfd4093",
+    "single_cz_recovery.py": "779b678abf09a3daaddac1b4889f03010e92aeed3fa5553cb9175daada356a6b",
+    "single_cz_flag_recovery.py": "83c5450bd82ca5e394a082061aee7e49f52b2603f9ccb4764405de25185b6811",
+    "single_cz_diagnostics.py": "bdb635c4e508e814f1007bab019e8281d5a6ceefaa647be0dd1f4318febeaccd",
+    "run_single_block_cz_controller.py": "093bad3ec45350064da64245f1d701b490b99df7753c98b130fadad012bea1bf",
+    "c4_helix_single_block_cz.py": "08c73e06ce89c8f75812882f9a23da96ca1a817498015f3bd3cbc0945f50d166"
+  },
+  "backend": "exact cyclotomic coherent sums of sparse phase-flat unitary data factors",
+  "diagnostics": "complex128 output and perfect syndrome recovery; never used by controller",
+  "limits": {
+    "max_terms": 4096,
+    "max_factors": 4096,
+    "max_operations": 200000
+  },
+  "attempt_timeout_seconds": 60.0,
+  "trace": false,
+  "python_version": "3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]",
+  "numpy_version": "2.4.6"
+}

@@ -1,0 +1,91 @@
+attempt 0: accepted; 0.92s
+attempt 1: accepted; 0.40s
+attempt 2: verification_flag:flag_recovery/1/0/X/4; 0.70s
+attempt 3: accepted; 0.81s
+attempt 4: verification_flag:flag_recovery/0/1/Z/7; 0.25s
+attempt 5: accepted; 0.55s
+attempt 6: accepted; 0.44s
+attempt 7: shared_retry_limit:known_unused_source:source/certify/3/X/7; 0.34s
+attempt 8: shared_retry_limit:known_unused_source:source/certify/1/X/10; 0.23s
+attempt 9: accepted; 1.20s
+attempt 10: accepted; 0.31s
+attempt 11: accepted; 0.28s
+attempt 12: accepted; 0.46s
+attempt 13: insufficient_terminal_rounds; 0.73s
+attempt 14: flag_data_absent; 0.53s
+attempt 15: accepted; 0.57s
+attempt 16: accepted; 0.50s
+attempt 17: accepted; 0.53s
+attempt 18: shared_retry_limit:known_unused_source:source/certify/0/X/9; 0.37s
+attempt 19: accepted; 0.40s
+{
+  "attempts": 20,
+  "completed": 20,
+  "unresolved": 0,
+  "accepted": 13,
+  "rejected": 7,
+  "acceptance_among_completed": 0.65,
+  "acceptance_Wilson95": [
+    0.43285427668523624,
+    0.818808175898918
+  ],
+  "acceptance_bounds_all_attempts": [
+    0.65,
+    0.65
+  ],
+  "rejection_counts": {
+    "verification_flag:flag_recovery/1/0/X/4": 1,
+    "verification_flag:flag_recovery/0/1/Z/7": 1,
+    "shared_retry_limit:known_unused_source:source/certify/3/X/7": 1,
+    "shared_retry_limit:known_unused_source:source/certify/1/X/10": 1,
+    "insufficient_terminal_rounds": 1,
+    "flag_data_absent": 1,
+    "shared_retry_limit:known_unused_source:source/certify/0/X/9": 1
+  },
+  "failure_counts": {},
+  "accepted_assessed": 13,
+  "accepted_diagnostics_missing": 0,
+  "mean_decoded_fidelity": 1.0,
+  "mean_is_assessed_accepted_subset_only": true,
+  "decoded_fidelity_bounds_all_known_accepted": [
+    1.0,
+    1.0
+  ],
+  "minimum_decoded_fidelity": 1.0,
+  "accepted_within_target_tolerance": 13,
+  "flag_recovery_episodes": 21,
+  "successful_flag_recoveries": 18,
+  "accepted_after_flag_recovery": 7,
+  "accepted_terminal_screen_outcomes": {},
+  "total_executed_gates_completed": {
+    "IDLE": 2573776,
+    "PREP": 15980,
+    "H": 27724,
+    "CX": 49244,
+    "BOUNDARY": 101,
+    "MZ": 15720,
+    "X": 20,
+    "Z": 13,
+    "TDG": 1020,
+    "T": 1020,
+    "Y": 3
+  },
+  "cost_per_accepted_completed": {
+    "IDLE": 197982.76923076922,
+    "PREP": 1229.2307692307693,
+    "H": 2132.6153846153848,
+    "CX": 3788.0,
+    "BOUNDARY": 7.769230769230769,
+    "MZ": 1209.2307692307693,
+    "X": 1.5384615384615385,
+    "Z": 1.0,
+    "TDG": 78.46153846153847,
+    "T": 78.46153846153847,
+    "Y": 0.23076923076923078
+  },
+  "cost_is_matched_fidelity": false,
+  "unresolved_can_bias_completed_subset": false,
+  "two_fault_prediction_violation_shots": [],
+  "ideal_success_probability": 0.75,
+  "target": "encoded_two_logical_qubit_CZ_magic"
+}

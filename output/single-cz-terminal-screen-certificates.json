@@ -1,0 +1,164 @@
+{
+  "verified": true,
+  "global_fault_budget": 2,
+  "scope": "all terminal-screen location signatures/pairs plus arbitrary upstream one/two-block Pauli envelopes",
+  "full_factory_location_pairs_enumerated": false,
+  "T_gates_Pauli_propagated": false,
+  "screen_order": [
+    [
+      "Z",
+      5
+    ],
+    [
+      "Z",
+      6
+    ],
+    [
+      "Z",
+      7
+    ],
+    [
+      "Z",
+      8
+    ],
+    [
+      "X",
+      5
+    ],
+    [
+      "X",
+      6
+    ],
+    [
+      "X",
+      7
+    ],
+    [
+      "X",
+      8
+    ],
+    [
+      "Z",
+      0
+    ],
+    [
+      "Z",
+      1
+    ],
+    [
+      "Z",
+      2
+    ],
+    [
+      "Z",
+      3
+    ],
+    [
+      "Z",
+      4
+    ],
+    [
+      "X",
+      0
+    ],
+    [
+      "X",
+      1
+    ],
+    [
+      "X",
+      2
+    ],
+    [
+      "X",
+      3
+    ],
+    [
+      "X",
+      4
+    ]
+  ],
+  "CX": 268,
+  "physical_measurements": 100,
+  "locations_including_idles_and_boundary": 13675,
+  "one_location_signatures": 1431,
+  "accepted_upstream_plus_screen_cases": 2364,
+  "accepted_two_screen_signature_pairs": 14425,
+  "raw_two_upstream_block_cases": 655360,
+  "accepted_two_upstream_cases": 160,
+  "accepted_decisions_sha256": "52fd3ad0a30a3cda43421fa371746fc16bed07537b2ca6c79417c645ec223839",
+  "outer_local_kernels": [
+    {
+      "block": 0,
+      "outer_rows": [
+        9,
+        0,
+        6,
+        12
+      ],
+      "kernel": [
+        0,
+        15
+      ]
+    },
+    {
+      "block": 1,
+      "outer_rows": [
+        12,
+        9,
+        0,
+        6
+      ],
+      "kernel": [
+        0,
+        15
+      ]
+    },
+    {
+      "block": 2,
+      "outer_rows": [
+        12,
+        3,
+        9,
+        0
+      ],
+      "kernel": [
+        0,
+        15
+      ]
+    },
+    {
+      "block": 3,
+      "outer_rows": [
+        9,
+        12,
+        3,
+        6
+      ],
+      "kernel": [
+        0,
+        15
+      ]
+    },
+    {
+      "block": 4,
+      "outer_rows": [
+        0,
+        9,
+        12,
+        3
+      ],
+      "kernel": [
+        0,
+        15
+      ]
+    }
+  ],
+  "correctability_test": "explicit weight<=2 Pauli representatives and independent stabilizer-span membership",
+  "source_sha256": {
+    "single_cz_terminal_screen.py": "2f660221fbba925bce636859322976e39a067f1aa6b02d9fb75bc064c0911fca",
+    "single_cz_flagged.py": "e0996922ad3ffc679fe7d879e3627406953811a5bbf1ad1618a7e46c0126a99c",
+    "check_single_cz_terminal_screen.py": "98ba8e8728286f6add4e054b76c52a19d0eb2cebc88cc7ba191b8765ddb89e12",
+    "check_optimized_extraction.py": "ef874506eeba9bf388afee13a5bd0ebe6ccfc6db720cc3279f2a295393b475e4"
+  }
+}

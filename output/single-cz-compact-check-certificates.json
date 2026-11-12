@@ -1,0 +1,804 @@
+{
+  "verified": true,
+  "global_fault_budget": 2,
+  "local_gadgets": [
+    {
+      "axis": "X",
+      "ports": 4,
+      "gates": {
+        "PREP": 2,
+        "H": 2,
+        "CX": 6,
+        "MZ": 2
+      },
+      "reported_flags": 1,
+      "peak_helpers": 2,
+      "locations_including_idles": 60,
+      "one_location_signatures": 25,
+      "accepted_signature_pairs": 353,
+      "single_zero_flag_support_bound": 1,
+      "two_zero_flag_support_bound": 2,
+      "modulo": "measured code stabilizer",
+      "same_location_pairs_overincluded": true
+    },
+    {
+      "axis": "X",
+      "ports": 8,
+      "gates": {
+        "PREP": 5,
+        "H": 2,
+        "CX": 16,
+        "MZ": 5
+      },
+      "reported_flags": 4,
+      "peak_helpers": 5,
+      "locations_including_idles": 292,
+      "one_location_signatures": 60,
+      "accepted_signature_pairs": 964,
+      "single_zero_flag_support_bound": 1,
+      "two_zero_flag_support_bound": 2,
+      "modulo": "measured code stabilizer",
+      "same_location_pairs_overincluded": true
+    },
+    {
+      "axis": "Z",
+      "ports": 4,
+      "gates": {
+        "PREP": 2,
+        "CX": 6,
+        "H": 2,
+        "MZ": 2
+      },
+      "reported_flags": 1,
+      "peak_helpers": 2,
+      "locations_including_idles": 62,
+      "one_location_signatures": 25,
+      "accepted_signature_pairs": 353,
+      "single_zero_flag_support_bound": 1,
+      "two_zero_flag_support_bound": 2,
+      "modulo": "measured code stabilizer",
+      "same_location_pairs_overincluded": true
+    },
+    {
+      "axis": "Z",
+      "ports": 8,
+      "gates": {
+        "PREP": 5,
+        "CX": 16,
+        "H": 8,
+        "MZ": 5
+      },
+      "reported_flags": 4,
+      "peak_helpers": 5,
+      "locations_including_idles": 366,
+      "one_location_signatures": 60,
+      "accepted_signature_pairs": 964,
+      "single_zero_flag_support_bound": 1,
+      "two_zero_flag_support_bound": 2,
+      "modulo": "measured code stabilizer",
+      "same_location_pairs_overincluded": true
+    }
+  ],
+  "ideal_instrument_spot_checks": [
+    {
+      "axis": "X",
+      "ports": 4,
+      "all_ideal_branches": 4,
+      "maximum_absolute_error": 7.850462293418876e-17,
+      "status": "numerical spot check"
+    },
+    {
+      "axis": "X",
+      "ports": 8,
+      "all_ideal_branches": 32,
+      "maximum_absolute_error": 2.797157557069881e-17,
+      "status": "numerical spot check"
+    },
+    {
+      "axis": "Z",
+      "ports": 4,
+      "all_ideal_branches": 4,
+      "maximum_absolute_error": 7.850462293418876e-17,
+      "status": "numerical spot check"
+    },
+    {
+      "axis": "Z",
+      "ports": 8,
+      "all_ideal_branches": 32,
+      "maximum_absolute_error": 1.1631705747361534e-16,
+      "status": "numerical spot check"
+    }
+  ],
+  "recovery_tables": [
+    {
+      "axis": "X",
+      "support": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "candidate_terms_with_duplicates": 10512,
+      "flag_words": 1,
+      "accepted_syndrome_decisions": 1984,
+      "ambiguous_syndrome_decisions": 48,
+      "all_decisions_sha256": "1a64a9455ea7c017a03878f53db44dd8af46ea5f6570568a682888fb9d03c0de",
+      "accepted_physical_candidate_checks": 10128,
+      "ambiguity_example": null
+    },
+    {
+      "axis": "X",
+      "support": [
+        4,
+        5,
+        6,
+        7
+      ],
+      "candidate_terms_with_duplicates": 10512,
+      "flag_words": 1,
+      "accepted_syndrome_decisions": 1984,
+      "ambiguous_syndrome_decisions": 48,
+      "all_decisions_sha256": "21c0f94e1111e3da18ba7c2c43ddc1e02b4605ecfa3c924ec56cd017eea976f7",
+      "accepted_physical_candidate_checks": 10128,
+      "ambiguity_example": null
+    },
+    {
+      "axis": "X",
+      "support": [
+        8,
+        9,
+        10,
+        11
+      ],
+      "candidate_terms_with_duplicates": 10512,
+      "flag_words": 1,
+      "accepted_syndrome_decisions": 1984,
+      "ambiguous_syndrome_decisions": 48,
+      "all_decisions_sha256": "f64c477483f20186a839bdc243e429569426e196076ec3f554c3d4f8bdd9b8d5",
+      "accepted_physical_candidate_checks": 10128,
+      "ambiguity_example": null
+    },
+    {
+      "axis": "X",
+      "support": [
+        12,
+        13,
+        14,
+        15
+      ],
+      "candidate_terms_with_duplicates": 10512,
+      "flag_words": 1,
+      "accepted_syndrome_decisions": 1984,
+      "ambiguous_syndrome_decisions": 48,
+      "all_decisions_sha256": "700b799f7f0ddc08b89e29694063e2d2fe48a225a3123f8c3618ff155844e19e",
+      "accepted_physical_candidate_checks": 10128,
+      "ambiguity_example": null
+    },
+    {
+      "axis": "X",
+      "support": [
+        16,
+        17,
+        18,
+        19
+      ],
+      "candidate_terms_with_duplicates": 10512,
+      "flag_words": 1,
+      "accepted_syndrome_decisions": 1984,
+      "ambiguous_syndrome_decisions": 48,
+      "all_decisions_sha256": "a02eb2f27c4287770fbfc50a7ef6280432c6c3feb789f780c871822039b32ba3",
+      "accepted_physical_candidate_checks": 10128,
+      "ambiguity_example": null
+    },
+    {
+      "axis": "X",
+      "support": [
+        0,
+        3,
+        6,
+        7,
+        10,
+        11,
+        12,
+        15
+      ],
+      "candidate_terms_with_duplicates": 42316,
+      "flag_words": 15,
+      "accepted_syndrome_decisions": 8638,
+      "ambiguous_syndrome_decisions": 16,
+      "all_decisions_sha256": "aee1e8292023af452b97349ea6afaa1d5a4ef1060daa2ce9162eebb81e48ef97",
+      "accepted_physical_candidate_checks": 42192,
+      "ambiguity_example": null
+    },
+    {
+      "axis": "X",
+      "support": [
+        4,
+        7,
+        8,
+        9,
+        14,
+        15,
+        16,
+        19
+      ],
+      "candidate_terms_with_duplicates": 42316,
+      "flag_words": 15,
+      "accepted_syndrome_decisions": 8638,
+      "ambiguous_syndrome_decisions": 16,
+      "all_decisions_sha256": "f1ee459522acc27c57c5f7f6047c0db7d655d6ce680d8a90871f094d355bcc44",
+      "accepted_physical_candidate_checks": 42192,
+      "ambiguity_example": null
+    },
+    {
+      "axis": "X",
+      "support": [
+        1,
+        2,
+        8,
+        11,
+        12,
+        13,
+        18,
+        19
+      ],
+      "candidate_terms_with_duplicates": 42316,
+      "flag_words": 15,
+      "accepted_syndrome_decisions": 8638,
+      "ambiguous_syndrome_decisions": 16,
+      "all_decisions_sha256": "fa2ff22ea0285fd7b32a0b84791be69c6cb1f30b6912d9c78801c0871c1b9650",
+      "accepted_physical_candidate_checks": 42192,
+      "ambiguity_example": null
+    },
+    {
+      "axis": "X",
+      "support": [
+        2,
+        3,
+        5,
+        6,
+        13,
+        14,
+        16,
+        17
+      ],
+      "candidate_terms_with_duplicates": 42316,
+      "flag_words": 15,
+      "accepted_syndrome_decisions": 8638,
+      "ambiguous_syndrome_decisions": 16,
+      "all_decisions_sha256": "8dcc9a5c0a2483857861203fb8ebba0318f63485dbd581b49c3b2d2a8e274021",
+      "accepted_physical_candidate_checks": 42192,
+      "ambiguity_example": null
+    },
+    {
+      "axis": "Z",
+      "support": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "candidate_terms_with_duplicates": 10512,
+      "flag_words": 1,
+      "accepted_syndrome_decisions": 1984,
+      "ambiguous_syndrome_decisions": 48,
+      "all_decisions_sha256": "49859c7624b28e8ba5bde05bf0bc09abab1ae670947b37ac75b8e3d3e2a0b8d9",
+      "accepted_physical_candidate_checks": 10128,
+      "ambiguity_example": null
+    },
+    {
+      "axis": "Z",
+      "support": [
+        4,
+        5,
+        6,
+        7
+      ],
+      "candidate_terms_with_duplicates": 10512,
+      "flag_words": 1,
+      "accepted_syndrome_decisions": 1984,
+      "ambiguous_syndrome_decisions": 48,
+      "all_decisions_sha256": "e29d8d25c73e5ccc05667de006a068d844660ae63110fe899a2dcb15ed55c418",
+      "accepted_physical_candidate_checks": 10128,
+      "ambiguity_example": null
+    },
+    {
+      "axis": "Z",
+      "support": [
+        8,
+        9,
+        10,
+        11
+      ],
+      "candidate_terms_with_duplicates": 10512,
+      "flag_words": 1,
+      "accepted_syndrome_decisions": 1984,
+      "ambiguous_syndrome_decisions": 48,
+      "all_decisions_sha256": "4ab17f0197adae87a4deb53b365183286dbb2a285606e97f7656b210679f61f7",
+      "accepted_physical_candidate_checks": 10128,
+      "ambiguity_example": null
+    },
+    {
+      "axis": "Z",
+      "support": [
+        12,
+        13,
+        14,
+        15
+      ],
+      "candidate_terms_with_duplicates": 10512,
+      "flag_words": 1,
+      "accepted_syndrome_decisions": 1984,
+      "ambiguous_syndrome_decisions": 48,
+      "all_decisions_sha256": "4d1c0063faa66c864d1a698d50b75083f21310be444261d16d2fe5299de319b2",
+      "accepted_physical_candidate_checks": 10128,
+      "ambiguity_example": null
+    },
+    {
+      "axis": "Z",
+      "support": [
+        16,
+        17,
+        18,
+        19
+      ],
+      "candidate_terms_with_duplicates": 10512,
+      "flag_words": 1,
+      "accepted_syndrome_decisions": 1984,
+      "ambiguous_syndrome_decisions": 48,
+      "all_decisions_sha256": "a0b22ff12ee74e5cf1e5b07055cc9a5229c2ef63c5331257d454576c94434a6e",
+      "accepted_physical_candidate_checks": 10128,
+      "ambiguity_example": null
+    },
+    {
+      "axis": "Z",
+      "support": [
+        0,
+        3,
+        6,
+        7,
+        10,
+        11,
+        12,
+        15
+      ],
+      "candidate_terms_with_duplicates": 42316,
+      "flag_words": 15,
+      "accepted_syndrome_decisions": 8638,
+      "ambiguous_syndrome_decisions": 16,
+      "all_decisions_sha256": "b96cd315537dd32b2b8b0d8c455294600c42838dcca113b9e47fd4bcf390b905",
+      "accepted_physical_candidate_checks": 42192,
+      "ambiguity_example": null
+    },
+    {
+      "axis": "Z",
+      "support": [
+        4,
+        7,
+        8,
+        9,
+        14,
+        15,
+        16,
+        19
+      ],
+      "candidate_terms_with_duplicates": 42316,
+      "flag_words": 15,
+      "accepted_syndrome_decisions": 8638,
+      "ambiguous_syndrome_decisions": 16,
+      "all_decisions_sha256": "1828dcc279cfea0b85cbb36e848506752bfa3e09146429c7216ff79988af77c5",
+      "accepted_physical_candidate_checks": 42192,
+      "ambiguity_example": null
+    },
+    {
+      "axis": "Z",
+      "support": [
+        1,
+        2,
+        8,
+        11,
+        12,
+        13,
+        18,
+        19
+      ],
+      "candidate_terms_with_duplicates": 42316,
+      "flag_words": 15,
+      "accepted_syndrome_decisions": 8638,
+      "ambiguous_syndrome_decisions": 16,
+      "all_decisions_sha256": "6b9c68d979ad2e8e1f67bbd9b627a9872c29da6d14f07da1db71763d1dfad5f7",
+      "accepted_physical_candidate_checks": 42192,
+      "ambiguity_example": null
+    },
+    {
+      "axis": "Z",
+      "support": [
+        2,
+        3,
+        5,
+        6,
+        13,
+        14,
+        16,
+        17
+      ],
+      "candidate_terms_with_duplicates": 42316,
+      "flag_words": 15,
+      "accepted_syndrome_decisions": 8638,
+      "ambiguous_syndrome_decisions": 16,
+      "all_decisions_sha256": "4885dcb10cc79e3812977a2f21a13be6b4da81c60f02cb3735aa4b220c5dc64b",
+      "accepted_physical_candidate_checks": 42192,
+      "ambiguity_example": null
+    }
+  ],
+  "outer_check_omission_audit": {
+    "scope": "broad arbitrary two-inner-block envelope; not asserted actual two-location reachability",
+    "each_single_outer_omission_fails_existing_zero_accept_contract": {
+      "X7": {
+        "X": [],
+        "Z": [
+          0,
+          1,
+          5,
+          6
+        ],
+        "only_nonzero_syndrome_bit": 16
+      },
+      "X6": {
+        "X": [],
+        "Z": [
+          1,
+          2,
+          4,
+          5
+        ],
+        "only_nonzero_syndrome_bit": 15
+      },
+      "Z7": {
+        "X": [
+          0,
+          1,
+          5,
+          6
+        ],
+        "Z": [],
+        "only_nonzero_syndrome_bit": 7
+      },
+      "Z6": {
+        "X": [
+          1,
+          2,
+          4,
+          5
+        ],
+        "Z": [],
+        "only_nonzero_syndrome_bit": 6
+      },
+      "X5": {
+        "X": [],
+        "Z": [
+          0,
+          1,
+          8,
+          9
+        ],
+        "only_nonzero_syndrome_bit": 14
+      },
+      "Z5": {
+        "X": [
+          0,
+          1,
+          8,
+          9
+        ],
+        "Z": [],
+        "only_nonzero_syndrome_bit": 5
+      },
+      "X8": {
+        "X": [],
+        "Z": [
+          4,
+          6,
+          9,
+          10
+        ],
+        "only_nonzero_syndrome_bit": 17
+      },
+      "Z8": {
+        "X": [
+          4,
+          6,
+          9,
+          10
+        ],
+        "Z": [],
+        "only_nonzero_syndrome_bit": 8
+      }
+    }
+  },
+  "clean_costs": {
+    "compact13/recovery": {
+      "gates": {
+        "IDLE": 114157,
+        "PREP": 576,
+        "H": 803,
+        "CX": 1889,
+        "MZ": 556,
+        "TDG": 128,
+        "T": 128
+      },
+      "stages": {
+        "source/raw": {
+          "IDLE": 1337,
+          "PREP": 20,
+          "H": 11,
+          "CX": 51
+        },
+        "source/checks": {
+          "IDLE": 26316,
+          "PREP": 144,
+          "H": 432,
+          "CX": 516,
+          "MZ": 144
+        },
+        "source/correction": {
+          "IDLE": 20
+        },
+        "graph/raw": {
+          "IDLE": 1597,
+          "PREP": 18,
+          "H": 5,
+          "CX": 26
+        },
+        "graph/parity": {
+          "IDLE": 7407,
+          "PREP": 39,
+          "CX": 117,
+          "MZ": 39
+        },
+        "enrichment": {
+          "IDLE": 2200,
+          "TDG": 20,
+          "CX": 20,
+          "T": 20
+        },
+        "vertex_readout": {
+          "IDLE": 350,
+          "H": 5,
+          "MZ": 5
+        },
+        "vertex_frame": {
+          "IDLE": 33
+        },
+        "coordinates/V": {
+          "IDLE": 9120,
+          "TDG": 96,
+          "CX": 96,
+          "T": 96
+        },
+        "gauged/code": {
+          "IDLE": 37662,
+          "PREP": 180,
+          "CX": 564,
+          "H": 180,
+          "MZ": 180
+        },
+        "gauged/star": {
+          "IDLE": 3504,
+          "PREP": 12,
+          "H": 24,
+          "CX": 60,
+          "MZ": 12
+        },
+        "gauged/root_Gauss": {
+          "IDLE": 7005,
+          "PREP": 36,
+          "H": 6,
+          "CX": 96,
+          "TDG": 12,
+          "T": 12,
+          "MZ": 36
+        },
+        "final_cycles/checks": {
+          "IDLE": 4182,
+          "PREP": 27,
+          "CX": 75,
+          "MZ": 27
+        },
+        "edge_readout": {
+          "IDLE": 338,
+          "MZ": 13
+        },
+        "byproduct": {
+          "IDLE": 20
+        },
+        "terminal/screen": {
+          "IDLE": 13066,
+          "PREP": 100,
+          "H": 140,
+          "CX": 268,
+          "MZ": 100
+        }
+      },
+      "peak_live": 39,
+      "allocated_physical_slots": 39,
+      "reinitializations_after_first_use": 537,
+      "T_or_TDG": 256,
+      "one_qubit_Clifford": 803,
+      "atomic_multiqubit_gates": 0
+    },
+    "current20/recovery": {
+      "gates": {
+        "IDLE": 140713,
+        "PREP": 631,
+        "H": 803,
+        "CX": 2059,
+        "MZ": 611,
+        "TDG": 128,
+        "T": 128
+      },
+      "stages": {
+        "source/raw": {
+          "IDLE": 1337,
+          "PREP": 20,
+          "H": 11,
+          "CX": 51
+        },
+        "source/checks": {
+          "IDLE": 26316,
+          "PREP": 144,
+          "H": 432,
+          "CX": 516,
+          "MZ": 144
+        },
+        "source/correction": {
+          "IDLE": 20
+        },
+        "graph/raw": {
+          "IDLE": 2675,
+          "PREP": 25,
+          "H": 5,
+          "CX": 40
+        },
+        "graph/parity": {
+          "IDLE": 13455,
+          "PREP": 60,
+          "CX": 180,
+          "MZ": 60
+        },
+        "enrichment": {
+          "IDLE": 2620,
+          "TDG": 20,
+          "CX": 20,
+          "T": 20
+        },
+        "vertex_readout": {
+          "IDLE": 420,
+          "H": 5,
+          "MZ": 5
+        },
+        "vertex_frame": {
+          "IDLE": 40
+        },
+        "coordinates/V": {
+          "IDLE": 11136,
+          "TDG": 96,
+          "CX": 96,
+          "T": 96
+        },
+        "gauged/code": {
+          "IDLE": 45390,
+          "PREP": 180,
+          "CX": 564,
+          "H": 180,
+          "MZ": 180
+        },
+        "gauged/star": {
+          "IDLE": 5664,
+          "PREP": 12,
+          "H": 24,
+          "CX": 96,
+          "MZ": 12
+        },
+        "gauged/root_Gauss": {
+          "IDLE": 9678,
+          "PREP": 42,
+          "H": 6,
+          "CX": 114,
+          "TDG": 12,
+          "T": 12,
+          "MZ": 42
+        },
+        "final_cycles/checks": {
+          "IDLE": 8286,
+          "PREP": 48,
+          "CX": 114,
+          "MZ": 48
+        },
+        "edge_readout": {
+          "IDLE": 590,
+          "MZ": 20
+        },
+        "byproduct": {
+          "IDLE": 20
+        },
+        "terminal/screen": {
+          "IDLE": 13066,
+          "PREP": 100,
+          "H": 140,
+          "CX": 268,
+          "MZ": 100
+        }
+      },
+      "peak_live": 46,
+      "allocated_physical_slots": 46,
+      "reinitializations_after_first_use": 585,
+      "T_or_TDG": 256,
+      "one_qubit_Clifford": 803,
+      "atomic_multiqubit_gates": 0
+    },
+    "direct_cat/recovery": {
+      "gates": {
+        "IDLE": 83608,
+        "PREP": 518,
+        "H": 686,
+        "CX": 1476,
+        "MZ": 498,
+        "TDG": 60,
+        "T": 60
+      },
+      "stages": {
+        "source/raw": {
+          "IDLE": 1337,
+          "PREP": 20,
+          "H": 11,
+          "CX": 51
+        },
+        "source/checks": {
+          "IDLE": 26316,
+          "PREP": 144,
+          "H": 432,
+          "CX": 516,
+          "MZ": 144
+        },
+        "source/correction": {
+          "IDLE": 20
+        },
+        "terminal/code": {
+          "IDLE": 23310,
+          "PREP": 180,
+          "CX": 564,
+          "H": 180,
+          "MZ": 180
+        },
+        "terminal/U": {
+          "IDLE": 32625,
+          "PREP": 174,
+          "H": 63,
+          "CX": 345,
+          "MZ": 174,
+          "TDG": 60,
+          "T": 60
+        }
+      },
+      "peak_live": 41,
+      "allocated_physical_slots": 41,
+      "reinitializations_after_first_use": 477,
+      "T_or_TDG": 120,
+      "one_qubit_Clifford": 686,
+      "atomic_multiqubit_gates": 0
+    }
+  },
+  "full_factory_location_pairs_enumerated": false,
+  "T_gates_Pauli_propagated": false,
+  "source_sha256": {
+    "single_cz_compact_checks.py": "1473b99a434a5619219d0348a88f6394dcadfe6ff0babf5f7fbc6b6ff71c3abf",
+    "single_cz_flag_recovery.py": "863f22a862ddaa7bb6582c37330aa85e93acf205840a189214366e6d6be1961a",
+    "single_cz_controller.py": "ef5363530e245ab5195eee0ab4517cfe040590c102d39a96aa6bd779e1e5297d",
+    "single_cz_state.py": "c7d95ff62f9cb3f100412fe9139ebc1aad649eca4739be71d511001fb245445d",
+    "single_cz_runtime.py": "9f84c569ddc6af788a82d215bb42194fb64353fb6f7171a47c6affd34788ff42",
+    "check_single_cz_compact_checks.py": "a06bb97733dcf08f7c21098e3dbc3a2041c8aeaff05bcdda32e3fcc0172346d8",
+    "check_single_cz_flag_recovery.py": "01ec8a004239a9fd58bc4d4bcf6b6fe6f4e839d5af92d37390a6dac90f2407ee",
+    "check_optimized_extraction.py": "ef874506eeba9bf388afee13a5bd0ebe6ccfc6db720cc3279f2a295393b475e4"
+  }
+}
