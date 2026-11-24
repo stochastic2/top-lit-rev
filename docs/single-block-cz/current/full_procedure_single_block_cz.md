@@ -1,5 +1,12 @@
 # One-block C4-Helix CZ magic preparation by gauging and ungauging
 
+**Current factory comparison.** The [matched comparison](single_block_cz_factory_comparison.md)
+covers the certified tree4 and compact13 schedules, the 20-leaf cat,
+and the five-leaf and hybrid cats. It gives their two-location proof
+references, acceptance, decoded fidelity, and resource tradeoffs.
+The sections below describe the reference construction and its individual
+circuit extensions.
+
 **Joint graph/data fallback:** the [new recovery note](../components/single_block_cz_joint_graph_data_recovery.md)
 and [extension proof](../components/single_block_cz_joint_graph_data_recovery_proof.md)
 use certified cycle information after an ordinary data-only ambiguity.

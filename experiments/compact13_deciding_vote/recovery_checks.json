@@ -1,0 +1,87 @@
+{
+  "clean": {
+    "accepted": true,
+    "reason": null,
+    "screen": "zero_accept",
+    "fidelity": 1.0,
+    "events": []
+  },
+  "odd_Z": {
+    "accepted": false,
+    "reason": "deferred_unverified_recovered_sign",
+    "screen": "syndrome_certified",
+    "fidelity": null,
+    "events": [
+      {
+        "injection": 0,
+        "event": 716,
+        "context": "edge_readout",
+        "operation": "MZ",
+        "timing": "idle",
+        "targets": [
+          "A0"
+        ],
+        "paulis": {
+          "D0": "Z"
+        },
+        "flip_report": false
+      }
+    ]
+  },
+  "even_Z": {
+    "accepted": true,
+    "reason": null,
+    "screen": "syndrome_certified",
+    "fidelity": 1.0,
+    "events": [
+      {
+        "injection": 0,
+        "event": 716,
+        "context": "edge_readout",
+        "operation": "MZ",
+        "timing": "idle",
+        "targets": [
+          "A0"
+        ],
+        "paulis": {
+          "D0": "Z"
+        },
+        "flip_report": false
+      },
+      {
+        "injection": 1,
+        "event": 717,
+        "context": "edge_readout",
+        "operation": "MZ",
+        "timing": "idle",
+        "targets": [
+          "A1"
+        ],
+        "paulis": {
+          "D4": "Z"
+        },
+        "flip_report": false
+      }
+    ]
+  },
+  "flag": {
+    "accepted": true,
+    "reason": null,
+    "screen": "flag_verified",
+    "fidelity": 1.0,
+    "events": [
+      {
+        "injection": 0,
+        "event": 766,
+        "context": "compact/terminal_screen/0/Z/5",
+        "operation": "MZ",
+        "timing": "report",
+        "targets": [
+          "f0"
+        ],
+        "paulis": {},
+        "flip_report": true
+      }
+    ]
+  }
+}

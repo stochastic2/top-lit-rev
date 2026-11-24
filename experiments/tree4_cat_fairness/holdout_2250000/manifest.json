@@ -1,0 +1,232 @@
+{
+  "plan": {
+    "design": "Fixed-size matched-seed simulation study. No interim estimates, early stopping, or changes to candidates.",
+    "seed_start": 2250000,
+    "attempts_per_arm": 512,
+    "workers": 8,
+    "arms": [
+      "RepairedTree",
+      "ScreenCat",
+      "ShortPostCat",
+      "ShortPreCat",
+      "LeanResourceCat",
+      "BareInnerTree",
+      "FilteredTree",
+      "FilteredCat"
+    ],
+    "noise": {
+      "two_qubit_infidelity": "1e-3",
+      "readout_flip_probability": "1e-3",
+      "one_qubit_infidelity": "1e-4",
+      "t_infidelity": "1e-4",
+      "idle_infidelity": "0",
+      "preparation_flip_probability": "0"
+    },
+    "decoder": "single_cz_diagnostics.diagnose, physical weight-at-most-two table then fixed GF2 fallback, decoded fidelity within 1e-10 of 1",
+    "primary_metrics": [
+      "decoded matches per attempt",
+      "CX per decoded match",
+      "T/TDG per decoded match"
+    ],
+    "secondary_metrics": [
+      "acceptance",
+      "mean raw and decoded fidelity conditional on acceptance",
+      "peak live qubits"
+    ],
+    "cost_denominator": "All observed work on all attempts, including failed, discarded, retried and unresolved work, divided by the number of decoded accepted matches. Unresolved attempts contribute zero matches.",
+    "paired_comparisons_right_minus_left": [
+      [
+        "RepairedTree",
+        "ScreenCat"
+      ],
+      [
+        "RepairedTree",
+        "LeanResourceCat"
+      ],
+      [
+        "ScreenCat",
+        "ShortPostCat"
+      ],
+      [
+        "ShortPostCat",
+        "ShortPreCat"
+      ],
+      [
+        "ShortPreCat",
+        "LeanResourceCat"
+      ],
+      [
+        "RepairedTree",
+        "BareInnerTree"
+      ],
+      [
+        "BareInnerTree",
+        "LeanResourceCat"
+      ],
+      [
+        "BareInnerTree",
+        "FilteredTree"
+      ],
+      [
+        "LeanResourceCat",
+        "FilteredCat"
+      ],
+      [
+        "FilteredTree",
+        "FilteredCat"
+      ]
+    ],
+    "uncertainty": "95% Wilson acceptance and match intervals per arm. Nominal 95% percentile paired bootstrap intervals for paired differences and ratios, resampling shared-seed groups (10000 resamples, seed 27711). Descriptive intervals per comparison without multiplicity adjustment.",
+    "noninferiority": {
+      "comparison": "LeanResourceCat relative to BareInnerTree",
+      "eligible_metrics": {
+        "CX_per_match": "upper 95% paired ratio bound below 1.05",
+        "T_per_match": "upper 95% paired ratio bound below 1.05",
+        "matches_per_attempt": "lower 95% paired difference bound above -0.02"
+      },
+      "meaning": "At most 5% extra consumption of the named gate resource or at most two fewer useful outputs per 100 attempts, assessed separately. No omnibus throughput or equivalence claim."
+    }
+  },
+  "hashes": {
+    "experiments/tree4_cat_fairness/baseline_traces.json": "35990fed0f65dba27d56af7866ef399533c1a627ba8470e76095cb768e5b2289",
+    "experiments/tree4_cat_fairness/candidates.py": "db7037fd302906fa84165e32250cab508292e8d3bce40f556b35cb8643879efb",
+    "experiments/tree4_cat_fairness/cat_envelope.py": "e1e304c63891c8c12cc476f2152a6667f255185bcd625a7bc01221ae1dba7075",
+    "experiments/tree4_cat_fairness/forced_checks.json": "c755951ac013a1abcdae59a214178efc919fa3dcc69011be2c45ff1cb19f7797",
+    "experiments/tree4_cat_fairness/forced_checks.py": "f55c90e7c7cf35934db928f2a6d1c436cc242a4566b2bbfa64ee52983a10f69b",
+    "experiments/tree4_cat_fairness/holdout.py": "560eeb4bb51c81a26d64b483cb12d31cc1774f8f43d03c39294243e5ea9c2d28",
+    "experiments/tree4_cat_fairness/holdout_plan.json": "cc849e3f801ed55c2dca730066996a9ae792688528f5d0be0ce41d56854aa9e8",
+    "experiments/tree4_cat_fairness/local_checks.json": "8c9a08a8a514c364217ae1b2dc6b8e372c292a6336a2b562e6eec77e883d2748",
+    "experiments/tree4_cat_fairness/local_checks.py": "41ed240ca16d8be10b86ca5e4a4faa1975743b3fa0f03b05ad4f0ce7f8682525",
+    "experiments/tree4_cat_fairness/summarize_holdout.py": "3de82b64d044c3c43b86097c84a3434cb045c814d159039bd33ec1c585e12c32",
+    "experiments/tree4_cat_fairness/trace_audit.py": "3d2deb30a70e43314301547de5855bb99f43548d035ecef99505acfd2442a790",
+    "experiments/tree4_flag_repair/composition.json": "3f3f8397afe6c5ac3496a4c35ea31d83d7be11982e7b60e1c39416df33897738",
+    "experiments/tree4_flag_repair/controller.py": "990a80a15bb9bb82882b21f21f59bb7a28b06e59f2bc26da65f25392e9cce83c",
+    "experiments/tree4_flag_repair/final_diagnostic.py": "09a99c30ca8756fc2aa2e25278627a7d02ae8089a408e5ddaf6b332156b15730",
+    "src/single_block_cz/c4_helix_single_block_cz.py": "08c73e06ce89c8f75812882f9a23da96ca1a817498015f3bd3cbc0945f50d166",
+    "src/single_block_cz/run_single_block_cz_controller.py": "093bad3ec45350064da64245f1d701b490b99df7753c98b130fadad012bea1bf",
+    "src/single_block_cz/simulate_single_block_cz_cat_depolarizing.py": "eab23b2a3340322f10e75209084f62c18be0b6e4f44551458f31497fbb305874",
+    "src/single_block_cz/simulate_single_block_cz_depolarizing.py": "99405037b28c1b049cd393272e01a08b60806ab1fc89006edd37e3da27f5353c",
+    "src/single_block_cz/single_cz_block_z_pilot.py": "6aa5bb8da4a52fa4e686301bcaf45d2f9c72c107340b3eea049eba7aba7d1d4b",
+    "src/single_block_cz/single_cz_compact_checks.py": "1473b99a434a5619219d0348a88f6394dcadfe6ff0babf5f7fbc6b6ff71c3abf",
+    "src/single_block_cz/single_cz_controller.py": "f0d429b270c6606ce2bdd39405d82bc116a5c11ef41a9c5bbefc833fe875f430",
+    "src/single_block_cz/single_cz_diagnostics.py": "bdb635c4e508e814f1007bab019e8281d5a6ceefaa647be0dd1f4318febeaccd",
+    "src/single_block_cz/single_cz_direct_outer_pilot.py": "3938d98743b1fe8a8b6048acacde91712abbebaae8471515bae24c5dc6c5e5aa",
+    "src/single_block_cz/single_cz_direct_outer_ports.py": "3b8a8cc67d82022e4cbdd77b5500d34f45de2cc5759d6bad45ee8b747cab0acc",
+    "src/single_block_cz/single_cz_flag_recovery.py": "863f22a862ddaa7bb6582c37330aa85e93acf205840a189214366e6d6be1961a",
+    "src/single_block_cz/single_cz_flagged.py": "1ce673159865a5817c4fe88ff4f4c0ef2e425eb7d5a388e75f5e364e0075024b",
+    "src/single_block_cz/single_cz_graph_stars.py": "e20a57533b9ed896cfd3d0f5e4b42a3bed854471eaf831f4344f970a6cfd4093",
+    "src/single_block_cz/single_cz_hybrid_faults.py": "dda3f81c13d7a64a83c2e25df7913b21d687cec96670e699cce30bbaf7d05d52",
+    "src/single_block_cz/single_cz_hybrid_study.py": "a268f1514fe8cec632772783e4a91af908a0df8e1c84faa73466d5c8d3b5a60f",
+    "src/single_block_cz/single_cz_joint_recovery.py": "d3be8e6ed446390af966c24568ada431c0bcfec39dfbbfde1898a2c5e11b2ec6",
+    "src/single_block_cz/single_cz_persistent.py": "e265b91aefa192c57d31ff4f876b9f80b345573c5c1a603308f9970319156b23",
+    "src/single_block_cz/single_cz_recovery.py": "779b678abf09a3daaddac1b4889f03010e92aeed3fa5553cb9175daada356a6b",
+    "src/single_block_cz/single_cz_root_recovery.py": "0416516408a83a816388a1d1ce058d73067329cb7429bf5de81b18c09d01b07a",
+    "src/single_block_cz/single_cz_runtime.py": "9f84c569ddc6af788a82d215bb42194fb64353fb6f7171a47c6affd34788ff42",
+    "src/single_block_cz/single_cz_short_gauss_pilot.py": "6c6031cea94ab8f815b563f8638e6d88a0d005f814ca3f5c1ae561bd25713607",
+    "src/single_block_cz/single_cz_state.py": "c7d95ff62f9cb3f100412fe9139ebc1aad649eca4739be71d511001fb245445d",
+    "src/single_block_cz/single_cz_terminal_screen.py": "2f660221fbba925bce636859322976e39a067f1aa6b02d9fb75bc064c0911fca",
+    "src/single_block_cz/single_cz_tree_handoff_pilot.py": "9bb0b95b3fa4b3839bfccda4b2d9c0c2a6faca4a2a242a56fdc2085ed65cea79",
+    "src/single_block_cz/single_cz_tree_resource_pilot.py": "47dec8d6feaed51e7b095f18f317eeb76a1422b7fe118cb2cd9e0e1bbf69aa76",
+    "src/single_block_cz/single_cz_tree_z_recovery_pilot.py": "86e4cd0faa3cd3877f4df5677c80dd1c2aeef49b3ced16f7ff24b9fc1fa90bc0",
+    "tmp/cz_review_noisy.py": "e8699ede0e777f32f0e807c6e48aba023f6d82272ac224124ab66017e4b44b0c",
+    "verification/shared/check_optimized_extraction.py": "ef874506eeba9bf388afee13a5bd0ebe6ccfc6db720cc3279f2a295393b475e4",
+    "verification/single_block_cz/check_single_cz_direct_outer_ports.py": "681920e2a465b6734e238b5951d5d287e57b76700544188f4c7dd4e89ed1c911",
+    "verification/single_block_cz/check_single_cz_fast_source.py": "53db790ad3bf4ab7ce3611a555928d288a2bc76d325baec8f588621b3474e5b1",
+    "verification/single_block_cz/check_single_cz_gauged_flag_composition.py": "a347b9b83ca8c664f9474e1abddebc3278094a02045fbfbeead1af8af7da051f",
+    "verification/single_block_cz/check_single_cz_hybrid_faults.py": "e20394834c95405deea043bdca70eb1aa51a2da4b8103fab1432ddd4ba11b4e6",
+    "verification/single_block_cz/check_single_cz_hybrid_study.py": "19d5c9b39a53563a0e83bb901d5815ee4c0de2a95f118cebab410f43dcd9d10a",
+    "verification/single_block_cz/check_single_cz_short_gauss_vote.py": "74637bb0099ca4b295d4c9cff4edb1c94634930531a8ee8d549d0216308fe56e",
+    "verification/single_block_cz/check_single_cz_short_gauss_witnesses.py": "3e693ecc959fa2df3743bc73903b304a7ed521cf27047d82728b3c33412b52c2",
+    "verification/single_block_cz/check_single_cz_source_coherent.py": "c4dc38d762fb0f0cfe461ce186911c16052ea4a9dafc8c2fc69e1fd0668d933f",
+    "verification/single_block_cz/check_single_cz_terminal_screen.py": "122a8c9cc39b84217561cb29f91d31c7a08a5844212ad713a936e7f00bf1b397",
+    "verification/single_block_cz/run_single_cz_direct_outer_pilot.py": "1dcdd12b44a96d996acc559ff41cf2e0df672844a8b1806df1cbb2e8da54baa0",
+    "verification/single_block_cz/study_single_cz_bare_inner.py": "14743a773793169d9a7f542e0661312fe8b9e81cd3f654dec98de4b97f148e4d",
+    "verification/single_block_cz/study_single_cz_fast_source.py": "18889ab34877aeffb51010f0c04d676bec2c6158777f559c7129cc6c56a47701",
+    "verification/single_block_cz/study_single_cz_screened_source.py": "5bbf72187ab9a68a128ddddbbed450854df8b718e1797444af790960420fb2bf",
+    "verification/single_block_cz/study_single_cz_shared_source.py": "e313b3ab27e170fee7d15559ae2ead37a2734f9b87e62b11dc3fa333f7f5a958",
+    "verification/single_block_cz/study_single_cz_source_windows.py": "4123888c8c003d12910bdfa155a53b61f32d6fa9375f7fb5468b7c4b19897d5f",
+    "verification/single_block_cz/study_single_cz_vote_budget.py": "5df246b90d85aab6f8e25db6372635ef90ed86d1d46f57d29f5a058c8483a9c1"
+  },
+  "options": {
+    "RepairedTree": {
+      "source_extraction": "decoded_flags",
+      "data_checks": "compact_flags",
+      "flag_recovery": "data",
+      "conditional_checks": "dual_flags"
+    },
+    "ScreenCat": {
+      "source_extraction": "decoded_flags",
+      "data_checks": "compact_flags",
+      "flag_recovery": "data",
+      "conditional_checks": "dual_flags",
+      "route": "direct_cat"
+    },
+    "ShortPostCat": {
+      "source_extraction": "decoded_flags",
+      "data_checks": "compact_flags",
+      "flag_recovery": "data",
+      "conditional_checks": "dual_flags",
+      "route": "direct_cat"
+    },
+    "ShortPreCat": {
+      "source_extraction": "decoded_flags",
+      "data_checks": "compact_flags",
+      "flag_recovery": "data",
+      "conditional_checks": "dual_flags",
+      "route": "direct_cat"
+    },
+    "LeanResourceCat": {
+      "source_extraction": "decoded_flags",
+      "data_checks": "compact_flags",
+      "flag_recovery": "data",
+      "conditional_checks": "dual_flags",
+      "route": "direct_cat"
+    },
+    "BareInnerTree": {
+      "source_extraction": "decoded_flags",
+      "data_checks": "compact_flags",
+      "flag_recovery": "data",
+      "conditional_checks": "dual_flags"
+    },
+    "FilteredTree": {
+      "source_extraction": "decoded_flags",
+      "data_checks": "compact_flags",
+      "flag_recovery": "data",
+      "conditional_checks": "dual_flags"
+    },
+    "FilteredCat": {
+      "source_extraction": "decoded_flags",
+      "data_checks": "compact_flags",
+      "flag_recovery": "data",
+      "conditional_checks": "dual_flags",
+      "route": "direct_cat"
+    }
+  },
+  "noise_model": {
+    "name": "independent_Pauli_depolarizing",
+    "gate_rate_convention": "average_gate_infidelity",
+    "rates": {
+      "two_qubit_infidelity": "1/1000",
+      "one_qubit_infidelity": "1/10000",
+      "t_infidelity": "1/10000",
+      "idle_infidelity": "0",
+      "preparation_flip_probability": "0",
+      "readout_flip_probability": "1/1000"
+    },
+    "nonidentity_probabilities": {
+      "CX": "1/800",
+      "Clifford_1q": "3/20000",
+      "T_TDG": "3/20000",
+      "idle": "0"
+    },
+    "controlled_W": "T^s,CX,T^-s; individual physical locations",
+    "quantum_timing": "gate noise after ideal gate; idle noise before operation",
+    "readout": "independent classical report flip after actual quantum measurement",
+    "preparation": "X after |0> preparation",
+    "fault_count_cap": null,
+    "idles": "one per live nonparticipant per serial operation, and every live qubit at boundary",
+    "duration_calibrated": false,
+    "atomic_multiqubit_gates": []
+  },
+  "python_version": "3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]"
+}

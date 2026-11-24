@@ -1,0 +1,1064 @@
+{
+  "input_fault": {
+    "context": "coordinates/V",
+    "operation": "CX",
+    "targets": [
+      "A0",
+      "D6"
+    ],
+    "paulis": {
+      "A0": "X",
+      "D6": "Y"
+    },
+    "occurrence": 1
+  },
+  "row": {
+    "seed": 2,
+    "status": "completed",
+    "accepted": true,
+    "reason": null,
+    "diagnostics": {
+      "diagnostic_only": true,
+      "decoder": "ideal syndrome projection; fixed weight<=2 table, then GF2 fallback",
+      "syndrome_convention": "Z bits 0..8; X bits 9..17",
+      "decoded_target_fidelity": 1.0,
+      "decoded_target_infidelity": 0.0,
+      "decoded_target_within_tolerance": true,
+      "raw_physical_target_fidelity": 0.0,
+      "probability_in_weight_two_lookup": 0.5,
+      "active_syndrome_sectors": 4,
+      "syndrome_probability_sum": 0.9999999999999956,
+      "logical_density_real": [
+        [
+          0.3333333333333333,
+          0.3333333333333333,
+          0.3333333333333333,
+          0.0
+        ],
+        [
+          0.3333333333333333,
+          0.3333333333333333,
+          0.3333333333333333,
+          0.0
+        ],
+        [
+          0.3333333333333333,
+          0.3333333333333333,
+          0.3333333333333333,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      ],
+      "logical_density_imag": [
+        [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      ],
+      "numerical_diagnostic_tolerance": 1e-10,
+      "trajectory_arithmetic": "exact Z[zeta8] before output conversion"
+    },
+    "metrics": {
+      "physical_operations_and_boundaries": 1273,
+      "gate_counts": {
+        "IDLE": 29806,
+        "PREP": 161,
+        "H": 151,
+        "CX": 608,
+        "BOUNDARY": 9,
+        "MZ": 141,
+        "TDG": 92,
+        "T": 92,
+        "Z": 3,
+        "S": 6,
+        "X": 8,
+        "SDG": 2
+      },
+      "peak_live_qubits": 30,
+      "peak_coherent_terms": 512,
+      "peak_cached_factors": 4366,
+      "factor_collections": 2,
+      "exact_CSS_basis_compressions": 0,
+      "elapsed_seconds": 1.4760440829995787,
+      "channel_opportunities": {
+        "idle": 29806,
+        "preparation": 161,
+        "one_qubit": 170,
+        "two_qubit": 608,
+        "readout": 141,
+        "T": 184
+      },
+      "noise_event_counts": {},
+      "sampled_noise_events": 0,
+      "injected_fault_events": 1
+    },
+    "retries": 0,
+    "record": [
+      {
+        "check": "source/certify/screen/Z/0",
+        "flags": {},
+        "reported_parity": 0
+      },
+      {
+        "check": "source/certify/screen/Z/1",
+        "flags": {},
+        "reported_parity": 0
+      },
+      {
+        "check": "source/certify/screen/Z/2",
+        "flags": {},
+        "reported_parity": 0
+      },
+      {
+        "check": "source/certify/screen/Z/3",
+        "flags": {},
+        "reported_parity": 0
+      },
+      {
+        "check": "source/certify/screen/Z/4",
+        "flags": {},
+        "reported_parity": 0
+      },
+      {
+        "check": "source/certify/screen/X/1",
+        "flags": {},
+        "reported_parity": 0
+      },
+      {
+        "check": "source/certify/screen/X/2",
+        "flags": {},
+        "reported_parity": 0
+      },
+      {
+        "check": "source/certify/screen/X/6",
+        "flags": {
+          "f0": 0
+        },
+        "reported_parity": 0
+      },
+      {
+        "check": "source/certify/screen/X/7",
+        "flags": {
+          "f0": 0
+        },
+        "reported_parity": 0
+      },
+      {
+        "check": "source/certify/screen/X/8",
+        "flags": {
+          "f0": 0
+        },
+        "reported_parity": 0
+      },
+      {
+        "check": "source/certify/screen/X/9",
+        "flags": {
+          "f0": 0
+        },
+        "reported_parity": 0
+      },
+      {
+        "check": "source/certify/screen/X/10",
+        "flags": {
+          "f0": 0
+        },
+        "reported_parity": 0
+      },
+      {
+        "encoder_screen_pass": true,
+        "source_feedback": "identity"
+      },
+      {
+        "known_source_correction": [
+          0,
+          0
+        ],
+        "syndrome": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "check": "graph/tree_hook_check",
+        "flags": {},
+        "reported_parity": 0
+      },
+      {
+        "vertex_reports": [
+          1,
+          1,
+          1,
+          0,
+          1
+        ],
+        "entry_vote": true,
+        "passes": 1
+      },
+      {
+        "check": "direct/vote/0/Z/0",
+        "flags": {},
+        "reported_parity": 0
+      },
+      {
+        "check": "direct/vote/0/Z/1",
+        "flags": {},
+        "reported_parity": 0
+      },
+      {
+        "check": "direct/vote/0/Z/2",
+        "flags": {},
+        "reported_parity": 0
+      },
+      {
+        "check": "direct/vote/0/Z/3",
+        "flags": {},
+        "reported_parity": 0
+      },
+      {
+        "check": "direct/vote/0/Z/4",
+        "flags": {},
+        "reported_parity": 0
+      },
+      {
+        "check": "direct/vote/0/Z/5/block_Z",
+        "flags": {
+          "f0": 0
+        },
+        "reported_parity": 0
+      },
+      {
+        "check": "direct/vote/0/Z/6/block_Z",
+        "flags": {
+          "f0": 0
+        },
+        "reported_parity": 0
+      },
+      {
+        "check": "direct/vote/0/Z/7/block_Z",
+        "flags": {
+          "f0": 0
+        },
+        "reported_parity": 0
+      },
+      {
+        "check": "direct/vote/0/Z/8/block_Z",
+        "flags": {
+          "f0": 0
+        },
+        "reported_parity": 0
+      },
+      {
+        "check": "direct/vote/0/X/0",
+        "flags": {},
+        "reported_parity": 0
+      },
+      {
+        "check": "direct/vote/0/X/1",
+        "flags": {},
+        "reported_parity": 0
+      },
+      {
+        "check": "direct/vote/0/X/2",
+        "flags": {},
+        "reported_parity": 0
+      },
+      {
+        "check": "direct/vote/0/X/3",
+        "flags": {},
+        "reported_parity": 0
+      },
+      {
+        "check": "direct/vote/0/X/4",
+        "flags": {},
+        "reported_parity": 0
+      },
+      {
+        "check": "direct/vote/0/G/1",
+        "flags": {},
+        "reported_parity": 0
+      },
+      {
+        "check": "direct/vote/0/G/2",
+        "flags": {},
+        "reported_parity": 0
+      },
+      {
+        "check": "direct/vote/0/G/3",
+        "flags": {},
+        "reported_parity": 0
+      },
+      {
+        "check": "direct/vote/0/G/4",
+        "flags": {},
+        "reported_parity": 0
+      },
+      {
+        "check": "direct/vote/0/root_Gauss",
+        "flags": {
+          "f0": 0,
+          "f1": 0,
+          "f2": 0,
+          "f3": 0
+        },
+        "reported_parity": 0
+      },
+      {
+        "direct_vote": 0,
+        "root": 0,
+        "nonroot": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "inner_x_parity_frame": 0,
+        "passes": 2
+      },
+      {
+        "check": "direct/vote/1/Z/0",
+        "flags": {},
+        "reported_parity": 0
+      },
+      {
+        "check": "direct/vote/1/Z/1",
+        "flags": {},
+        "reported_parity": 0
+      },
+      {
+        "check": "direct/vote/1/Z/2",
+        "flags": {},
+        "reported_parity": 0
+      },
+      {
+        "check": "direct/vote/1/Z/3",
+        "flags": {},
+        "reported_parity": 0
+      },
+      {
+        "check": "direct/vote/1/Z/4",
+        "flags": {},
+        "reported_parity": 0
+      },
+      {
+        "check": "direct/vote/1/Z/5/block_Z",
+        "flags": {
+          "f0": 0
+        },
+        "reported_parity": 0
+      },
+      {
+        "check": "direct/vote/1/Z/6/block_Z",
+        "flags": {
+          "f0": 0
+        },
+        "reported_parity": 0
+      },
+      {
+        "check": "direct/vote/1/Z/7/block_Z",
+        "flags": {
+          "f0": 0
+        },
+        "reported_parity": 0
+      },
+      {
+        "check": "direct/vote/1/Z/8/block_Z",
+        "flags": {
+          "f0": 0
+        },
+        "reported_parity": 0
+      },
+      {
+        "check": "direct/vote/1/X/0",
+        "flags": {},
+        "reported_parity": 0
+      },
+      {
+        "check": "direct/vote/1/X/1",
+        "flags": {},
+        "reported_parity": 0
+      },
+      {
+        "check": "direct/vote/1/X/2",
+        "flags": {},
+        "reported_parity": 0
+      },
+      {
+        "check": "direct/vote/1/X/3",
+        "flags": {},
+        "reported_parity": 0
+      },
+      {
+        "check": "direct/vote/1/X/4",
+        "flags": {},
+        "reported_parity": 0
+      },
+      {
+        "check": "direct/vote/1/G/1",
+        "flags": {},
+        "reported_parity": 0
+      },
+      {
+        "check": "direct/vote/1/G/2",
+        "flags": {},
+        "reported_parity": 0
+      },
+      {
+        "check": "direct/vote/1/G/3",
+        "flags": {},
+        "reported_parity": 0
+      },
+      {
+        "check": "direct/vote/1/G/4",
+        "flags": {},
+        "reported_parity": 0
+      },
+      {
+        "check": "direct/vote/1/root_Gauss",
+        "flags": {
+          "f0": 0,
+          "f1": 0,
+          "f2": 0,
+          "f3": 0
+        },
+        "reported_parity": 0
+      },
+      {
+        "direct_vote": 1,
+        "root": 0,
+        "nonroot": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "inner_x_parity_frame": 0,
+        "passes": 3
+      },
+      {
+        "terminal_screen_begin": true,
+        "sweep": 0,
+        "version": 3,
+        "order": [
+          [
+            "Z",
+            5
+          ],
+          [
+            "Z",
+            6
+          ],
+          [
+            "Z",
+            7
+          ],
+          [
+            "Z",
+            8
+          ],
+          [
+            "X",
+            5
+          ],
+          [
+            "X",
+            6
+          ],
+          [
+            "X",
+            7
+          ],
+          [
+            "X",
+            8
+          ],
+          [
+            "Z",
+            0
+          ],
+          [
+            "Z",
+            1
+          ],
+          [
+            "Z",
+            2
+          ],
+          [
+            "Z",
+            3
+          ],
+          [
+            "Z",
+            4
+          ],
+          [
+            "X",
+            0
+          ],
+          [
+            "X",
+            1
+          ],
+          [
+            "X",
+            2
+          ],
+          [
+            "X",
+            3
+          ],
+          [
+            "X",
+            4
+          ]
+        ]
+      },
+      {
+        "check": "compact/terminal_screen/0/Z/5",
+        "extraction": "compact_flags",
+        "axes": [
+          "Z",
+          "Z",
+          "Z",
+          "Z",
+          "Z",
+          "Z",
+          "Z",
+          "Z"
+        ],
+        "targets": [
+          "D0",
+          "D3",
+          "D6",
+          "D7",
+          "D10",
+          "D11",
+          "D12",
+          "D15"
+        ],
+        "flags": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "reported_parity": 0
+      },
+      {
+        "check": "compact/terminal_screen/0/Z/6",
+        "extraction": "compact_flags",
+        "axes": [
+          "Z",
+          "Z",
+          "Z",
+          "Z",
+          "Z",
+          "Z",
+          "Z",
+          "Z"
+        ],
+        "targets": [
+          "D4",
+          "D7",
+          "D8",
+          "D9",
+          "D14",
+          "D15",
+          "D16",
+          "D19"
+        ],
+        "flags": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "reported_parity": 0
+      },
+      {
+        "check": "compact/terminal_screen/0/Z/7",
+        "extraction": "compact_flags",
+        "axes": [
+          "Z",
+          "Z",
+          "Z",
+          "Z",
+          "Z",
+          "Z",
+          "Z",
+          "Z"
+        ],
+        "targets": [
+          "D1",
+          "D2",
+          "D8",
+          "D11",
+          "D12",
+          "D13",
+          "D18",
+          "D19"
+        ],
+        "flags": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "reported_parity": 0
+      },
+      {
+        "check": "compact/terminal_screen/0/Z/8",
+        "extraction": "compact_flags",
+        "axes": [
+          "Z",
+          "Z",
+          "Z",
+          "Z",
+          "Z",
+          "Z",
+          "Z",
+          "Z"
+        ],
+        "targets": [
+          "D2",
+          "D3",
+          "D5",
+          "D6",
+          "D13",
+          "D14",
+          "D16",
+          "D17"
+        ],
+        "flags": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "reported_parity": 0
+      },
+      {
+        "check": "compact/terminal_screen/0/X/5",
+        "extraction": "compact_flags",
+        "axes": [
+          "X",
+          "X",
+          "X",
+          "X",
+          "X",
+          "X",
+          "X",
+          "X"
+        ],
+        "targets": [
+          "D0",
+          "D3",
+          "D6",
+          "D7",
+          "D10",
+          "D11",
+          "D12",
+          "D15"
+        ],
+        "flags": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "reported_parity": 0
+      },
+      {
+        "check": "compact/terminal_screen/0/X/6",
+        "extraction": "compact_flags",
+        "axes": [
+          "X",
+          "X",
+          "X",
+          "X",
+          "X",
+          "X",
+          "X",
+          "X"
+        ],
+        "targets": [
+          "D4",
+          "D7",
+          "D8",
+          "D9",
+          "D14",
+          "D15",
+          "D16",
+          "D19"
+        ],
+        "flags": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "reported_parity": 0
+      },
+      {
+        "check": "compact/terminal_screen/0/X/7",
+        "extraction": "compact_flags",
+        "axes": [
+          "X",
+          "X",
+          "X",
+          "X",
+          "X",
+          "X",
+          "X",
+          "X"
+        ],
+        "targets": [
+          "D1",
+          "D2",
+          "D8",
+          "D11",
+          "D12",
+          "D13",
+          "D18",
+          "D19"
+        ],
+        "flags": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "reported_parity": 0
+      },
+      {
+        "check": "compact/terminal_screen/0/X/8",
+        "extraction": "compact_flags",
+        "axes": [
+          "X",
+          "X",
+          "X",
+          "X",
+          "X",
+          "X",
+          "X",
+          "X"
+        ],
+        "targets": [
+          "D2",
+          "D3",
+          "D5",
+          "D6",
+          "D13",
+          "D14",
+          "D16",
+          "D17"
+        ],
+        "flags": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "reported_parity": 0
+      },
+      {
+        "check": "compact/terminal_screen/0/Z/0",
+        "extraction": "compact_flags",
+        "axes": [
+          "Z",
+          "Z",
+          "Z",
+          "Z"
+        ],
+        "targets": [
+          "D0",
+          "D1",
+          "D2",
+          "D3"
+        ],
+        "flags": [
+          0
+        ],
+        "reported_parity": 0
+      },
+      {
+        "check": "compact/terminal_screen/0/Z/1",
+        "extraction": "compact_flags",
+        "axes": [
+          "Z",
+          "Z",
+          "Z",
+          "Z"
+        ],
+        "targets": [
+          "D4",
+          "D5",
+          "D6",
+          "D7"
+        ],
+        "flags": [
+          0
+        ],
+        "reported_parity": 0
+      },
+      {
+        "check": "compact/terminal_screen/0/Z/2",
+        "extraction": "compact_flags",
+        "axes": [
+          "Z",
+          "Z",
+          "Z",
+          "Z"
+        ],
+        "targets": [
+          "D8",
+          "D9",
+          "D10",
+          "D11"
+        ],
+        "flags": [
+          0
+        ],
+        "reported_parity": 0
+      },
+      {
+        "check": "compact/terminal_screen/0/Z/3",
+        "extraction": "compact_flags",
+        "axes": [
+          "Z",
+          "Z",
+          "Z",
+          "Z"
+        ],
+        "targets": [
+          "D12",
+          "D13",
+          "D14",
+          "D15"
+        ],
+        "flags": [
+          0
+        ],
+        "reported_parity": 0
+      },
+      {
+        "check": "compact/terminal_screen/0/Z/4",
+        "extraction": "compact_flags",
+        "axes": [
+          "Z",
+          "Z",
+          "Z",
+          "Z"
+        ],
+        "targets": [
+          "D16",
+          "D17",
+          "D18",
+          "D19"
+        ],
+        "flags": [
+          0
+        ],
+        "reported_parity": 0
+      },
+      {
+        "check": "compact/terminal_screen/0/X/0",
+        "extraction": "compact_flags",
+        "axes": [
+          "X",
+          "X",
+          "X",
+          "X"
+        ],
+        "targets": [
+          "D0",
+          "D1",
+          "D2",
+          "D3"
+        ],
+        "flags": [
+          0
+        ],
+        "reported_parity": 0
+      },
+      {
+        "check": "compact/terminal_screen/0/X/1",
+        "extraction": "compact_flags",
+        "axes": [
+          "X",
+          "X",
+          "X",
+          "X"
+        ],
+        "targets": [
+          "D4",
+          "D5",
+          "D6",
+          "D7"
+        ],
+        "flags": [
+          0
+        ],
+        "reported_parity": 0
+      },
+      {
+        "check": "compact/terminal_screen/0/X/2",
+        "extraction": "compact_flags",
+        "axes": [
+          "X",
+          "X",
+          "X",
+          "X"
+        ],
+        "targets": [
+          "D8",
+          "D9",
+          "D10",
+          "D11"
+        ],
+        "flags": [
+          0
+        ],
+        "reported_parity": 0
+      },
+      {
+        "check": "compact/terminal_screen/0/X/3",
+        "extraction": "compact_flags",
+        "axes": [
+          "X",
+          "X",
+          "X",
+          "X"
+        ],
+        "targets": [
+          "D12",
+          "D13",
+          "D14",
+          "D15"
+        ],
+        "flags": [
+          0
+        ],
+        "reported_parity": 0
+      },
+      {
+        "check": "compact/terminal_screen/0/X/4",
+        "extraction": "compact_flags",
+        "axes": [
+          "X",
+          "X",
+          "X",
+          "X"
+        ],
+        "targets": [
+          "D16",
+          "D17",
+          "D18",
+          "D19"
+        ],
+        "flags": [
+          0
+        ],
+        "reported_parity": 0
+      },
+      {
+        "terminal_screen_result": "zero_accept",
+        "sweep": 0,
+        "syndrome_reports": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "completed_checks": 18
+      },
+      {
+        "terminal_screen_finish": "zero_accept"
+      },
+      {
+        "edge_reports": 12,
+        "decoded": {
+          "eta": 24,
+          "policy": "reported_tree_bits"
+        }
+      }
+    ],
+    "noise_events": [],
+    "injected_events": [
+      {
+        "injection": 0,
+        "event": 1210,
+        "context": "coordinates/V",
+        "operation": "CX",
+        "timing": "after",
+        "targets": [
+          "A0",
+          "D6"
+        ],
+        "paulis": {
+          "A0": "X",
+          "D6": "Y"
+        },
+        "flip_report": false
+      }
+    ],
+    "terminal_screen_outcome": "zero_accept"
+  }
+}

@@ -1,0 +1,478 @@
+{
+  "cycle": 70,
+  "chord_tail": [
+    5,
+    6,
+    10
+  ],
+  "replay": {
+    "seed": 0,
+    "original": {
+      "accepted": false,
+      "reason": "insufficient_direct_votes",
+      "injected_events": [
+        {
+          "injection": 0,
+          "event": 236,
+          "context": "graph/chords",
+          "operation": "CX",
+          "timing": "after",
+          "targets": [
+            "a1",
+            "A4"
+          ],
+          "paulis": {
+            "a1": "X"
+          },
+          "flip_report": false
+        },
+        {
+          "injection": 1,
+          "event": 431,
+          "context": "direct/vote/0/X/0",
+          "operation": "CX",
+          "timing": "after",
+          "targets": [
+            "s",
+            "D1"
+          ],
+          "paulis": {
+            "s": "X"
+          },
+          "flip_report": false
+        }
+      ],
+      "diagnostics": null,
+      "references": [
+        {
+          "direct_reference": "direct/vote/1/syndrome_recovery/ambiguous_Z/syndrome_recovery",
+          "records": [
+            [
+              0,
+              0,
+              0,
+              0,
+              0,
+              1,
+              0,
+              1,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              1,
+              1,
+              0,
+              0,
+              0,
+              1,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              0,
+              1,
+              0,
+              1,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              1,
+              1,
+              0,
+              0,
+              0,
+              1,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ]
+          ],
+          "selected": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            1,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "conditional_V_pair": true,
+          "minimum_spent_faults": 1
+        },
+        {
+          "direct_recovery": "direct/vote/1/syndrome_recovery/ambiguous_Z/syndrome_recovery",
+          "correction": [
+            1174405123,
+            0
+          ]
+        }
+      ]
+    },
+    "certified": {
+      "accepted": false,
+      "reason": "uncertified_cycle_only_data_correction",
+      "injected_events": [
+        {
+          "injection": 0,
+          "event": 236,
+          "context": "graph/chords",
+          "operation": "CX",
+          "timing": "after",
+          "targets": [
+            "a1",
+            "A4"
+          ],
+          "paulis": {
+            "a1": "X"
+          },
+          "flip_report": false
+        },
+        {
+          "injection": 1,
+          "event": 431,
+          "context": "direct/vote/0/X/0",
+          "operation": "CX",
+          "timing": "after",
+          "targets": [
+            "s",
+            "D1"
+          ],
+          "paulis": {
+            "s": "X"
+          },
+          "flip_report": false
+        }
+      ],
+      "diagnostics": null,
+      "references": [
+        {
+          "direct_reference": "direct/vote/1/syndrome_recovery/ambiguous_Z/syndrome_recovery",
+          "records": [
+            [
+              0,
+              0,
+              0,
+              0,
+              0,
+              1,
+              0,
+              1,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              1,
+              1,
+              0,
+              0,
+              0,
+              1,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              0,
+              1,
+              0,
+              1,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              1,
+              1,
+              0,
+              0,
+              0,
+              1,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ]
+          ],
+          "selected": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            1,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "conditional_V_pair": true,
+          "minimum_spent_faults": 1
+        },
+        {
+          "cycle_only_lookup": true,
+          "proposed": [
+            3,
+            0
+          ]
+        }
+      ]
+    },
+    "single_controls": [
+      {
+        "accepted": false,
+        "reason": "insufficient_direct_votes",
+        "injected_events": [
+          {
+            "injection": 0,
+            "event": 236,
+            "context": "graph/chords",
+            "operation": "CX",
+            "timing": "after",
+            "targets": [
+              "a1",
+              "A4"
+            ],
+            "paulis": {
+              "a1": "X"
+            },
+            "flip_report": false
+          }
+        ],
+        "diagnostics": null,
+        "references": []
+      },
+      {
+        "accepted": false,
+        "reason": "direct_recovery_no_unique_class",
+        "injected_events": [
+          {
+            "injection": 0,
+            "event": 431,
+            "context": "direct/vote/0/X/0",
+            "operation": "CX",
+            "timing": "after",
+            "targets": [
+              "s",
+              "D1"
+            ],
+            "paulis": {
+              "s": "X"
+            },
+            "flip_report": false
+          }
+        ],
+        "diagnostics": null,
+        "references": [
+          {
+            "direct_reference": "direct/vote/1/syndrome_recovery/ambiguous_Z/syndrome_recovery",
+            "records": [
+              [
+                0,
+                0,
+                0,
+                0,
+                0,
+                1,
+                0,
+                1,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              [
+                0,
+                0,
+                0,
+                0,
+                0,
+                1,
+                0,
+                1,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ]
+            ],
+            "selected": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              1,
+              0,
+              1,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "conditional_V_pair": true,
+            "minimum_spent_faults": 1
+          },
+          {
+            "cycle_only_lookup": true,
+            "proposed": null
+          },
+          {
+            "direct_recovery": "direct/vote/1/syndrome_recovery/ambiguous_Z/syndrome_recovery",
+            "correction": null
+          }
+        ]
+      }
+    ]
+  }
+}

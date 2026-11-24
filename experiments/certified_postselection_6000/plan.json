@@ -1,0 +1,26 @@
+{
+  "seed_range": [
+    3200000,
+    3205999
+  ],
+  "shots_per_arm": 6000,
+  "rates": {
+    "two_qubit_infidelity": "1e-3",
+    "readout_flip_probability": "1e-3",
+    "one_qubit_infidelity": "1e-4",
+    "t_infidelity": "1e-4",
+    "idle_infidelity": "0",
+    "preparation_flip_probability": "0"
+  },
+  "primary": "moderate",
+  "secondary": "strict",
+  "endpoints": [
+    "mean accepted decoded fidelity",
+    "acceptance",
+    "T and Tdg per correct output"
+  ],
+  "primary_rule": "reject syndrome fallback on any terminal screen or a full gauged/short-cat vote recovery",
+  "secondary_rule": "also reject terminal flags and any ordinary vote recovery",
+  "native_rotation_reference": 0.9986560625271139,
+  "heralded_clifford_T_reference": 0.9975394866058183
+}

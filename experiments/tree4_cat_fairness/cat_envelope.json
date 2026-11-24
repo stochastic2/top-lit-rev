@@ -1,0 +1,81 @@
+{
+  "locations": 1241,
+  "signatures": 67,
+  "bounds": {
+    "1": {
+      "distribution": {
+        "(0, 0)": 2,
+        "(1, 1)": 20
+      },
+      "largest": {
+        "site_cost": 1,
+        "block_cost": 1,
+        "mask": 4,
+        "faults": [
+          {
+            "timing": "after",
+            "context": "terminal/0/U",
+            "operation": "CX",
+            "targets": [
+              "L2",
+              "w"
+            ],
+            "paulis": {
+              "L2": "X"
+            },
+            "flip_report": false,
+            "prefix_gate_index": 42
+          },
+          null
+        ]
+      },
+      "max_blocks": 1,
+      "max_sites": 1
+    },
+    "2": {
+      "distribution": {
+        "(0, 0)": 69,
+        "(1, 1)": 60,
+        "(2, 1)": 33,
+        "(2, 2)": 198
+      },
+      "largest": {
+        "site_cost": 2,
+        "block_cost": 2,
+        "mask": 2050,
+        "faults": [
+          {
+            "timing": "after",
+            "context": "terminal/0/U",
+            "operation": "CX",
+            "targets": [
+              "L1",
+              "L2"
+            ],
+            "paulis": {
+              "L1": "X"
+            },
+            "flip_report": false,
+            "prefix_gate_index": 22
+          },
+          {
+            "timing": "after",
+            "context": "terminal/0/U",
+            "operation": "CX",
+            "targets": [
+              "L11",
+              "L12"
+            ],
+            "paulis": {
+              "L11": "X"
+            },
+            "flip_report": false,
+            "prefix_gate_index": 32
+          }
+        ]
+      },
+      "max_blocks": 2,
+      "max_sites": 2
+    }
+  }
+}

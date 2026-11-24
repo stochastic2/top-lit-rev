@@ -1,0 +1,50 @@
+{
+  "design": "Fixed-size matched-seed simulation study. No interim estimates, early stopping, or changes to candidates.",
+  "seed_start": 2250000,
+  "attempts_per_arm": 512,
+  "workers": 8,
+  "arms": [
+    "RepairedTree",
+    "ScreenCat",
+    "ShortPostCat",
+    "ShortPreCat",
+    "LeanResourceCat",
+    "BareInnerTree",
+    "FilteredTree",
+    "FilteredCat"
+  ],
+  "noise": {
+    "two_qubit_infidelity": "1e-3",
+    "readout_flip_probability": "1e-3",
+    "one_qubit_infidelity": "1e-4",
+    "t_infidelity": "1e-4",
+    "idle_infidelity": "0",
+    "preparation_flip_probability": "0"
+  },
+  "decoder": "single_cz_diagnostics.diagnose, physical weight-at-most-two table then fixed GF2 fallback, decoded fidelity within 1e-10 of 1",
+  "primary_metrics": ["decoded matches per attempt", "CX per decoded match", "T/TDG per decoded match"],
+  "secondary_metrics": ["acceptance", "mean raw and decoded fidelity conditional on acceptance", "peak live qubits"],
+  "cost_denominator": "All observed work on all attempts, including failed, discarded, retried and unresolved work, divided by the number of decoded accepted matches. Unresolved attempts contribute zero matches.",
+  "paired_comparisons_right_minus_left": [
+    ["RepairedTree", "ScreenCat"],
+    ["RepairedTree", "LeanResourceCat"],
+    ["ScreenCat", "ShortPostCat"],
+    ["ShortPostCat", "ShortPreCat"],
+    ["ShortPreCat", "LeanResourceCat"],
+    ["RepairedTree", "BareInnerTree"],
+    ["BareInnerTree", "LeanResourceCat"],
+    ["BareInnerTree", "FilteredTree"],
+    ["LeanResourceCat", "FilteredCat"],
+    ["FilteredTree", "FilteredCat"]
+  ],
+  "uncertainty": "95% Wilson acceptance and match intervals per arm. Nominal 95% percentile paired bootstrap intervals for paired differences and ratios, resampling shared-seed groups (10000 resamples, seed 27711). Descriptive intervals per comparison without multiplicity adjustment.",
+  "noninferiority": {
+    "comparison": "LeanResourceCat relative to BareInnerTree",
+    "eligible_metrics": {
+      "CX_per_match": "upper 95% paired ratio bound below 1.05",
+      "T_per_match": "upper 95% paired ratio bound below 1.05",
+      "matches_per_attempt": "lower 95% paired difference bound above -0.02"
+    },
+    "meaning": "At most 5% extra consumption of the named gate resource or at most two fewer useful outputs per 100 attempts, assessed separately. No omnibus throughput or equivalence claim."
+  }
+}
