@@ -1,0 +1,30 @@
+{
+  "resource": {
+    "locations": 179,
+    "one_fault_signatures": 118,
+    "signature_distribution": {
+      "flag_0_cost_1": 46,
+      "flag_0_cost_0": 38,
+      "flag_1_cost_1": 16,
+      "flag_1_cost_2": 12,
+      "flag_1_cost_0": 6
+    },
+    "accepted_signature_pairs": 4165,
+    "detected_example": {
+      "operation": "CX(a0,A1)",
+      "fault": "X_a0 after CX",
+      "defect": 3,
+      "check_report": 1
+    }
+  },
+  "handoff": {
+    "edge_word_and_report_flip_cases": 114768,
+    "conditional_byproduct": "one U_v per wrong tree report; chord reports inert"
+  },
+  "sources": {
+    "verification/single_block_cz/check_single_cz_tree_resource.py": "c720410e526453371e6aab906b6db9c20d0b0f1b70f020ddb9382fe2132cace4",
+    "src/single_block_cz/single_cz_tree_resource_pilot.py": "47dec8d6feaed51e7b095f18f317eeb76a1422b7fe118cb2cd9e0e1bbf69aa76",
+    "src/single_block_cz/single_cz_tree_handoff_pilot.py": "9bb0b95b3fa4b3839bfccda4b2d9c0c2a6faca4a2a242a56fdc2085ed65cea79",
+    "verification/shared/check_optimized_extraction.py": "ef874506eeba9bf388afee13a5bd0ebe6ccfc6db720cc3279f2a295393b475e4"
+  }
+}

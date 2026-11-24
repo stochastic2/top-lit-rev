@@ -1,0 +1,2621 @@
+{
+  "scope": "separate outer meters, ideal post-meter diagnostics and a conditional outside envelope",
+  "graph": "compact13",
+  "basis": {
+    "outer_words": [
+      1,
+      3,
+      4,
+      8
+    ],
+    "inner_multipliers": [
+      0,
+      4,
+      0,
+      0
+    ],
+    "supports": [
+      [
+        0,
+        3,
+        6,
+        7,
+        10,
+        11,
+        12,
+        15
+      ],
+      [
+        0,
+        3,
+        4,
+        6,
+        12,
+        14,
+        16,
+        19
+      ],
+      [
+        1,
+        2,
+        8,
+        11,
+        12,
+        13,
+        18,
+        19
+      ],
+      [
+        2,
+        3,
+        5,
+        6,
+        13,
+        14,
+        16,
+        17
+      ]
+    ],
+    "representatives_checked": 240,
+    "independent_word_bases_checked": 840,
+    "minimum_outer_CX_in_this_compiler_family": 124
+  },
+  "class_map": {
+    "pauli_dimension": 66,
+    "class_map_rank": 35,
+    "stabilizer_kernel_rank": 31
+  },
+  "checks": {
+    "5": {
+      "ideal": {
+        "basis_cases": 8192,
+        "flag_readout": "0000",
+        "phase_mod_8_includes_s_zero_and_one": true
+      },
+      "resources": {
+        "PREP": 5,
+        "H": 2,
+        "CX": 28,
+        "T": 12,
+        "TDG": 12,
+        "MZ": 5,
+        "T_TDG": 24,
+        "serialized_steps": 64,
+        "peak_helpers": 5,
+        "helper_lifetimes_steps": {
+          "f0": 32,
+          "f1": 38,
+          "f2": 38,
+          "f3": 38,
+          "s": 64
+        },
+        "helper_idle_locations": 174
+      },
+      "program": [
+        [
+          "PREP",
+          [
+            "s"
+          ]
+        ],
+        [
+          "H",
+          [
+            "s"
+          ]
+        ],
+        [
+          "CX",
+          [
+            "s",
+            "D0"
+          ]
+        ],
+        [
+          "PREP",
+          [
+            "f0"
+          ]
+        ],
+        [
+          "CX",
+          [
+            "s",
+            "f0"
+          ]
+        ],
+        [
+          "CX",
+          [
+            "s",
+            "D3"
+          ]
+        ],
+        [
+          "PREP",
+          [
+            "f1"
+          ]
+        ],
+        [
+          "CX",
+          [
+            "s",
+            "f1"
+          ]
+        ],
+        [
+          "T",
+          [
+            "D6"
+          ]
+        ],
+        [
+          "CX",
+          [
+            "A0",
+            "D6"
+          ]
+        ],
+        [
+          "TDG",
+          [
+            "D6"
+          ]
+        ],
+        [
+          "CX",
+          [
+            "s",
+            "D6"
+          ]
+        ],
+        [
+          "T",
+          [
+            "D6"
+          ]
+        ],
+        [
+          "CX",
+          [
+            "A0",
+            "D6"
+          ]
+        ],
+        [
+          "TDG",
+          [
+            "D6"
+          ]
+        ],
+        [
+          "PREP",
+          [
+            "f2"
+          ]
+        ],
+        [
+          "CX",
+          [
+            "s",
+            "f2"
+          ]
+        ],
+        [
+          "TDG",
+          [
+            "D7"
+          ]
+        ],
+        [
+          "CX",
+          [
+            "A0",
+            "D7"
+          ]
+        ],
+        [
+          "T",
+          [
+            "D7"
+          ]
+        ],
+        [
+          "CX",
+          [
+            "s",
+            "D7"
+          ]
+        ],
+        [
+          "TDG",
+          [
+            "D7"
+          ]
+        ],
+        [
+          "CX",
+          [
+            "A0",
+            "D7"
+          ]
+        ],
+        [
+          "T",
+          [
+            "D7"
+          ]
+        ],
+        [
+          "PREP",
+          [
+            "f3"
+          ]
+        ],
+        [
+          "CX",
+          [
+            "s",
+            "f3"
+          ]
+        ],
+        [
+          "T",
+          [
+            "D10"
+          ]
+        ],
+        [
+          "CX",
+          [
+            "A1",
+            "D10"
+          ]
+        ],
+        [
+          "TDG",
+          [
+            "D10"
+          ]
+        ],
+        [
+          "CX",
+          [
+            "s",
+            "D10"
+          ]
+        ],
+        [
+          "T",
+          [
+            "D10"
+          ]
+        ],
+        [
+          "CX",
+          [
+            "A1",
+            "D10"
+          ]
+        ],
+        [
+          "TDG",
+          [
+            "D10"
+          ]
+        ],
+        [
+          "CX",
+          [
+            "s",
+            "f0"
+          ]
+        ],
+        [
+          "MZ",
+          [
+            "f0"
+          ]
+        ],
+        [
+          "T",
+          [
+            "D11"
+          ]
+        ],
+        [
+          "CX",
+          [
+            "A1",
+            "D11"
+          ]
+        ],
+        [
+          "TDG",
+          [
+            "D11"
+          ]
+        ],
+        [
+          "CX",
+          [
+            "s",
+            "D11"
+          ]
+        ],
+        [
+          "T",
+          [
+            "D11"
+          ]
+        ],
+        [
+          "CX",
+          [
+            "A1",
+            "D11"
+          ]
+        ],
+        [
+          "TDG",
+          [
+            "D11"
+          ]
+        ],
+        [
+          "CX",
+          [
+            "s",
+            "f1"
+          ]
+        ],
+        [
+          "MZ",
+          [
+            "f1"
+          ]
+        ],
+        [
+          "T",
+          [
+            "D12"
+          ]
+        ],
+        [
+          "CX",
+          [
+            "A2",
+            "D12"
+          ]
+        ],
+        [
+          "TDG",
+          [
+            "D12"
+          ]
+        ],
+        [
+          "CX",
+          [
+            "s",
+            "D12"
+          ]
+        ],
+        [
+          "T",
+          [
+            "D12"
+          ]
+        ],
+        [
+          "CX",
+          [
+            "A2",
+            "D12"
+          ]
+        ],
+        [
+          "TDG",
+          [
+            "D12"
+          ]
+        ],
+        [
+          "CX",
+          [
+            "s",
+            "f2"
+          ]
+        ],
+        [
+          "MZ",
+          [
+            "f2"
+          ]
+        ],
+        [
+          "T",
+          [
+            "D15"
+          ]
+        ],
+        [
+          "CX",
+          [
+            "A2",
+            "D15"
+          ]
+        ],
+        [
+          "TDG",
+          [
+            "D15"
+          ]
+        ],
+        [
+          "CX",
+          [
+            "s",
+            "D15"
+          ]
+        ],
+        [
+          "T",
+          [
+            "D15"
+          ]
+        ],
+        [
+          "CX",
+          [
+            "A2",
+            "D15"
+          ]
+        ],
+        [
+          "TDG",
+          [
+            "D15"
+          ]
+        ],
+        [
+          "CX",
+          [
+            "s",
+            "f3"
+          ]
+        ],
+        [
+          "MZ",
+          [
+            "f3"
+          ]
+        ],
+        [
+          "H",
+          [
+            "s"
+          ]
+        ],
+        [
+          "MZ",
+          [
+            "s"
+          ]
+        ]
+      ],
+      "zero_flag_one_fault_cones": {
+        "coherent_pauli_terms_checked": 1406,
+        "data_supported_in_typed_block_or_empty_modulo_measured_X": true,
+        "graph_X_is_zero_or_single_edge": true
+      },
+      "one_fault": {
+        "route": "direct_outer_ports",
+        "max_faulty_locations": 1,
+        "locations": {
+          "locations": 2327,
+          "pauli_basis_cases": 7337,
+          "unique_errors": 422
+        },
+        "distinct_one_two_fault_normal_forms": 423,
+        "distinct_affine_class_images": 258,
+        "unflagged": {
+          "full_report_queries": 468,
+          "unique_with_data": 468,
+          "unique_with_cycles": 468,
+          "unique_with_cycles_and_stars": 468,
+          "gained_by_cycles": 0,
+          "gained_by_stars": 0,
+          "ambiguous_even_with_graph": 0
+        },
+        "flagged": {
+          "full_report_queries": 62,
+          "unique_with_data": 62,
+          "unique_with_cycles": 62,
+          "unique_with_cycles_and_stars": 62,
+          "gained_by_cycles": 0,
+          "gained_by_stars": 0,
+          "ambiguous_even_with_graph": 0
+        },
+        "clean_zero_record_logical_classes": [
+          0
+        ],
+        "graph_information_witnesses": [],
+        "remaining_Pauli_ambiguity_witness": null,
+        "assumed_outside_envelope": null,
+        "elapsed_seconds": 0.16261696815490723
+      },
+      "two_faults": {
+        "route": "direct_outer_ports",
+        "max_faulty_locations": 2,
+        "locations": {
+          "locations": 2327,
+          "pauli_basis_cases": 7337,
+          "unique_errors": 422
+        },
+        "distinct_one_two_fault_normal_forms": 72448,
+        "distinct_affine_class_images": 23943,
+        "unflagged": {
+          "full_report_queries": 60786,
+          "unique_with_data": 52611,
+          "unique_with_cycles": 60786,
+          "unique_with_cycles_and_stars": 60786,
+          "gained_by_cycles": 8175,
+          "gained_by_stars": 0,
+          "ambiguous_even_with_graph": 0
+        },
+        "flagged": {
+          "full_report_queries": 16562,
+          "unique_with_data": 16562,
+          "unique_with_cycles": 16562,
+          "unique_with_cycles_and_stars": 16562,
+          "gained_by_cycles": 0,
+          "gained_by_stars": 0,
+          "ambiguous_even_with_graph": 0
+        },
+        "clean_zero_record_logical_classes": [
+          0
+        ],
+        "graph_information_witnesses": [],
+        "remaining_Pauli_ambiguity_witness": null,
+        "assumed_outside_envelope": {
+          "typed_cases": 43,
+          "affine_class_images": 1239,
+          "coarse_report_queries": 71330,
+          "scope": "one current flagged-gadget fault plus one assumed block/edge/Gauss-cone target fault; ideal final diagnostics",
+          "full_internal_report_queries_scored": 16562,
+          "unique_with_data": 16552,
+          "unique_with_cycles": 16552,
+          "unique_with_cycles_and_stars": 16552,
+          "gained_by_cycles": 0,
+          "gained_by_stars": 0,
+          "ambiguous_even_with_graph": 10,
+          "outside_only_report_queries_not_scored": true
+        },
+        "elapsed_seconds": 4.47723913192749
+      }
+    },
+    "6": {
+      "ideal": {
+        "basis_cases": 8192,
+        "flag_readout": "0000",
+        "phase_mod_8_includes_s_zero_and_one": true
+      },
+      "resources": {
+        "PREP": 5,
+        "H": 2,
+        "CX": 28,
+        "TDG": 12,
+        "T": 12,
+        "MZ": 5,
+        "T_TDG": 24,
+        "serialized_steps": 64,
+        "peak_helpers": 5,
+        "helper_lifetimes_steps": {
+          "f0": 32,
+          "f1": 38,
+          "f2": 38,
+          "f3": 38,
+          "s": 64
+        },
+        "helper_idle_locations": 174
+      },
+      "program": [
+        [
+          "PREP",
+          [
+            "s"
+          ]
+        ],
+        [
+          "H",
+          [
+            "s"
+          ]
+        ],
+        [
+          "CX",
+          [
+            "s",
+            "D0"
+          ]
+        ],
+        [
+          "PREP",
+          [
+            "f0"
+          ]
+        ],
+        [
+          "CX",
+          [
+            "s",
+            "f0"
+          ]
+        ],
+        [
+          "CX",
+          [
+            "s",
+            "D3"
+          ]
+        ],
+        [
+          "PREP",
+          [
+            "f1"
+          ]
+        ],
+        [
+          "CX",
+          [
+            "s",
+            "f1"
+          ]
+        ],
+        [
+          "TDG",
+          [
+            "D4"
+          ]
+        ],
+        [
+          "CX",
+          [
+            "A0",
+            "D4"
+          ]
+        ],
+        [
+          "T",
+          [
+            "D4"
+          ]
+        ],
+        [
+          "CX",
+          [
+            "s",
+            "D4"
+          ]
+        ],
+        [
+          "TDG",
+          [
+            "D4"
+          ]
+        ],
+        [
+          "CX",
+          [
+            "A0",
+            "D4"
+          ]
+        ],
+        [
+          "T",
+          [
+            "D4"
+          ]
+        ],
+        [
+          "PREP",
+          [
+            "f2"
+          ]
+        ],
+        [
+          "CX",
+          [
+            "s",
+            "f2"
+          ]
+        ],
+        [
+          "T",
+          [
+            "D6"
+          ]
+        ],
+        [
+          "CX",
+          [
+            "A0",
+            "D6"
+          ]
+        ],
+        [
+          "TDG",
+          [
+            "D6"
+          ]
+        ],
+        [
+          "CX",
+          [
+            "s",
+            "D6"
+          ]
+        ],
+        [
+          "T",
+          [
+            "D6"
+          ]
+        ],
+        [
+          "CX",
+          [
+            "A0",
+            "D6"
+          ]
+        ],
+        [
+          "TDG",
+          [
+            "D6"
+          ]
+        ],
+        [
+          "PREP",
+          [
+            "f3"
+          ]
+        ],
+        [
+          "CX",
+          [
+            "s",
+            "f3"
+          ]
+        ],
+        [
+          "T",
+          [
+            "D12"
+          ]
+        ],
+        [
+          "CX",
+          [
+            "A2",
+            "D12"
+          ]
+        ],
+        [
+          "TDG",
+          [
+            "D12"
+          ]
+        ],
+        [
+          "CX",
+          [
+            "s",
+            "D12"
+          ]
+        ],
+        [
+          "T",
+          [
+            "D12"
+          ]
+        ],
+        [
+          "CX",
+          [
+            "A2",
+            "D12"
+          ]
+        ],
+        [
+          "TDG",
+          [
+            "D12"
+          ]
+        ],
+        [
+          "CX",
+          [
+            "s",
+            "f0"
+          ]
+        ],
+        [
+          "MZ",
+          [
+            "f0"
+          ]
+        ],
+        [
+          "T",
+          [
+            "D14"
+          ]
+        ],
+        [
+          "CX",
+          [
+            "A2",
+            "D14"
+          ]
+        ],
+        [
+          "TDG",
+          [
+            "D14"
+          ]
+        ],
+        [
+          "CX",
+          [
+            "s",
+            "D14"
+          ]
+        ],
+        [
+          "T",
+          [
+            "D14"
+          ]
+        ],
+        [
+          "CX",
+          [
+            "A2",
+            "D14"
+          ]
+        ],
+        [
+          "TDG",
+          [
+            "D14"
+          ]
+        ],
+        [
+          "CX",
+          [
+            "s",
+            "f1"
+          ]
+        ],
+        [
+          "MZ",
+          [
+            "f1"
+          ]
+        ],
+        [
+          "TDG",
+          [
+            "D16"
+          ]
+        ],
+        [
+          "CX",
+          [
+            "A3",
+            "D16"
+          ]
+        ],
+        [
+          "T",
+          [
+            "D16"
+          ]
+        ],
+        [
+          "CX",
+          [
+            "s",
+            "D16"
+          ]
+        ],
+        [
+          "TDG",
+          [
+            "D16"
+          ]
+        ],
+        [
+          "CX",
+          [
+            "A3",
+            "D16"
+          ]
+        ],
+        [
+          "T",
+          [
+            "D16"
+          ]
+        ],
+        [
+          "CX",
+          [
+            "s",
+            "f2"
+          ]
+        ],
+        [
+          "MZ",
+          [
+            "f2"
+          ]
+        ],
+        [
+          "TDG",
+          [
+            "D19"
+          ]
+        ],
+        [
+          "CX",
+          [
+            "A3",
+            "D19"
+          ]
+        ],
+        [
+          "T",
+          [
+            "D19"
+          ]
+        ],
+        [
+          "CX",
+          [
+            "s",
+            "D19"
+          ]
+        ],
+        [
+          "TDG",
+          [
+            "D19"
+          ]
+        ],
+        [
+          "CX",
+          [
+            "A3",
+            "D19"
+          ]
+        ],
+        [
+          "T",
+          [
+            "D19"
+          ]
+        ],
+        [
+          "CX",
+          [
+            "s",
+            "f3"
+          ]
+        ],
+        [
+          "MZ",
+          [
+            "f3"
+          ]
+        ],
+        [
+          "H",
+          [
+            "s"
+          ]
+        ],
+        [
+          "MZ",
+          [
+            "s"
+          ]
+        ]
+      ],
+      "zero_flag_one_fault_cones": {
+        "coherent_pauli_terms_checked": 1406,
+        "data_supported_in_typed_block_or_empty_modulo_measured_X": true,
+        "graph_X_is_zero_or_single_edge": true
+      },
+      "one_fault": {
+        "route": "direct_outer_ports",
+        "max_faulty_locations": 1,
+        "locations": {
+          "locations": 2327,
+          "pauli_basis_cases": 7337,
+          "unique_errors": 422
+        },
+        "distinct_one_two_fault_normal_forms": 423,
+        "distinct_affine_class_images": 258,
+        "unflagged": {
+          "full_report_queries": 468,
+          "unique_with_data": 468,
+          "unique_with_cycles": 468,
+          "unique_with_cycles_and_stars": 468,
+          "gained_by_cycles": 0,
+          "gained_by_stars": 0,
+          "ambiguous_even_with_graph": 0
+        },
+        "flagged": {
+          "full_report_queries": 62,
+          "unique_with_data": 62,
+          "unique_with_cycles": 62,
+          "unique_with_cycles_and_stars": 62,
+          "gained_by_cycles": 0,
+          "gained_by_stars": 0,
+          "ambiguous_even_with_graph": 0
+        },
+        "clean_zero_record_logical_classes": [
+          0
+        ],
+        "graph_information_witnesses": [],
+        "remaining_Pauli_ambiguity_witness": null,
+        "assumed_outside_envelope": null,
+        "elapsed_seconds": 0.13801908493041992
+      },
+      "two_faults": {
+        "route": "direct_outer_ports",
+        "max_faulty_locations": 2,
+        "locations": {
+          "locations": 2327,
+          "pauli_basis_cases": 7337,
+          "unique_errors": 422
+        },
+        "distinct_one_two_fault_normal_forms": 72448,
+        "distinct_affine_class_images": 23913,
+        "unflagged": {
+          "full_report_queries": 60694,
+          "unique_with_data": 52525,
+          "unique_with_cycles": 60694,
+          "unique_with_cycles_and_stars": 60694,
+          "gained_by_cycles": 8169,
+          "gained_by_stars": 0,
+          "ambiguous_even_with_graph": 0
+        },
+        "flagged": {
+          "full_report_queries": 16562,
+          "unique_with_data": 16562,
+          "unique_with_cycles": 16562,
+          "unique_with_cycles_and_stars": 16562,
+          "gained_by_cycles": 0,
+          "gained_by_stars": 0,
+          "ambiguous_even_with_graph": 0
+        },
+        "clean_zero_record_logical_classes": [
+          0
+        ],
+        "graph_information_witnesses": [],
+        "remaining_Pauli_ambiguity_witness": null,
+        "assumed_outside_envelope": {
+          "typed_cases": 43,
+          "affine_class_images": 1239,
+          "coarse_report_queries": 71330,
+          "scope": "one current flagged-gadget fault plus one assumed block/edge/Gauss-cone target fault; ideal final diagnostics",
+          "full_internal_report_queries_scored": 16562,
+          "unique_with_data": 16552,
+          "unique_with_cycles": 16552,
+          "unique_with_cycles_and_stars": 16552,
+          "gained_by_cycles": 0,
+          "gained_by_stars": 0,
+          "ambiguous_even_with_graph": 10,
+          "outside_only_report_queries_not_scored": true
+        },
+        "elapsed_seconds": 4.476513862609863
+      }
+    },
+    "7": {
+      "ideal": {
+        "basis_cases": 8192,
+        "flag_readout": "0000",
+        "phase_mod_8_includes_s_zero_and_one": true
+      },
+      "resources": {
+        "PREP": 5,
+        "H": 2,
+        "CX": 28,
+        "T": 12,
+        "TDG": 12,
+        "MZ": 5,
+        "T_TDG": 24,
+        "serialized_steps": 64,
+        "peak_helpers": 5,
+        "helper_lifetimes_steps": {
+          "f0": 32,
+          "f1": 38,
+          "f2": 38,
+          "f3": 38,
+          "s": 64
+        },
+        "helper_idle_locations": 174
+      },
+      "program": [
+        [
+          "PREP",
+          [
+            "s"
+          ]
+        ],
+        [
+          "H",
+          [
+            "s"
+          ]
+        ],
+        [
+          "CX",
+          [
+            "s",
+            "D1"
+          ]
+        ],
+        [
+          "PREP",
+          [
+            "f0"
+          ]
+        ],
+        [
+          "CX",
+          [
+            "s",
+            "f0"
+          ]
+        ],
+        [
+          "CX",
+          [
+            "s",
+            "D2"
+          ]
+        ],
+        [
+          "PREP",
+          [
+            "f1"
+          ]
+        ],
+        [
+          "CX",
+          [
+            "s",
+            "f1"
+          ]
+        ],
+        [
+          "T",
+          [
+            "D8"
+          ]
+        ],
+        [
+          "CX",
+          [
+            "A1",
+            "D8"
+          ]
+        ],
+        [
+          "TDG",
+          [
+            "D8"
+          ]
+        ],
+        [
+          "CX",
+          [
+            "s",
+            "D8"
+          ]
+        ],
+        [
+          "T",
+          [
+            "D8"
+          ]
+        ],
+        [
+          "CX",
+          [
+            "A1",
+            "D8"
+          ]
+        ],
+        [
+          "TDG",
+          [
+            "D8"
+          ]
+        ],
+        [
+          "PREP",
+          [
+            "f2"
+          ]
+        ],
+        [
+          "CX",
+          [
+            "s",
+            "f2"
+          ]
+        ],
+        [
+          "T",
+          [
+            "D11"
+          ]
+        ],
+        [
+          "CX",
+          [
+            "A1",
+            "D11"
+          ]
+        ],
+        [
+          "TDG",
+          [
+            "D11"
+          ]
+        ],
+        [
+          "CX",
+          [
+            "s",
+            "D11"
+          ]
+        ],
+        [
+          "T",
+          [
+            "D11"
+          ]
+        ],
+        [
+          "CX",
+          [
+            "A1",
+            "D11"
+          ]
+        ],
+        [
+          "TDG",
+          [
+            "D11"
+          ]
+        ],
+        [
+          "PREP",
+          [
+            "f3"
+          ]
+        ],
+        [
+          "CX",
+          [
+            "s",
+            "f3"
+          ]
+        ],
+        [
+          "T",
+          [
+            "D12"
+          ]
+        ],
+        [
+          "CX",
+          [
+            "A2",
+            "D12"
+          ]
+        ],
+        [
+          "TDG",
+          [
+            "D12"
+          ]
+        ],
+        [
+          "CX",
+          [
+            "s",
+            "D12"
+          ]
+        ],
+        [
+          "T",
+          [
+            "D12"
+          ]
+        ],
+        [
+          "CX",
+          [
+            "A2",
+            "D12"
+          ]
+        ],
+        [
+          "TDG",
+          [
+            "D12"
+          ]
+        ],
+        [
+          "CX",
+          [
+            "s",
+            "f0"
+          ]
+        ],
+        [
+          "MZ",
+          [
+            "f0"
+          ]
+        ],
+        [
+          "T",
+          [
+            "D13"
+          ]
+        ],
+        [
+          "CX",
+          [
+            "A2",
+            "D13"
+          ]
+        ],
+        [
+          "TDG",
+          [
+            "D13"
+          ]
+        ],
+        [
+          "CX",
+          [
+            "s",
+            "D13"
+          ]
+        ],
+        [
+          "T",
+          [
+            "D13"
+          ]
+        ],
+        [
+          "CX",
+          [
+            "A2",
+            "D13"
+          ]
+        ],
+        [
+          "TDG",
+          [
+            "D13"
+          ]
+        ],
+        [
+          "CX",
+          [
+            "s",
+            "f1"
+          ]
+        ],
+        [
+          "MZ",
+          [
+            "f1"
+          ]
+        ],
+        [
+          "T",
+          [
+            "D18"
+          ]
+        ],
+        [
+          "CX",
+          [
+            "A3",
+            "D18"
+          ]
+        ],
+        [
+          "TDG",
+          [
+            "D18"
+          ]
+        ],
+        [
+          "CX",
+          [
+            "s",
+            "D18"
+          ]
+        ],
+        [
+          "T",
+          [
+            "D18"
+          ]
+        ],
+        [
+          "CX",
+          [
+            "A3",
+            "D18"
+          ]
+        ],
+        [
+          "TDG",
+          [
+            "D18"
+          ]
+        ],
+        [
+          "CX",
+          [
+            "s",
+            "f2"
+          ]
+        ],
+        [
+          "MZ",
+          [
+            "f2"
+          ]
+        ],
+        [
+          "TDG",
+          [
+            "D19"
+          ]
+        ],
+        [
+          "CX",
+          [
+            "A3",
+            "D19"
+          ]
+        ],
+        [
+          "T",
+          [
+            "D19"
+          ]
+        ],
+        [
+          "CX",
+          [
+            "s",
+            "D19"
+          ]
+        ],
+        [
+          "TDG",
+          [
+            "D19"
+          ]
+        ],
+        [
+          "CX",
+          [
+            "A3",
+            "D19"
+          ]
+        ],
+        [
+          "T",
+          [
+            "D19"
+          ]
+        ],
+        [
+          "CX",
+          [
+            "s",
+            "f3"
+          ]
+        ],
+        [
+          "MZ",
+          [
+            "f3"
+          ]
+        ],
+        [
+          "H",
+          [
+            "s"
+          ]
+        ],
+        [
+          "MZ",
+          [
+            "s"
+          ]
+        ]
+      ],
+      "zero_flag_one_fault_cones": {
+        "coherent_pauli_terms_checked": 1406,
+        "data_supported_in_typed_block_or_empty_modulo_measured_X": true,
+        "graph_X_is_zero_or_single_edge": true
+      },
+      "one_fault": {
+        "route": "direct_outer_ports",
+        "max_faulty_locations": 1,
+        "locations": {
+          "locations": 2327,
+          "pauli_basis_cases": 7337,
+          "unique_errors": 422
+        },
+        "distinct_one_two_fault_normal_forms": 423,
+        "distinct_affine_class_images": 258,
+        "unflagged": {
+          "full_report_queries": 468,
+          "unique_with_data": 468,
+          "unique_with_cycles": 468,
+          "unique_with_cycles_and_stars": 468,
+          "gained_by_cycles": 0,
+          "gained_by_stars": 0,
+          "ambiguous_even_with_graph": 0
+        },
+        "flagged": {
+          "full_report_queries": 62,
+          "unique_with_data": 62,
+          "unique_with_cycles": 62,
+          "unique_with_cycles_and_stars": 62,
+          "gained_by_cycles": 0,
+          "gained_by_stars": 0,
+          "ambiguous_even_with_graph": 0
+        },
+        "clean_zero_record_logical_classes": [
+          0
+        ],
+        "graph_information_witnesses": [],
+        "remaining_Pauli_ambiguity_witness": null,
+        "assumed_outside_envelope": null,
+        "elapsed_seconds": 0.13814711570739746
+      },
+      "two_faults": {
+        "route": "direct_outer_ports",
+        "max_faulty_locations": 2,
+        "locations": {
+          "locations": 2327,
+          "pauli_basis_cases": 7337,
+          "unique_errors": 422
+        },
+        "distinct_one_two_fault_normal_forms": 72448,
+        "distinct_affine_class_images": 23943,
+        "unflagged": {
+          "full_report_queries": 60786,
+          "unique_with_data": 52611,
+          "unique_with_cycles": 60786,
+          "unique_with_cycles_and_stars": 60786,
+          "gained_by_cycles": 8175,
+          "gained_by_stars": 0,
+          "ambiguous_even_with_graph": 0
+        },
+        "flagged": {
+          "full_report_queries": 16562,
+          "unique_with_data": 16562,
+          "unique_with_cycles": 16562,
+          "unique_with_cycles_and_stars": 16562,
+          "gained_by_cycles": 0,
+          "gained_by_stars": 0,
+          "ambiguous_even_with_graph": 0
+        },
+        "clean_zero_record_logical_classes": [
+          0
+        ],
+        "graph_information_witnesses": [],
+        "remaining_Pauli_ambiguity_witness": null,
+        "assumed_outside_envelope": {
+          "typed_cases": 43,
+          "affine_class_images": 1239,
+          "coarse_report_queries": 71330,
+          "scope": "one current flagged-gadget fault plus one assumed block/edge/Gauss-cone target fault; ideal final diagnostics",
+          "full_internal_report_queries_scored": 16562,
+          "unique_with_data": 16552,
+          "unique_with_cycles": 16552,
+          "unique_with_cycles_and_stars": 16552,
+          "gained_by_cycles": 0,
+          "gained_by_stars": 0,
+          "ambiguous_even_with_graph": 10,
+          "outside_only_report_queries_not_scored": true
+        },
+        "elapsed_seconds": 4.481121063232422
+      }
+    },
+    "8": {
+      "ideal": {
+        "basis_cases": 8192,
+        "flag_readout": "0000",
+        "phase_mod_8_includes_s_zero_and_one": true
+      },
+      "resources": {
+        "PREP": 5,
+        "H": 2,
+        "CX": 28,
+        "T": 12,
+        "TDG": 12,
+        "MZ": 5,
+        "T_TDG": 24,
+        "serialized_steps": 64,
+        "peak_helpers": 5,
+        "helper_lifetimes_steps": {
+          "f0": 32,
+          "f1": 38,
+          "f2": 38,
+          "f3": 38,
+          "s": 64
+        },
+        "helper_idle_locations": 174
+      },
+      "program": [
+        [
+          "PREP",
+          [
+            "s"
+          ]
+        ],
+        [
+          "H",
+          [
+            "s"
+          ]
+        ],
+        [
+          "CX",
+          [
+            "s",
+            "D2"
+          ]
+        ],
+        [
+          "PREP",
+          [
+            "f0"
+          ]
+        ],
+        [
+          "CX",
+          [
+            "s",
+            "f0"
+          ]
+        ],
+        [
+          "CX",
+          [
+            "s",
+            "D3"
+          ]
+        ],
+        [
+          "PREP",
+          [
+            "f1"
+          ]
+        ],
+        [
+          "CX",
+          [
+            "s",
+            "f1"
+          ]
+        ],
+        [
+          "T",
+          [
+            "D5"
+          ]
+        ],
+        [
+          "CX",
+          [
+            "A0",
+            "D5"
+          ]
+        ],
+        [
+          "TDG",
+          [
+            "D5"
+          ]
+        ],
+        [
+          "CX",
+          [
+            "s",
+            "D5"
+          ]
+        ],
+        [
+          "T",
+          [
+            "D5"
+          ]
+        ],
+        [
+          "CX",
+          [
+            "A0",
+            "D5"
+          ]
+        ],
+        [
+          "TDG",
+          [
+            "D5"
+          ]
+        ],
+        [
+          "PREP",
+          [
+            "f2"
+          ]
+        ],
+        [
+          "CX",
+          [
+            "s",
+            "f2"
+          ]
+        ],
+        [
+          "T",
+          [
+            "D6"
+          ]
+        ],
+        [
+          "CX",
+          [
+            "A0",
+            "D6"
+          ]
+        ],
+        [
+          "TDG",
+          [
+            "D6"
+          ]
+        ],
+        [
+          "CX",
+          [
+            "s",
+            "D6"
+          ]
+        ],
+        [
+          "T",
+          [
+            "D6"
+          ]
+        ],
+        [
+          "CX",
+          [
+            "A0",
+            "D6"
+          ]
+        ],
+        [
+          "TDG",
+          [
+            "D6"
+          ]
+        ],
+        [
+          "PREP",
+          [
+            "f3"
+          ]
+        ],
+        [
+          "CX",
+          [
+            "s",
+            "f3"
+          ]
+        ],
+        [
+          "T",
+          [
+            "D13"
+          ]
+        ],
+        [
+          "CX",
+          [
+            "A2",
+            "D13"
+          ]
+        ],
+        [
+          "TDG",
+          [
+            "D13"
+          ]
+        ],
+        [
+          "CX",
+          [
+            "s",
+            "D13"
+          ]
+        ],
+        [
+          "T",
+          [
+            "D13"
+          ]
+        ],
+        [
+          "CX",
+          [
+            "A2",
+            "D13"
+          ]
+        ],
+        [
+          "TDG",
+          [
+            "D13"
+          ]
+        ],
+        [
+          "CX",
+          [
+            "s",
+            "f0"
+          ]
+        ],
+        [
+          "MZ",
+          [
+            "f0"
+          ]
+        ],
+        [
+          "T",
+          [
+            "D14"
+          ]
+        ],
+        [
+          "CX",
+          [
+            "A2",
+            "D14"
+          ]
+        ],
+        [
+          "TDG",
+          [
+            "D14"
+          ]
+        ],
+        [
+          "CX",
+          [
+            "s",
+            "D14"
+          ]
+        ],
+        [
+          "T",
+          [
+            "D14"
+          ]
+        ],
+        [
+          "CX",
+          [
+            "A2",
+            "D14"
+          ]
+        ],
+        [
+          "TDG",
+          [
+            "D14"
+          ]
+        ],
+        [
+          "CX",
+          [
+            "s",
+            "f1"
+          ]
+        ],
+        [
+          "MZ",
+          [
+            "f1"
+          ]
+        ],
+        [
+          "TDG",
+          [
+            "D16"
+          ]
+        ],
+        [
+          "CX",
+          [
+            "A3",
+            "D16"
+          ]
+        ],
+        [
+          "T",
+          [
+            "D16"
+          ]
+        ],
+        [
+          "CX",
+          [
+            "s",
+            "D16"
+          ]
+        ],
+        [
+          "TDG",
+          [
+            "D16"
+          ]
+        ],
+        [
+          "CX",
+          [
+            "A3",
+            "D16"
+          ]
+        ],
+        [
+          "T",
+          [
+            "D16"
+          ]
+        ],
+        [
+          "CX",
+          [
+            "s",
+            "f2"
+          ]
+        ],
+        [
+          "MZ",
+          [
+            "f2"
+          ]
+        ],
+        [
+          "T",
+          [
+            "D17"
+          ]
+        ],
+        [
+          "CX",
+          [
+            "A3",
+            "D17"
+          ]
+        ],
+        [
+          "TDG",
+          [
+            "D17"
+          ]
+        ],
+        [
+          "CX",
+          [
+            "s",
+            "D17"
+          ]
+        ],
+        [
+          "T",
+          [
+            "D17"
+          ]
+        ],
+        [
+          "CX",
+          [
+            "A3",
+            "D17"
+          ]
+        ],
+        [
+          "TDG",
+          [
+            "D17"
+          ]
+        ],
+        [
+          "CX",
+          [
+            "s",
+            "f3"
+          ]
+        ],
+        [
+          "MZ",
+          [
+            "f3"
+          ]
+        ],
+        [
+          "H",
+          [
+            "s"
+          ]
+        ],
+        [
+          "MZ",
+          [
+            "s"
+          ]
+        ]
+      ],
+      "zero_flag_one_fault_cones": {
+        "coherent_pauli_terms_checked": 1406,
+        "data_supported_in_typed_block_or_empty_modulo_measured_X": true,
+        "graph_X_is_zero_or_single_edge": true
+      },
+      "one_fault": {
+        "route": "direct_outer_ports",
+        "max_faulty_locations": 1,
+        "locations": {
+          "locations": 2327,
+          "pauli_basis_cases": 7337,
+          "unique_errors": 422
+        },
+        "distinct_one_two_fault_normal_forms": 423,
+        "distinct_affine_class_images": 258,
+        "unflagged": {
+          "full_report_queries": 468,
+          "unique_with_data": 468,
+          "unique_with_cycles": 468,
+          "unique_with_cycles_and_stars": 468,
+          "gained_by_cycles": 0,
+          "gained_by_stars": 0,
+          "ambiguous_even_with_graph": 0
+        },
+        "flagged": {
+          "full_report_queries": 62,
+          "unique_with_data": 62,
+          "unique_with_cycles": 62,
+          "unique_with_cycles_and_stars": 62,
+          "gained_by_cycles": 0,
+          "gained_by_stars": 0,
+          "ambiguous_even_with_graph": 0
+        },
+        "clean_zero_record_logical_classes": [
+          0
+        ],
+        "graph_information_witnesses": [],
+        "remaining_Pauli_ambiguity_witness": null,
+        "assumed_outside_envelope": null,
+        "elapsed_seconds": 0.14083099365234375
+      },
+      "two_faults": {
+        "route": "direct_outer_ports",
+        "max_faulty_locations": 2,
+        "locations": {
+          "locations": 2327,
+          "pauli_basis_cases": 7337,
+          "unique_errors": 422
+        },
+        "distinct_one_two_fault_normal_forms": 72448,
+        "distinct_affine_class_images": 23913,
+        "unflagged": {
+          "full_report_queries": 60694,
+          "unique_with_data": 52525,
+          "unique_with_cycles": 60694,
+          "unique_with_cycles_and_stars": 60694,
+          "gained_by_cycles": 8169,
+          "gained_by_stars": 0,
+          "ambiguous_even_with_graph": 0
+        },
+        "flagged": {
+          "full_report_queries": 16562,
+          "unique_with_data": 16562,
+          "unique_with_cycles": 16562,
+          "unique_with_cycles_and_stars": 16562,
+          "gained_by_cycles": 0,
+          "gained_by_stars": 0,
+          "ambiguous_even_with_graph": 0
+        },
+        "clean_zero_record_logical_classes": [
+          0
+        ],
+        "graph_information_witnesses": [],
+        "remaining_Pauli_ambiguity_witness": null,
+        "assumed_outside_envelope": {
+          "typed_cases": 43,
+          "affine_class_images": 1239,
+          "coarse_report_queries": 71330,
+          "scope": "one current flagged-gadget fault plus one assumed block/edge/Gauss-cone target fault; ideal final diagnostics",
+          "full_internal_report_queries_scored": 16562,
+          "unique_with_data": 16552,
+          "unique_with_cycles": 16552,
+          "unique_with_cycles_and_stars": 16552,
+          "gained_by_cycles": 0,
+          "gained_by_stars": 0,
+          "ambiguous_even_with_graph": 10,
+          "outside_only_report_queries_not_scored": true
+        },
+        "elapsed_seconds": 4.474311113357544
+      }
+    }
+  },
+  "source_sha256": {
+    "verification/single_block_cz/check_single_cz_direct_outer_ports.py": "681920e2a465b6734e238b5951d5d287e57b76700544188f4c7dd4e89ed1c911",
+    "verification/single_block_cz/check_single_cz_hybrid_faults.py": "e20394834c95405deea043bdca70eb1aa51a2da4b8103fab1432ddd4ba11b4e6",
+    "src/single_block_cz/single_cz_direct_outer_ports.py": "3b8a8cc67d82022e4cbdd77b5500d34f45de2cc5759d6bad45ee8b747cab0acc",
+    "src/single_block_cz/single_cz_hybrid_faults.py": "dda3f81c13d7a64a83c2e25df7913b21d687cec96670e699cce30bbaf7d05d52",
+    "src/single_block_cz/single_cz_hybrid_study.py": "a268f1514fe8cec632772783e4a91af908a0df8e1c84faa73466d5c8d3b5a60f",
+    "src/single_block_cz/c4_helix_single_block_cz.py": "08c73e06ce89c8f75812882f9a23da96ca1a817498015f3bd3cbc0945f50d166",
+    "verification/single_block_cz/check_single_cz_hybrid_study.py": "19d5c9b39a53563a0e83bb901d5815ee4c0de2a95f118cebab410f43dcd9d10a",
+    "src/single_block_cz/single_cz_compact_checks.py": "1473b99a434a5619219d0348a88f6394dcadfe6ff0babf5f7fbc6b6ff71c3abf",
+    "src/single_block_cz/single_cz_recovery.py": "779b678abf09a3daaddac1b4889f03010e92aeed3fa5553cb9175daada356a6b"
+  },
+  "witnesses": {
+    "old_collision": [
+      {
+        "faults": [
+          {
+            "instruction": 0,
+            "operation": "IDLE",
+            "targets": [
+              "D16"
+            ],
+            "paulis": [
+              2
+            ],
+            "flip_report": false
+          },
+          {
+            "instruction": 58,
+            "operation": "CX",
+            "targets": [
+              "D12",
+              "D15"
+            ],
+            "paulis": [
+              2,
+              2
+            ],
+            "flip_report": false
+          }
+        ],
+        "diagnostic_Z_sites": [
+          "D12",
+          "D15",
+          "D16",
+          "A3"
+        ],
+        "record": 1073946624,
+        "logical_class": 0,
+        "bell": {
+          "probability": "1/1",
+          "actual_meter_X_bit": 0,
+          "correction_X_sites": [],
+          "correction_Z_sites": [
+            "D13",
+            "D14",
+            "D17",
+            "D18",
+            "D19",
+            "A12"
+          ],
+          "restored_encoded_Bell_pairs_and_graph": true
+        }
+      },
+      {
+        "faults": [
+          {
+            "instruction": 0,
+            "operation": "IDLE",
+            "targets": [
+              "D17"
+            ],
+            "paulis": [
+              2
+            ],
+            "flip_report": false
+          },
+          {
+            "instruction": 39,
+            "operation": "CX",
+            "targets": [
+              "D10",
+              "D11"
+            ],
+            "paulis": [
+              2,
+              2
+            ],
+            "flip_report": false
+          }
+        ],
+        "diagnostic_Z_sites": [
+          "D10",
+          "D11",
+          "D17",
+          "A3"
+        ],
+        "record": 1073946624,
+        "logical_class": 4,
+        "bell": {
+          "probability": "1/1",
+          "actual_meter_X_bit": 0,
+          "correction_X_sites": [],
+          "correction_Z_sites": [
+            "D10",
+            "D11",
+            "D17",
+            "A12"
+          ],
+          "restored_encoded_Bell_pairs_and_graph": true
+        }
+      }
+    ],
+    "old_cycle_witness": {
+      "faults": [
+        {
+          "instruction": 18,
+          "operation": "CX",
+          "targets": [
+            "s",
+            "A0"
+          ],
+          "paulis": [
+            1,
+            0
+          ],
+          "flip_report": false
+        }
+      ],
+      "record": 18612288,
+      "flags": 1,
+      "data_only_classes_with_outside_envelope": [
+        0,
+        2
+      ],
+      "joint_classes_with_outside_envelope": [
+        2
+      ],
+      "bell": {
+        "probability": "1/4",
+        "actual_meter_X_bit": 0,
+        "correction_X_sites": [
+          "D10",
+          "D11",
+          "D13",
+          "D14",
+          "A4",
+          "A5",
+          "A6",
+          "A10"
+        ],
+        "correction_Z_sites": [],
+        "restored_encoded_Bell_pairs_and_graph": true
+      }
+    },
+    "candidate_classes_at_old_collision": [],
+    "candidate_cycle_witness": {
+      "faults": [
+        {
+          "instruction": 9,
+          "operation": "CX",
+          "targets": [
+            "A0",
+            "D6"
+          ],
+          "paulis": [
+            1,
+            1
+          ],
+          "flip_report": false,
+          "location": 345
+        }
+      ],
+      "flags": 0,
+      "record": 2166112256,
+      "data_only_classes": [
+        0,
+        4,
+        8,
+        12
+      ],
+      "classes_with_cycles": [
+        8
+      ],
+      "bell": {
+        "probability": "1/4",
+        "actual_meter_X_bit": 1,
+        "correction_X_sites": [
+          "A4",
+          "A5",
+          "A6",
+          "A10"
+        ],
+        "correction_Z_sites": [
+          "D10",
+          "D11",
+          "D14",
+          "D15",
+          "D17",
+          "D18"
+        ],
+        "restored_encoded_Bell_pairs_and_graph": true
+      }
+    },
+    "candidate_outside_envelope_rejects": [
+      {
+        "flags": 1,
+        "record": 128,
+        "internal_classes": [
+          2
+        ],
+        "assumed_outside_classes": [
+          2,
+          3
+        ]
+      },
+      {
+        "flags": 1,
+        "record": 2147483776,
+        "internal_classes": [
+          2
+        ],
+        "assumed_outside_classes": [
+          2,
+          3
+        ]
+      },
+      {
+        "flags": 3,
+        "record": 128,
+        "internal_classes": [
+          2
+        ],
+        "assumed_outside_classes": [
+          3
+        ]
+      },
+      {
+        "flags": 3,
+        "record": 2147483776,
+        "internal_classes": [
+          2
+        ],
+        "assumed_outside_classes": [
+          3
+        ]
+      },
+      {
+        "flags": 12,
+        "record": 320,
+        "internal_classes": [
+          0
+        ],
+        "assumed_outside_classes": [
+          1
+        ]
+      },
+      {
+        "flags": 12,
+        "record": 2147483968,
+        "internal_classes": [
+          0
+        ],
+        "assumed_outside_classes": [
+          1
+        ]
+      },
+      {
+        "flags": 14,
+        "record": 320,
+        "internal_classes": [
+          0
+        ],
+        "assumed_outside_classes": [
+          1
+        ]
+      },
+      {
+        "flags": 14,
+        "record": 2147483968,
+        "internal_classes": [
+          0
+        ],
+        "assumed_outside_classes": [
+          1
+        ]
+      },
+      {
+        "flags": 15,
+        "record": 448,
+        "internal_classes": [
+          2
+        ],
+        "assumed_outside_classes": [
+          3
+        ]
+      },
+      {
+        "flags": 15,
+        "record": 2147484096,
+        "internal_classes": [
+          2
+        ],
+        "assumed_outside_classes": [
+          3
+        ]
+      }
+    ],
+    "zero_or_one_fault_queries_under_two_fault_lookup": {
+      "queries": 530,
+      "unique_with_data": 488,
+      "unique_with_cycles": 530,
+      "unique_with_cycles_and_stars": 530
+    }
+  },
+  "schedule_resources": {
+    "data_record": {
+      "round_trip": {
+        "PREP": 60,
+        "CX": 220,
+        "H": 60,
+        "MZ": 60,
+        "TDG": 32,
+        "T": 32,
+        "T_TDG": 64
+      },
+      "old_direct": {
+        "PREP": 48,
+        "CX": 248,
+        "H": 60,
+        "MZ": 48,
+        "T": 48,
+        "TDG": 36,
+        "X": 16,
+        "T_TDG": 84
+      },
+      "new_on_positive_inner_Z": {
+        "PREP": 60,
+        "CX": 236,
+        "H": 60,
+        "MZ": 60,
+        "T": 48,
+        "TDG": 48,
+        "T_TDG": 96
+      },
+      "new_unconditional_inner": {
+        "PREP": 60,
+        "CX": 268,
+        "H": 60,
+        "MZ": 60,
+        "TDG": 80,
+        "T": 80,
+        "T_TDG": 160
+      }
+    },
+    "unconditional_inner_instruments": [
+      {
+        "basis_cases": 64,
+        "flag_readout": "0",
+        "phase_mod_8_includes_s_zero_and_one": true
+      },
+      {
+        "basis_cases": 128,
+        "flag_readout": "0",
+        "phase_mod_8_includes_s_zero_and_one": true
+      },
+      {
+        "basis_cases": 128,
+        "flag_readout": "0",
+        "phase_mod_8_includes_s_zero_and_one": true
+      },
+      {
+        "basis_cases": 128,
+        "flag_readout": "0",
+        "phase_mod_8_includes_s_zero_and_one": true
+      },
+      {
+        "basis_cases": 128,
+        "flag_readout": "0",
+        "phase_mod_8_includes_s_zero_and_one": true
+      }
+    ],
+    "nonroot_Gauss_bare_meter": {
+      "PREP": 4,
+      "H": 8,
+      "TDG": 16,
+      "CX": 36,
+      "T": 16,
+      "MZ": 4,
+      "T_TDG": 32
+    },
+    "schematic_three_round_factory": {
+      "round_trip": {
+        "CX": 1889,
+        "T_TDG": 256
+      },
+      "old_direct": {
+        "CX": 2021,
+        "T_TDG": 412
+      },
+      "new_on_positive_inner_Z": {
+        "CX": 1985,
+        "T_TDG": 448
+      },
+      "new_unconditional_inner": {
+        "CX": 2081,
+        "T_TDG": 640
+      }
+    },
+    "one_gauged_commuting_diagnostic_record_excluding_root": {
+      "PREP": 73,
+      "CX": 329,
+      "H": 68,
+      "MZ": 73,
+      "TDG": 96,
+      "T": 96,
+      "T_TDG": 192
+    },
+    "conditional_history_records_before_any_recovery": {
+      "min": 2,
+      "max": 4
+    },
+    "unprotected_completion_root_to_dressed_X": {
+      "persistent_registers": 9,
+      "root_added_ports": 9,
+      "endpoint_factors_CX": 158,
+      "endpoint_factors_T_TDG": 63,
+      "standalone_pinning_CX": 106,
+      "pinning_CX_if_sharing_unflagged_Z_readout": 54,
+      "pinning_T_TDG": 63
+    }
+  }
+}

@@ -1,0 +1,925 @@
+{
+  "scope": "isolated outer meters followed by ideal commuting diagnostics; NOT full factory acceptance",
+  "arbitrary_local_fault_extension": "Pauli expansion with coherent quadratic phases and conservative post-diagnostic logical class unions",
+  "diagnostic_faults_included": false,
+  "multiple_outer_meters_in_one_fault_budget_audited": false,
+  "factory_recovery_gates_certified": false,
+  "population_acceptance_prediction": false,
+  "graph": "compact13",
+  "class_map": {
+    "pauli_dimension": 66,
+    "class_map_rank": 35,
+    "stabilizer_kernel_rank": 31
+  },
+  "basis": {
+    "outer_words": [
+      1,
+      3,
+      4,
+      8
+    ],
+    "inner_multipliers": [
+      0,
+      4,
+      0,
+      0
+    ],
+    "supports": [
+      [
+        0,
+        3,
+        6,
+        7,
+        10,
+        11,
+        12,
+        15
+      ],
+      [
+        0,
+        3,
+        4,
+        6,
+        12,
+        14,
+        16,
+        19
+      ],
+      [
+        1,
+        2,
+        8,
+        11,
+        12,
+        13,
+        18,
+        19
+      ],
+      [
+        2,
+        3,
+        5,
+        6,
+        13,
+        14,
+        16,
+        17
+      ]
+    ],
+    "representatives_checked": 240,
+    "independent_word_bases_checked": 840,
+    "minimum_outer_CX_in_this_compiler_family": 124
+  },
+  "checks": {
+    "5": {
+      "hybrid": {
+        "route": "hybrid",
+        "max_faulty_locations": 2,
+        "locations": {
+          "locations": 2168,
+          "pauli_basis_cases": 6884,
+          "unique_errors": 416
+        },
+        "distinct_one_two_fault_normal_forms": 64590,
+        "distinct_affine_class_images": 21327,
+        "unflagged": {
+          "full_report_queries": 64109,
+          "unique_with_data": 54210,
+          "unique_with_cycles": 63776,
+          "unique_with_cycles_and_stars": 64028,
+          "gained_by_cycles": 9566,
+          "gained_by_stars": 252,
+          "ambiguous_even_with_graph": 81
+        },
+        "flagged": {
+          "full_report_queries": 29042,
+          "unique_with_data": 26130,
+          "unique_with_cycles": 28978,
+          "unique_with_cycles_and_stars": 29010,
+          "gained_by_cycles": 2848,
+          "gained_by_stars": 32,
+          "ambiguous_even_with_graph": 32
+        },
+        "clean_zero_record_logical_classes": [
+          0
+        ],
+        "graph_information_witnesses": [
+          {
+            "faults": [
+              {
+                "instruction": 18,
+                "operation": "CX",
+                "targets": [
+                  "s",
+                  "A0"
+                ],
+                "paulis": [
+                  1,
+                  0
+                ],
+                "flip_report": false,
+                "location": 652
+              }
+            ],
+            "reported_flags": 1,
+            "diagnostic_syndrome": 18612288,
+            "reported_meter_bit": 0,
+            "faults_have_nonzero_gate_report_noise_weight": true,
+            "unique_under_assumed_outside_envelope": true,
+            "data_only_logical_classes": [
+              0,
+              2
+            ],
+            "joint_logical_class": 2,
+            "physical": {
+              "probability": "1/4",
+              "actual_meter_X_bit": 0,
+              "correction_X_sites": [
+                "D10",
+                "D11",
+                "D13",
+                "D14",
+                "A4",
+                "A5",
+                "A6",
+                "A10"
+              ],
+              "correction_Z_sites": [],
+              "restored_encoded_Bell_pairs_and_graph": true
+            }
+          },
+          {
+            "faults": [
+              {
+                "instruction": 18,
+                "operation": "CX",
+                "targets": [
+                  "s",
+                  "A0"
+                ],
+                "paulis": [
+                  1,
+                  2
+                ],
+                "flip_report": false,
+                "location": 652
+              }
+            ],
+            "reported_flags": 1,
+            "diagnostic_syndrome": 152830016,
+            "reported_meter_bit": 1,
+            "faults_have_nonzero_gate_report_noise_weight": true,
+            "unique_under_assumed_outside_envelope": true,
+            "data_only_logical_classes": [
+              0,
+              2
+            ],
+            "joint_logical_class": 2,
+            "physical": {
+              "probability": "1/4",
+              "actual_meter_X_bit": 1,
+              "correction_X_sites": [
+                "D10",
+                "D11",
+                "D13",
+                "D14",
+                "A4",
+                "A5",
+                "A6",
+                "A10"
+              ],
+              "correction_Z_sites": [
+                "A10"
+              ],
+              "restored_encoded_Bell_pairs_and_graph": true
+            }
+          },
+          {
+            "faults": [
+              {
+                "instruction": 18,
+                "operation": "CX",
+                "targets": [
+                  "s",
+                  "A0"
+                ],
+                "paulis": [
+                  3,
+                  0
+                ],
+                "flip_report": false,
+                "location": 652
+              }
+            ],
+            "reported_flags": 1,
+            "diagnostic_syndrome": 18612288,
+            "reported_meter_bit": 1,
+            "faults_have_nonzero_gate_report_noise_weight": true,
+            "unique_under_assumed_outside_envelope": true,
+            "data_only_logical_classes": [
+              0,
+              2
+            ],
+            "joint_logical_class": 2,
+            "physical": {
+              "probability": "1/4",
+              "actual_meter_X_bit": 1,
+              "correction_X_sites": [
+                "D10",
+                "D11",
+                "D13",
+                "D14",
+                "A4",
+                "A5",
+                "A6",
+                "A10"
+              ],
+              "correction_Z_sites": [],
+              "restored_encoded_Bell_pairs_and_graph": true
+            }
+          }
+        ],
+        "remaining_Pauli_ambiguity_witness": {
+          "reported_flags": 0,
+          "diagnostic_syndrome": 1073946624,
+          "reported_meter_bit": 0,
+          "histories": [
+            {
+              "logical_class": 0,
+              "faults": [
+                {
+                  "instruction": 0,
+                  "operation": "IDLE",
+                  "targets": [
+                    "D16"
+                  ],
+                  "paulis": [
+                    2
+                  ],
+                  "flip_report": false,
+                  "location": 21
+                },
+                {
+                  "instruction": 58,
+                  "operation": "CX",
+                  "targets": [
+                    "D12",
+                    "D15"
+                  ],
+                  "paulis": [
+                    2,
+                    2
+                  ],
+                  "flip_report": false,
+                  "location": 2031
+                }
+              ],
+              "physical": {
+                "probability": "1/1",
+                "actual_meter_X_bit": 0,
+                "correction_X_sites": [],
+                "correction_Z_sites": [
+                  "D13",
+                  "D14",
+                  "D17",
+                  "D18",
+                  "D19",
+                  "A12"
+                ],
+                "restored_encoded_Bell_pairs_and_graph": true
+              }
+            },
+            {
+              "logical_class": 4,
+              "faults": [
+                {
+                  "instruction": 0,
+                  "operation": "IDLE",
+                  "targets": [
+                    "D17"
+                  ],
+                  "paulis": [
+                    2
+                  ],
+                  "flip_report": false,
+                  "location": 22
+                },
+                {
+                  "instruction": 39,
+                  "operation": "CX",
+                  "targets": [
+                    "D10",
+                    "D11"
+                  ],
+                  "paulis": [
+                    2,
+                    2
+                  ],
+                  "flip_report": false,
+                  "location": 1376
+                }
+              ],
+              "physical": {
+                "probability": "1/1",
+                "actual_meter_X_bit": 0,
+                "correction_X_sites": [],
+                "correction_Z_sites": [
+                  "D10",
+                  "D11",
+                  "D17",
+                  "A12"
+                ],
+                "restored_encoded_Bell_pairs_and_graph": true
+              }
+            }
+          ],
+          "distinct_actual_Pauli_histories": true
+        },
+        "assumed_outside_envelope": {
+          "typed_cases": 43,
+          "affine_class_images": 694,
+          "coarse_report_queries": 71656,
+          "scope": "one current flagged-gadget fault plus one assumed block/edge/Gauss-cone target fault; ideal final diagnostics",
+          "full_internal_report_queries_scored": 29042,
+          "unique_with_data": 23712,
+          "unique_with_cycles": 27460,
+          "unique_with_cycles_and_stars": 27460,
+          "gained_by_cycles": 3748,
+          "gained_by_stars": 0,
+          "ambiguous_even_with_graph": 1582,
+          "outside_only_report_queries_not_scored": true
+        },
+        "elapsed_seconds": 5.464715003967285
+      },
+      "hybrid_two_flags": {
+        "route": "hybrid_two_flags",
+        "max_faulty_locations": 2,
+        "locations": {
+          "locations": 2311,
+          "pauli_basis_cases": 7341,
+          "unique_errors": 438
+        },
+        "distinct_one_two_fault_normal_forms": 71430,
+        "distinct_affine_class_images": 23018,
+        "unflagged": {
+          "full_report_queries": 61307,
+          "unique_with_data": 51823,
+          "unique_with_cycles": 60977,
+          "unique_with_cycles_and_stars": 61226,
+          "gained_by_cycles": 9154,
+          "gained_by_stars": 249,
+          "ambiguous_even_with_graph": 81
+        },
+        "flagged": {
+          "full_report_queries": 37352,
+          "unique_with_data": 34560,
+          "unique_with_cycles": 37336,
+          "unique_with_cycles_and_stars": 37336,
+          "gained_by_cycles": 2776,
+          "gained_by_stars": 0,
+          "ambiguous_even_with_graph": 16
+        },
+        "clean_zero_record_logical_classes": [
+          0
+        ],
+        "graph_information_witnesses": [
+          {
+            "faults": [
+              {
+                "instruction": 21,
+                "operation": "TDG",
+                "targets": [
+                  "A0"
+                ],
+                "paulis": [
+                  1
+                ],
+                "flip_report": false,
+                "location": 775
+              },
+              {
+                "instruction": 34,
+                "operation": "CX",
+                "targets": [
+                  "s",
+                  "D11"
+                ],
+                "paulis": [
+                  1,
+                  1
+                ],
+                "flip_report": false,
+                "location": 1227
+              }
+            ],
+            "reported_flags": 1,
+            "diagnostic_syndrome": 18628800,
+            "reported_meter_bit": 0,
+            "faults_have_nonzero_gate_report_noise_weight": true,
+            "unique_under_assumed_outside_envelope": true,
+            "data_only_logical_classes": [
+              0,
+              4,
+              8,
+              12
+            ],
+            "joint_logical_class": 8,
+            "physical": {
+              "probability": "1/32",
+              "actual_meter_X_bit": 0,
+              "correction_X_sites": [
+                "D13",
+                "D14",
+                "A4",
+                "A5",
+                "A6",
+                "A10"
+              ],
+              "correction_Z_sites": [
+                "D10",
+                "D11",
+                "D14",
+                "D15",
+                "D17",
+                "D18"
+              ],
+              "restored_encoded_Bell_pairs_and_graph": true
+            }
+          },
+          {
+            "faults": [
+              {
+                "instruction": 21,
+                "operation": "TDG",
+                "targets": [
+                  "A0"
+                ],
+                "paulis": [
+                  1
+                ],
+                "flip_report": false,
+                "location": 775
+              },
+              {
+                "instruction": 38,
+                "operation": "CX",
+                "targets": [
+                  "s",
+                  "D11"
+                ],
+                "paulis": [
+                  1,
+                  1
+                ],
+                "flip_report": false,
+                "location": 1365
+              }
+            ],
+            "reported_flags": 1,
+            "diagnostic_syndrome": 18628708,
+            "reported_meter_bit": 0,
+            "faults_have_nonzero_gate_report_noise_weight": true,
+            "unique_under_assumed_outside_envelope": true,
+            "data_only_logical_classes": [
+              10,
+              14
+            ],
+            "joint_logical_class": 10,
+            "physical": {
+              "probability": "1/32",
+              "actual_meter_X_bit": 0,
+              "correction_X_sites": [
+                "D11",
+                "D13",
+                "D14",
+                "A4",
+                "A5",
+                "A6",
+                "A10"
+              ],
+              "correction_Z_sites": [
+                "D10",
+                "D11",
+                "D14",
+                "D15",
+                "D17",
+                "D18"
+              ],
+              "restored_encoded_Bell_pairs_and_graph": true
+            }
+          },
+          {
+            "faults": [
+              {
+                "instruction": 21,
+                "operation": "TDG",
+                "targets": [
+                  "A0"
+                ],
+                "paulis": [
+                  1
+                ],
+                "flip_report": false,
+                "location": 775
+              },
+              {
+                "instruction": 34,
+                "operation": "CX",
+                "targets": [
+                  "s",
+                  "D11"
+                ],
+                "paulis": [
+                  1,
+                  2
+                ],
+                "flip_report": false,
+                "location": 1227
+              }
+            ],
+            "reported_flags": 1,
+            "diagnostic_syndrome": 18614372,
+            "reported_meter_bit": 0,
+            "faults_have_nonzero_gate_report_noise_weight": true,
+            "unique_under_assumed_outside_envelope": true,
+            "data_only_logical_classes": [
+              10,
+              14
+            ],
+            "joint_logical_class": 10,
+            "physical": {
+              "probability": "1/32",
+              "actual_meter_X_bit": 0,
+              "correction_X_sites": [
+                "D11",
+                "D13",
+                "D14",
+                "A4",
+                "A5",
+                "A6",
+                "A10"
+              ],
+              "correction_Z_sites": [
+                "D11",
+                "D14",
+                "D15",
+                "D17",
+                "D18"
+              ],
+              "restored_encoded_Bell_pairs_and_graph": true
+            }
+          }
+        ],
+        "remaining_Pauli_ambiguity_witness": {
+          "reported_flags": 0,
+          "diagnostic_syndrome": 1073946624,
+          "reported_meter_bit": 0,
+          "histories": [
+            {
+              "logical_class": 0,
+              "faults": [
+                {
+                  "instruction": 0,
+                  "operation": "IDLE",
+                  "targets": [
+                    "D16"
+                  ],
+                  "paulis": [
+                    2
+                  ],
+                  "flip_report": false,
+                  "location": 21
+                },
+                {
+                  "instruction": 63,
+                  "operation": "CX",
+                  "targets": [
+                    "D12",
+                    "D15"
+                  ],
+                  "paulis": [
+                    2,
+                    2
+                  ],
+                  "flip_report": false,
+                  "location": 2209
+                }
+              ],
+              "physical": {
+                "probability": "1/1",
+                "actual_meter_X_bit": 0,
+                "correction_X_sites": [],
+                "correction_Z_sites": [
+                  "D13",
+                  "D14",
+                  "D17",
+                  "D18",
+                  "D19",
+                  "A12"
+                ],
+                "restored_encoded_Bell_pairs_and_graph": true
+              }
+            },
+            {
+              "logical_class": 4,
+              "faults": [
+                {
+                  "instruction": 0,
+                  "operation": "IDLE",
+                  "targets": [
+                    "D17"
+                  ],
+                  "paulis": [
+                    2
+                  ],
+                  "flip_report": false,
+                  "location": 22
+                },
+                {
+                  "instruction": 43,
+                  "operation": "CX",
+                  "targets": [
+                    "D10",
+                    "D11"
+                  ],
+                  "paulis": [
+                    2,
+                    2
+                  ],
+                  "flip_report": false,
+                  "location": 1537
+                }
+              ],
+              "physical": {
+                "probability": "1/1",
+                "actual_meter_X_bit": 0,
+                "correction_X_sites": [],
+                "correction_Z_sites": [
+                  "D10",
+                  "D11",
+                  "D17",
+                  "A12"
+                ],
+                "restored_encoded_Bell_pairs_and_graph": true
+              }
+            }
+          ],
+          "distinct_actual_Pauli_histories": true
+        },
+        "assumed_outside_envelope": {
+          "typed_cases": 43,
+          "affine_class_images": 1033,
+          "coarse_report_queries": 94246,
+          "scope": "one current flagged-gadget fault plus one assumed block/edge/Gauss-cone target fault; ideal final diagnostics",
+          "full_internal_report_queries_scored": 37352,
+          "unique_with_data": 33576,
+          "unique_with_cycles": 36328,
+          "unique_with_cycles_and_stars": 36328,
+          "gained_by_cycles": 2752,
+          "gained_by_stars": 0,
+          "ambiguous_even_with_graph": 1024,
+          "outside_only_report_queries_not_scored": true
+        },
+        "elapsed_seconds": 5.74166202545166
+      },
+      "reference": {
+        "route": "reference",
+        "max_faulty_locations": 2,
+        "locations": {
+          "locations": 4161,
+          "pauli_basis_cases": 13079,
+          "unique_errors": 610
+        },
+        "distinct_one_two_fault_normal_forms": 164143,
+        "distinct_affine_class_images": 60893,
+        "unflagged": {
+          "full_report_queries": 88497,
+          "unique_with_data": 76026,
+          "unique_with_cycles": 88497,
+          "unique_with_cycles_and_stars": 88497,
+          "gained_by_cycles": 12471,
+          "gained_by_stars": 0,
+          "ambiguous_even_with_graph": 0
+        },
+        "flagged": {
+          "full_report_queries": 22750,
+          "unique_with_data": 22734,
+          "unique_with_cycles": 22750,
+          "unique_with_cycles_and_stars": 22750,
+          "gained_by_cycles": 16,
+          "gained_by_stars": 0,
+          "ambiguous_even_with_graph": 0
+        },
+        "clean_zero_record_logical_classes": [
+          0
+        ],
+        "graph_information_witnesses": [
+          {
+            "faults": [
+              {
+                "instruction": 4,
+                "operation": "CX",
+                "targets": [
+                  "A0",
+                  "D5"
+                ],
+                "paulis": [
+                  1,
+                  0
+                ],
+                "flip_report": false,
+                "location": 162
+              },
+              {
+                "instruction": 63,
+                "operation": "CX",
+                "targets": [
+                  "s",
+                  "f0"
+                ],
+                "paulis": [
+                  0,
+                  1
+                ],
+                "flip_report": false,
+                "location": 2135
+              }
+            ],
+            "reported_flags": 1,
+            "diagnostic_syndrome": 18612544,
+            "reported_meter_bit": 0,
+            "faults_have_nonzero_gate_report_noise_weight": true,
+            "unique_under_assumed_outside_envelope": true,
+            "data_only_logical_classes": [
+              0,
+              2
+            ],
+            "joint_logical_class": 0,
+            "physical": {
+              "probability": "1/4",
+              "actual_meter_X_bit": 0,
+              "correction_X_sites": [
+                "D9",
+                "D11",
+                "D13",
+                "D15",
+                "D18",
+                "D19",
+                "A4",
+                "A5",
+                "A6",
+                "A10"
+              ],
+              "correction_Z_sites": [],
+              "restored_encoded_Bell_pairs_and_graph": true
+            }
+          },
+          {
+            "faults": [
+              {
+                "instruction": 4,
+                "operation": "CX",
+                "targets": [
+                  "A0",
+                  "D5"
+                ],
+                "paulis": [
+                  1,
+                  0
+                ],
+                "flip_report": false,
+                "location": 162
+              },
+              {
+                "instruction": 63,
+                "operation": "CX",
+                "targets": [
+                  "s",
+                  "f0"
+                ],
+                "paulis": [
+                  2,
+                  3
+                ],
+                "flip_report": false,
+                "location": 2135
+              }
+            ],
+            "reported_flags": 1,
+            "diagnostic_syndrome": 18612544,
+            "reported_meter_bit": 1,
+            "faults_have_nonzero_gate_report_noise_weight": true,
+            "unique_under_assumed_outside_envelope": true,
+            "data_only_logical_classes": [
+              0,
+              2
+            ],
+            "joint_logical_class": 0,
+            "physical": {
+              "probability": "1/4",
+              "actual_meter_X_bit": 1,
+              "correction_X_sites": [
+                "D9",
+                "D11",
+                "D13",
+                "D15",
+                "D18",
+                "D19",
+                "A4",
+                "A5",
+                "A6",
+                "A10"
+              ],
+              "correction_Z_sites": [],
+              "restored_encoded_Bell_pairs_and_graph": true
+            }
+          },
+          {
+            "faults": [
+              {
+                "instruction": 4,
+                "operation": "CX",
+                "targets": [
+                  "A0",
+                  "D5"
+                ],
+                "paulis": [
+                  1,
+                  0
+                ],
+                "flip_report": false,
+                "location": 162
+              },
+              {
+                "instruction": 55,
+                "operation": "CX",
+                "targets": [
+                  "s",
+                  "f1"
+                ],
+                "paulis": [
+                  1,
+                  1
+                ],
+                "flip_report": false,
+                "location": 1842
+              }
+            ],
+            "reported_flags": 1,
+            "diagnostic_syndrome": 18612288,
+            "reported_meter_bit": 0,
+            "faults_have_nonzero_gate_report_noise_weight": true,
+            "unique_under_assumed_outside_envelope": true,
+            "data_only_logical_classes": [
+              0,
+              2
+            ],
+            "joint_logical_class": 2,
+            "physical": {
+              "probability": "1/4",
+              "actual_meter_X_bit": 0,
+              "correction_X_sites": [
+                "D10",
+                "D11",
+                "D13",
+                "D14",
+                "A4",
+                "A5",
+                "A6",
+                "A10"
+              ],
+              "correction_Z_sites": [],
+              "restored_encoded_Bell_pairs_and_graph": true
+            }
+          }
+        ],
+        "remaining_Pauli_ambiguity_witness": null,
+        "assumed_outside_envelope": {
+          "typed_cases": 43,
+          "affine_class_images": 1239,
+          "coarse_report_queries": 71330,
+          "scope": "one current flagged-gadget fault plus one assumed block/edge/Gauss-cone target fault; ideal final diagnostics",
+          "full_internal_report_queries_scored": 22750,
+          "unique_with_data": 22708,
+          "unique_with_cycles": 22740,
+          "unique_with_cycles_and_stars": 22740,
+          "gained_by_cycles": 32,
+          "gained_by_stars": 0,
+          "ambiguous_even_with_graph": 10,
+          "outside_only_report_queries_not_scored": true
+        },
+        "elapsed_seconds": 9.812150001525879
+      }
+    }
+  },
+  "sources": {
+    "verification/single_block_cz/check_single_cz_hybrid_faults.py": "e20394834c95405deea043bdca70eb1aa51a2da4b8103fab1432ddd4ba11b4e6",
+    "src/single_block_cz/single_cz_hybrid_faults.py": "dda3f81c13d7a64a83c2e25df7913b21d687cec96670e699cce30bbaf7d05d52",
+    "src/single_block_cz/single_cz_hybrid_study.py": "a268f1514fe8cec632772783e4a91af908a0df8e1c84faa73466d5c8d3b5a60f",
+    "src/single_block_cz/c4_helix_single_block_cz.py": "08c73e06ce89c8f75812882f9a23da96ca1a817498015f3bd3cbc0945f50d166",
+    "src/single_block_cz/single_cz_recovery.py": "779b678abf09a3daaddac1b4889f03010e92aeed3fa5553cb9175daada356a6b",
+    "verification/single_block_cz/check_single_cz_hybrid_study.py": "19d5c9b39a53563a0e83bb901d5815ee4c0de2a95f118cebab410f43dcd9d10a",
+    "src/single_block_cz/single_cz_compact_checks.py": "1473b99a434a5619219d0348a88f6394dcadfe6ff0babf5f7fbc6b6ff71c3abf"
+  },
+  "finite_isolated_audit_verified": true
+}

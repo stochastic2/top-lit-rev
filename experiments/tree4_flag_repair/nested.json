@@ -1,0 +1,98 @@
+{
+  "accepted": true,
+  "reason": null,
+  "faults": [
+    {
+      "injection": 0,
+      "event": 309,
+      "context": "direct/vote/0/Z/0",
+      "operation": "PREP",
+      "timing": "idle",
+      "targets": [
+        "s"
+      ],
+      "paulis": {
+        "D8": "X"
+      },
+      "flip_report": false
+    },
+    {
+      "injection": 1,
+      "event": 706,
+      "context": "direct/vote/0/syndrome_recovery/inner_after_X_correction/X/1",
+      "operation": "MZ",
+      "timing": "report",
+      "targets": [
+        "f0"
+      ],
+      "paulis": {},
+      "flip_report": true
+    }
+  ],
+  "diagnostic": {
+    "diagnostic_only": true,
+    "decoder": "ideal syndrome projection; fixed weight<=2 table, then GF2 fallback",
+    "syndrome_convention": "Z bits 0..8; X bits 9..17",
+    "decoded_target_fidelity": 1.0,
+    "decoded_target_infidelity": 0.0,
+    "decoded_target_within_tolerance": true,
+    "raw_physical_target_fidelity": 1.0,
+    "probability_in_weight_two_lookup": 1.0,
+    "active_syndrome_sectors": 1,
+    "syndrome_probability_sum": 1.0000000000000095,
+    "logical_density_real": [
+      [
+        0.3333333333333333,
+        0.3333333333333333,
+        0.3333333333333333,
+        0.0
+      ],
+      [
+        0.3333333333333333,
+        0.3333333333333333,
+        0.3333333333333333,
+        0.0
+      ],
+      [
+        0.3333333333333333,
+        0.3333333333333333,
+        0.3333333333333333,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    ],
+    "logical_density_imag": [
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    ],
+    "numerical_diagnostic_tolerance": 1e-10,
+    "trajectory_arithmetic": "exact Z[zeta8] before output conversion"
+  }
+}

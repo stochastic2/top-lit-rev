@@ -1,0 +1,591 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites><testsuite name="pytest" errors="0" failures="8" skipped="0" tests="102" time="85.710" timestamp="2026-11-19T14:07:18.988206+01:00" hostname="DELTMQFR99XMY95"><testcase classname="tests.single_block_cz.test_single_cz_simulation" name="test_controlled_w_all_local_pauli_faults_match_dense_complex[0--1]" time="0.020" /><testcase classname="tests.single_block_cz.test_single_cz_simulation" name="test_controlled_w_all_local_pauli_faults_match_dense_complex[0-1]" time="0.003" /><testcase classname="tests.single_block_cz.test_single_cz_simulation" name="test_controlled_w_all_local_pauli_faults_match_dense_complex[1--1]" time="0.012" /><testcase classname="tests.single_block_cz.test_single_cz_simulation" name="test_controlled_w_all_local_pauli_faults_match_dense_complex[1-1]" time="0.011" /><testcase classname="tests.single_block_cz.test_single_cz_simulation" name="test_controlled_w_all_local_pauli_faults_match_dense_complex[2--1]" time="0.003" /><testcase classname="tests.single_block_cz.test_single_cz_simulation" name="test_controlled_w_all_local_pauli_faults_match_dense_complex[2-1]" time="0.003" /><testcase classname="tests.single_block_cz.test_single_cz_simulation" name="test_exact_ring_phase_and_interference" time="0.007" /><testcase classname="tests.single_block_cz.test_single_cz_simulation" name="test_irrational_born_probability_uses_exact_signs" time="0.005" /><testcase classname="tests.single_block_cz.test_single_cz_simulation" name="test_css_compression_is_exact_coherent_basis_change_without_projection" time="0.041" /><testcase classname="tests.single_block_cz.test_single_cz_simulation" name="test_noise_calibration_reports_and_unlimited_event_counts" time="0.001" /><testcase classname="tests.single_block_cz.test_single_cz_simulation" name="test_graphs_are_current_and_decode_every_correctable_sphere" time="0.000"><failure message="FileNotFoundError: [Errno 2] No such file or directory: '/Users/kevinhemery/quanti/top-order-lit-rev/tests/single_block_cz/c4_helix_noiseless.py'">def test_graphs_are_current_and_decode_every_correctable_sphere():
+        root = Path(__file__).resolve().parent
+&gt;       old = ast.parse((root/"c4_helix_noiseless.py").read_text())
+
+tests/single_block_cz/test_single_cz_simulation.py:149: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+/opt/homebrew/Cellar/python@3.12/3.12.11/Frameworks/Python.framework/Versions/3.12/lib/python3.12/pathlib.py:1027: in read_text
+    with self.open(mode='r', encoding=encoding, errors=errors) as f:
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = PosixPath('/Users/kevinhemery/quanti/top-order-lit-rev/tests/single_block_cz/c4_helix_noiseless.py')
+mode = 'r', buffering = -1, encoding = 'locale', errors = None, newline = None
+
+    def open(self, mode='r', buffering=-1, encoding=None,
+             errors=None, newline=None):
+        """
+        Open the file pointed to by this path and return a file object, as
+        the built-in open() function does.
+        """
+        if "b" not in mode:
+            encoding = io.text_encoding(encoding)
+&gt;       return io.open(self, mode, buffering, encoding, errors, newline)
+E       FileNotFoundError: [Errno 2] No such file or directory: '/Users/kevinhemery/quanti/top-order-lit-rev/tests/single_block_cz/c4_helix_noiseless.py'
+
+/opt/homebrew/Cellar/python@3.12/3.12.11/Frameworks/Python.framework/Versions/3.12/lib/python3.12/pathlib.py:1013: FileNotFoundError</failure></testcase><testcase classname="tests.single_block_cz.test_single_cz_simulation" name="test_single_block_decoder_all_candidate_classes" time="0.123" /><testcase classname="tests.single_block_cz.test_single_cz_simulation" name="test_complex_logical_decoder_corrects_representative_physical_errors" time="0.300" /><testcase classname="tests.single_block_cz.test_single_cz_simulation" name="test_positive_physical_cz_alone_cannot_certify_a_decoded_magic_state" time="0.009" /><testcase classname="tests.single_block_cz.test_single_cz_simulation" name="test_full_noiseless_factory[conservative-compact13]" time="1.953" /><testcase classname="tests.single_block_cz.test_single_cz_simulation" name="test_full_noiseless_factory[conservative-current20]" time="2.208" /><testcase classname="tests.single_block_cz.test_single_cz_simulation" name="test_full_noiseless_factory[recovery-compact13]" time="0.661" /><testcase classname="tests.single_block_cz.test_single_cz_simulation" name="test_full_noiseless_factory[recovery-current20]" time="0.720" /><testcase classname="tests.single_block_cz.test_single_cz_simulation" name="test_one_false_vertex_report_is_retained_and_two_final_idle_faults_decode" time="1.447" /><testcase classname="tests.single_block_cz.test_single_cz_simulation" name="test_controller_fault_recovery_and_known_source_flag_retry" time="2.855" /><testcase classname="tests.single_block_cz.test_single_cz_simulation" name="test_clean_counts_and_nonzero_noise_is_reproducible" time="1.555" /><testcase classname="tests.single_block_cz.test_single_cz_simulation" name="test_flag_extraction_local_certificates_and_no_cat_factory" time="2.292" /><testcase classname="tests.single_block_cz.test_single_cz_simulation" name="test_flagged_checks_with_existing_decoded_source_option" time="1.677" /><testcase classname="tests.single_block_cz.test_single_cz_simulation" name="test_rolling_flags_detect_controller_hooks_and_a_hidden_flag_bit" time="0.005" /><testcase classname="tests.single_block_cz.test_single_cz_simulation" name="test_flagged_terminal_two_last_readout_idles_remain_correctable" time="0.713" /><testcase classname="tests.single_block_cz.test_single_cz_simulation" name="test_flagged_mixed_w_ideal_kraus_and_phase_sensitive_fault_span" time="2.322" /><testcase classname="tests.single_block_cz.test_single_cz_simulation" name="test_capacity_failure_is_unresolved_not_rejection" time="0.153" /><testcase classname="tests.single_block_cz.test_single_cz_simulation" name="test_saved_run_verifies_and_detects_metadata_tampering" time="0.031"><failure message="subprocess.CalledProcessError: Command '['/Users/kevinhemery/pytket-venv/bin/python', '-B', '/Users/kevinhemery/quanti/top-order-lit-rev/tests/single_block_cz/simulate_single_block_cz_depolarizing.py', '--shots', '1', '--seed', '2', '--two-qubit-infidelity', '0', '--readout-flip-probability', '0', '--output-dir', '/private/var/folders/v_/qcgrb0vj3876j_g1t7drc22r0000gn/T/pytest-of-kevinhemery/pytest-6/test_saved_run_verifies_and_de0/run']' returned non-zero exit status 2.">tmp_path = PosixPath('/private/var/folders/v_/qcgrb0vj3876j_g1t7drc22r0000gn/T/pytest-of-kevinhemery/pytest-6/test_saved_run_verifies_and_de0')
+
+    def test_saved_run_verifies_and_detects_metadata_tampering(tmp_path):
+        script=Path(__file__).with_name("simulate_single_block_cz_depolarizing.py")
+        directory=tmp_path/"run"
+&gt;       subprocess.run([sys.executable,"-B",str(script),"--shots","1","--seed","2","--two-qubit-infidelity","0",
+                        "--readout-flip-probability","0","--output-dir",str(directory)],
+                       check=True,capture_output=True,text=True,timeout=30)
+
+tests/single_block_cz/test_single_cz_simulation.py:387: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+input = None, capture_output = True, timeout = 30, check = True
+popenargs = (['/Users/kevinhemery/pytket-venv/bin/python', '-B', '/Users/kevinhemery/quanti/top-order-lit-rev/tests/single_block_cz/simulate_single_block_cz_depolarizing.py', '--shots', '1', '--seed', ...],)
+kwargs = {'stderr': -1, 'stdout': -1, 'text': True}
+process = &lt;Popen: returncode: 2 args: ['/Users/kevinhemery/pytket-venv/bin/python', '-...&gt;
+stdout = ''
+stderr = "/opt/homebrew/Cellar/python@3.12/3.12.11/Frameworks/Python.framework/Versions/3.12/Resources/Python.app/Contents/MacO...p-order-lit-rev/tests/single_block_cz/simulate_single_block_cz_depolarizing.py': [Errno 2] No such file or directory\n"
+retcode = 2
+
+    def run(*popenargs,
+            input=None, capture_output=False, timeout=None, check=False, **kwargs):
+        """Run command with arguments and return a CompletedProcess instance.
+    
+        The returned instance will have attributes args, returncode, stdout and
+        stderr. By default, stdout and stderr are not captured, and those attributes
+        will be None. Pass stdout=PIPE and/or stderr=PIPE in order to capture them,
+        or pass capture_output=True to capture both.
+    
+        If check is True and the exit code was non-zero, it raises a
+        CalledProcessError. The CalledProcessError object will have the return code
+        in the returncode attribute, and output &amp; stderr attributes if those streams
+        were captured.
+    
+        If timeout (seconds) is given and the process takes too long,
+         a TimeoutExpired exception will be raised.
+    
+        There is an optional argument "input", allowing you to
+        pass bytes or a string to the subprocess's stdin.  If you use this argument
+        you may not also use the Popen constructor's "stdin" argument, as
+        it will be used internally.
+    
+        By default, all communication is in bytes, and therefore any "input" should
+        be bytes, and the stdout and stderr will be bytes. If in text mode, any
+        "input" should be a string, and stdout and stderr will be strings decoded
+        according to locale encoding, or by "encoding" if set. Text mode is
+        triggered by setting any of text, encoding, errors or universal_newlines.
+    
+        The other arguments are the same as for the Popen constructor.
+        """
+        if input is not None:
+            if kwargs.get('stdin') is not None:
+                raise ValueError('stdin and input arguments may not both be used.')
+            kwargs['stdin'] = PIPE
+    
+        if capture_output:
+            if kwargs.get('stdout') is not None or kwargs.get('stderr') is not None:
+                raise ValueError('stdout and stderr arguments may not be used '
+                                 'with capture_output.')
+            kwargs['stdout'] = PIPE
+            kwargs['stderr'] = PIPE
+    
+        with Popen(*popenargs, **kwargs) as process:
+            try:
+                stdout, stderr = process.communicate(input, timeout=timeout)
+            except TimeoutExpired as exc:
+                process.kill()
+                if _mswindows:
+                    # Windows accumulates the output in a single blocking
+                    # read() call run on child threads, with the timeout
+                    # being done in a join() on those threads.  communicate()
+                    # _after_ kill() is required to collect that and add it
+                    # to the exception.
+                    exc.stdout, exc.stderr = process.communicate()
+                else:
+                    # POSIX _communicate already populated the output so
+                    # far into the TimeoutExpired exception.
+                    process.wait()
+                raise
+            except:  # Including KeyboardInterrupt, communicate handled that.
+                process.kill()
+                # We don't call process.wait() as .__exit__ does that for us.
+                raise
+            retcode = process.poll()
+            if check and retcode:
+&gt;               raise CalledProcessError(retcode, process.args,
+                                         output=stdout, stderr=stderr)
+E               subprocess.CalledProcessError: Command '['/Users/kevinhemery/pytket-venv/bin/python', '-B', '/Users/kevinhemery/quanti/top-order-lit-rev/tests/single_block_cz/simulate_single_block_cz_depolarizing.py', '--shots', '1', '--seed', '2', '--two-qubit-infidelity', '0', '--readout-flip-probability', '0', '--output-dir', '/private/var/folders/v_/qcgrb0vj3876j_g1t7drc22r0000gn/T/pytest-of-kevinhemery/pytest-6/test_saved_run_verifies_and_de0/run']' returned non-zero exit status 2.
+
+/opt/homebrew/Cellar/python@3.12/3.12.11/Frameworks/Python.framework/Versions/3.12/lib/python3.12/subprocess.py:571: CalledProcessError</failure></testcase><testcase classname="tests.single_block_cz.test_single_cz_simulation" name="test_direct_graph_parity_certificates" time="0.009" /><testcase classname="tests.single_block_cz.test_single_cz_simulation" name="test_graph_raw_hook_retries_unused_graph_and_readout_flip_retries" time="1.442" /><testcase classname="tests.single_block_cz.test_single_cz_simulation" name="test_graph_last_scan_phase_spread_and_two_late_bit_faults" time="1.931" /><testcase classname="tests.single_block_cz.test_single_cz_simulation" name="test_coherent_local_graph_meter_fault_preserves_accepted_magic" time="2.068" /><testcase classname="tests.single_block_cz.test_single_cz_cat_simulation" name="test_matched_source_and_ordinary_checks_but_actual_twenty_leaf_cat" time="0.014" /><testcase classname="tests.single_block_cz.test_single_cz_cat_simulation" name="test_exact_clean_costs_share_the_graph_sources_and_support_decoded_option" time="0.643" /><testcase classname="tests.single_block_cz.test_single_cz_cat_simulation" name="test_noiseless_cat_outputs_have_the_same_two_qubit_magic_target[0]" time="0.214" /><testcase classname="tests.single_block_cz.test_single_cz_cat_simulation" name="test_noiseless_cat_outputs_have_the_same_two_qubit_magic_target[1]" time="0.214" /><testcase classname="tests.single_block_cz.test_single_cz_cat_simulation" name="test_noiseless_cat_outputs_have_the_same_two_qubit_magic_target[2]" time="0.215" /><testcase classname="tests.single_block_cz.test_single_cz_cat_simulation" name="test_false_cat_leaf_report_and_two_late_data_faults_are_charged" time="0.457" /><testcase classname="tests.single_block_cz.test_single_cz_cat_simulation" name="test_broad_cat_preparation_hook_is_repaired_before_touching_data" time="0.215" /><testcase classname="tests.single_block_cz.test_single_cz_cat_simulation" name="test_actual_cat_baseline_cli_is_verifiable_and_its_snapshot_runs" time="0.036"><failure message="subprocess.CalledProcessError: Command '['/Users/kevinhemery/pytket-venv/bin/python', '-B', '/Users/kevinhemery/quanti/top-order-lit-rev/tests/single_block_cz/simulate_single_block_cz_cat_depolarizing.py', '--shots', '1', '--two-qubit-infidelity', '0', '--readout-flip-probability', '0', '--output-dir', '/private/var/folders/v_/qcgrb0vj3876j_g1t7drc22r0000gn/T/pytest-of-kevinhemery/pytest-6/test_actual_cat_baseline_cli_i0/cat']' returned non-zero exit status 2.">tmp_path = PosixPath('/private/var/folders/v_/qcgrb0vj3876j_g1t7drc22r0000gn/T/pytest-of-kevinhemery/pytest-6/test_actual_cat_baseline_cli_i0')
+
+    def test_actual_cat_baseline_cli_is_verifiable_and_its_snapshot_runs(tmp_path):
+        script=Path(__file__).with_name("simulate_single_block_cz_cat_depolarizing.py")
+        directory=tmp_path/"cat"
+&gt;       subprocess.run([sys.executable,"-B",str(script),"--shots","1","--two-qubit-infidelity","0",
+                        "--readout-flip-probability","0","--output-dir",str(directory)],
+                       check=True,capture_output=True,text=True,timeout=30)
+
+tests/single_block_cz/test_single_cz_cat_simulation.py:94: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+input = None, capture_output = True, timeout = 30, check = True
+popenargs = (['/Users/kevinhemery/pytket-venv/bin/python', '-B', '/Users/kevinhemery/quanti/top-order-lit-rev/tests/single_block_cz/simulate_single_block_cz_cat_depolarizing.py', '--shots', '1', '--two-qubit-infidelity', ...],)
+kwargs = {'stderr': -1, 'stdout': -1, 'text': True}
+process = &lt;Popen: returncode: 2 args: ['/Users/kevinhemery/pytket-venv/bin/python', '-...&gt;
+stdout = ''
+stderr = "/opt/homebrew/Cellar/python@3.12/3.12.11/Frameworks/Python.framework/Versions/3.12/Resources/Python.app/Contents/MacO...der-lit-rev/tests/single_block_cz/simulate_single_block_cz_cat_depolarizing.py': [Errno 2] No such file or directory\n"
+retcode = 2
+
+    def run(*popenargs,
+            input=None, capture_output=False, timeout=None, check=False, **kwargs):
+        """Run command with arguments and return a CompletedProcess instance.
+    
+        The returned instance will have attributes args, returncode, stdout and
+        stderr. By default, stdout and stderr are not captured, and those attributes
+        will be None. Pass stdout=PIPE and/or stderr=PIPE in order to capture them,
+        or pass capture_output=True to capture both.
+    
+        If check is True and the exit code was non-zero, it raises a
+        CalledProcessError. The CalledProcessError object will have the return code
+        in the returncode attribute, and output &amp; stderr attributes if those streams
+        were captured.
+    
+        If timeout (seconds) is given and the process takes too long,
+         a TimeoutExpired exception will be raised.
+    
+        There is an optional argument "input", allowing you to
+        pass bytes or a string to the subprocess's stdin.  If you use this argument
+        you may not also use the Popen constructor's "stdin" argument, as
+        it will be used internally.
+    
+        By default, all communication is in bytes, and therefore any "input" should
+        be bytes, and the stdout and stderr will be bytes. If in text mode, any
+        "input" should be a string, and stdout and stderr will be strings decoded
+        according to locale encoding, or by "encoding" if set. Text mode is
+        triggered by setting any of text, encoding, errors or universal_newlines.
+    
+        The other arguments are the same as for the Popen constructor.
+        """
+        if input is not None:
+            if kwargs.get('stdin') is not None:
+                raise ValueError('stdin and input arguments may not both be used.')
+            kwargs['stdin'] = PIPE
+    
+        if capture_output:
+            if kwargs.get('stdout') is not None or kwargs.get('stderr') is not None:
+                raise ValueError('stdout and stderr arguments may not be used '
+                                 'with capture_output.')
+            kwargs['stdout'] = PIPE
+            kwargs['stderr'] = PIPE
+    
+        with Popen(*popenargs, **kwargs) as process:
+            try:
+                stdout, stderr = process.communicate(input, timeout=timeout)
+            except TimeoutExpired as exc:
+                process.kill()
+                if _mswindows:
+                    # Windows accumulates the output in a single blocking
+                    # read() call run on child threads, with the timeout
+                    # being done in a join() on those threads.  communicate()
+                    # _after_ kill() is required to collect that and add it
+                    # to the exception.
+                    exc.stdout, exc.stderr = process.communicate()
+                else:
+                    # POSIX _communicate already populated the output so
+                    # far into the TimeoutExpired exception.
+                    process.wait()
+                raise
+            except:  # Including KeyboardInterrupt, communicate handled that.
+                process.kill()
+                # We don't call process.wait() as .__exit__ does that for us.
+                raise
+            retcode = process.poll()
+            if check and retcode:
+&gt;               raise CalledProcessError(retcode, process.args,
+                                         output=stdout, stderr=stderr)
+E               subprocess.CalledProcessError: Command '['/Users/kevinhemery/pytket-venv/bin/python', '-B', '/Users/kevinhemery/quanti/top-order-lit-rev/tests/single_block_cz/simulate_single_block_cz_cat_depolarizing.py', '--shots', '1', '--two-qubit-infidelity', '0', '--readout-flip-probability', '0', '--output-dir', '/private/var/folders/v_/qcgrb0vj3876j_g1t7drc22r0000gn/T/pytest-of-kevinhemery/pytest-6/test_actual_cat_baseline_cli_i0/cat']' returned non-zero exit status 2.
+
+/opt/homebrew/Cellar/python@3.12/3.12.11/Frameworks/Python.framework/Versions/3.12/lib/python3.12/subprocess.py:571: CalledProcessError</failure></testcase><testcase classname="tests.single_block_cz.test_single_cz_compact_checks" name="test_all_local_zero_flag_fault_signatures[4-X]" time="0.065" /><testcase classname="tests.single_block_cz.test_single_cz_compact_checks" name="test_all_local_zero_flag_fault_signatures[4-Z]" time="0.001" /><testcase classname="tests.single_block_cz.test_single_cz_compact_checks" name="test_all_local_zero_flag_fault_signatures[8-X]" time="0.005" /><testcase classname="tests.single_block_cz.test_single_cz_compact_checks" name="test_all_local_zero_flag_fault_signatures[8-Z]" time="0.006" /><testcase classname="tests.single_block_cz.test_single_cz_compact_checks" name="test_helper_tensor_regrouping_preserves_complex_entanglement_exactly" time="0.002" /><testcase classname="tests.single_block_cz.test_single_cz_compact_checks" name="test_clean_factories_and_old_ordered_screen_are_retained[gauging-compact13]" time="0.698" /><testcase classname="tests.single_block_cz.test_single_cz_compact_checks" name="test_clean_factories_and_old_ordered_screen_are_retained[gauging-current20]" time="0.703" /><testcase classname="tests.single_block_cz.test_single_cz_compact_checks" name="test_clean_factories_and_old_ordered_screen_are_retained[direct_cat-compact13]" time="0.175" /><testcase classname="tests.single_block_cz.test_single_cz_compact_checks" name="test_weight_four_controller_hook_uses_new_flag_table[gauging-X]" time="0.987" /><testcase classname="tests.single_block_cz.test_single_cz_compact_checks" name="test_weight_four_controller_hook_uses_new_flag_table[gauging-Z]" time="0.920" /><testcase classname="tests.single_block_cz.test_single_cz_compact_checks" name="test_weight_four_controller_hook_uses_new_flag_table[direct_cat-X]" time="0.231" /><testcase classname="tests.single_block_cz.test_single_cz_compact_checks" name="test_weight_four_controller_hook_uses_new_flag_table[direct_cat-Z]" time="0.225" /><testcase classname="tests.single_block_cz.test_single_cz_compact_checks" name="test_hook_and_fault_in_conditional_recovery_share_global_budget" time="1.052" /><testcase classname="tests.single_block_cz.test_single_cz_compact_checks" name="test_enrichment_block_fault_and_compact_hook_share_global_budget" time="3.255" /><testcase classname="tests.single_block_cz.test_single_cz_compact_checks" name="test_coherent_controller_fault_is_retained_as_a_superposition" time="1.937" /><testcase classname="tests.single_block_cz.test_single_cz_compact_checks" name="test_no_static_outer_check_can_be_dropped_under_current_block_envelope" time="0.016" /><testcase classname="tests.single_block_cz.test_single_cz_compact_checks" name="test_clean_costs_match_physical_programs" time="0.194" /><testcase classname="tests.single_block_cz.test_single_cz_compact_checks" name="test_cli_snapshot_and_nonzero_flag_ledger_verification" time="0.037"><failure message="subprocess.CalledProcessError: Command '['/Users/kevinhemery/pytket-venv/bin/python', '/Users/kevinhemery/quanti/top-order-lit-rev/tests/single_block_cz/simulate_single_block_cz_depolarizing.py', '--shots', '1', '--seed', '2', '--two-qubit-infidelity', '0', '--readout-flip-probability', '0', '--source-extraction', 'decoded_flags', '--flag-recovery', 'data', '--graph-stars', 'bare', '--terminal-policy', 'screen', '--data-checks', 'compact_flags', '--output-dir', '/private/var/folders/v_/qcgrb0vj3876j_g1t7drc22r0000gn/T/pytest-of-kevinhemery/pytest-6/test_cli_snapshot_and_nonzero_0/compact']' returned non-zero exit status 2.">tmp_path = PosixPath('/private/var/folders/v_/qcgrb0vj3876j_g1t7drc22r0000gn/T/pytest-of-kevinhemery/pytest-6/test_cli_snapshot_and_nonzero_0')
+
+    def test_cli_snapshot_and_nonzero_flag_ledger_verification(tmp_path):
+        folder=tmp_path/"compact"
+        command=[sys.executable,str(Path(__file__).with_name("simulate_single_block_cz_depolarizing.py")),
+                 "--shots","1","--seed","2","--two-qubit-infidelity","0","--readout-flip-probability","0",
+                 "--source-extraction","decoded_flags","--flag-recovery","data","--graph-stars","bare",
+                 "--terminal-policy","screen","--data-checks","compact_flags","--output-dir",str(folder)]
+&gt;       subprocess.run(command,check=True,capture_output=True,text=True,timeout=40)
+
+tests/single_block_cz/test_single_cz_compact_checks.py:145: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+input = None, capture_output = True, timeout = 40, check = True
+popenargs = (['/Users/kevinhemery/pytket-venv/bin/python', '/Users/kevinhemery/quanti/top-order-lit-rev/tests/single_block_cz/simulate_single_block_cz_depolarizing.py', '--shots', '1', '--seed', '2', ...],)
+kwargs = {'stderr': -1, 'stdout': -1, 'text': True}
+process = &lt;Popen: returncode: 2 args: ['/Users/kevinhemery/pytket-venv/bin/python', '/...&gt;
+stdout = ''
+stderr = "/opt/homebrew/Cellar/python@3.12/3.12.11/Frameworks/Python.framework/Versions/3.12/Resources/Python.app/Contents/MacO...p-order-lit-rev/tests/single_block_cz/simulate_single_block_cz_depolarizing.py': [Errno 2] No such file or directory\n"
+retcode = 2
+
+    def run(*popenargs,
+            input=None, capture_output=False, timeout=None, check=False, **kwargs):
+        """Run command with arguments and return a CompletedProcess instance.
+    
+        The returned instance will have attributes args, returncode, stdout and
+        stderr. By default, stdout and stderr are not captured, and those attributes
+        will be None. Pass stdout=PIPE and/or stderr=PIPE in order to capture them,
+        or pass capture_output=True to capture both.
+    
+        If check is True and the exit code was non-zero, it raises a
+        CalledProcessError. The CalledProcessError object will have the return code
+        in the returncode attribute, and output &amp; stderr attributes if those streams
+        were captured.
+    
+        If timeout (seconds) is given and the process takes too long,
+         a TimeoutExpired exception will be raised.
+    
+        There is an optional argument "input", allowing you to
+        pass bytes or a string to the subprocess's stdin.  If you use this argument
+        you may not also use the Popen constructor's "stdin" argument, as
+        it will be used internally.
+    
+        By default, all communication is in bytes, and therefore any "input" should
+        be bytes, and the stdout and stderr will be bytes. If in text mode, any
+        "input" should be a string, and stdout and stderr will be strings decoded
+        according to locale encoding, or by "encoding" if set. Text mode is
+        triggered by setting any of text, encoding, errors or universal_newlines.
+    
+        The other arguments are the same as for the Popen constructor.
+        """
+        if input is not None:
+            if kwargs.get('stdin') is not None:
+                raise ValueError('stdin and input arguments may not both be used.')
+            kwargs['stdin'] = PIPE
+    
+        if capture_output:
+            if kwargs.get('stdout') is not None or kwargs.get('stderr') is not None:
+                raise ValueError('stdout and stderr arguments may not be used '
+                                 'with capture_output.')
+            kwargs['stdout'] = PIPE
+            kwargs['stderr'] = PIPE
+    
+        with Popen(*popenargs, **kwargs) as process:
+            try:
+                stdout, stderr = process.communicate(input, timeout=timeout)
+            except TimeoutExpired as exc:
+                process.kill()
+                if _mswindows:
+                    # Windows accumulates the output in a single blocking
+                    # read() call run on child threads, with the timeout
+                    # being done in a join() on those threads.  communicate()
+                    # _after_ kill() is required to collect that and add it
+                    # to the exception.
+                    exc.stdout, exc.stderr = process.communicate()
+                else:
+                    # POSIX _communicate already populated the output so
+                    # far into the TimeoutExpired exception.
+                    process.wait()
+                raise
+            except:  # Including KeyboardInterrupt, communicate handled that.
+                process.kill()
+                # We don't call process.wait() as .__exit__ does that for us.
+                raise
+            retcode = process.poll()
+            if check and retcode:
+&gt;               raise CalledProcessError(retcode, process.args,
+                                         output=stdout, stderr=stderr)
+E               subprocess.CalledProcessError: Command '['/Users/kevinhemery/pytket-venv/bin/python', '/Users/kevinhemery/quanti/top-order-lit-rev/tests/single_block_cz/simulate_single_block_cz_depolarizing.py', '--shots', '1', '--seed', '2', '--two-qubit-infidelity', '0', '--readout-flip-probability', '0', '--source-extraction', 'decoded_flags', '--flag-recovery', 'data', '--graph-stars', 'bare', '--terminal-policy', 'screen', '--data-checks', 'compact_flags', '--output-dir', '/private/var/folders/v_/qcgrb0vj3876j_g1t7drc22r0000gn/T/pytest-of-kevinhemery/pytest-6/test_cli_snapshot_and_nonzero_0/compact']' returned non-zero exit status 2.
+
+/opt/homebrew/Cellar/python@3.12/3.12.11/Frameworks/Python.framework/Versions/3.12/lib/python3.12/subprocess.py:571: CalledProcessError</failure></testcase><testcase classname="tests.single_block_cz.test_single_cz_flag_recovery" name="test_independent_clifford_and_class_certificate[support0-X]" time="0.257" /><testcase classname="tests.single_block_cz.test_single_cz_flag_recovery" name="test_independent_clifford_and_class_certificate[support0-Z]" time="0.259" /><testcase classname="tests.single_block_cz.test_single_cz_flag_recovery" name="test_independent_clifford_and_class_certificate[support1-X]" time="1.747" /><testcase classname="tests.single_block_cz.test_single_cz_flag_recovery" name="test_independent_clifford_and_class_certificate[support1-Z]" time="1.751" /><testcase classname="tests.single_block_cz.test_single_cz_flag_recovery" name="test_zero_syndrome_can_be_logically_ambiguous" time="0.041" /><testcase classname="tests.single_block_cz.test_single_cz_flag_recovery" name="test_controller_hook_is_recovered_with_matched_cat_option[gauging-compact13]" time="1.288" /><testcase classname="tests.single_block_cz.test_single_cz_flag_recovery" name="test_controller_hook_is_recovered_with_matched_cat_option[gauging-current20]" time="1.328" /><testcase classname="tests.single_block_cz.test_single_cz_flag_recovery" name="test_controller_hook_is_recovered_with_matched_cat_option[direct_cat-compact13]" time="0.420" /><testcase classname="tests.single_block_cz.test_single_cz_flag_recovery" name="test_second_fault_during_fallback_is_in_the_same_global_budget" time="1.058" /><testcase classname="tests.single_block_cz.test_single_cz_flag_recovery" name="test_two_separate_flagged_episodes_and_configurable_bound" time="1.866" /><testcase classname="tests.single_block_cz.test_single_cz_flag_recovery" name="test_one_remaining_fault_gadget_is_not_used_as_a_two_fault_gadget" time="0.002" /><testcase classname="tests.single_block_cz.test_single_cz_flag_recovery" name="test_terminal_flag_restarts_whole_row_and_invalidates_old_history" time="0.786" /><testcase classname="tests.single_block_cz.test_single_cz_flag_recovery" name="test_flags_during_fallback_and_nonpauli_checks_still_reject" time="1.014" /><testcase classname="tests.single_block_cz.test_single_cz_flag_recovery" name="test_coherent_two_participant_fault_preserves_magic_on_accepted_paths" time="9.890" /><testcase classname="tests.single_block_cz.test_single_cz_flag_recovery" name="test_clean_schedule_unchanged_and_cli_saves_policy" time="0.490"><failure message="subprocess.CalledProcessError: Command '['/Users/kevinhemery/pytket-venv/bin/python', '/Users/kevinhemery/quanti/top-order-lit-rev/tests/single_block_cz/simulate_single_block_cz_depolarizing.py', '--shots', '1', '--seed', '2', '--two-qubit-infidelity', '0', '--readout-flip-probability', '0', '--flag-recovery', 'data', '--source-extraction', 'decoded_flags', '--output-dir', '/private/var/folders/v_/qcgrb0vj3876j_g1t7drc22r0000gn/T/pytest-of-kevinhemery/pytest-6/test_clean_schedule_unchanged_0/saved']' returned non-zero exit status 2.">tmp_path = PosixPath('/private/var/folders/v_/qcgrb0vj3876j_g1t7drc22r0000gn/T/pytest-of-kevinhemery/pytest-6/test_clean_schedule_unchanged_0')
+
+    def test_clean_schedule_unchanged_and_cli_saves_policy(tmp_path):
+        for mode in ("reject","data"):
+            costs=clean_costs(source_extraction="decoded_flags",flag_recovery=mode)
+            assert costs["compact13/recovery"]["gates"]["CX"]==2809
+        directory=tmp_path/"saved"
+        command=[sys.executable,str(Path(__file__).with_name("simulate_single_block_cz_depolarizing.py")),
+                 "--shots","1","--seed","2","--two-qubit-infidelity","0","--readout-flip-probability","0",
+                 "--flag-recovery","data","--source-extraction","decoded_flags","--output-dir",str(directory)]
+&gt;       subprocess.run(command,check=True,capture_output=True,text=True,timeout=40)
+
+tests/single_block_cz/test_single_cz_flag_recovery.py:149: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+input = None, capture_output = True, timeout = 40, check = True
+popenargs = (['/Users/kevinhemery/pytket-venv/bin/python', '/Users/kevinhemery/quanti/top-order-lit-rev/tests/single_block_cz/simulate_single_block_cz_depolarizing.py', '--shots', '1', '--seed', '2', ...],)
+kwargs = {'stderr': -1, 'stdout': -1, 'text': True}
+process = &lt;Popen: returncode: 2 args: ['/Users/kevinhemery/pytket-venv/bin/python', '/...&gt;
+stdout = ''
+stderr = "/opt/homebrew/Cellar/python@3.12/3.12.11/Frameworks/Python.framework/Versions/3.12/Resources/Python.app/Contents/MacO...p-order-lit-rev/tests/single_block_cz/simulate_single_block_cz_depolarizing.py': [Errno 2] No such file or directory\n"
+retcode = 2
+
+    def run(*popenargs,
+            input=None, capture_output=False, timeout=None, check=False, **kwargs):
+        """Run command with arguments and return a CompletedProcess instance.
+    
+        The returned instance will have attributes args, returncode, stdout and
+        stderr. By default, stdout and stderr are not captured, and those attributes
+        will be None. Pass stdout=PIPE and/or stderr=PIPE in order to capture them,
+        or pass capture_output=True to capture both.
+    
+        If check is True and the exit code was non-zero, it raises a
+        CalledProcessError. The CalledProcessError object will have the return code
+        in the returncode attribute, and output &amp; stderr attributes if those streams
+        were captured.
+    
+        If timeout (seconds) is given and the process takes too long,
+         a TimeoutExpired exception will be raised.
+    
+        There is an optional argument "input", allowing you to
+        pass bytes or a string to the subprocess's stdin.  If you use this argument
+        you may not also use the Popen constructor's "stdin" argument, as
+        it will be used internally.
+    
+        By default, all communication is in bytes, and therefore any "input" should
+        be bytes, and the stdout and stderr will be bytes. If in text mode, any
+        "input" should be a string, and stdout and stderr will be strings decoded
+        according to locale encoding, or by "encoding" if set. Text mode is
+        triggered by setting any of text, encoding, errors or universal_newlines.
+    
+        The other arguments are the same as for the Popen constructor.
+        """
+        if input is not None:
+            if kwargs.get('stdin') is not None:
+                raise ValueError('stdin and input arguments may not both be used.')
+            kwargs['stdin'] = PIPE
+    
+        if capture_output:
+            if kwargs.get('stdout') is not None or kwargs.get('stderr') is not None:
+                raise ValueError('stdout and stderr arguments may not be used '
+                                 'with capture_output.')
+            kwargs['stdout'] = PIPE
+            kwargs['stderr'] = PIPE
+    
+        with Popen(*popenargs, **kwargs) as process:
+            try:
+                stdout, stderr = process.communicate(input, timeout=timeout)
+            except TimeoutExpired as exc:
+                process.kill()
+                if _mswindows:
+                    # Windows accumulates the output in a single blocking
+                    # read() call run on child threads, with the timeout
+                    # being done in a join() on those threads.  communicate()
+                    # _after_ kill() is required to collect that and add it
+                    # to the exception.
+                    exc.stdout, exc.stderr = process.communicate()
+                else:
+                    # POSIX _communicate already populated the output so
+                    # far into the TimeoutExpired exception.
+                    process.wait()
+                raise
+            except:  # Including KeyboardInterrupt, communicate handled that.
+                process.kill()
+                # We don't call process.wait() as .__exit__ does that for us.
+                raise
+            retcode = process.poll()
+            if check and retcode:
+&gt;               raise CalledProcessError(retcode, process.args,
+                                         output=stdout, stderr=stderr)
+E               subprocess.CalledProcessError: Command '['/Users/kevinhemery/pytket-venv/bin/python', '/Users/kevinhemery/quanti/top-order-lit-rev/tests/single_block_cz/simulate_single_block_cz_depolarizing.py', '--shots', '1', '--seed', '2', '--two-qubit-infidelity', '0', '--readout-flip-probability', '0', '--flag-recovery', 'data', '--source-extraction', 'decoded_flags', '--output-dir', '/private/var/folders/v_/qcgrb0vj3876j_g1t7drc22r0000gn/T/pytest-of-kevinhemery/pytest-6/test_clean_schedule_unchanged_0/saved']' returned non-zero exit status 2.
+
+/opt/homebrew/Cellar/python@3.12/3.12.11/Frameworks/Python.framework/Versions/3.12/lib/python3.12/subprocess.py:571: CalledProcessError</failure></testcase><testcase classname="tests.single_block_cz.test_single_cz_graph_stars" name="test_noiseless_bare_factory_and_unchanged_T_and_peak[triple-compact13]" time="0.911" /><testcase classname="tests.single_block_cz.test_single_cz_graph_stars" name="test_noiseless_bare_factory_and_unchanged_T_and_peak[triple-current20]" time="0.934" /><testcase classname="tests.single_block_cz.test_single_cz_graph_stars" name="test_noiseless_bare_factory_and_unchanged_T_and_peak[adaptive-compact13]" time="0.889" /><testcase classname="tests.single_block_cz.test_single_cz_graph_stars" name="test_noiseless_bare_factory_and_unchanged_T_and_peak[adaptive-current20]" time="0.934" /><testcase classname="tests.single_block_cz.test_single_cz_graph_stars" name="test_two_broad_controller_hooks_are_repaired_without_radius_assumption[compact13]" time="0.702" /><testcase classname="tests.single_block_cz.test_single_cz_graph_stars" name="test_two_broad_controller_hooks_are_repaired_without_radius_assumption[current20]" time="0.744" /><testcase classname="tests.single_block_cz.test_single_cz_graph_stars" name="test_late_edge_bit_error_and_wrong_edge_report_share_global_budget" time="0.695" /><testcase classname="tests.single_block_cz.test_single_cz_graph_stars" name="test_terminal_cycle_meter_phase_spread_does_not_change_magic" time="0.676" /><testcase classname="tests.single_block_cz.test_single_cz_graph_stars" name="test_bare_star_hook_and_a_faulty_chord_correction" time="0.696" /><testcase classname="tests.single_block_cz.test_single_cz_graph_stars" name="test_graph_hook_and_data_flag_recovery_compose" time="0.967" /><testcase classname="tests.single_block_cz.test_single_cz_graph_stars" name="test_two_false_root_reports_cannot_certify_genuine_negative_branch" time="0.858" /><testcase classname="tests.single_block_cz.test_single_cz_graph_stars" name="test_two_faults_after_final_clean_data_record_remain_correctable" time="0.695" /><testcase classname="tests.single_block_cz.test_single_cz_graph_stars" name="test_coherent_graph_meter_fault_is_not_sampled_as_Paulis" time="0.704" /><testcase classname="tests.single_block_cz.test_single_cz_graph_stars" name="test_chord_inverse_is_total_and_does_not_touch_tree" time="0.020" /><testcase classname="tests.single_block_cz.test_single_cz_graph_stars" name="test_cli_saves_bare_schedule_and_verifies" time="0.038"><failure message="subprocess.CalledProcessError: Command '['/Users/kevinhemery/pytket-venv/bin/python', '/Users/kevinhemery/quanti/top-order-lit-rev/tests/single_block_cz/simulate_single_block_cz_depolarizing.py', '--shots', '1', '--seed', '2', '--two-qubit-infidelity', '0', '--readout-flip-probability', '0', '--source-extraction', 'decoded_flags', '--flag-recovery', 'data', '--graph-stars', 'bare', '--output-dir', '/private/var/folders/v_/qcgrb0vj3876j_g1t7drc22r0000gn/T/pytest-of-kevinhemery/pytest-6/test_cli_saves_bare_schedule_a0/bare']' returned non-zero exit status 2.">tmp_path = PosixPath('/private/var/folders/v_/qcgrb0vj3876j_g1t7drc22r0000gn/T/pytest-of-kevinhemery/pytest-6/test_cli_saves_bare_schedule_a0')
+
+    def test_cli_saves_bare_schedule_and_verifies(tmp_path):
+        folder=tmp_path/"bare"
+        command=[sys.executable,str(Path(__file__).with_name("simulate_single_block_cz_depolarizing.py")),
+                 "--shots","1","--seed","2","--two-qubit-infidelity","0","--readout-flip-probability","0",
+                 "--source-extraction","decoded_flags","--flag-recovery","data","--graph-stars","bare",
+                 "--output-dir",str(folder)]
+&gt;       subprocess.run(command,check=True,capture_output=True,text=True,timeout=40)
+
+tests/single_block_cz/test_single_cz_graph_stars.py:150: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+input = None, capture_output = True, timeout = 40, check = True
+popenargs = (['/Users/kevinhemery/pytket-venv/bin/python', '/Users/kevinhemery/quanti/top-order-lit-rev/tests/single_block_cz/simulate_single_block_cz_depolarizing.py', '--shots', '1', '--seed', '2', ...],)
+kwargs = {'stderr': -1, 'stdout': -1, 'text': True}
+process = &lt;Popen: returncode: 2 args: ['/Users/kevinhemery/pytket-venv/bin/python', '/...&gt;
+stdout = ''
+stderr = "/opt/homebrew/Cellar/python@3.12/3.12.11/Frameworks/Python.framework/Versions/3.12/Resources/Python.app/Contents/MacO...p-order-lit-rev/tests/single_block_cz/simulate_single_block_cz_depolarizing.py': [Errno 2] No such file or directory\n"
+retcode = 2
+
+    def run(*popenargs,
+            input=None, capture_output=False, timeout=None, check=False, **kwargs):
+        """Run command with arguments and return a CompletedProcess instance.
+    
+        The returned instance will have attributes args, returncode, stdout and
+        stderr. By default, stdout and stderr are not captured, and those attributes
+        will be None. Pass stdout=PIPE and/or stderr=PIPE in order to capture them,
+        or pass capture_output=True to capture both.
+    
+        If check is True and the exit code was non-zero, it raises a
+        CalledProcessError. The CalledProcessError object will have the return code
+        in the returncode attribute, and output &amp; stderr attributes if those streams
+        were captured.
+    
+        If timeout (seconds) is given and the process takes too long,
+         a TimeoutExpired exception will be raised.
+    
+        There is an optional argument "input", allowing you to
+        pass bytes or a string to the subprocess's stdin.  If you use this argument
+        you may not also use the Popen constructor's "stdin" argument, as
+        it will be used internally.
+    
+        By default, all communication is in bytes, and therefore any "input" should
+        be bytes, and the stdout and stderr will be bytes. If in text mode, any
+        "input" should be a string, and stdout and stderr will be strings decoded
+        according to locale encoding, or by "encoding" if set. Text mode is
+        triggered by setting any of text, encoding, errors or universal_newlines.
+    
+        The other arguments are the same as for the Popen constructor.
+        """
+        if input is not None:
+            if kwargs.get('stdin') is not None:
+                raise ValueError('stdin and input arguments may not both be used.')
+            kwargs['stdin'] = PIPE
+    
+        if capture_output:
+            if kwargs.get('stdout') is not None or kwargs.get('stderr') is not None:
+                raise ValueError('stdout and stderr arguments may not be used '
+                                 'with capture_output.')
+            kwargs['stdout'] = PIPE
+            kwargs['stderr'] = PIPE
+    
+        with Popen(*popenargs, **kwargs) as process:
+            try:
+                stdout, stderr = process.communicate(input, timeout=timeout)
+            except TimeoutExpired as exc:
+                process.kill()
+                if _mswindows:
+                    # Windows accumulates the output in a single blocking
+                    # read() call run on child threads, with the timeout
+                    # being done in a join() on those threads.  communicate()
+                    # _after_ kill() is required to collect that and add it
+                    # to the exception.
+                    exc.stdout, exc.stderr = process.communicate()
+                else:
+                    # POSIX _communicate already populated the output so
+                    # far into the TimeoutExpired exception.
+                    process.wait()
+                raise
+            except:  # Including KeyboardInterrupt, communicate handled that.
+                process.kill()
+                # We don't call process.wait() as .__exit__ does that for us.
+                raise
+            retcode = process.poll()
+            if check and retcode:
+&gt;               raise CalledProcessError(retcode, process.args,
+                                         output=stdout, stderr=stderr)
+E               subprocess.CalledProcessError: Command '['/Users/kevinhemery/pytket-venv/bin/python', '/Users/kevinhemery/quanti/top-order-lit-rev/tests/single_block_cz/simulate_single_block_cz_depolarizing.py', '--shots', '1', '--seed', '2', '--two-qubit-infidelity', '0', '--readout-flip-probability', '0', '--source-extraction', 'decoded_flags', '--flag-recovery', 'data', '--graph-stars', 'bare', '--output-dir', '/private/var/folders/v_/qcgrb0vj3876j_g1t7drc22r0000gn/T/pytest-of-kevinhemery/pytest-6/test_cli_saves_bare_schedule_a0/bare']' returned non-zero exit status 2.
+
+/opt/homebrew/Cellar/python@3.12/3.12.11/Frameworks/Python.framework/Versions/3.12/lib/python3.12/subprocess.py:571: CalledProcessError</failure></testcase><testcase classname="tests.single_block_cz.test_single_cz_terminal_screen" name="test_all_global_budget_partitions_in_finite_certificate" time="2.439"><failure message="FileNotFoundError: [Errno 2] No such file or directory: '/Users/kevinhemery/quanti/top-order-lit-rev/verification/single_block_cz/single_cz_terminal_screen.py'">def test_all_global_budget_partitions_in_finite_certificate():
+        from check_single_cz_terminal_screen import audit
+&gt;       c=audit()
+
+tests/single_block_cz/test_single_cz_terminal_screen.py:32: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+verification/single_block_cz/check_single_cz_terminal_screen.py:122: in audit
+    result["source_sha256"]={name:sha256((directory/name).read_bytes()).hexdigest() for name in
+/opt/homebrew/Cellar/python@3.12/3.12.11/Frameworks/Python.framework/Versions/3.12/lib/python3.12/pathlib.py:1019: in read_bytes
+    with self.open(mode='rb') as f:
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = PosixPath('/Users/kevinhemery/quanti/top-order-lit-rev/verification/single_block_cz/single_cz_terminal_screen.py')
+mode = 'rb', buffering = -1, encoding = None, errors = None, newline = None
+
+    def open(self, mode='r', buffering=-1, encoding=None,
+             errors=None, newline=None):
+        """
+        Open the file pointed to by this path and return a file object, as
+        the built-in open() function does.
+        """
+        if "b" not in mode:
+            encoding = io.text_encoding(encoding)
+&gt;       return io.open(self, mode, buffering, encoding, errors, newline)
+E       FileNotFoundError: [Errno 2] No such file or directory: '/Users/kevinhemery/quanti/top-order-lit-rev/verification/single_block_cz/single_cz_terminal_screen.py'
+
+/opt/homebrew/Cellar/python@3.12/3.12.11/Frameworks/Python.framework/Versions/3.12/lib/python3.12/pathlib.py:1013: FileNotFoundError</failure></testcase><testcase classname="tests.single_block_cz.test_single_cz_terminal_screen" name="test_clean_factory_counts_and_report_verification[flags-compact13]" time="0.939" /><testcase classname="tests.single_block_cz.test_single_cz_terminal_screen" name="test_clean_factory_counts_and_report_verification[flags-current20]" time="0.988" /><testcase classname="tests.single_block_cz.test_single_cz_terminal_screen" name="test_clean_factory_counts_and_report_verification[bare-compact13]" time="0.922" /><testcase classname="tests.single_block_cz.test_single_cz_terminal_screen" name="test_clean_factory_counts_and_report_verification[bare-current20]" time="0.956" /><testcase classname="tests.single_block_cz.test_single_cz_terminal_screen" name="test_syndrome_and_false_report_use_matched_full_recovery" time="1.494" /><testcase classname="tests.single_block_cz.test_single_cz_terminal_screen" name="test_second_fault_during_syndrome_recovery" time="0.814" /><testcase classname="tests.single_block_cz.test_single_cz_terminal_screen" name="test_flag_branch_is_verified_before_output" time="0.776" /><testcase classname="tests.single_block_cz.test_single_cz_terminal_screen" name="test_two_nonzero_reports_use_bounded_full_fallback" time="0.946" /><testcase classname="tests.single_block_cz.test_single_cz_terminal_screen" name="test_final_idle_pair_still_has_correctable_physical_residual" time="0.683" /><testcase classname="tests.single_block_cz.test_single_cz_terminal_screen" name="test_naive_one_record_order_fails_but_ordered_screen_rejects" time="2.240" /><testcase classname="tests.single_block_cz.test_single_cz_terminal_screen" name="test_four_fault_pilot_failure_is_caught_by_post_recovery_screen" time="1.188" /><testcase classname="tests.single_block_cz.test_single_cz_terminal_screen" name="test_coherent_two_participant_screen_fault" time="1.129" /><testcase classname="tests.single_block_cz.test_single_cz_terminal_screen" name="test_screen_CLI_and_saved_run" time="0.056"><failure message="subprocess.CalledProcessError: Command '['/Users/kevinhemery/pytket-venv/bin/python', '/Users/kevinhemery/quanti/top-order-lit-rev/tests/single_block_cz/simulate_single_block_cz_depolarizing.py', '--shots', '1', '--seed', '2', '--two-qubit-infidelity', '0', '--readout-flip-probability', '0', '--source-extraction', 'decoded_flags', '--flag-recovery', 'data', '--graph-stars', 'bare', '--terminal-policy', 'screen', '--output-dir', '/private/var/folders/v_/qcgrb0vj3876j_g1t7drc22r0000gn/T/pytest-of-kevinhemery/pytest-6/test_screen_CLI_and_saved_run0/screen']' returned non-zero exit status 2.">tmp_path = PosixPath('/private/var/folders/v_/qcgrb0vj3876j_g1t7drc22r0000gn/T/pytest-of-kevinhemery/pytest-6/test_screen_CLI_and_saved_run0')
+
+    def test_screen_CLI_and_saved_run(tmp_path):
+        folder=tmp_path/"screen"
+        command=[sys.executable,str(Path(__file__).with_name("simulate_single_block_cz_depolarizing.py")),
+                 "--shots","1","--seed","2","--two-qubit-infidelity","0","--readout-flip-probability","0",
+                 "--source-extraction","decoded_flags","--flag-recovery","data","--graph-stars","bare",
+                 "--terminal-policy","screen","--output-dir",str(folder)]
+&gt;       subprocess.run(command,check=True,capture_output=True,text=True,timeout=40)
+
+tests/single_block_cz/test_single_cz_terminal_screen.py:161: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+input = None, capture_output = True, timeout = 40, check = True
+popenargs = (['/Users/kevinhemery/pytket-venv/bin/python', '/Users/kevinhemery/quanti/top-order-lit-rev/tests/single_block_cz/simulate_single_block_cz_depolarizing.py', '--shots', '1', '--seed', '2', ...],)
+kwargs = {'stderr': -1, 'stdout': -1, 'text': True}
+process = &lt;Popen: returncode: 2 args: ['/Users/kevinhemery/pytket-venv/bin/python', '/...&gt;
+stdout = ''
+stderr = "/opt/homebrew/Cellar/python@3.12/3.12.11/Frameworks/Python.framework/Versions/3.12/Resources/Python.app/Contents/MacO...p-order-lit-rev/tests/single_block_cz/simulate_single_block_cz_depolarizing.py': [Errno 2] No such file or directory\n"
+retcode = 2
+
+    def run(*popenargs,
+            input=None, capture_output=False, timeout=None, check=False, **kwargs):
+        """Run command with arguments and return a CompletedProcess instance.
+    
+        The returned instance will have attributes args, returncode, stdout and
+        stderr. By default, stdout and stderr are not captured, and those attributes
+        will be None. Pass stdout=PIPE and/or stderr=PIPE in order to capture them,
+        or pass capture_output=True to capture both.
+    
+        If check is True and the exit code was non-zero, it raises a
+        CalledProcessError. The CalledProcessError object will have the return code
+        in the returncode attribute, and output &amp; stderr attributes if those streams
+        were captured.
+    
+        If timeout (seconds) is given and the process takes too long,
+         a TimeoutExpired exception will be raised.
+    
+        There is an optional argument "input", allowing you to
+        pass bytes or a string to the subprocess's stdin.  If you use this argument
+        you may not also use the Popen constructor's "stdin" argument, as
+        it will be used internally.
+    
+        By default, all communication is in bytes, and therefore any "input" should
+        be bytes, and the stdout and stderr will be bytes. If in text mode, any
+        "input" should be a string, and stdout and stderr will be strings decoded
+        according to locale encoding, or by "encoding" if set. Text mode is
+        triggered by setting any of text, encoding, errors or universal_newlines.
+    
+        The other arguments are the same as for the Popen constructor.
+        """
+        if input is not None:
+            if kwargs.get('stdin') is not None:
+                raise ValueError('stdin and input arguments may not both be used.')
+            kwargs['stdin'] = PIPE
+    
+        if capture_output:
+            if kwargs.get('stdout') is not None or kwargs.get('stderr') is not None:
+                raise ValueError('stdout and stderr arguments may not be used '
+                                 'with capture_output.')
+            kwargs['stdout'] = PIPE
+            kwargs['stderr'] = PIPE
+    
+        with Popen(*popenargs, **kwargs) as process:
+            try:
+                stdout, stderr = process.communicate(input, timeout=timeout)
+            except TimeoutExpired as exc:
+                process.kill()
+                if _mswindows:
+                    # Windows accumulates the output in a single blocking
+                    # read() call run on child threads, with the timeout
+                    # being done in a join() on those threads.  communicate()
+                    # _after_ kill() is required to collect that and add it
+                    # to the exception.
+                    exc.stdout, exc.stderr = process.communicate()
+                else:
+                    # POSIX _communicate already populated the output so
+                    # far into the TimeoutExpired exception.
+                    process.wait()
+                raise
+            except:  # Including KeyboardInterrupt, communicate handled that.
+                process.kill()
+                # We don't call process.wait() as .__exit__ does that for us.
+                raise
+            retcode = process.poll()
+            if check and retcode:
+&gt;               raise CalledProcessError(retcode, process.args,
+                                         output=stdout, stderr=stderr)
+E               subprocess.CalledProcessError: Command '['/Users/kevinhemery/pytket-venv/bin/python', '/Users/kevinhemery/quanti/top-order-lit-rev/tests/single_block_cz/simulate_single_block_cz_depolarizing.py', '--shots', '1', '--seed', '2', '--two-qubit-infidelity', '0', '--readout-flip-probability', '0', '--source-extraction', 'decoded_flags', '--flag-recovery', 'data', '--graph-stars', 'bare', '--terminal-policy', 'screen', '--output-dir', '/private/var/folders/v_/qcgrb0vj3876j_g1t7drc22r0000gn/T/pytest-of-kevinhemery/pytest-6/test_screen_CLI_and_saved_run0/screen']' returned non-zero exit status 2.
+
+/opt/homebrew/Cellar/python@3.12/3.12.11/Frameworks/Python.framework/Versions/3.12/lib/python3.12/subprocess.py:571: CalledProcessError</failure></testcase></testsuite></testsuites>

@@ -1,0 +1,33 @@
+{
+  "arms": [
+    "cat-five-parity"
+  ],
+  "shots_per_arm": 64,
+  "seed": 81000,
+  "noise": {
+    "name": "independent_Pauli_depolarizing",
+    "gate_rate_convention": "average_gate_infidelity",
+    "rates": {
+      "two_qubit_infidelity": "1/1000",
+      "one_qubit_infidelity": "1/10000",
+      "t_infidelity": "1/10000",
+      "idle_infidelity": "0",
+      "preparation_flip_probability": "0",
+      "readout_flip_probability": "1/1000"
+    },
+    "nonidentity_probabilities": {
+      "CX": "1/800",
+      "Clifford_1q": "3/20000",
+      "T_TDG": "3/20000",
+      "idle": "0"
+    },
+    "controlled_W": "T^s,CX,T^-s; individual physical locations",
+    "quantum_timing": "gate noise after ideal gate; idle noise before operation",
+    "readout": "independent classical report flip after actual quantum measurement",
+    "preparation": "X after |0> preparation",
+    "fault_count_cap": null,
+    "idles": "one per live nonparticipant per serial operation, and every live qubit at boundary",
+    "duration_calibrated": false,
+    "atomic_multiqubit_gates": []
+  }
+}

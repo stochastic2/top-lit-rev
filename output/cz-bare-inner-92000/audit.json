@@ -1,0 +1,327 @@
+{
+  "meters": {
+    "Z/0": {
+      "locations_with_data_idles": 122,
+      "signatures": 92
+    },
+    "Z/1": {
+      "locations_with_data_idles": 122,
+      "signatures": 92
+    },
+    "Z/2": {
+      "locations_with_data_idles": 122,
+      "signatures": 92
+    },
+    "Z/3": {
+      "locations_with_data_idles": 122,
+      "signatures": 92
+    },
+    "Z/4": {
+      "locations_with_data_idles": 122,
+      "signatures": 92
+    },
+    "X/0": {
+      "locations_with_data_idles": 164,
+      "signatures": 92
+    },
+    "X/1": {
+      "locations_with_data_idles": 164,
+      "signatures": 92
+    },
+    "X/2": {
+      "locations_with_data_idles": 164,
+      "signatures": 92
+    },
+    "X/3": {
+      "locations_with_data_idles": 164,
+      "signatures": 92
+    },
+    "X/4": {
+      "locations_with_data_idles": 164,
+      "signatures": 92
+    }
+  },
+  "clean_gates": {
+    "BudgetPilot": {
+      "PREP": 308,
+      "H": 589,
+      "CX": 1058,
+      "BOUNDARY": 9,
+      "MZ": 288,
+      "TDG": 60,
+      "T": 60
+    },
+    "BareInnerPilot": {
+      "PREP": 288,
+      "H": 569,
+      "CX": 1018,
+      "BOUNDARY": 9,
+      "MZ": 268,
+      "TDG": 60,
+      "T": 60
+    }
+  },
+  "witnesses": {
+    "clean": {
+      "accepted": true,
+      "reason": null,
+      "votes": [
+        {
+          "vertex_reports": [
+            1,
+            1,
+            1,
+            0,
+            1
+          ],
+          "entry_vote": true,
+          "passes": 1
+        },
+        {
+          "direct_vote": 0,
+          "root": 0,
+          "nonroot": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "inner_x_parity_frame": 0,
+          "passes": 2
+        },
+        {
+          "direct_vote": 1,
+          "root": 0,
+          "nonroot": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "inner_x_parity_frame": 0,
+          "passes": 3
+        }
+      ],
+      "faults": [],
+      "gauged_Z_reference": [],
+      "coordinates_CX": 0,
+      "graph_verifier_reports": [
+        0
+      ],
+      "terminal_screen_outcome": "zero_accept",
+      "cx": 1018,
+      "decoded_fidelity": 1.0,
+      "raw_fidelity": 1.0
+    },
+    "one_hook": {
+      "accepted": false,
+      "reason": "direct_recovery_no_unique_class",
+      "votes": [
+        {
+          "vertex_reports": [
+            1,
+            1,
+            1,
+            0,
+            1
+          ],
+          "entry_vote": true,
+          "passes": 1
+        },
+        {
+          "direct_vote": 0,
+          "root": 0,
+          "nonroot": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "inner_x_parity_frame": 0,
+          "passes": 2
+        }
+      ],
+      "faults": [
+        {
+          "injection": 0,
+          "event": 1528,
+          "context": "direct/vote/0/X/1",
+          "operation": "CX",
+          "timing": "after",
+          "targets": [
+            "s",
+            "D5"
+          ],
+          "paulis": {
+            "s": "X"
+          },
+          "flip_report": false
+        }
+      ],
+      "gauged_Z_reference": [
+        {
+          "gauged_Z_reference": "direct/vote/1/syndrome_recovery",
+          "records": [
+            [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              1,
+              0,
+              1
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              1,
+              0,
+              1
+            ]
+          ],
+          "x_correction": null
+        }
+      ],
+      "coordinates_CX": 16,
+      "graph_verifier_reports": [
+        0
+      ],
+      "terminal_screen_outcome": null,
+      "cx": 1218
+    },
+    "sign": {
+      "accepted": true,
+      "reason": null,
+      "votes": [
+        {
+          "vertex_reports": [
+            1,
+            1,
+            1,
+            0,
+            1
+          ],
+          "entry_vote": true,
+          "passes": 1
+        },
+        {
+          "direct_vote": 0,
+          "root": 1,
+          "nonroot": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "inner_x_parity_frame": 1,
+          "passes": 2
+        },
+        {
+          "direct_vote": 1,
+          "root": 1,
+          "nonroot": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "inner_x_parity_frame": 1,
+          "passes": 3
+        }
+      ],
+      "faults": [
+        {
+          "injection": 0,
+          "event": 1423,
+          "context": "direct/vote/0/Z/0",
+          "operation": "PREP",
+          "timing": "idle",
+          "targets": [
+            "s"
+          ],
+          "paulis": {
+            "D0": "Z"
+          },
+          "flip_report": false
+        }
+      ],
+      "gauged_Z_reference": [],
+      "coordinates_CX": 0,
+      "graph_verifier_reports": [
+        0
+      ],
+      "terminal_screen_outcome": "syndrome_certified",
+      "cx": 1474,
+      "decoded_fidelity": 1.0,
+      "raw_fidelity": 1.0
+    },
+    "tree_report": {
+      "accepted": false,
+      "reason": "data_ambiguity",
+      "votes": [
+        {
+          "vertex_reports": [
+            1,
+            1,
+            1,
+            0,
+            1
+          ],
+          "entry_vote": true,
+          "passes": 1
+        },
+        {
+          "direct_vote": 0,
+          "root": 0,
+          "nonroot": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "inner_x_parity_frame": 0,
+          "passes": 2
+        },
+        {
+          "direct_vote": 1,
+          "root": 0,
+          "nonroot": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "inner_x_parity_frame": 0,
+          "passes": 3
+        }
+      ],
+      "faults": [
+        {
+          "injection": 0,
+          "event": 1902,
+          "context": "edge_readout",
+          "operation": "MZ",
+          "timing": "report",
+          "targets": [
+            "A1"
+          ],
+          "paulis": {},
+          "flip_report": true
+        }
+      ],
+      "gauged_Z_reference": [],
+      "coordinates_CX": 0,
+      "graph_verifier_reports": [
+        0
+      ],
+      "terminal_screen_outcome": null,
+      "cx": 1474
+    }
+  }
+}

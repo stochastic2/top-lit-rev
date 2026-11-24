@@ -1,0 +1,579 @@
+{
+  "source": {
+    "checks": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      10,
+      11,
+      15,
+      16,
+      17,
+      18,
+      19
+    ],
+    "locations": 3965,
+    "physical_signatures": 1051,
+    "readout_words": 232,
+    "equal_word_syndrome_pairs": 6197,
+    "bad_one": [],
+    "bad_two": []
+  },
+  "source_fixed_locations": {
+    "physical_locations": 3965,
+    "location_classes": 301,
+    "tested_location_class_pairs": 45451,
+    "all_have_common_support": true,
+    "first_common_support_failure": null
+  },
+  "source_meters": {
+    "checks": {
+      "Z/0": {
+        "locations": 31,
+        "signatures": 22,
+        "flag_cancelling_pairs": 253
+      },
+      "Z/1": {
+        "locations": 31,
+        "signatures": 22,
+        "flag_cancelling_pairs": 253
+      },
+      "Z/2": {
+        "locations": 31,
+        "signatures": 22,
+        "flag_cancelling_pairs": 253
+      },
+      "Z/3": {
+        "locations": 31,
+        "signatures": 22,
+        "flag_cancelling_pairs": 253
+      },
+      "Z/4": {
+        "locations": 31,
+        "signatures": 22,
+        "flag_cancelling_pairs": 253
+      },
+      "Z/5": {
+        "locations": 153,
+        "signatures": 49,
+        "flag_cancelling_pairs": 735
+      },
+      "Z/6": {
+        "locations": 153,
+        "signatures": 49,
+        "flag_cancelling_pairs": 735
+      },
+      "Z/7": {
+        "locations": 153,
+        "signatures": 49,
+        "flag_cancelling_pairs": 735
+      },
+      "Z/8": {
+        "locations": 153,
+        "signatures": 49,
+        "flag_cancelling_pairs": 735
+      },
+      "X/0": {
+        "locations": 41,
+        "signatures": 22,
+        "flag_cancelling_pairs": 253
+      },
+      "X/1": {
+        "locations": 41,
+        "signatures": 22,
+        "flag_cancelling_pairs": 253
+      },
+      "X/2": {
+        "locations": 41,
+        "signatures": 22,
+        "flag_cancelling_pairs": 253
+      },
+      "X/3": {
+        "locations": 41,
+        "signatures": 22,
+        "flag_cancelling_pairs": 253
+      },
+      "X/4": {
+        "locations": 41,
+        "signatures": 22,
+        "flag_cancelling_pairs": 253
+      },
+      "X/5": {
+        "locations": 151,
+        "signatures": 49,
+        "flag_cancelling_pairs": 735
+      },
+      "X/6": {
+        "locations": 151,
+        "signatures": 49,
+        "flag_cancelling_pairs": 735
+      },
+      "X/7": {
+        "locations": 151,
+        "signatures": 49,
+        "flag_cancelling_pairs": 735
+      },
+      "X/8": {
+        "locations": 151,
+        "signatures": 49,
+        "flag_cancelling_pairs": 735
+      },
+      "X/9": {
+        "locations": 103,
+        "signatures": 37,
+        "flag_cancelling_pairs": 471
+      },
+      "X/10": {
+        "locations": 103,
+        "signatures": 37,
+        "flag_cancelling_pairs": 471
+      }
+    },
+    "clean_gates": {
+      "BudgetPilot": {
+        "PREP": 308,
+        "H": 589,
+        "CX": 1058,
+        "BOUNDARY": 9,
+        "MZ": 288,
+        "TDG": 60,
+        "T": 60
+      },
+      "SourceWindowPilot": {
+        "PREP": 254,
+        "H": 247,
+        "CX": 950,
+        "BOUNDARY": 9,
+        "MZ": 234,
+        "TDG": 60,
+        "T": 60
+      }
+    }
+  },
+  "graph": {
+    "locations": 179,
+    "one_fault_signatures": 118,
+    "signature_distribution": {
+      "flag_0_cost_1": 46,
+      "flag_0_cost_0": 38,
+      "flag_1_cost_1": 16,
+      "flag_1_cost_2": 12,
+      "flag_1_cost_0": 6
+    },
+    "accepted_signature_pairs": 4165,
+    "detected_example": {
+      "operation": "CX(a0,A1)",
+      "fault": "X_a0 after CX",
+      "defect": 3,
+      "check_report": 1
+    }
+  },
+  "handoff": {
+    "edge_word_and_report_flip_cases": 114768,
+    "conditional_byproduct": "one U_v per wrong tree report; chord reports inert"
+  },
+  "vote": {
+    "tested_x_masks_on_fixed_block_pairs": 2560,
+    "tested_zero_z_syndrome_x_z_pairs": 10240,
+    "original_Z_subsets_preserving_each_pair_kernel": {
+      "9": 1
+    },
+    "scope": "a clean vote on Pauli terms supported on up to two inner blocks in diagnostic coordinates"
+  },
+  "meters": {
+    "tree_root_matches_compact_X8": true,
+    "compact": [
+      {
+        "axis": "X",
+        "ports": 4,
+        "gates": {
+          "PREP": 2,
+          "H": 2,
+          "CX": 6,
+          "MZ": 2
+        },
+        "reported_flags": 1,
+        "peak_helpers": 2,
+        "locations_including_idles": 60,
+        "one_location_signatures": 25,
+        "accepted_signature_pairs": 353,
+        "single_zero_flag_support_bound": 1,
+        "two_zero_flag_support_bound": 2,
+        "modulo": "measured code stabilizer",
+        "same_location_pairs_overincluded": true
+      },
+      {
+        "axis": "X",
+        "ports": 8,
+        "gates": {
+          "PREP": 5,
+          "H": 2,
+          "CX": 16,
+          "MZ": 5
+        },
+        "reported_flags": 4,
+        "peak_helpers": 5,
+        "locations_including_idles": 292,
+        "one_location_signatures": 60,
+        "accepted_signature_pairs": 964,
+        "single_zero_flag_support_bound": 1,
+        "two_zero_flag_support_bound": 2,
+        "modulo": "measured code stabilizer",
+        "same_location_pairs_overincluded": true
+      },
+      {
+        "axis": "Z",
+        "ports": 4,
+        "gates": {
+          "PREP": 2,
+          "CX": 6,
+          "H": 2,
+          "MZ": 2
+        },
+        "reported_flags": 1,
+        "peak_helpers": 2,
+        "locations_including_idles": 62,
+        "one_location_signatures": 25,
+        "accepted_signature_pairs": 353,
+        "single_zero_flag_support_bound": 1,
+        "two_zero_flag_support_bound": 2,
+        "modulo": "measured code stabilizer",
+        "same_location_pairs_overincluded": true
+      },
+      {
+        "axis": "Z",
+        "ports": 8,
+        "gates": {
+          "PREP": 5,
+          "CX": 16,
+          "H": 8,
+          "MZ": 5
+        },
+        "reported_flags": 4,
+        "peak_helpers": 5,
+        "locations_including_idles": 366,
+        "one_location_signatures": 60,
+        "accepted_signature_pairs": 964,
+        "single_zero_flag_support_bound": 1,
+        "two_zero_flag_support_bound": 2,
+        "modulo": "measured code stabilizer",
+        "same_location_pairs_overincluded": true
+      }
+    ],
+    "one_remaining_fault": [
+      {
+        "axis": "X",
+        "n": 4,
+        "locations": 63,
+        "signatures": 25
+      },
+      {
+        "axis": "X",
+        "n": 8,
+        "locations": 147,
+        "signatures": 49
+      },
+      {
+        "axis": "Z",
+        "n": 4,
+        "locations": 64,
+        "signatures": 25
+      },
+      {
+        "axis": "Z",
+        "n": 8,
+        "locations": 148,
+        "signatures": 49
+      }
+    ]
+  },
+  "X_reference": {
+    "x_masks": 2560,
+    "corrected_masks": 1000,
+    "signed_inner_conjugations": 80
+  },
+  "outer_Z": [
+    {
+      "locations": 153,
+      "signatures": 49,
+      "equal_flag_distinct_signature_pairs": 686,
+      "CX": 10,
+      "basis_support": [
+        0,
+        3,
+        6,
+        7,
+        10,
+        11,
+        12,
+        15
+      ]
+    },
+    {
+      "locations": 153,
+      "signatures": 49,
+      "equal_flag_distinct_signature_pairs": 686,
+      "CX": 10,
+      "basis_support": [
+        4,
+        7,
+        8,
+        9,
+        14,
+        15,
+        16,
+        19
+      ]
+    },
+    {
+      "locations": 153,
+      "signatures": 49,
+      "equal_flag_distinct_signature_pairs": 686,
+      "CX": 10,
+      "basis_support": [
+        1,
+        2,
+        8,
+        11,
+        12,
+        13,
+        18,
+        19
+      ]
+    },
+    {
+      "locations": 153,
+      "signatures": 49,
+      "equal_flag_distinct_signature_pairs": 686,
+      "CX": 10,
+      "basis_support": [
+        2,
+        3,
+        5,
+        6,
+        13,
+        14,
+        16,
+        17
+      ]
+    }
+  ],
+  "terminal": {
+    "verified": true,
+    "global_fault_budget": 2,
+    "scope": "all terminal-screen location signatures/pairs plus arbitrary upstream one/two-block Pauli envelopes",
+    "full_factory_location_pairs_enumerated": false,
+    "T_gates_Pauli_propagated": false,
+    "screen_order": [
+      [
+        "Z",
+        5
+      ],
+      [
+        "Z",
+        6
+      ],
+      [
+        "Z",
+        7
+      ],
+      [
+        "Z",
+        8
+      ],
+      [
+        "X",
+        5
+      ],
+      [
+        "X",
+        6
+      ],
+      [
+        "X",
+        7
+      ],
+      [
+        "X",
+        8
+      ],
+      [
+        "Z",
+        0
+      ],
+      [
+        "Z",
+        1
+      ],
+      [
+        "Z",
+        2
+      ],
+      [
+        "Z",
+        3
+      ],
+      [
+        "Z",
+        4
+      ],
+      [
+        "X",
+        0
+      ],
+      [
+        "X",
+        1
+      ],
+      [
+        "X",
+        2
+      ],
+      [
+        "X",
+        3
+      ],
+      [
+        "X",
+        4
+      ]
+    ],
+    "CX": 188,
+    "physical_measurements": 60,
+    "locations_including_idles_and_boundary": 8159,
+    "one_location_signatures": 1191,
+    "accepted_upstream_plus_screen_cases": 2420,
+    "accepted_two_screen_signature_pairs": 14657,
+    "raw_two_upstream_block_cases": 655360,
+    "accepted_two_upstream_cases": 160,
+    "accepted_decisions_sha256": "610612a9120888955f168da9dc156945afbe106814c393db8e5f12aed1cc083a",
+    "outer_local_kernels": [
+      {
+        "block": 0,
+        "outer_rows": [
+          9,
+          0,
+          6,
+          12
+        ],
+        "kernel": [
+          0,
+          15
+        ]
+      },
+      {
+        "block": 1,
+        "outer_rows": [
+          12,
+          9,
+          0,
+          6
+        ],
+        "kernel": [
+          0,
+          15
+        ]
+      },
+      {
+        "block": 2,
+        "outer_rows": [
+          12,
+          3,
+          9,
+          0
+        ],
+        "kernel": [
+          0,
+          15
+        ]
+      },
+      {
+        "block": 3,
+        "outer_rows": [
+          9,
+          12,
+          3,
+          6
+        ],
+        "kernel": [
+          0,
+          15
+        ]
+      },
+      {
+        "block": 4,
+        "outer_rows": [
+          0,
+          9,
+          12,
+          3
+        ],
+        "kernel": [
+          0,
+          15
+        ]
+      }
+    ],
+    "correctability_test": "explicit weight<=2 Pauli representatives and independent stabilizer-span membership",
+    "source_sha256": {
+      "single_cz_terminal_screen.py": "2f660221fbba925bce636859322976e39a067f1aa6b02d9fb75bc064c0911fca",
+      "single_cz_flagged.py": "1ce673159865a5817c4fe88ff4f4c0ef2e425eb7d5a388e75f5e364e0075024b",
+      "check_single_cz_terminal_screen.py": "122a8c9cc39b84217561cb29f91d31c7a08a5844212ad713a936e7f00bf1b397",
+      "check_optimized_extraction.py": "ef874506eeba9bf388afee13a5bd0ebe6ccfc6db720cc3279f2a295393b475e4"
+    }
+  },
+  "source_sha256": {
+    "experiments/tree4_flag_repair/composition_checks.py": "65ea313e72c144f729281e879616c5f69ea82814a968ad282533ca04d6afcd5b",
+    "experiments/tree4_flag_repair/controller.py": "990a80a15bb9bb82882b21f21f59bb7a28b06e59f2bc26da65f25392e9cce83c",
+    "experiments/tree4_flag_repair/verify.py": "9caa42f51022bda93f63ba2a49decdf725cf9af74fc09d0af9a9b7b18095f16f",
+    "src/single_block_cz/c4_helix_single_block_cz.py": "08c73e06ce89c8f75812882f9a23da96ca1a817498015f3bd3cbc0945f50d166",
+    "src/single_block_cz/run_single_block_cz_controller.py": "093bad3ec45350064da64245f1d701b490b99df7753c98b130fadad012bea1bf",
+    "src/single_block_cz/simulate_single_block_cz_cat_depolarizing.py": "eab23b2a3340322f10e75209084f62c18be0b6e4f44551458f31497fbb305874",
+    "src/single_block_cz/simulate_single_block_cz_depolarizing.py": "99405037b28c1b049cd393272e01a08b60806ab1fc89006edd37e3da27f5353c",
+    "src/single_block_cz/single_cz_block_z_pilot.py": "6aa5bb8da4a52fa4e686301bcaf45d2f9c72c107340b3eea049eba7aba7d1d4b",
+    "src/single_block_cz/single_cz_compact_checks.py": "1473b99a434a5619219d0348a88f6394dcadfe6ff0babf5f7fbc6b6ff71c3abf",
+    "src/single_block_cz/single_cz_controller.py": "f0d429b270c6606ce2bdd39405d82bc116a5c11ef41a9c5bbefc833fe875f430",
+    "src/single_block_cz/single_cz_diagnostics.py": "bdb635c4e508e814f1007bab019e8281d5a6ceefaa647be0dd1f4318febeaccd",
+    "src/single_block_cz/single_cz_direct_outer_pilot.py": "3938d98743b1fe8a8b6048acacde91712abbebaae8471515bae24c5dc6c5e5aa",
+    "src/single_block_cz/single_cz_direct_outer_ports.py": "3b8a8cc67d82022e4cbdd77b5500d34f45de2cc5759d6bad45ee8b747cab0acc",
+    "src/single_block_cz/single_cz_flag_recovery.py": "863f22a862ddaa7bb6582c37330aa85e93acf205840a189214366e6d6be1961a",
+    "src/single_block_cz/single_cz_flagged.py": "1ce673159865a5817c4fe88ff4f4c0ef2e425eb7d5a388e75f5e364e0075024b",
+    "src/single_block_cz/single_cz_graph_stars.py": "e20a57533b9ed896cfd3d0f5e4b42a3bed854471eaf831f4344f970a6cfd4093",
+    "src/single_block_cz/single_cz_hybrid_faults.py": "dda3f81c13d7a64a83c2e25df7913b21d687cec96670e699cce30bbaf7d05d52",
+    "src/single_block_cz/single_cz_hybrid_study.py": "a268f1514fe8cec632772783e4a91af908a0df8e1c84faa73466d5c8d3b5a60f",
+    "src/single_block_cz/single_cz_joint_recovery.py": "d3be8e6ed446390af966c24568ada431c0bcfec39dfbbfde1898a2c5e11b2ec6",
+    "src/single_block_cz/single_cz_persistent.py": "e265b91aefa192c57d31ff4f876b9f80b345573c5c1a603308f9970319156b23",
+    "src/single_block_cz/single_cz_recovery.py": "779b678abf09a3daaddac1b4889f03010e92aeed3fa5553cb9175daada356a6b",
+    "src/single_block_cz/single_cz_root_recovery.py": "0416516408a83a816388a1d1ce058d73067329cb7429bf5de81b18c09d01b07a",
+    "src/single_block_cz/single_cz_runtime.py": "9f84c569ddc6af788a82d215bb42194fb64353fb6f7171a47c6affd34788ff42",
+    "src/single_block_cz/single_cz_short_gauss_pilot.py": "6c6031cea94ab8f815b563f8638e6d88a0d005f814ca3f5c1ae561bd25713607",
+    "src/single_block_cz/single_cz_state.py": "c7d95ff62f9cb3f100412fe9139ebc1aad649eca4739be71d511001fb245445d",
+    "src/single_block_cz/single_cz_terminal_screen.py": "2f660221fbba925bce636859322976e39a067f1aa6b02d9fb75bc064c0911fca",
+    "src/single_block_cz/single_cz_tree_handoff_pilot.py": "9bb0b95b3fa4b3839bfccda4b2d9c0c2a6faca4a2a242a56fdc2085ed65cea79",
+    "src/single_block_cz/single_cz_tree_resource_pilot.py": "47dec8d6feaed51e7b095f18f317eeb76a1422b7fe118cb2cd9e0e1bbf69aa76",
+    "src/single_block_cz/single_cz_tree_z_recovery_pilot.py": "86e4cd0faa3cd3877f4df5677c80dd1c2aeef49b3ced16f7ff24b9fc1fa90bc0",
+    "tmp/cz_review_noisy.py": "e8699ede0e777f32f0e807c6e48aba023f6d82272ac224124ab66017e4b44b0c",
+    "verification/shared/check_optimized_extraction.py": "ef874506eeba9bf388afee13a5bd0ebe6ccfc6db720cc3279f2a295393b475e4",
+    "verification/single_block_cz/check_single_cz_block_z.py": "83db7567c33972862561e8369ac0954df8a3cd82b9635115592a7e35bb41268e",
+    "verification/single_block_cz/check_single_cz_compact_checks.py": "a06bb97733dcf08f7c21098e3dbc3a2041c8aeaff05bcdda32e3fcc0172346d8",
+    "verification/single_block_cz/check_single_cz_direct_outer_ports.py": "681920e2a465b6734e238b5951d5d287e57b76700544188f4c7dd4e89ed1c911",
+    "verification/single_block_cz/check_single_cz_fast_source.py": "53db790ad3bf4ab7ce3611a555928d288a2bc76d325baec8f588621b3474e5b1",
+    "verification/single_block_cz/check_single_cz_flag_recovery.py": "01ec8a004239a9fd58bc4d4bcf6b6fe6f4e839d5af92d37390a6dac90f2407ee",
+    "verification/single_block_cz/check_single_cz_hybrid_faults.py": "e20394834c95405deea043bdca70eb1aa51a2da4b8103fab1432ddd4ba11b4e6",
+    "verification/single_block_cz/check_single_cz_hybrid_study.py": "19d5c9b39a53563a0e83bb901d5815ee4c0de2a95f118cebab410f43dcd9d10a",
+    "verification/single_block_cz/check_single_cz_short_gauss_vote.py": "74637bb0099ca4b295d4c9cff4edb1c94634930531a8ee8d549d0216308fe56e",
+    "verification/single_block_cz/check_single_cz_short_gauss_witnesses.py": "3e693ecc959fa2df3743bc73903b304a7ed521cf27047d82728b3c33412b52c2",
+    "verification/single_block_cz/check_single_cz_source_coherent.py": "c4dc38d762fb0f0cfe461ce186911c16052ea4a9dafc8c2fc69e1fd0668d933f",
+    "verification/single_block_cz/check_single_cz_terminal_screen.py": "122a8c9cc39b84217561cb29f91d31c7a08a5844212ad713a936e7f00bf1b397",
+    "verification/single_block_cz/check_single_cz_tree_resource.py": "c720410e526453371e6aab906b6db9c20d0b0f1b70f020ddb9382fe2132cace4",
+    "verification/single_block_cz/run_single_cz_direct_outer_pilot.py": "1dcdd12b44a96d996acc559ff41cf2e0df672844a8b1806df1cbb2e8da54baa0",
+    "verification/single_block_cz/study_single_cz_bare_inner.py": "14743a773793169d9a7f542e0661312fe8b9e81cd3f654dec98de4b97f148e4d",
+    "verification/single_block_cz/study_single_cz_fast_source.py": "18889ab34877aeffb51010f0c04d676bec2c6158777f559c7129cc6c56a47701",
+    "verification/single_block_cz/study_single_cz_screened_source.py": "5bbf72187ab9a68a128ddddbbed450854df8b718e1797444af790960420fb2bf",
+    "verification/single_block_cz/study_single_cz_shared_source.py": "e313b3ab27e170fee7d15559ae2ead37a2734f9b87e62b11dc3fa333f7f5a958",
+    "verification/single_block_cz/study_single_cz_source_windows.py": "4123888c8c003d12910bdfa155a53b61f32d6fa9375f7fb5468b7c4b19897d5f",
+    "verification/single_block_cz/study_single_cz_vote_budget.py": "5df246b90d85aab6f8e25db6372635ef90ed86d1d46f57d29f5a058c8483a9c1"
+  }
+}

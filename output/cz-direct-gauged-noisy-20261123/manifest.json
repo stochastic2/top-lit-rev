@@ -1,0 +1,58 @@
+{
+  "arms": {
+    "full": {},
+    "thin": {
+      "thin": true
+    },
+    "thin-entry": {
+      "thin": true,
+      "first_vote": true
+    }
+  },
+  "shots_per_arm": 200,
+  "seed": 1000,
+  "noise": {
+    "name": "independent_Pauli_depolarizing",
+    "gate_rate_convention": "average_gate_infidelity",
+    "rates": {
+      "two_qubit_infidelity": "1/1000",
+      "one_qubit_infidelity": "1/10000",
+      "t_infidelity": "1/10000",
+      "idle_infidelity": "0",
+      "preparation_flip_probability": "0",
+      "readout_flip_probability": "1/1000"
+    },
+    "nonidentity_probabilities": {
+      "CX": "1/800",
+      "Clifford_1q": "3/20000",
+      "T_TDG": "3/20000",
+      "idle": "0"
+    },
+    "controlled_W": "T^s,CX,T^-s; individual physical locations",
+    "quantum_timing": "gate noise after ideal gate; idle noise before operation",
+    "readout": "independent classical report flip after actual quantum measurement",
+    "preparation": "X after |0> preparation",
+    "fault_count_cap": null,
+    "idles": "one per live nonparticipant per serial operation, and every live qubit at boundary",
+    "duration_calibrated": false,
+    "atomic_multiqubit_gates": []
+  },
+  "options": {
+    "source_extraction": "decoded_flags",
+    "data_checks": "compact_flags",
+    "flag_recovery": "data",
+    "conditional_checks": "dual_flags"
+  },
+  "outer_flag_lookup_enabled": true,
+  "graph": "compact13",
+  "root_flags": "reject",
+  "terminal_policy": "screen",
+  "experimental_no_global_fault_certificate": true,
+  "source_sha256": {
+    "verification/single_block_cz/run_single_cz_direct_outer_pilot.py": "1dcdd12b44a96d996acc559ff41cf2e0df672844a8b1806df1cbb2e8da54baa0",
+    "verification/single_block_cz/check_single_cz_direct_outer_ports.py": "681920e2a465b6734e238b5951d5d287e57b76700544188f4c7dd4e89ed1c911",
+    "src/single_block_cz/single_cz_direct_outer_ports.py": "3b8a8cc67d82022e4cbdd77b5500d34f45de2cc5759d6bad45ee8b747cab0acc",
+    "src/single_block_cz/single_cz_direct_outer_pilot.py": "3938d98743b1fe8a8b6048acacde91712abbebaae8471515bae24c5dc6c5e5aa",
+    "src/single_block_cz/single_cz_runtime.py": "9f84c569ddc6af788a82d215bb42194fb64353fb6f7171a47c6affd34788ff42"
+  }
+}

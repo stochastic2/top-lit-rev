@@ -1,0 +1,190 @@
+{
+  "raw_encoder_gate_index": 16,
+  "single_fault": {
+    "context": "source/raw",
+    "operation": "CX",
+    "targets": [
+      "D4",
+      "D13"
+    ],
+    "paulis": {
+      "D13": "Y"
+    },
+    "occurrence": 0
+  },
+  "raw_x": 8192,
+  "raw_z": 13632,
+  "source_syndrome": 640392,
+  "in_one_block_envelope": false,
+  "in_two_block_envelope": false,
+  "first_nonzero_source_check": 3,
+  "full_source_reference": {
+    "history": "known_source",
+    "records": [
+      [
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        1,
+        1,
+        0,
+        1,
+        0,
+        0,
+        0,
+        1,
+        1,
+        1,
+        0,
+        0,
+        1
+      ],
+      [
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        1,
+        1,
+        0,
+        1,
+        0,
+        0,
+        0,
+        1,
+        1,
+        1,
+        0,
+        0,
+        1
+      ],
+      [
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        1,
+        1,
+        0,
+        1,
+        0,
+        0,
+        0,
+        1,
+        1,
+        1,
+        0,
+        0,
+        1
+      ]
+    ],
+    "reference": {
+      "selected": 2,
+      "occurrences": [
+        0,
+        1,
+        2
+      ],
+      "kind": "three_identical_complete_records"
+    },
+    "selected_record": [
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      1,
+      1,
+      0,
+      1,
+      0,
+      0,
+      0,
+      1,
+      1,
+      1,
+      0,
+      0,
+      1
+    ]
+  },
+  "screen_trajectory": {
+    "accepted": true,
+    "reason": null,
+    "votes": [
+      {
+        "vertex_reports": [
+          1,
+          1,
+          1,
+          0,
+          1
+        ],
+        "entry_vote": true,
+        "passes": 1
+      },
+      {
+        "direct_vote": 0,
+        "root": 0,
+        "nonroot": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "inner_x_parity_frame": 0,
+        "passes": 2
+      },
+      {
+        "direct_vote": 1,
+        "root": 0,
+        "nonroot": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "inner_x_parity_frame": 0,
+        "passes": 3
+      }
+    ],
+    "faults": [
+      {
+        "injection": 0,
+        "event": 47,
+        "context": "source/raw",
+        "operation": "CX",
+        "timing": "after",
+        "targets": [
+          "D4",
+          "D13"
+        ],
+        "paulis": {
+          "D13": "Y"
+        },
+        "flip_report": false
+      }
+    ],
+    "gauged_Z_reference": [],
+    "coordinates_CX": 0,
+    "graph_verifier_reports": [
+      0
+    ],
+    "terminal_screen_outcome": "zero_accept",
+    "cx": 966,
+    "decoded_fidelity": 1.0,
+    "raw_fidelity": 1.0
+  }
+}

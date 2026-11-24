@@ -1,0 +1,36 @@
+{
+  "seed": 180000,
+  "shots": 500,
+  "noise": {
+    "two_qubit_infidelity": "1e-3",
+    "readout_flip_probability": "1e-3",
+    "one_qubit_infidelity": "1e-4",
+    "t_infidelity": "1e-4",
+    "idle_infidelity": "0",
+    "preparation_flip_probability": "0"
+  },
+  "options": {
+    "RepairedTree": {
+      "source_extraction": "decoded_flags",
+      "data_checks": "compact_flags",
+      "flag_recovery": "data",
+      "conditional_checks": "dual_flags"
+    },
+    "ScreenTree": {
+      "source_extraction": "decoded_flags",
+      "data_checks": "compact_flags",
+      "flag_recovery": "data",
+      "conditional_checks": "dual_flags"
+    },
+    "ScreenCat": {
+      "source_extraction": "decoded_flags",
+      "data_checks": "compact_flags",
+      "flag_recovery": "data",
+      "conditional_checks": "dual_flags",
+      "route": "direct_cat"
+    }
+  },
+  "witness_result": "gauged_flag_frame_collision",
+  "certificate_sha256": "3f3f8397afe6c5ac3496a4c35ea31d83d7be11982e7b60e1c39416df33897738",
+  "runner_sha256": "09a99c30ca8756fc2aa2e25278627a7d02ae8089a408e5ddaf6b332156b15730"
+}

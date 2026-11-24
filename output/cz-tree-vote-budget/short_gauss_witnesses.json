@@ -1,0 +1,527 @@
+{
+  "clean_positive": {
+    "accepted": true,
+    "reason": null,
+    "votes": [
+      {
+        "vertex_reports": [
+          1,
+          1,
+          1,
+          0,
+          1
+        ],
+        "entry_vote": true,
+        "passes": 1
+      },
+      {
+        "direct_vote": 0,
+        "root": 0,
+        "nonroot": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "inner_x_parity_frame": 0,
+        "passes": 2
+      },
+      {
+        "direct_vote": 1,
+        "root": 0,
+        "nonroot": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "inner_x_parity_frame": 0,
+        "passes": 3
+      }
+    ],
+    "faults": [],
+    "gauged_Z_reference": [],
+    "coordinates_CX": 0,
+    "graph_verifier_reports": [
+      0
+    ],
+    "terminal_screen_outcome": "zero_accept",
+    "cx": 1106,
+    "decoded_fidelity": 1.0,
+    "raw_fidelity": 1.0
+  },
+  "odd_Z_sign_is_corrected_in_the_vote": {
+    "accepted": true,
+    "reason": null,
+    "votes": [
+      {
+        "vertex_reports": [
+          1,
+          1,
+          1,
+          0,
+          1
+        ],
+        "entry_vote": true,
+        "passes": 1
+      },
+      {
+        "direct_vote": 0,
+        "root": 1,
+        "nonroot": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "inner_x_parity_frame": 1,
+        "passes": 2
+      },
+      {
+        "direct_vote": 1,
+        "root": 1,
+        "nonroot": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "inner_x_parity_frame": 1,
+        "passes": 3
+      }
+    ],
+    "faults": [
+      {
+        "injection": 0,
+        "event": 1423,
+        "context": "direct/vote/0/Z/0",
+        "operation": "PREP",
+        "timing": "idle",
+        "targets": [
+          "s"
+        ],
+        "paulis": {
+          "D0": "Z"
+        },
+        "flip_report": false
+      }
+    ],
+    "gauged_Z_reference": [],
+    "coordinates_CX": 0,
+    "graph_verifier_reports": [
+      0
+    ],
+    "terminal_screen_outcome": "syndrome_certified",
+    "cx": 1562,
+    "decoded_fidelity": 1.0,
+    "raw_fidelity": 1.0
+  },
+  "wrong_tree_bit_is_rejected_at_terminal": {
+    "accepted": false,
+    "reason": "data_ambiguity",
+    "votes": [
+      {
+        "vertex_reports": [
+          1,
+          1,
+          1,
+          0,
+          1
+        ],
+        "entry_vote": true,
+        "passes": 1
+      },
+      {
+        "direct_vote": 0,
+        "root": 0,
+        "nonroot": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "inner_x_parity_frame": 0,
+        "passes": 2
+      },
+      {
+        "direct_vote": 1,
+        "root": 0,
+        "nonroot": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "inner_x_parity_frame": 0,
+        "passes": 3
+      }
+    ],
+    "faults": [
+      {
+        "injection": 0,
+        "event": 2146,
+        "context": "edge_readout",
+        "operation": "MZ",
+        "timing": "report",
+        "targets": [
+          "A1"
+        ],
+        "paulis": {},
+        "flip_report": true
+      }
+    ],
+    "gauged_Z_reference": [],
+    "coordinates_CX": 0,
+    "graph_verifier_reports": [
+      0
+    ],
+    "terminal_screen_outcome": null,
+    "cx": 1562
+  },
+  "repeated_tree_readout_recovers_wrong_report": {
+    "accepted": true,
+    "reason": null,
+    "votes": [
+      {
+        "vertex_reports": [
+          1,
+          1,
+          1,
+          0,
+          1
+        ],
+        "entry_vote": true,
+        "passes": 1
+      },
+      {
+        "direct_vote": 0,
+        "root": 0,
+        "nonroot": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "inner_x_parity_frame": 0,
+        "passes": 2
+      },
+      {
+        "direct_vote": 1,
+        "root": 0,
+        "nonroot": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "inner_x_parity_frame": 0,
+        "passes": 3
+      }
+    ],
+    "faults": [
+      {
+        "injection": 0,
+        "event": 2158,
+        "context": "edge_readout",
+        "operation": "MZ",
+        "timing": "report",
+        "targets": [
+          "A1"
+        ],
+        "paulis": {},
+        "flip_report": true
+      }
+    ],
+    "gauged_Z_reference": [],
+    "coordinates_CX": 0,
+    "graph_verifier_reports": [
+      0
+    ],
+    "terminal_screen_outcome": "zero_accept",
+    "cx": 1114,
+    "decoded_fidelity": 1.0,
+    "raw_fidelity": 1.0
+  },
+  "gauged_Z_recovery_preserves_pending_Z_phase_error": {
+    "accepted": true,
+    "reason": null,
+    "votes": [
+      {
+        "vertex_reports": [
+          1,
+          1,
+          1,
+          0,
+          1
+        ],
+        "entry_vote": true,
+        "passes": 1
+      },
+      {
+        "root_parity_frame_after_Z_recovery": 1,
+        "raw_root_report": 0
+      },
+      {
+        "direct_vote": 0,
+        "root": 1,
+        "nonroot": [
+          1,
+          0,
+          0,
+          0
+        ],
+        "inner_x_parity_frame": 0,
+        "passes": 2
+      },
+      {
+        "direct_vote": 1,
+        "root": 0,
+        "nonroot": [
+          1,
+          0,
+          0,
+          0
+        ],
+        "inner_x_parity_frame": 1,
+        "passes": 3
+      }
+    ],
+    "faults": [
+      {
+        "injection": 0,
+        "event": 1423,
+        "context": "direct/vote/0/Z/0",
+        "operation": "PREP",
+        "timing": "idle",
+        "targets": [
+          "s"
+        ],
+        "paulis": {
+          "D8": "X"
+        },
+        "flip_report": false
+      },
+      {
+        "injection": 1,
+        "event": 1423,
+        "context": "direct/vote/0/Z/0",
+        "operation": "PREP",
+        "timing": "idle",
+        "targets": [
+          "s"
+        ],
+        "paulis": {
+          "D5": "Z"
+        },
+        "flip_report": false
+      }
+    ],
+    "gauged_Z_reference": [
+      {
+        "gauged_Z_reference": "direct/vote/0/syndrome_recovery",
+        "records": [
+          [
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            1,
+            1,
+            0
+          ],
+          [
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            1,
+            1,
+            0
+          ]
+        ],
+        "x_correction": [
+          256,
+          0
+        ]
+      }
+    ],
+    "coordinates_CX": 0,
+    "graph_verifier_reports": [
+      0
+    ],
+    "terminal_screen_outcome": "syndrome_certified",
+    "cx": 1751,
+    "decoded_fidelity": 1.0,
+    "raw_fidelity": 1.0
+  },
+  "negative_sector_two_wrong_votes": {
+    "accepted": false,
+    "reason": "insufficient_direct_votes",
+    "votes": [
+      {
+        "vertex_reports": [
+          1,
+          0,
+          1,
+          0,
+          0
+        ],
+        "entry_vote": true,
+        "passes": 1
+      },
+      {
+        "direct_vote": 0,
+        "root": 0,
+        "nonroot": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "inner_x_parity_frame": 0,
+        "passes": 2
+      },
+      {
+        "direct_vote": 1,
+        "root": 1,
+        "nonroot": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "inner_x_parity_frame": 0,
+        "passes": 2
+      },
+      {
+        "direct_vote": 2,
+        "root": 1,
+        "nonroot": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "inner_x_parity_frame": 0,
+        "passes": 2
+      },
+      {
+        "direct_vote": 3,
+        "root": 1,
+        "nonroot": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "inner_x_parity_frame": 0,
+        "passes": 2
+      }
+    ],
+    "faults": [
+      {
+        "injection": 0,
+        "event": 1410,
+        "context": "vertex_readout",
+        "operation": "MZ",
+        "timing": "report",
+        "targets": [
+          "a0"
+        ],
+        "paulis": {},
+        "flip_report": true
+      },
+      {
+        "injection": 1,
+        "event": 1780,
+        "context": "direct/vote/0/root_Gauss",
+        "operation": "MZ",
+        "timing": "report",
+        "targets": [
+          "s"
+        ],
+        "paulis": {},
+        "flip_report": true
+      }
+    ],
+    "gauged_Z_reference": [],
+    "coordinates_CX": 0,
+    "graph_verifier_reports": [
+      0
+    ],
+    "terminal_screen_outcome": null,
+    "cx": 1238
+  },
+  "dangerous_raw_resource_hook_rejects_that_resource": {
+    "accepted": true,
+    "reason": null,
+    "votes": [
+      {
+        "vertex_reports": [
+          0,
+          0,
+          1,
+          1,
+          0
+        ],
+        "entry_vote": true,
+        "passes": 1
+      },
+      {
+        "direct_vote": 0,
+        "root": 0,
+        "nonroot": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "inner_x_parity_frame": 0,
+        "passes": 2
+      },
+      {
+        "direct_vote": 1,
+        "root": 0,
+        "nonroot": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "inner_x_parity_frame": 0,
+        "passes": 3
+      }
+    ],
+    "faults": [
+      {
+        "injection": 0,
+        "event": 1334,
+        "context": "graph/tree_raw",
+        "operation": "CX",
+        "timing": "after",
+        "targets": [
+          "a0",
+          "A1"
+        ],
+        "paulis": {
+          "a0": "X"
+        },
+        "flip_report": false
+      }
+    ],
+    "gauged_Z_reference": [],
+    "coordinates_CX": 0,
+    "graph_verifier_reports": [
+      1,
+      0
+    ],
+    "terminal_screen_outcome": "zero_accept",
+    "cx": 1117,
+    "decoded_fidelity": 1.0,
+    "raw_fidelity": 1.0
+  }
+}

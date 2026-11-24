@@ -1,0 +1,149 @@
+{
+  "scope": "isolated outer meters followed by ideal commuting diagnostics; NOT full factory acceptance",
+  "arbitrary_local_fault_extension": "Pauli expansion with coherent quadratic phases and conservative post-diagnostic logical class unions",
+  "diagnostic_faults_included": false,
+  "multiple_outer_meters_in_one_fault_budget_audited": false,
+  "factory_recovery_gates_certified": false,
+  "population_acceptance_prediction": false,
+  "graph": "compact13",
+  "class_map": {
+    "pauli_dimension": 66,
+    "class_map_rank": 35,
+    "stabilizer_kernel_rank": 31
+  },
+  "basis": {
+    "outer_words": [
+      1,
+      3,
+      4,
+      8
+    ],
+    "inner_multipliers": [
+      0,
+      4,
+      0,
+      0
+    ],
+    "supports": [
+      [
+        0,
+        3,
+        6,
+        7,
+        10,
+        11,
+        12,
+        15
+      ],
+      [
+        0,
+        3,
+        4,
+        6,
+        12,
+        14,
+        16,
+        19
+      ],
+      [
+        1,
+        2,
+        8,
+        11,
+        12,
+        13,
+        18,
+        19
+      ],
+      [
+        2,
+        3,
+        5,
+        6,
+        13,
+        14,
+        16,
+        17
+      ]
+    ],
+    "representatives_checked": 240,
+    "independent_word_bases_checked": 840,
+    "minimum_outer_CX_in_this_compiler_family": 124
+  },
+  "checks": {
+    "5": {
+      "hybrid": {
+        "route": "hybrid",
+        "max_faulty_locations": 1,
+        "locations": {
+          "locations": 2168,
+          "pauli_basis_cases": 6884,
+          "unique_errors": 413
+        },
+        "distinct_one_two_fault_normal_forms": 413,
+        "distinct_affine_class_images": 147,
+        "unflagged": {
+          "full_report_queries": 292,
+          "unique_with_data": 292,
+          "unique_with_cycles": 292,
+          "unique_with_cycles_and_stars": 292,
+          "gained_by_cycles": 0,
+          "gained_by_stars": 0,
+          "ambiguous_even_with_graph": 0
+        },
+        "flagged": {
+          "full_report_queries": 68,
+          "unique_with_data": 68,
+          "unique_with_cycles": 68,
+          "unique_with_cycles_and_stars": 68,
+          "gained_by_cycles": 0,
+          "gained_by_stars": 0,
+          "ambiguous_even_with_graph": 0
+        },
+        "clean_zero_record_logical_classes": [
+          0
+        ],
+        "graph_information_witnesses": [],
+        "elapsed_seconds": 0.14137506484985352
+      },
+      "reference": {
+        "route": "reference",
+        "max_faulty_locations": 1,
+        "locations": {
+          "locations": 4161,
+          "pauli_basis_cases": 13079,
+          "unique_errors": 607
+        },
+        "distinct_one_two_fault_normal_forms": 607,
+        "distinct_affine_class_images": 296,
+        "unflagged": {
+          "full_report_queries": 393,
+          "unique_with_data": 393,
+          "unique_with_cycles": 393,
+          "unique_with_cycles_and_stars": 393,
+          "gained_by_cycles": 0,
+          "gained_by_stars": 0,
+          "ambiguous_even_with_graph": 0
+        },
+        "flagged": {
+          "full_report_queries": 31,
+          "unique_with_data": 31,
+          "unique_with_cycles": 31,
+          "unique_with_cycles_and_stars": 31,
+          "gained_by_cycles": 0,
+          "gained_by_stars": 0,
+          "ambiguous_even_with_graph": 0
+        },
+        "clean_zero_record_logical_classes": [
+          0
+        ],
+        "graph_information_witnesses": [],
+        "elapsed_seconds": 0.30198001861572266
+      }
+    }
+  },
+  "sources": {
+    "verification/single_block_cz/check_single_cz_hybrid_faults.py": "fbc477cc094c2526d9cda72b1ae3e98355658b6ca8f9eecf48d124afc0e6d3f9",
+    "src/single_block_cz/single_cz_hybrid_faults.py": "33acf47703c4888a9b8cd48b146eeede7c12c5ed67d87214d48fbc9bcdd49a29"
+  }
+}

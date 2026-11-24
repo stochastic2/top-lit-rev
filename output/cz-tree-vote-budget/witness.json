@@ -1,0 +1,222 @@
+{
+  "handoff": {
+    "scope": "one arbitrary reported-bit flip; ideal independent parity-copy operations",
+    "lower_bound_CX": 8,
+    "achieved_distance": 3,
+    "one_copy_ambiguous_received_edge_pair": [
+      0,
+      1
+    ],
+    "explanation": "Either true bit gives this received pair with one report flip. For each of four edges, adjacent input words must differ in at least three recorded bits, including its destructive readout. Each edge must enter at least two extra checks."
+  },
+  "exceptional_flag": {
+    "BudgetPilot": {
+      "zero": {
+        "accepted": true,
+        "reason": null,
+        "votes": [
+          {
+            "vertex_reports": [
+              1,
+              1,
+              1,
+              0,
+              1
+            ],
+            "entry_vote": true,
+            "passes": 1
+          },
+          {
+            "direct_vote": 0,
+            "root": 0,
+            "nonroot": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "inner_x_parity_frame": 0,
+            "passes": 2
+          },
+          {
+            "direct_vote": 1,
+            "root": 0,
+            "nonroot": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "inner_x_parity_frame": 0,
+            "passes": 3
+          }
+        ],
+        "faults": [],
+        "gauged_Z_reference": [],
+        "coordinates_CX": 0,
+        "graph_verifier_reports": [
+          0
+        ],
+        "terminal_screen_outcome": "zero_accept",
+        "cx": 1058,
+        "decoded_fidelity": 1.0,
+        "raw_fidelity": 1.0
+      },
+      "one": {
+        "accepted": true,
+        "reason": null,
+        "votes": [
+          {
+            "vertex_reports": [
+              1,
+              1,
+              1,
+              0,
+              1
+            ],
+            "entry_vote": true,
+            "passes": 1
+          },
+          {
+            "direct_vote": 1,
+            "root": 0,
+            "nonroot": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "inner_x_parity_frame": 0,
+            "passes": 2
+          },
+          {
+            "direct_vote": 2,
+            "root": 0,
+            "nonroot": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "inner_x_parity_frame": 0,
+            "passes": 3
+          }
+        ],
+        "faults": [
+          {
+            "injection": 0,
+            "event": 1432,
+            "context": "direct/vote/0/Z/0",
+            "operation": "MZ",
+            "timing": "report",
+            "targets": [
+              "f0"
+            ],
+            "paulis": {},
+            "flip_report": true
+          }
+        ],
+        "gauged_Z_reference": [],
+        "coordinates_CX": 32,
+        "graph_verifier_reports": [
+          0
+        ],
+        "terminal_screen_outcome": "zero_accept",
+        "cx": 1384,
+        "decoded_fidelity": 1.0,
+        "raw_fidelity": 1.0
+      }
+    },
+    "NoSharedVPilot": {
+      "zero": {
+        "accepted": true,
+        "reason": null,
+        "votes": [
+          {
+            "vertex_reports": [
+              1,
+              1,
+              1,
+              0,
+              1
+            ],
+            "entry_vote": true,
+            "passes": 1
+          },
+          {
+            "direct_vote": 0,
+            "root": 0,
+            "nonroot": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "inner_x_parity_frame": 0,
+            "passes": 2
+          },
+          {
+            "direct_vote": 1,
+            "root": 0,
+            "nonroot": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "inner_x_parity_frame": 0,
+            "passes": 3
+          }
+        ],
+        "faults": [],
+        "gauged_Z_reference": [],
+        "coordinates_CX": 0,
+        "graph_verifier_reports": [
+          0
+        ],
+        "terminal_screen_outcome": "zero_accept",
+        "cx": 1058,
+        "decoded_fidelity": 1.0,
+        "raw_fidelity": 1.0
+      },
+      "one": {
+        "accepted": false,
+        "reason": "exception_requires_shared_V",
+        "votes": [
+          {
+            "vertex_reports": [
+              1,
+              1,
+              1,
+              0,
+              1
+            ],
+            "entry_vote": true,
+            "passes": 1
+          }
+        ],
+        "faults": [
+          {
+            "injection": 0,
+            "event": 1432,
+            "context": "direct/vote/0/Z/0",
+            "operation": "MZ",
+            "timing": "report",
+            "targets": [
+              "f0"
+            ],
+            "paulis": {},
+            "flip_report": true
+          }
+        ],
+        "gauged_Z_reference": [],
+        "coordinates_CX": 0,
+        "graph_verifier_reports": [
+          0
+        ],
+        "terminal_screen_outcome": null,
+        "cx": 604
+      }
+    }
+  }
+}

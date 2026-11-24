@@ -1,0 +1,113 @@
+REPOSITORY REORGANIZATION PROPOSAL -- NOT APPLIED
+================================================
+
+Files to review
+---------------
+reorganize_repository.sh   Bash 3.2-compatible move/preview/undo script.
+reorganization-plan.tsv    Explicit list of 166 proposed file moves.
+test_reorganize_repository.py  Safety checks using temporary mock repositories.
+
+No migration has been applied to the working repository. The default command
+only validates and displays the plan; it creates no folders, journals or files.
+The plan is a fixed list, not a wildcard sweep of whatever happens to exist later.
+Unknown/new files remain where they are until explicitly added to the plan.
+
+Proposed layout
+---------------
+docs/
+  background/                 Gauging theory, C4-Helix, cat-state background.
+  single-block-cz/
+    current/                  Base procedure/proof and latest root recovery.
+    components/               ACTIVE gadget/proof dependencies of that schedule.
+    alternatives/             Persistent-coordinate/tree4 construction and proof.
+    simulation/               Single-block runner and genuine-cat user guides.
+    history/                  Earlier simulation results and cost snapshots.
+  two-block-swap/
+    current/                  Integrated v2, reduced rejection, terminal and Y output.
+    simulation/               Original SWAP simulator user guides, including old README.
+    history/                  Earlier SWAP constructions and exploratory notes.
+src/
+  single_block_cz/            Single-block controllers, simulators and gadget modules.
+  two_block_swap/             Preserved SWAP implementation.
+  shared/                     Reused sparse-state and Gaussian-integer utilities.
+benchmarks/single_block_cz/   All comparison drivers, including earlier ablations.
+verification/
+  single_block_cz/            Mathematical/gadget certificates and run verifier.
+  two_block_swap/             SWAP checks and run verifiers.
+  shared/                    Clifford propagation certificate used by BOTH branches.
+  exploratory/               Original mathematical Python checks from notes/.
+tests/{single_block_cz,two_block_swap,shared}/
+tools/
+  analysis/single_block_cz/   Fidelity analysis, comparisons and failure replay.
+  figures/{single_block_cz,two_block_swap}/  Editable figure generators.
+
+This groups files; it does not claim that every historical note has been audited
+or that the current procedure/proof has already been consolidated into one text.
+Some files classified under one branch are imported by the other branch too.
+They must not be assumed independent packages based on these folder names.
+
+What stays in place
+-------------------
+All saved results, including output/ AND src/output/; source snapshots; papers
+under arXiv-*; notes/figures/; LaTeX source directories; PDFs; .git; caches;
+priorities.txt; and the migration tools themselves. No directory tree is moved.
+No existing file contents, Git state or saved result metadata are rewritten.
+
+Important limitation before applying
+------------------------------------
+THIS IS A STRUCTURAL MIGRATION, NOT A RUNNABLE PACKAGE CONVERSION.
+
+The code currently uses flat imports, sibling entry-point paths and __file__
+to locate other files. Markdown and figure builders use relative paths too.
+Moving these files without follow-up changes will break some commands, imports,
+tests, links and figure builders. The script reports this in preview and apply.
+It deliberately avoids guessing replacements or modifying research source text.
+
+Recommended sequence: review this layout first; then coordinate the actual moves
+with a separate import/link/entry-point update and verification pass. Existing
+saved-run snapshots must remain immutable; old source-tree hash comparisons will
+naturally differ after any later source edits. Keep using the current layout
+until that migration is ready. No simulations need to be run for this review.
+
+Safety properties
+------------------
+* Default is PREVIEW, with no writes.
+* All entries are checked before the first move: regular file, relative path,
+  safe nonsymlink parents, unique source/destination, no existing destination.
+* Only individual .py/.md files in the reviewed code/documentation roots qualify.
+  Output directories, Git internals and path traversal are refused.
+* Applying uses mkdir -p and mv -n, never rm, force, Git clean or Git reset.
+  A move removes its old pathname while preserving the file and its contents;
+  this is not a second backup copy of each file.
+* SHA-256 is checked before and after every move.
+* A fresh journal is written under reorganization-logs/. Each move's intent is
+  recorded BEFORE the move, so a pending/interrupted entry can be distinguished.
+* Undo is preview-only unless --apply is also supplied. It refuses collisions,
+  changed contents, the wrong repository root and ambiguous file states.
+* Undo leaves empty folders and every journal in place; it deletes nothing.
+* A failure may leave a partial migration. Keep the journal and inspect/undo it.
+  Do not run concurrently with another migration, source editor or simulation.
+* No promise is made against disk failure, hostile concurrent filesystem changes
+  or operating-system failure. The journal is not a substitute for a backup.
+
+Commands (also work when invoked from fish)
+-------------------------------------------
+Preview only:
+
+bash /Users/kevinhemery/quanti/top-order-lit-rev/scripts/reorganize_repository.sh
+
+Apply only AFTER layout review and arranging the import/link follow-up:
+
+bash /Users/kevinhemery/quanti/top-order-lit-rev/scripts/reorganize_repository.sh --apply
+
+The apply output prints the exact journal pathname. Preview its reversal with:
+
+bash /Users/kevinhemery/quanti/top-order-lit-rev/scripts/reorganize_repository.sh --undo /absolute/path/to/journal.tsv
+
+Actually reverse it by adding --apply to that undo command. If a moved file was
+edited after migration, undo refuses it; resolve the discrepancy manually rather
+than overwriting either version. --root DIR supports testing in a mock repository.
+
+Safety tests (operate only on temporary fixtures, never migrate this checkout):
+
+/Users/kevinhemery/pytket-venv/bin/python scripts/test_reorganize_repository.py

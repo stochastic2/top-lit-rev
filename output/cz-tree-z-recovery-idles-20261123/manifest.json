@@ -1,0 +1,57 @@
+{
+  "shots_per_graph": 64,
+  "seed": 1000,
+  "graphs": [
+    "tree4"
+  ],
+  "timeout_seconds_per_shot": 90,
+  "noise": {
+    "name": "independent_Pauli_depolarizing",
+    "gate_rate_convention": "average_gate_infidelity",
+    "rates": {
+      "two_qubit_infidelity": "1/1000",
+      "one_qubit_infidelity": "1/10000",
+      "t_infidelity": "1/10000",
+      "idle_infidelity": "1/1000000",
+      "preparation_flip_probability": "0",
+      "readout_flip_probability": "1/1000"
+    },
+    "nonidentity_probabilities": {
+      "CX": "1/800",
+      "Clifford_1q": "3/20000",
+      "T_TDG": "3/20000",
+      "idle": "3/2000000"
+    },
+    "controlled_W": "T^s,CX,T^-s; individual physical locations",
+    "quantum_timing": "gate noise after ideal gate; idle noise before operation",
+    "readout": "independent classical report flip after actual quantum measurement",
+    "preparation": "X after |0> preparation",
+    "fault_count_cap": null,
+    "idles": "one per live nonparticipant per serial operation, and every live qubit at boundary",
+    "duration_calibrated": false,
+    "atomic_multiqubit_gates": []
+  },
+  "options": {
+    "source_extraction": "decoded_flags",
+    "data_checks": "compact_flags",
+    "flag_recovery": "data",
+    "conditional_checks": "dual_flags"
+  },
+  "schedule": "compact short votes, reported tree-bit byproducts and compact terminal screen",
+  "V_pair_only_in_triggered_recovery": true,
+  "experimental_no_global_fault_certificate": true,
+  "source_sha256": {
+    "verification/single_block_cz/run_single_cz_tree_handoff_pilot.py": "7b7ca2dbbc42ff63e843e56b52fb2cfd0317f3c8b898a7587e5c4b7abe271c06",
+    "verification/single_block_cz/run_single_cz_short_gauss_pilot.py": "83ab00c4dffac9a11ab48975659f1db36eb65ca2a101bd7316da484f1ccd1f47",
+    "verification/single_block_cz/run_single_cz_direct_outer_pilot.py": "1dcdd12b44a96d996acc559ff41cf2e0df672844a8b1806df1cbb2e8da54baa0",
+    "src/single_block_cz/single_cz_tree_handoff_pilot.py": "9bb0b95b3fa4b3839bfccda4b2d9c0c2a6faca4a2a242a56fdc2085ed65cea79",
+    "src/single_block_cz/single_cz_short_gauss_pilot.py": "6c6031cea94ab8f815b563f8638e6d88a0d005f814ca3f5c1ae561bd25713607",
+    "src/single_block_cz/single_cz_direct_outer_pilot.py": "3938d98743b1fe8a8b6048acacde91712abbebaae8471515bae24c5dc6c5e5aa",
+    "verification/single_block_cz/run_single_cz_tree_resource_pilot.py": "8e40ce3ce431049c03d456c589e441e8102c723022b8a71a402a3290376c9e28",
+    "src/single_block_cz/single_cz_tree_resource_pilot.py": "47dec8d6feaed51e7b095f18f317eeb76a1422b7fe118cb2cd9e0e1bbf69aa76",
+    "verification/single_block_cz/run_single_cz_tree_z_recovery_pilot.py": "5ed40d6249889da0349d1ff73cb5de534d453fd107ff2e04d4fdb0acddafb290",
+    "src/single_block_cz/single_cz_tree_z_recovery_pilot.py": "86e4cd0faa3cd3877f4df5677c80dd1c2aeef49b3ced16f7ff24b9fc1fa90bc0"
+  },
+  "tree_resource_policy": "one Z parity on a0,A1,a2",
+  "routine_recovery": "gauged Z-only reference after a raw nonzero Z syndrome"
+}

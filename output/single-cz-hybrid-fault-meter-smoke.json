@@ -1,0 +1,286 @@
+{
+  "scope": "isolated outer meters followed by ideal commuting diagnostics; NOT full factory acceptance",
+  "arbitrary_local_fault_extension": "Pauli expansion with coherent quadratic phases and conservative post-diagnostic logical class unions",
+  "diagnostic_faults_included": false,
+  "multiple_outer_meters_in_one_fault_budget_audited": false,
+  "factory_recovery_gates_certified": false,
+  "population_acceptance_prediction": false,
+  "graph": "compact13",
+  "class_map": {
+    "pauli_dimension": 66,
+    "class_map_rank": 35,
+    "stabilizer_kernel_rank": 31
+  },
+  "basis": {
+    "outer_words": [
+      1,
+      3,
+      4,
+      8
+    ],
+    "inner_multipliers": [
+      0,
+      4,
+      0,
+      0
+    ],
+    "supports": [
+      [
+        0,
+        3,
+        6,
+        7,
+        10,
+        11,
+        12,
+        15
+      ],
+      [
+        0,
+        3,
+        4,
+        6,
+        12,
+        14,
+        16,
+        19
+      ],
+      [
+        1,
+        2,
+        8,
+        11,
+        12,
+        13,
+        18,
+        19
+      ],
+      [
+        2,
+        3,
+        5,
+        6,
+        13,
+        14,
+        16,
+        17
+      ]
+    ],
+    "representatives_checked": 240,
+    "independent_word_bases_checked": 840,
+    "minimum_outer_CX_in_this_compiler_family": 124
+  },
+  "checks": {
+    "5": {
+      "hybrid": {
+        "route": "hybrid",
+        "max_faulty_locations": 2,
+        "locations": {
+          "locations": 2168,
+          "pauli_basis_cases": 6884,
+          "unique_errors": 416
+        },
+        "distinct_one_two_fault_normal_forms": 64590,
+        "distinct_affine_class_images": 21327,
+        "unflagged": {
+          "full_report_queries": 64109,
+          "unique_with_data": 54210,
+          "unique_with_cycles": 63776,
+          "unique_with_cycles_and_stars": 64028,
+          "gained_by_cycles": 9566,
+          "gained_by_stars": 252,
+          "ambiguous_even_with_graph": 81
+        },
+        "flagged": {
+          "full_report_queries": 29042,
+          "unique_with_data": 26130,
+          "unique_with_cycles": 28978,
+          "unique_with_cycles_and_stars": 29010,
+          "gained_by_cycles": 2848,
+          "gained_by_stars": 32,
+          "ambiguous_even_with_graph": 32
+        },
+        "clean_zero_record_logical_classes": [
+          0
+        ],
+        "graph_information_witnesses": [
+          {
+            "faults": [
+              {
+                "instruction": 0,
+                "operation": "IDLE",
+                "targets": [
+                  "A0"
+                ],
+                "paulis": [
+                  1
+                ],
+                "flip_report": false,
+                "location": 0
+              },
+              {
+                "instruction": 59,
+                "operation": "MZ",
+                "targets": [
+                  "f"
+                ],
+                "paulis": [
+                  1
+                ],
+                "flip_report": false,
+                "location": 2066
+              }
+            ],
+            "reported_flags": 1,
+            "diagnostic_syndrome": 18628608,
+            "reported_meter_bit": 1,
+            "data_only_logical_classes": [
+              4,
+              8
+            ],
+            "joint_logical_class": 8,
+            "physical": {
+              "probability": "1/4",
+              "actual_meter_X_bit": 1,
+              "correction_X_sites": [
+                "A4",
+                "A5",
+                "A6",
+                "A10"
+              ],
+              "correction_Z_sites": [
+                "D10",
+                "D11",
+                "D14",
+                "D15",
+                "D17",
+                "D18"
+              ],
+              "restored_encoded_Bell_pairs_and_graph": true
+            }
+          },
+          {
+            "faults": [
+              {
+                "instruction": 0,
+                "operation": "IDLE",
+                "targets": [
+                  "A0"
+                ],
+                "paulis": [
+                  1
+                ],
+                "flip_report": false,
+                "location": 0
+              },
+              {
+                "instruction": 40,
+                "operation": "CX",
+                "targets": [
+                  "s",
+                  "f"
+                ],
+                "paulis": [
+                  2,
+                  3
+                ],
+                "flip_report": false,
+                "location": 1410
+              }
+            ],
+            "reported_flags": 1,
+            "diagnostic_syndrome": 18628608,
+            "reported_meter_bit": 0,
+            "data_only_logical_classes": [
+              4,
+              8
+            ],
+            "joint_logical_class": 8,
+            "physical": {
+              "probability": "1/4",
+              "actual_meter_X_bit": 0,
+              "correction_X_sites": [
+                "A4",
+                "A5",
+                "A6",
+                "A10"
+              ],
+              "correction_Z_sites": [
+                "D10",
+                "D11",
+                "D14",
+                "D15",
+                "D17",
+                "D18"
+              ],
+              "restored_encoded_Bell_pairs_and_graph": true
+            }
+          },
+          {
+            "faults": [
+              {
+                "instruction": 0,
+                "operation": "IDLE",
+                "targets": [
+                  "A0"
+                ],
+                "paulis": [
+                  1
+                ],
+                "flip_report": false,
+                "location": 0
+              },
+              {
+                "instruction": 24,
+                "operation": "IDLE",
+                "targets": [
+                  "s"
+                ],
+                "paulis": [
+                  1
+                ],
+                "flip_report": false,
+                "location": 857
+              }
+            ],
+            "reported_flags": 1,
+            "diagnostic_syndrome": 18628800,
+            "reported_meter_bit": 1,
+            "data_only_logical_classes": [
+              0,
+              4,
+              8
+            ],
+            "joint_logical_class": 8,
+            "physical": {
+              "probability": "1/16",
+              "actual_meter_X_bit": 1,
+              "correction_X_sites": [
+                "D13",
+                "D14",
+                "A4",
+                "A5",
+                "A6",
+                "A10"
+              ],
+              "correction_Z_sites": [
+                "D10",
+                "D11",
+                "D14",
+                "D15",
+                "D17",
+                "D18"
+              ],
+              "restored_encoded_Bell_pairs_and_graph": true
+            }
+          }
+        ],
+        "elapsed_seconds": 4.849190950393677
+      }
+    }
+  },
+  "sources": {
+    "verification/single_block_cz/check_single_cz_hybrid_faults.py": "a8780d32ab09d54e3c574119c4e5ba2575699a8057321ed66e6d3d1f98ccdd83",
+    "src/single_block_cz/single_cz_hybrid_faults.py": "9b0c8a6a17ed4bff6f6c88f2da8601bcfef8a546837c38a25794bfe57b51ffea"
+  }
+}

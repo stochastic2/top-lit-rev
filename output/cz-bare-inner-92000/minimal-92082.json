@@ -1,0 +1,5012 @@
+{
+  "pilot": "BareInnerPilot",
+  "seed": 92082,
+  "faults": [
+    {
+      "context": "source/certify/1/X/9",
+      "operation": "CX",
+      "targets": [
+        "L0",
+        "L1"
+      ],
+      "occurrence": 0,
+      "timing": "after",
+      "flip_report": false,
+      "paulis": {
+        "L0": "Z",
+        "L1": "Z"
+      }
+    },
+    {
+      "context": "direct/vote/1/X/2",
+      "operation": "CX",
+      "targets": [
+        "s",
+        "D11"
+      ],
+      "occurrence": 0,
+      "timing": "after",
+      "flip_report": false,
+      "paulis": {
+        "s": "X",
+        "D11": "Z"
+      }
+    },
+    {
+      "context": "direct/vote/1/G/1",
+      "operation": "CX",
+      "targets": [
+        "s",
+        "A0"
+      ],
+      "occurrence": 0,
+      "timing": "after",
+      "flip_report": false,
+      "paulis": {
+        "s": "X",
+        "A0": "X"
+      }
+    },
+    {
+      "context": "terminal_screen_recovery/2/Z/4",
+      "operation": "CX",
+      "targets": [
+        "D19",
+        "s"
+      ],
+      "occurrence": 0,
+      "timing": "after",
+      "flip_report": false,
+      "paulis": {
+        "D19": "Z",
+        "s": "X"
+      }
+    }
+  ],
+  "smallest_reproducing_size": 3,
+  "tested_subsets": [
+    {
+      "subset": [],
+      "hits": 0,
+      "accepted": true,
+      "reason": null,
+      "fidelity": 1.0
+    },
+    {
+      "subset": [
+        0
+      ],
+      "hits": 1,
+      "accepted": true,
+      "reason": null,
+      "fidelity": 1.0
+    },
+    {
+      "subset": [
+        1
+      ],
+      "hits": 1,
+      "accepted": true,
+      "reason": null,
+      "fidelity": 1.0
+    },
+    {
+      "subset": [
+        2
+      ],
+      "hits": 1,
+      "accepted": false,
+      "reason": "data_ambiguity"
+    },
+    {
+      "subset": [
+        3
+      ],
+      "hits": 0,
+      "accepted": true,
+      "reason": null,
+      "fidelity": 1.0
+    },
+    {
+      "subset": [
+        0,
+        1
+      ],
+      "hits": 2,
+      "accepted": true,
+      "reason": null,
+      "fidelity": 1.0
+    },
+    {
+      "subset": [
+        0,
+        2
+      ],
+      "hits": 2,
+      "accepted": false,
+      "reason": "data_ambiguity"
+    },
+    {
+      "subset": [
+        0,
+        3
+      ],
+      "hits": 1,
+      "accepted": true,
+      "reason": null,
+      "fidelity": 1.0
+    },
+    {
+      "subset": [
+        1,
+        2
+      ],
+      "hits": 2,
+      "accepted": false,
+      "reason": "data_ambiguity"
+    },
+    {
+      "subset": [
+        1,
+        3
+      ],
+      "hits": 2,
+      "accepted": true,
+      "reason": null,
+      "fidelity": 1.0
+    },
+    {
+      "subset": [
+        2,
+        3
+      ],
+      "hits": 2,
+      "accepted": false,
+      "reason": "data_ambiguity"
+    },
+    {
+      "subset": [
+        0,
+        1,
+        2
+      ],
+      "hits": 3,
+      "accepted": false,
+      "reason": "data_ambiguity"
+    },
+    {
+      "subset": [
+        0,
+        1,
+        3
+      ],
+      "hits": 3,
+      "accepted": true,
+      "reason": null,
+      "fidelity": 1.0
+    },
+    {
+      "subset": [
+        0,
+        2,
+        3
+      ],
+      "hits": 3,
+      "accepted": false,
+      "reason": "data_ambiguity"
+    },
+    {
+      "subset": [
+        1,
+        2,
+        3
+      ],
+      "hits": 3,
+      "accepted": true,
+      "reason": null,
+      "fidelity": 0.11111111111111115,
+      "record": [
+        {
+          "source_flag": "source/certify/0/Z/0",
+          "flags": [],
+          "reported_parity": 0,
+          "block_groups": [
+            [
+              0,
+              1,
+              2,
+              3
+            ]
+          ]
+        },
+        {
+          "source_flag": "source/certify/0/Z/1",
+          "flags": [],
+          "reported_parity": 0,
+          "block_groups": [
+            [
+              4,
+              5,
+              6,
+              7
+            ]
+          ]
+        },
+        {
+          "source_flag": "source/certify/0/Z/2",
+          "flags": [],
+          "reported_parity": 0,
+          "block_groups": [
+            [
+              8,
+              9,
+              10,
+              11
+            ]
+          ]
+        },
+        {
+          "source_flag": "source/certify/0/Z/3",
+          "flags": [],
+          "reported_parity": 0,
+          "block_groups": [
+            [
+              12,
+              13,
+              14,
+              15
+            ]
+          ]
+        },
+        {
+          "source_flag": "source/certify/0/Z/4",
+          "flags": [],
+          "reported_parity": 0,
+          "block_groups": [
+            [
+              16,
+              17,
+              18,
+              19
+            ]
+          ]
+        },
+        {
+          "source_flag": "source/certify/0/Z/5",
+          "flags": [
+            0,
+            0,
+            0
+          ],
+          "reported_parity": 0,
+          "block_groups": [
+            [
+              0,
+              3
+            ],
+            [
+              6,
+              7
+            ],
+            [
+              10,
+              11
+            ],
+            [
+              12,
+              15
+            ]
+          ]
+        },
+        {
+          "source_flag": "source/certify/0/Z/6",
+          "flags": [
+            0,
+            0,
+            0
+          ],
+          "reported_parity": 0,
+          "block_groups": [
+            [
+              4,
+              7
+            ],
+            [
+              8,
+              9
+            ],
+            [
+              14,
+              15
+            ],
+            [
+              16,
+              19
+            ]
+          ]
+        },
+        {
+          "source_flag": "source/certify/0/Z/7",
+          "flags": [
+            0,
+            0,
+            0
+          ],
+          "reported_parity": 0,
+          "block_groups": [
+            [
+              1,
+              2
+            ],
+            [
+              8,
+              11
+            ],
+            [
+              12,
+              13
+            ],
+            [
+              18,
+              19
+            ]
+          ]
+        },
+        {
+          "source_flag": "source/certify/0/Z/8",
+          "flags": [
+            0,
+            0,
+            0
+          ],
+          "reported_parity": 0,
+          "block_groups": [
+            [
+              2,
+              3
+            ],
+            [
+              5,
+              6
+            ],
+            [
+              13,
+              14
+            ],
+            [
+              16,
+              17
+            ]
+          ]
+        },
+        {
+          "source_flag": "source/certify/0/X/0",
+          "flags": [],
+          "reported_parity": 0,
+          "block_groups": [
+            [
+              0,
+              1,
+              2,
+              3
+            ]
+          ]
+        },
+        {
+          "source_flag": "source/certify/0/X/1",
+          "flags": [],
+          "reported_parity": 0,
+          "block_groups": [
+            [
+              4,
+              5,
+              6,
+              7
+            ]
+          ]
+        },
+        {
+          "source_flag": "source/certify/0/X/2",
+          "flags": [],
+          "reported_parity": 0,
+          "block_groups": [
+            [
+              8,
+              9,
+              10,
+              11
+            ]
+          ]
+        },
+        {
+          "source_flag": "source/certify/0/X/3",
+          "flags": [],
+          "reported_parity": 0,
+          "block_groups": [
+            [
+              12,
+              13,
+              14,
+              15
+            ]
+          ]
+        },
+        {
+          "source_flag": "source/certify/0/X/4",
+          "flags": [],
+          "reported_parity": 0,
+          "block_groups": [
+            [
+              16,
+              17,
+              18,
+              19
+            ]
+          ]
+        },
+        {
+          "source_flag": "source/certify/0/X/5",
+          "flags": [
+            0,
+            0,
+            0
+          ],
+          "reported_parity": 0,
+          "block_groups": [
+            [
+              0,
+              3
+            ],
+            [
+              6,
+              7
+            ],
+            [
+              10,
+              11
+            ],
+            [
+              12,
+              15
+            ]
+          ]
+        },
+        {
+          "source_flag": "source/certify/0/X/6",
+          "flags": [
+            0,
+            0,
+            0
+          ],
+          "reported_parity": 0,
+          "block_groups": [
+            [
+              4,
+              7
+            ],
+            [
+              8,
+              9
+            ],
+            [
+              14,
+              15
+            ],
+            [
+              16,
+              19
+            ]
+          ]
+        },
+        {
+          "source_flag": "source/certify/0/X/7",
+          "flags": [
+            0,
+            0,
+            0
+          ],
+          "reported_parity": 0,
+          "block_groups": [
+            [
+              1,
+              2
+            ],
+            [
+              8,
+              11
+            ],
+            [
+              12,
+              13
+            ],
+            [
+              18,
+              19
+            ]
+          ]
+        },
+        {
+          "source_flag": "source/certify/0/X/8",
+          "flags": [
+            0,
+            0,
+            0
+          ],
+          "reported_parity": 0,
+          "block_groups": [
+            [
+              2,
+              3
+            ],
+            [
+              5,
+              6
+            ],
+            [
+              13,
+              14
+            ],
+            [
+              16,
+              17
+            ]
+          ]
+        },
+        {
+          "source_flag": "source/certify/0/X/9",
+          "flags": [
+            0,
+            0
+          ],
+          "reported_parity": 0,
+          "block_groups": [
+            [
+              2,
+              3
+            ],
+            [
+              8,
+              11
+            ],
+            [
+              12,
+              15
+            ]
+          ]
+        },
+        {
+          "source_flag": "source/certify/0/X/10",
+          "flags": [
+            0,
+            0
+          ],
+          "reported_parity": 0,
+          "block_groups": [
+            [
+              0,
+              3
+            ],
+            [
+              6,
+              7
+            ],
+            [
+              18,
+              19
+            ]
+          ]
+        },
+        {
+          "source_flag": "source/certify/1/Z/0",
+          "flags": [],
+          "reported_parity": 0,
+          "block_groups": [
+            [
+              0,
+              1,
+              2,
+              3
+            ]
+          ]
+        },
+        {
+          "source_flag": "source/certify/1/Z/1",
+          "flags": [],
+          "reported_parity": 0,
+          "block_groups": [
+            [
+              4,
+              5,
+              6,
+              7
+            ]
+          ]
+        },
+        {
+          "source_flag": "source/certify/1/Z/2",
+          "flags": [],
+          "reported_parity": 0,
+          "block_groups": [
+            [
+              8,
+              9,
+              10,
+              11
+            ]
+          ]
+        },
+        {
+          "source_flag": "source/certify/1/Z/3",
+          "flags": [],
+          "reported_parity": 0,
+          "block_groups": [
+            [
+              12,
+              13,
+              14,
+              15
+            ]
+          ]
+        },
+        {
+          "source_flag": "source/certify/1/Z/4",
+          "flags": [],
+          "reported_parity": 0,
+          "block_groups": [
+            [
+              16,
+              17,
+              18,
+              19
+            ]
+          ]
+        },
+        {
+          "source_flag": "source/certify/1/Z/5",
+          "flags": [
+            0,
+            0,
+            0
+          ],
+          "reported_parity": 0,
+          "block_groups": [
+            [
+              0,
+              3
+            ],
+            [
+              6,
+              7
+            ],
+            [
+              10,
+              11
+            ],
+            [
+              12,
+              15
+            ]
+          ]
+        },
+        {
+          "source_flag": "source/certify/1/Z/6",
+          "flags": [
+            0,
+            0,
+            0
+          ],
+          "reported_parity": 0,
+          "block_groups": [
+            [
+              4,
+              7
+            ],
+            [
+              8,
+              9
+            ],
+            [
+              14,
+              15
+            ],
+            [
+              16,
+              19
+            ]
+          ]
+        },
+        {
+          "source_flag": "source/certify/1/Z/7",
+          "flags": [
+            0,
+            0,
+            0
+          ],
+          "reported_parity": 0,
+          "block_groups": [
+            [
+              1,
+              2
+            ],
+            [
+              8,
+              11
+            ],
+            [
+              12,
+              13
+            ],
+            [
+              18,
+              19
+            ]
+          ]
+        },
+        {
+          "source_flag": "source/certify/1/Z/8",
+          "flags": [
+            0,
+            0,
+            0
+          ],
+          "reported_parity": 0,
+          "block_groups": [
+            [
+              2,
+              3
+            ],
+            [
+              5,
+              6
+            ],
+            [
+              13,
+              14
+            ],
+            [
+              16,
+              17
+            ]
+          ]
+        },
+        {
+          "source_flag": "source/certify/1/X/0",
+          "flags": [],
+          "reported_parity": 0,
+          "block_groups": [
+            [
+              0,
+              1,
+              2,
+              3
+            ]
+          ]
+        },
+        {
+          "source_flag": "source/certify/1/X/1",
+          "flags": [],
+          "reported_parity": 0,
+          "block_groups": [
+            [
+              4,
+              5,
+              6,
+              7
+            ]
+          ]
+        },
+        {
+          "source_flag": "source/certify/1/X/2",
+          "flags": [],
+          "reported_parity": 0,
+          "block_groups": [
+            [
+              8,
+              9,
+              10,
+              11
+            ]
+          ]
+        },
+        {
+          "source_flag": "source/certify/1/X/3",
+          "flags": [],
+          "reported_parity": 0,
+          "block_groups": [
+            [
+              12,
+              13,
+              14,
+              15
+            ]
+          ]
+        },
+        {
+          "source_flag": "source/certify/1/X/4",
+          "flags": [],
+          "reported_parity": 0,
+          "block_groups": [
+            [
+              16,
+              17,
+              18,
+              19
+            ]
+          ]
+        },
+        {
+          "source_flag": "source/certify/1/X/5",
+          "flags": [
+            0,
+            0,
+            0
+          ],
+          "reported_parity": 0,
+          "block_groups": [
+            [
+              0,
+              3
+            ],
+            [
+              6,
+              7
+            ],
+            [
+              10,
+              11
+            ],
+            [
+              12,
+              15
+            ]
+          ]
+        },
+        {
+          "source_flag": "source/certify/1/X/6",
+          "flags": [
+            0,
+            0,
+            0
+          ],
+          "reported_parity": 0,
+          "block_groups": [
+            [
+              4,
+              7
+            ],
+            [
+              8,
+              9
+            ],
+            [
+              14,
+              15
+            ],
+            [
+              16,
+              19
+            ]
+          ]
+        },
+        {
+          "source_flag": "source/certify/1/X/7",
+          "flags": [
+            0,
+            0,
+            0
+          ],
+          "reported_parity": 0,
+          "block_groups": [
+            [
+              1,
+              2
+            ],
+            [
+              8,
+              11
+            ],
+            [
+              12,
+              13
+            ],
+            [
+              18,
+              19
+            ]
+          ]
+        },
+        {
+          "source_flag": "source/certify/1/X/8",
+          "flags": [
+            0,
+            0,
+            0
+          ],
+          "reported_parity": 0,
+          "block_groups": [
+            [
+              2,
+              3
+            ],
+            [
+              5,
+              6
+            ],
+            [
+              13,
+              14
+            ],
+            [
+              16,
+              17
+            ]
+          ]
+        },
+        {
+          "source_flag": "source/certify/1/X/9",
+          "flags": [
+            0,
+            0
+          ],
+          "reported_parity": 0,
+          "block_groups": [
+            [
+              2,
+              3
+            ],
+            [
+              8,
+              11
+            ],
+            [
+              12,
+              15
+            ]
+          ]
+        },
+        {
+          "source_flag": "source/certify/1/X/10",
+          "flags": [
+            0,
+            0
+          ],
+          "reported_parity": 0,
+          "block_groups": [
+            [
+              0,
+              3
+            ],
+            [
+              6,
+              7
+            ],
+            [
+              18,
+              19
+            ]
+          ]
+        },
+        {
+          "source_flag": "source/certify/2/Z/0",
+          "flags": [],
+          "reported_parity": 0,
+          "block_groups": [
+            [
+              0,
+              1,
+              2,
+              3
+            ]
+          ]
+        },
+        {
+          "source_flag": "source/certify/2/Z/1",
+          "flags": [],
+          "reported_parity": 0,
+          "block_groups": [
+            [
+              4,
+              5,
+              6,
+              7
+            ]
+          ]
+        },
+        {
+          "source_flag": "source/certify/2/Z/2",
+          "flags": [],
+          "reported_parity": 0,
+          "block_groups": [
+            [
+              8,
+              9,
+              10,
+              11
+            ]
+          ]
+        },
+        {
+          "source_flag": "source/certify/2/Z/3",
+          "flags": [],
+          "reported_parity": 0,
+          "block_groups": [
+            [
+              12,
+              13,
+              14,
+              15
+            ]
+          ]
+        },
+        {
+          "source_flag": "source/certify/2/Z/4",
+          "flags": [],
+          "reported_parity": 0,
+          "block_groups": [
+            [
+              16,
+              17,
+              18,
+              19
+            ]
+          ]
+        },
+        {
+          "source_flag": "source/certify/2/Z/5",
+          "flags": [
+            0,
+            0,
+            0
+          ],
+          "reported_parity": 0,
+          "block_groups": [
+            [
+              0,
+              3
+            ],
+            [
+              6,
+              7
+            ],
+            [
+              10,
+              11
+            ],
+            [
+              12,
+              15
+            ]
+          ]
+        },
+        {
+          "source_flag": "source/certify/2/Z/6",
+          "flags": [
+            0,
+            0,
+            0
+          ],
+          "reported_parity": 0,
+          "block_groups": [
+            [
+              4,
+              7
+            ],
+            [
+              8,
+              9
+            ],
+            [
+              14,
+              15
+            ],
+            [
+              16,
+              19
+            ]
+          ]
+        },
+        {
+          "source_flag": "source/certify/2/Z/7",
+          "flags": [
+            0,
+            0,
+            0
+          ],
+          "reported_parity": 0,
+          "block_groups": [
+            [
+              1,
+              2
+            ],
+            [
+              8,
+              11
+            ],
+            [
+              12,
+              13
+            ],
+            [
+              18,
+              19
+            ]
+          ]
+        },
+        {
+          "source_flag": "source/certify/2/Z/8",
+          "flags": [
+            0,
+            0,
+            0
+          ],
+          "reported_parity": 0,
+          "block_groups": [
+            [
+              2,
+              3
+            ],
+            [
+              5,
+              6
+            ],
+            [
+              13,
+              14
+            ],
+            [
+              16,
+              17
+            ]
+          ]
+        },
+        {
+          "source_flag": "source/certify/2/X/0",
+          "flags": [],
+          "reported_parity": 0,
+          "block_groups": [
+            [
+              0,
+              1,
+              2,
+              3
+            ]
+          ]
+        },
+        {
+          "source_flag": "source/certify/2/X/1",
+          "flags": [],
+          "reported_parity": 0,
+          "block_groups": [
+            [
+              4,
+              5,
+              6,
+              7
+            ]
+          ]
+        },
+        {
+          "source_flag": "source/certify/2/X/2",
+          "flags": [],
+          "reported_parity": 0,
+          "block_groups": [
+            [
+              8,
+              9,
+              10,
+              11
+            ]
+          ]
+        },
+        {
+          "source_flag": "source/certify/2/X/3",
+          "flags": [],
+          "reported_parity": 0,
+          "block_groups": [
+            [
+              12,
+              13,
+              14,
+              15
+            ]
+          ]
+        },
+        {
+          "source_flag": "source/certify/2/X/4",
+          "flags": [],
+          "reported_parity": 0,
+          "block_groups": [
+            [
+              16,
+              17,
+              18,
+              19
+            ]
+          ]
+        },
+        {
+          "source_flag": "source/certify/2/X/5",
+          "flags": [
+            0,
+            0,
+            0
+          ],
+          "reported_parity": 0,
+          "block_groups": [
+            [
+              0,
+              3
+            ],
+            [
+              6,
+              7
+            ],
+            [
+              10,
+              11
+            ],
+            [
+              12,
+              15
+            ]
+          ]
+        },
+        {
+          "source_flag": "source/certify/2/X/6",
+          "flags": [
+            0,
+            0,
+            0
+          ],
+          "reported_parity": 0,
+          "block_groups": [
+            [
+              4,
+              7
+            ],
+            [
+              8,
+              9
+            ],
+            [
+              14,
+              15
+            ],
+            [
+              16,
+              19
+            ]
+          ]
+        },
+        {
+          "source_flag": "source/certify/2/X/7",
+          "flags": [
+            0,
+            0,
+            0
+          ],
+          "reported_parity": 0,
+          "block_groups": [
+            [
+              1,
+              2
+            ],
+            [
+              8,
+              11
+            ],
+            [
+              12,
+              13
+            ],
+            [
+              18,
+              19
+            ]
+          ]
+        },
+        {
+          "source_flag": "source/certify/2/X/8",
+          "flags": [
+            0,
+            0,
+            0
+          ],
+          "reported_parity": 0,
+          "block_groups": [
+            [
+              2,
+              3
+            ],
+            [
+              5,
+              6
+            ],
+            [
+              13,
+              14
+            ],
+            [
+              16,
+              17
+            ]
+          ]
+        },
+        {
+          "source_flag": "source/certify/2/X/9",
+          "flags": [
+            0,
+            0
+          ],
+          "reported_parity": 0,
+          "block_groups": [
+            [
+              2,
+              3
+            ],
+            [
+              8,
+              11
+            ],
+            [
+              12,
+              15
+            ]
+          ]
+        },
+        {
+          "source_flag": "source/certify/2/X/10",
+          "flags": [
+            0,
+            0
+          ],
+          "reported_parity": 0,
+          "block_groups": [
+            [
+              0,
+              3
+            ],
+            [
+              6,
+              7
+            ],
+            [
+              18,
+              19
+            ]
+          ]
+        },
+        {
+          "history": "known_source",
+          "records": [
+            [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ]
+          ],
+          "reference": {
+            "selected": 2,
+            "occurrences": [
+              0,
+              1,
+              2
+            ],
+            "kind": "three_identical_complete_records"
+          },
+          "selected_record": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "known_source_correction": [
+            0,
+            0
+          ],
+          "syndrome": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "check": "graph/tree_hook_check",
+          "flags": {},
+          "reported_parity": 0
+        },
+        {
+          "vertex_reports": [
+            0,
+            1,
+            1,
+            0,
+            0
+          ],
+          "entry_vote": true,
+          "passes": 1
+        },
+        {
+          "check": "direct/vote/0/Z/0",
+          "flags": {},
+          "reported_parity": 0
+        },
+        {
+          "check": "direct/vote/0/Z/1",
+          "flags": {},
+          "reported_parity": 0
+        },
+        {
+          "check": "direct/vote/0/Z/2",
+          "flags": {},
+          "reported_parity": 0
+        },
+        {
+          "check": "direct/vote/0/Z/3",
+          "flags": {},
+          "reported_parity": 0
+        },
+        {
+          "check": "direct/vote/0/Z/4",
+          "flags": {},
+          "reported_parity": 0
+        },
+        {
+          "check": "direct/vote/0/Z/5/block_Z",
+          "flags": {
+            "f0": 0
+          },
+          "reported_parity": 0
+        },
+        {
+          "check": "direct/vote/0/Z/6/block_Z",
+          "flags": {
+            "f0": 0
+          },
+          "reported_parity": 0
+        },
+        {
+          "check": "direct/vote/0/Z/7/block_Z",
+          "flags": {
+            "f0": 0
+          },
+          "reported_parity": 0
+        },
+        {
+          "check": "direct/vote/0/Z/8/block_Z",
+          "flags": {
+            "f0": 0
+          },
+          "reported_parity": 0
+        },
+        {
+          "check": "direct/vote/0/X/0",
+          "flags": {},
+          "reported_parity": 0
+        },
+        {
+          "check": "direct/vote/0/X/1",
+          "flags": {},
+          "reported_parity": 0
+        },
+        {
+          "check": "direct/vote/0/X/2",
+          "flags": {},
+          "reported_parity": 0
+        },
+        {
+          "check": "direct/vote/0/X/3",
+          "flags": {},
+          "reported_parity": 0
+        },
+        {
+          "check": "direct/vote/0/X/4",
+          "flags": {},
+          "reported_parity": 0
+        },
+        {
+          "check": "direct/vote/0/G/1",
+          "flags": {},
+          "reported_parity": 0
+        },
+        {
+          "check": "direct/vote/0/G/2",
+          "flags": {},
+          "reported_parity": 0
+        },
+        {
+          "check": "direct/vote/0/G/3",
+          "flags": {},
+          "reported_parity": 0
+        },
+        {
+          "check": "direct/vote/0/G/4",
+          "flags": {},
+          "reported_parity": 0
+        },
+        {
+          "check": "direct/vote/0/root_Gauss",
+          "flags": {
+            "f0": 0,
+            "f1": 0,
+            "f2": 0,
+            "f3": 0
+          },
+          "reported_parity": 0
+        },
+        {
+          "direct_vote": 0,
+          "root": 0,
+          "nonroot": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "inner_x_parity_frame": 0,
+          "passes": 2
+        },
+        {
+          "check": "direct/vote/1/Z/0",
+          "flags": {},
+          "reported_parity": 0
+        },
+        {
+          "check": "direct/vote/1/Z/1",
+          "flags": {},
+          "reported_parity": 0
+        },
+        {
+          "check": "direct/vote/1/Z/2",
+          "flags": {},
+          "reported_parity": 0
+        },
+        {
+          "check": "direct/vote/1/Z/3",
+          "flags": {},
+          "reported_parity": 0
+        },
+        {
+          "check": "direct/vote/1/Z/4",
+          "flags": {},
+          "reported_parity": 0
+        },
+        {
+          "check": "direct/vote/1/Z/5/block_Z",
+          "flags": {
+            "f0": 0
+          },
+          "reported_parity": 0
+        },
+        {
+          "check": "direct/vote/1/Z/6/block_Z",
+          "flags": {
+            "f0": 0
+          },
+          "reported_parity": 0
+        },
+        {
+          "check": "direct/vote/1/Z/7/block_Z",
+          "flags": {
+            "f0": 0
+          },
+          "reported_parity": 0
+        },
+        {
+          "check": "direct/vote/1/Z/8/block_Z",
+          "flags": {
+            "f0": 0
+          },
+          "reported_parity": 0
+        },
+        {
+          "check": "direct/vote/1/X/0",
+          "flags": {},
+          "reported_parity": 0
+        },
+        {
+          "check": "direct/vote/1/X/1",
+          "flags": {},
+          "reported_parity": 0
+        },
+        {
+          "check": "direct/vote/1/X/2",
+          "flags": {},
+          "reported_parity": 0
+        },
+        {
+          "check": "direct/vote/1/X/3",
+          "flags": {},
+          "reported_parity": 0
+        },
+        {
+          "check": "direct/vote/1/X/4",
+          "flags": {},
+          "reported_parity": 0
+        },
+        {
+          "check": "direct/vote/1/G/1",
+          "flags": {},
+          "reported_parity": 0
+        },
+        {
+          "check": "direct/vote/1/G/2",
+          "flags": {},
+          "reported_parity": 1
+        },
+        {
+          "check": "direct/vote/1/G/3",
+          "flags": {},
+          "reported_parity": 0
+        },
+        {
+          "check": "direct/vote/1/G/4",
+          "flags": {},
+          "reported_parity": 0
+        },
+        {
+          "check": "direct/vote/1/root_Gauss",
+          "flags": {
+            "f0": 0,
+            "f1": 0,
+            "f2": 0,
+            "f3": 0
+          },
+          "reported_parity": 0
+        },
+        {
+          "direct_vote": 1,
+          "root": 0,
+          "nonroot": [
+            0,
+            1,
+            0,
+            0
+          ],
+          "inner_x_parity_frame": 0,
+          "passes": 2
+        },
+        {
+          "check": "direct/vote/2/Z/0",
+          "flags": {},
+          "reported_parity": 0
+        },
+        {
+          "check": "direct/vote/2/Z/1",
+          "flags": {},
+          "reported_parity": 0
+        },
+        {
+          "check": "direct/vote/2/Z/2",
+          "flags": {},
+          "reported_parity": 0
+        },
+        {
+          "check": "direct/vote/2/Z/3",
+          "flags": {},
+          "reported_parity": 0
+        },
+        {
+          "check": "direct/vote/2/Z/4",
+          "flags": {},
+          "reported_parity": 0
+        },
+        {
+          "check": "direct/vote/2/Z/5/block_Z",
+          "flags": {
+            "f0": 0
+          },
+          "reported_parity": 0
+        },
+        {
+          "check": "direct/vote/2/Z/6/block_Z",
+          "flags": {
+            "f0": 0
+          },
+          "reported_parity": 0
+        },
+        {
+          "check": "direct/vote/2/Z/7/block_Z",
+          "flags": {
+            "f0": 0
+          },
+          "reported_parity": 0
+        },
+        {
+          "check": "direct/vote/2/Z/8/block_Z",
+          "flags": {
+            "f0": 0
+          },
+          "reported_parity": 0
+        },
+        {
+          "check": "direct/vote/2/X/0",
+          "flags": {},
+          "reported_parity": 0
+        },
+        {
+          "check": "direct/vote/2/X/1",
+          "flags": {},
+          "reported_parity": 0
+        },
+        {
+          "check": "direct/vote/2/X/2",
+          "flags": {},
+          "reported_parity": 1
+        },
+        {
+          "check": "direct/vote/2/X/3",
+          "flags": {},
+          "reported_parity": 0
+        },
+        {
+          "check": "direct/vote/2/X/4",
+          "flags": {},
+          "reported_parity": 0
+        },
+        {
+          "check": "direct/vote/2/G/1",
+          "flags": {},
+          "reported_parity": 0
+        },
+        {
+          "check": "direct/vote/2/G/2",
+          "flags": {},
+          "reported_parity": 1
+        },
+        {
+          "check": "direct/vote/2/G/3",
+          "flags": {},
+          "reported_parity": 0
+        },
+        {
+          "check": "direct/vote/2/G/4",
+          "flags": {},
+          "reported_parity": 0
+        },
+        {
+          "check": "direct/vote/2/root_Gauss",
+          "flags": {
+            "f0": 0,
+            "f1": 0,
+            "f2": 0,
+            "f3": 0
+          },
+          "reported_parity": 0
+        },
+        {
+          "direct_vote": 2,
+          "root": 0,
+          "nonroot": [
+            0,
+            1,
+            0,
+            0
+          ],
+          "inner_x_parity_frame": 1,
+          "passes": 3
+        },
+        {
+          "final_handoff": "reported_tree_bits_and_compact_terminal_screen"
+        },
+        {
+          "edge_reports": 6,
+          "decoded": {
+            "eta": 12,
+            "policy": "reported_tree_bits"
+          }
+        },
+        {
+          "terminal_screen_begin": true,
+          "sweep": 0,
+          "version": 3,
+          "order": [
+            [
+              "Z",
+              5
+            ],
+            [
+              "Z",
+              6
+            ],
+            [
+              "Z",
+              7
+            ],
+            [
+              "Z",
+              8
+            ],
+            [
+              "X",
+              5
+            ],
+            [
+              "X",
+              6
+            ],
+            [
+              "X",
+              7
+            ],
+            [
+              "X",
+              8
+            ],
+            [
+              "Z",
+              0
+            ],
+            [
+              "Z",
+              1
+            ],
+            [
+              "Z",
+              2
+            ],
+            [
+              "Z",
+              3
+            ],
+            [
+              "Z",
+              4
+            ],
+            [
+              "X",
+              0
+            ],
+            [
+              "X",
+              1
+            ],
+            [
+              "X",
+              2
+            ],
+            [
+              "X",
+              3
+            ],
+            [
+              "X",
+              4
+            ]
+          ]
+        },
+        {
+          "check": "compact/terminal_screen/0/Z/5",
+          "extraction": "compact_flags",
+          "axes": [
+            "Z",
+            "Z",
+            "Z",
+            "Z",
+            "Z",
+            "Z",
+            "Z",
+            "Z"
+          ],
+          "targets": [
+            "D0",
+            "D3",
+            "D6",
+            "D7",
+            "D10",
+            "D11",
+            "D12",
+            "D15"
+          ],
+          "flags": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "reported_parity": 0
+        },
+        {
+          "check": "compact/terminal_screen/0/Z/6",
+          "extraction": "compact_flags",
+          "axes": [
+            "Z",
+            "Z",
+            "Z",
+            "Z",
+            "Z",
+            "Z",
+            "Z",
+            "Z"
+          ],
+          "targets": [
+            "D4",
+            "D7",
+            "D8",
+            "D9",
+            "D14",
+            "D15",
+            "D16",
+            "D19"
+          ],
+          "flags": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "reported_parity": 0
+        },
+        {
+          "check": "compact/terminal_screen/0/Z/7",
+          "extraction": "compact_flags",
+          "axes": [
+            "Z",
+            "Z",
+            "Z",
+            "Z",
+            "Z",
+            "Z",
+            "Z",
+            "Z"
+          ],
+          "targets": [
+            "D1",
+            "D2",
+            "D8",
+            "D11",
+            "D12",
+            "D13",
+            "D18",
+            "D19"
+          ],
+          "flags": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "reported_parity": 0
+        },
+        {
+          "check": "compact/terminal_screen/0/Z/8",
+          "extraction": "compact_flags",
+          "axes": [
+            "Z",
+            "Z",
+            "Z",
+            "Z",
+            "Z",
+            "Z",
+            "Z",
+            "Z"
+          ],
+          "targets": [
+            "D2",
+            "D3",
+            "D5",
+            "D6",
+            "D13",
+            "D14",
+            "D16",
+            "D17"
+          ],
+          "flags": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "reported_parity": 0
+        },
+        {
+          "check": "compact/terminal_screen/0/X/5",
+          "extraction": "compact_flags",
+          "axes": [
+            "X",
+            "X",
+            "X",
+            "X",
+            "X",
+            "X",
+            "X",
+            "X"
+          ],
+          "targets": [
+            "D0",
+            "D3",
+            "D6",
+            "D7",
+            "D10",
+            "D11",
+            "D12",
+            "D15"
+          ],
+          "flags": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "reported_parity": 1
+        },
+        {
+          "terminal_screen_result": "syndrome_fallback",
+          "sweep": 0,
+          "trigger": "terminal_screen/0/X/5",
+          "completed_checks": 5,
+          "reported_parity": 1
+        },
+        {
+          "check": "terminal_screen_recovery/0/Z/0",
+          "extraction": "compact_flags",
+          "axes": [
+            "Z",
+            "Z",
+            "Z",
+            "Z"
+          ],
+          "targets": [
+            "D0",
+            "D1",
+            "D2",
+            "D3"
+          ],
+          "flags": [
+            0
+          ],
+          "reported_parity": 0
+        },
+        {
+          "check": "terminal_screen_recovery/0/Z/1",
+          "extraction": "compact_flags",
+          "axes": [
+            "Z",
+            "Z",
+            "Z",
+            "Z"
+          ],
+          "targets": [
+            "D4",
+            "D5",
+            "D6",
+            "D7"
+          ],
+          "flags": [
+            0
+          ],
+          "reported_parity": 0
+        },
+        {
+          "check": "terminal_screen_recovery/0/Z/2",
+          "extraction": "compact_flags",
+          "axes": [
+            "Z",
+            "Z",
+            "Z",
+            "Z"
+          ],
+          "targets": [
+            "D8",
+            "D9",
+            "D10",
+            "D11"
+          ],
+          "flags": [
+            0
+          ],
+          "reported_parity": 0
+        },
+        {
+          "check": "terminal_screen_recovery/0/Z/3",
+          "extraction": "compact_flags",
+          "axes": [
+            "Z",
+            "Z",
+            "Z",
+            "Z"
+          ],
+          "targets": [
+            "D12",
+            "D13",
+            "D14",
+            "D15"
+          ],
+          "flags": [
+            0
+          ],
+          "reported_parity": 0
+        },
+        {
+          "check": "terminal_screen_recovery/0/Z/4",
+          "extraction": "compact_flags",
+          "axes": [
+            "Z",
+            "Z",
+            "Z",
+            "Z"
+          ],
+          "targets": [
+            "D16",
+            "D17",
+            "D18",
+            "D19"
+          ],
+          "flags": [
+            0
+          ],
+          "reported_parity": 0
+        },
+        {
+          "check": "terminal_screen_recovery/0/Z/5",
+          "extraction": "compact_flags",
+          "axes": [
+            "Z",
+            "Z",
+            "Z",
+            "Z",
+            "Z",
+            "Z",
+            "Z",
+            "Z"
+          ],
+          "targets": [
+            "D0",
+            "D3",
+            "D6",
+            "D7",
+            "D10",
+            "D11",
+            "D12",
+            "D15"
+          ],
+          "flags": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "reported_parity": 0
+        },
+        {
+          "check": "terminal_screen_recovery/0/Z/6",
+          "extraction": "compact_flags",
+          "axes": [
+            "Z",
+            "Z",
+            "Z",
+            "Z",
+            "Z",
+            "Z",
+            "Z",
+            "Z"
+          ],
+          "targets": [
+            "D4",
+            "D7",
+            "D8",
+            "D9",
+            "D14",
+            "D15",
+            "D16",
+            "D19"
+          ],
+          "flags": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "reported_parity": 0
+        },
+        {
+          "check": "terminal_screen_recovery/0/Z/7",
+          "extraction": "compact_flags",
+          "axes": [
+            "Z",
+            "Z",
+            "Z",
+            "Z",
+            "Z",
+            "Z",
+            "Z",
+            "Z"
+          ],
+          "targets": [
+            "D1",
+            "D2",
+            "D8",
+            "D11",
+            "D12",
+            "D13",
+            "D18",
+            "D19"
+          ],
+          "flags": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "reported_parity": 0
+        },
+        {
+          "check": "terminal_screen_recovery/0/Z/8",
+          "extraction": "compact_flags",
+          "axes": [
+            "Z",
+            "Z",
+            "Z",
+            "Z",
+            "Z",
+            "Z",
+            "Z",
+            "Z"
+          ],
+          "targets": [
+            "D2",
+            "D3",
+            "D5",
+            "D6",
+            "D13",
+            "D14",
+            "D16",
+            "D17"
+          ],
+          "flags": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "reported_parity": 0
+        },
+        {
+          "check": "terminal_screen_recovery/0/X/0",
+          "extraction": "compact_flags",
+          "axes": [
+            "X",
+            "X",
+            "X",
+            "X"
+          ],
+          "targets": [
+            "D0",
+            "D1",
+            "D2",
+            "D3"
+          ],
+          "flags": [
+            0
+          ],
+          "reported_parity": 0
+        },
+        {
+          "check": "terminal_screen_recovery/0/X/1",
+          "extraction": "compact_flags",
+          "axes": [
+            "X",
+            "X",
+            "X",
+            "X"
+          ],
+          "targets": [
+            "D4",
+            "D5",
+            "D6",
+            "D7"
+          ],
+          "flags": [
+            0
+          ],
+          "reported_parity": 0
+        },
+        {
+          "check": "terminal_screen_recovery/0/X/2",
+          "extraction": "compact_flags",
+          "axes": [
+            "X",
+            "X",
+            "X",
+            "X"
+          ],
+          "targets": [
+            "D8",
+            "D9",
+            "D10",
+            "D11"
+          ],
+          "flags": [
+            0
+          ],
+          "reported_parity": 1
+        },
+        {
+          "check": "terminal_screen_recovery/0/X/3",
+          "extraction": "compact_flags",
+          "axes": [
+            "X",
+            "X",
+            "X",
+            "X"
+          ],
+          "targets": [
+            "D12",
+            "D13",
+            "D14",
+            "D15"
+          ],
+          "flags": [
+            0
+          ],
+          "reported_parity": 0
+        },
+        {
+          "check": "terminal_screen_recovery/0/X/4",
+          "extraction": "compact_flags",
+          "axes": [
+            "X",
+            "X",
+            "X",
+            "X"
+          ],
+          "targets": [
+            "D16",
+            "D17",
+            "D18",
+            "D19"
+          ],
+          "flags": [
+            0
+          ],
+          "reported_parity": 0
+        },
+        {
+          "check": "terminal_screen_recovery/0/X/5",
+          "extraction": "compact_flags",
+          "axes": [
+            "X",
+            "X",
+            "X",
+            "X",
+            "X",
+            "X",
+            "X",
+            "X"
+          ],
+          "targets": [
+            "D0",
+            "D3",
+            "D6",
+            "D7",
+            "D10",
+            "D11",
+            "D12",
+            "D15"
+          ],
+          "flags": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "reported_parity": 1
+        },
+        {
+          "check": "terminal_screen_recovery/0/X/6",
+          "extraction": "compact_flags",
+          "axes": [
+            "X",
+            "X",
+            "X",
+            "X",
+            "X",
+            "X",
+            "X",
+            "X"
+          ],
+          "targets": [
+            "D4",
+            "D7",
+            "D8",
+            "D9",
+            "D14",
+            "D15",
+            "D16",
+            "D19"
+          ],
+          "flags": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "reported_parity": 1
+        },
+        {
+          "check": "terminal_screen_recovery/0/X/7",
+          "extraction": "compact_flags",
+          "axes": [
+            "X",
+            "X",
+            "X",
+            "X",
+            "X",
+            "X",
+            "X",
+            "X"
+          ],
+          "targets": [
+            "D1",
+            "D2",
+            "D8",
+            "D11",
+            "D12",
+            "D13",
+            "D18",
+            "D19"
+          ],
+          "flags": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "reported_parity": 1
+        },
+        {
+          "check": "terminal_screen_recovery/0/X/8",
+          "extraction": "compact_flags",
+          "axes": [
+            "X",
+            "X",
+            "X",
+            "X",
+            "X",
+            "X",
+            "X",
+            "X"
+          ],
+          "targets": [
+            "D2",
+            "D3",
+            "D5",
+            "D6",
+            "D13",
+            "D14",
+            "D16",
+            "D17"
+          ],
+          "flags": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "reported_parity": 1
+        },
+        {
+          "check": "terminal_screen_recovery/1/Z/0",
+          "extraction": "compact_flags",
+          "axes": [
+            "Z",
+            "Z",
+            "Z",
+            "Z"
+          ],
+          "targets": [
+            "D0",
+            "D1",
+            "D2",
+            "D3"
+          ],
+          "flags": [
+            0
+          ],
+          "reported_parity": 0
+        },
+        {
+          "check": "terminal_screen_recovery/1/Z/1",
+          "extraction": "compact_flags",
+          "axes": [
+            "Z",
+            "Z",
+            "Z",
+            "Z"
+          ],
+          "targets": [
+            "D4",
+            "D5",
+            "D6",
+            "D7"
+          ],
+          "flags": [
+            0
+          ],
+          "reported_parity": 0
+        },
+        {
+          "check": "terminal_screen_recovery/1/Z/2",
+          "extraction": "compact_flags",
+          "axes": [
+            "Z",
+            "Z",
+            "Z",
+            "Z"
+          ],
+          "targets": [
+            "D8",
+            "D9",
+            "D10",
+            "D11"
+          ],
+          "flags": [
+            0
+          ],
+          "reported_parity": 0
+        },
+        {
+          "check": "terminal_screen_recovery/1/Z/3",
+          "extraction": "compact_flags",
+          "axes": [
+            "Z",
+            "Z",
+            "Z",
+            "Z"
+          ],
+          "targets": [
+            "D12",
+            "D13",
+            "D14",
+            "D15"
+          ],
+          "flags": [
+            0
+          ],
+          "reported_parity": 0
+        },
+        {
+          "check": "terminal_screen_recovery/1/Z/4",
+          "extraction": "compact_flags",
+          "axes": [
+            "Z",
+            "Z",
+            "Z",
+            "Z"
+          ],
+          "targets": [
+            "D16",
+            "D17",
+            "D18",
+            "D19"
+          ],
+          "flags": [
+            0
+          ],
+          "reported_parity": 0
+        },
+        {
+          "check": "terminal_screen_recovery/1/Z/5",
+          "extraction": "compact_flags",
+          "axes": [
+            "Z",
+            "Z",
+            "Z",
+            "Z",
+            "Z",
+            "Z",
+            "Z",
+            "Z"
+          ],
+          "targets": [
+            "D0",
+            "D3",
+            "D6",
+            "D7",
+            "D10",
+            "D11",
+            "D12",
+            "D15"
+          ],
+          "flags": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "reported_parity": 0
+        },
+        {
+          "check": "terminal_screen_recovery/1/Z/6",
+          "extraction": "compact_flags",
+          "axes": [
+            "Z",
+            "Z",
+            "Z",
+            "Z",
+            "Z",
+            "Z",
+            "Z",
+            "Z"
+          ],
+          "targets": [
+            "D4",
+            "D7",
+            "D8",
+            "D9",
+            "D14",
+            "D15",
+            "D16",
+            "D19"
+          ],
+          "flags": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "reported_parity": 0
+        },
+        {
+          "check": "terminal_screen_recovery/1/Z/7",
+          "extraction": "compact_flags",
+          "axes": [
+            "Z",
+            "Z",
+            "Z",
+            "Z",
+            "Z",
+            "Z",
+            "Z",
+            "Z"
+          ],
+          "targets": [
+            "D1",
+            "D2",
+            "D8",
+            "D11",
+            "D12",
+            "D13",
+            "D18",
+            "D19"
+          ],
+          "flags": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "reported_parity": 0
+        },
+        {
+          "check": "terminal_screen_recovery/1/Z/8",
+          "extraction": "compact_flags",
+          "axes": [
+            "Z",
+            "Z",
+            "Z",
+            "Z",
+            "Z",
+            "Z",
+            "Z",
+            "Z"
+          ],
+          "targets": [
+            "D2",
+            "D3",
+            "D5",
+            "D6",
+            "D13",
+            "D14",
+            "D16",
+            "D17"
+          ],
+          "flags": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "reported_parity": 0
+        },
+        {
+          "check": "terminal_screen_recovery/1/X/0",
+          "extraction": "compact_flags",
+          "axes": [
+            "X",
+            "X",
+            "X",
+            "X"
+          ],
+          "targets": [
+            "D0",
+            "D1",
+            "D2",
+            "D3"
+          ],
+          "flags": [
+            0
+          ],
+          "reported_parity": 0
+        },
+        {
+          "check": "terminal_screen_recovery/1/X/1",
+          "extraction": "compact_flags",
+          "axes": [
+            "X",
+            "X",
+            "X",
+            "X"
+          ],
+          "targets": [
+            "D4",
+            "D5",
+            "D6",
+            "D7"
+          ],
+          "flags": [
+            0
+          ],
+          "reported_parity": 0
+        },
+        {
+          "check": "terminal_screen_recovery/1/X/2",
+          "extraction": "compact_flags",
+          "axes": [
+            "X",
+            "X",
+            "X",
+            "X"
+          ],
+          "targets": [
+            "D8",
+            "D9",
+            "D10",
+            "D11"
+          ],
+          "flags": [
+            0
+          ],
+          "reported_parity": 1
+        },
+        {
+          "check": "terminal_screen_recovery/1/X/3",
+          "extraction": "compact_flags",
+          "axes": [
+            "X",
+            "X",
+            "X",
+            "X"
+          ],
+          "targets": [
+            "D12",
+            "D13",
+            "D14",
+            "D15"
+          ],
+          "flags": [
+            0
+          ],
+          "reported_parity": 0
+        },
+        {
+          "check": "terminal_screen_recovery/1/X/4",
+          "extraction": "compact_flags",
+          "axes": [
+            "X",
+            "X",
+            "X",
+            "X"
+          ],
+          "targets": [
+            "D16",
+            "D17",
+            "D18",
+            "D19"
+          ],
+          "flags": [
+            0
+          ],
+          "reported_parity": 0
+        },
+        {
+          "check": "terminal_screen_recovery/1/X/5",
+          "extraction": "compact_flags",
+          "axes": [
+            "X",
+            "X",
+            "X",
+            "X",
+            "X",
+            "X",
+            "X",
+            "X"
+          ],
+          "targets": [
+            "D0",
+            "D3",
+            "D6",
+            "D7",
+            "D10",
+            "D11",
+            "D12",
+            "D15"
+          ],
+          "flags": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "reported_parity": 1
+        },
+        {
+          "check": "terminal_screen_recovery/1/X/6",
+          "extraction": "compact_flags",
+          "axes": [
+            "X",
+            "X",
+            "X",
+            "X",
+            "X",
+            "X",
+            "X",
+            "X"
+          ],
+          "targets": [
+            "D4",
+            "D7",
+            "D8",
+            "D9",
+            "D14",
+            "D15",
+            "D16",
+            "D19"
+          ],
+          "flags": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "reported_parity": 1
+        },
+        {
+          "check": "terminal_screen_recovery/1/X/7",
+          "extraction": "compact_flags",
+          "axes": [
+            "X",
+            "X",
+            "X",
+            "X",
+            "X",
+            "X",
+            "X",
+            "X"
+          ],
+          "targets": [
+            "D1",
+            "D2",
+            "D8",
+            "D11",
+            "D12",
+            "D13",
+            "D18",
+            "D19"
+          ],
+          "flags": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "reported_parity": 1
+        },
+        {
+          "check": "terminal_screen_recovery/1/X/8",
+          "extraction": "compact_flags",
+          "axes": [
+            "X",
+            "X",
+            "X",
+            "X",
+            "X",
+            "X",
+            "X",
+            "X"
+          ],
+          "targets": [
+            "D2",
+            "D3",
+            "D5",
+            "D6",
+            "D13",
+            "D14",
+            "D16",
+            "D17"
+          ],
+          "flags": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "reported_parity": 1
+        },
+        {
+          "check": "terminal_screen_recovery/2/Z/0",
+          "extraction": "compact_flags",
+          "axes": [
+            "Z",
+            "Z",
+            "Z",
+            "Z"
+          ],
+          "targets": [
+            "D0",
+            "D1",
+            "D2",
+            "D3"
+          ],
+          "flags": [
+            0
+          ],
+          "reported_parity": 0
+        },
+        {
+          "check": "terminal_screen_recovery/2/Z/1",
+          "extraction": "compact_flags",
+          "axes": [
+            "Z",
+            "Z",
+            "Z",
+            "Z"
+          ],
+          "targets": [
+            "D4",
+            "D5",
+            "D6",
+            "D7"
+          ],
+          "flags": [
+            0
+          ],
+          "reported_parity": 0
+        },
+        {
+          "check": "terminal_screen_recovery/2/Z/2",
+          "extraction": "compact_flags",
+          "axes": [
+            "Z",
+            "Z",
+            "Z",
+            "Z"
+          ],
+          "targets": [
+            "D8",
+            "D9",
+            "D10",
+            "D11"
+          ],
+          "flags": [
+            0
+          ],
+          "reported_parity": 0
+        },
+        {
+          "check": "terminal_screen_recovery/2/Z/3",
+          "extraction": "compact_flags",
+          "axes": [
+            "Z",
+            "Z",
+            "Z",
+            "Z"
+          ],
+          "targets": [
+            "D12",
+            "D13",
+            "D14",
+            "D15"
+          ],
+          "flags": [
+            0
+          ],
+          "reported_parity": 0
+        },
+        {
+          "check": "terminal_screen_recovery/2/Z/4",
+          "extraction": "compact_flags",
+          "axes": [
+            "Z",
+            "Z",
+            "Z",
+            "Z"
+          ],
+          "targets": [
+            "D16",
+            "D17",
+            "D18",
+            "D19"
+          ],
+          "flags": [
+            0
+          ],
+          "reported_parity": 1
+        },
+        {
+          "check": "terminal_screen_recovery/2/Z/5",
+          "extraction": "compact_flags",
+          "axes": [
+            "Z",
+            "Z",
+            "Z",
+            "Z",
+            "Z",
+            "Z",
+            "Z",
+            "Z"
+          ],
+          "targets": [
+            "D0",
+            "D3",
+            "D6",
+            "D7",
+            "D10",
+            "D11",
+            "D12",
+            "D15"
+          ],
+          "flags": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "reported_parity": 0
+        },
+        {
+          "check": "terminal_screen_recovery/2/Z/6",
+          "extraction": "compact_flags",
+          "axes": [
+            "Z",
+            "Z",
+            "Z",
+            "Z",
+            "Z",
+            "Z",
+            "Z",
+            "Z"
+          ],
+          "targets": [
+            "D4",
+            "D7",
+            "D8",
+            "D9",
+            "D14",
+            "D15",
+            "D16",
+            "D19"
+          ],
+          "flags": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "reported_parity": 0
+        },
+        {
+          "check": "terminal_screen_recovery/2/Z/7",
+          "extraction": "compact_flags",
+          "axes": [
+            "Z",
+            "Z",
+            "Z",
+            "Z",
+            "Z",
+            "Z",
+            "Z",
+            "Z"
+          ],
+          "targets": [
+            "D1",
+            "D2",
+            "D8",
+            "D11",
+            "D12",
+            "D13",
+            "D18",
+            "D19"
+          ],
+          "flags": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "reported_parity": 0
+        },
+        {
+          "check": "terminal_screen_recovery/2/Z/8",
+          "extraction": "compact_flags",
+          "axes": [
+            "Z",
+            "Z",
+            "Z",
+            "Z",
+            "Z",
+            "Z",
+            "Z",
+            "Z"
+          ],
+          "targets": [
+            "D2",
+            "D3",
+            "D5",
+            "D6",
+            "D13",
+            "D14",
+            "D16",
+            "D17"
+          ],
+          "flags": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "reported_parity": 0
+        },
+        {
+          "check": "terminal_screen_recovery/2/X/0",
+          "extraction": "compact_flags",
+          "axes": [
+            "X",
+            "X",
+            "X",
+            "X"
+          ],
+          "targets": [
+            "D0",
+            "D1",
+            "D2",
+            "D3"
+          ],
+          "flags": [
+            0
+          ],
+          "reported_parity": 0
+        },
+        {
+          "check": "terminal_screen_recovery/2/X/1",
+          "extraction": "compact_flags",
+          "axes": [
+            "X",
+            "X",
+            "X",
+            "X"
+          ],
+          "targets": [
+            "D4",
+            "D5",
+            "D6",
+            "D7"
+          ],
+          "flags": [
+            0
+          ],
+          "reported_parity": 0
+        },
+        {
+          "check": "terminal_screen_recovery/2/X/2",
+          "extraction": "compact_flags",
+          "axes": [
+            "X",
+            "X",
+            "X",
+            "X"
+          ],
+          "targets": [
+            "D8",
+            "D9",
+            "D10",
+            "D11"
+          ],
+          "flags": [
+            0
+          ],
+          "reported_parity": 1
+        },
+        {
+          "check": "terminal_screen_recovery/2/X/3",
+          "extraction": "compact_flags",
+          "axes": [
+            "X",
+            "X",
+            "X",
+            "X"
+          ],
+          "targets": [
+            "D12",
+            "D13",
+            "D14",
+            "D15"
+          ],
+          "flags": [
+            0
+          ],
+          "reported_parity": 0
+        },
+        {
+          "check": "terminal_screen_recovery/2/X/4",
+          "extraction": "compact_flags",
+          "axes": [
+            "X",
+            "X",
+            "X",
+            "X"
+          ],
+          "targets": [
+            "D16",
+            "D17",
+            "D18",
+            "D19"
+          ],
+          "flags": [
+            0
+          ],
+          "reported_parity": 1
+        },
+        {
+          "check": "terminal_screen_recovery/2/X/5",
+          "extraction": "compact_flags",
+          "axes": [
+            "X",
+            "X",
+            "X",
+            "X",
+            "X",
+            "X",
+            "X",
+            "X"
+          ],
+          "targets": [
+            "D0",
+            "D3",
+            "D6",
+            "D7",
+            "D10",
+            "D11",
+            "D12",
+            "D15"
+          ],
+          "flags": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "reported_parity": 1
+        },
+        {
+          "check": "terminal_screen_recovery/2/X/6",
+          "extraction": "compact_flags",
+          "axes": [
+            "X",
+            "X",
+            "X",
+            "X",
+            "X",
+            "X",
+            "X",
+            "X"
+          ],
+          "targets": [
+            "D4",
+            "D7",
+            "D8",
+            "D9",
+            "D14",
+            "D15",
+            "D16",
+            "D19"
+          ],
+          "flags": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "reported_parity": 0
+        },
+        {
+          "check": "terminal_screen_recovery/2/X/7",
+          "extraction": "compact_flags",
+          "axes": [
+            "X",
+            "X",
+            "X",
+            "X",
+            "X",
+            "X",
+            "X",
+            "X"
+          ],
+          "targets": [
+            "D1",
+            "D2",
+            "D8",
+            "D11",
+            "D12",
+            "D13",
+            "D18",
+            "D19"
+          ],
+          "flags": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "reported_parity": 0
+        },
+        {
+          "check": "terminal_screen_recovery/2/X/8",
+          "extraction": "compact_flags",
+          "axes": [
+            "X",
+            "X",
+            "X",
+            "X",
+            "X",
+            "X",
+            "X",
+            "X"
+          ],
+          "targets": [
+            "D2",
+            "D3",
+            "D5",
+            "D6",
+            "D13",
+            "D14",
+            "D16",
+            "D17"
+          ],
+          "flags": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "reported_parity": 1
+        },
+        {
+          "check": "terminal_screen_recovery/3/Z/0",
+          "extraction": "compact_flags",
+          "axes": [
+            "Z",
+            "Z",
+            "Z",
+            "Z"
+          ],
+          "targets": [
+            "D0",
+            "D1",
+            "D2",
+            "D3"
+          ],
+          "flags": [
+            0
+          ],
+          "reported_parity": 0
+        },
+        {
+          "check": "terminal_screen_recovery/3/Z/1",
+          "extraction": "compact_flags",
+          "axes": [
+            "Z",
+            "Z",
+            "Z",
+            "Z"
+          ],
+          "targets": [
+            "D4",
+            "D5",
+            "D6",
+            "D7"
+          ],
+          "flags": [
+            0
+          ],
+          "reported_parity": 0
+        },
+        {
+          "check": "terminal_screen_recovery/3/Z/2",
+          "extraction": "compact_flags",
+          "axes": [
+            "Z",
+            "Z",
+            "Z",
+            "Z"
+          ],
+          "targets": [
+            "D8",
+            "D9",
+            "D10",
+            "D11"
+          ],
+          "flags": [
+            0
+          ],
+          "reported_parity": 0
+        },
+        {
+          "check": "terminal_screen_recovery/3/Z/3",
+          "extraction": "compact_flags",
+          "axes": [
+            "Z",
+            "Z",
+            "Z",
+            "Z"
+          ],
+          "targets": [
+            "D12",
+            "D13",
+            "D14",
+            "D15"
+          ],
+          "flags": [
+            0
+          ],
+          "reported_parity": 0
+        },
+        {
+          "check": "terminal_screen_recovery/3/Z/4",
+          "extraction": "compact_flags",
+          "axes": [
+            "Z",
+            "Z",
+            "Z",
+            "Z"
+          ],
+          "targets": [
+            "D16",
+            "D17",
+            "D18",
+            "D19"
+          ],
+          "flags": [
+            0
+          ],
+          "reported_parity": 0
+        },
+        {
+          "check": "terminal_screen_recovery/3/Z/5",
+          "extraction": "compact_flags",
+          "axes": [
+            "Z",
+            "Z",
+            "Z",
+            "Z",
+            "Z",
+            "Z",
+            "Z",
+            "Z"
+          ],
+          "targets": [
+            "D0",
+            "D3",
+            "D6",
+            "D7",
+            "D10",
+            "D11",
+            "D12",
+            "D15"
+          ],
+          "flags": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "reported_parity": 0
+        },
+        {
+          "check": "terminal_screen_recovery/3/Z/6",
+          "extraction": "compact_flags",
+          "axes": [
+            "Z",
+            "Z",
+            "Z",
+            "Z",
+            "Z",
+            "Z",
+            "Z",
+            "Z"
+          ],
+          "targets": [
+            "D4",
+            "D7",
+            "D8",
+            "D9",
+            "D14",
+            "D15",
+            "D16",
+            "D19"
+          ],
+          "flags": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "reported_parity": 0
+        },
+        {
+          "check": "terminal_screen_recovery/3/Z/7",
+          "extraction": "compact_flags",
+          "axes": [
+            "Z",
+            "Z",
+            "Z",
+            "Z",
+            "Z",
+            "Z",
+            "Z",
+            "Z"
+          ],
+          "targets": [
+            "D1",
+            "D2",
+            "D8",
+            "D11",
+            "D12",
+            "D13",
+            "D18",
+            "D19"
+          ],
+          "flags": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "reported_parity": 0
+        },
+        {
+          "check": "terminal_screen_recovery/3/Z/8",
+          "extraction": "compact_flags",
+          "axes": [
+            "Z",
+            "Z",
+            "Z",
+            "Z",
+            "Z",
+            "Z",
+            "Z",
+            "Z"
+          ],
+          "targets": [
+            "D2",
+            "D3",
+            "D5",
+            "D6",
+            "D13",
+            "D14",
+            "D16",
+            "D17"
+          ],
+          "flags": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "reported_parity": 0
+        },
+        {
+          "check": "terminal_screen_recovery/3/X/0",
+          "extraction": "compact_flags",
+          "axes": [
+            "X",
+            "X",
+            "X",
+            "X"
+          ],
+          "targets": [
+            "D0",
+            "D1",
+            "D2",
+            "D3"
+          ],
+          "flags": [
+            0
+          ],
+          "reported_parity": 0
+        },
+        {
+          "check": "terminal_screen_recovery/3/X/1",
+          "extraction": "compact_flags",
+          "axes": [
+            "X",
+            "X",
+            "X",
+            "X"
+          ],
+          "targets": [
+            "D4",
+            "D5",
+            "D6",
+            "D7"
+          ],
+          "flags": [
+            0
+          ],
+          "reported_parity": 0
+        },
+        {
+          "check": "terminal_screen_recovery/3/X/2",
+          "extraction": "compact_flags",
+          "axes": [
+            "X",
+            "X",
+            "X",
+            "X"
+          ],
+          "targets": [
+            "D8",
+            "D9",
+            "D10",
+            "D11"
+          ],
+          "flags": [
+            0
+          ],
+          "reported_parity": 1
+        },
+        {
+          "check": "terminal_screen_recovery/3/X/3",
+          "extraction": "compact_flags",
+          "axes": [
+            "X",
+            "X",
+            "X",
+            "X"
+          ],
+          "targets": [
+            "D12",
+            "D13",
+            "D14",
+            "D15"
+          ],
+          "flags": [
+            0
+          ],
+          "reported_parity": 0
+        },
+        {
+          "check": "terminal_screen_recovery/3/X/4",
+          "extraction": "compact_flags",
+          "axes": [
+            "X",
+            "X",
+            "X",
+            "X"
+          ],
+          "targets": [
+            "D16",
+            "D17",
+            "D18",
+            "D19"
+          ],
+          "flags": [
+            0
+          ],
+          "reported_parity": 1
+        },
+        {
+          "check": "terminal_screen_recovery/3/X/5",
+          "extraction": "compact_flags",
+          "axes": [
+            "X",
+            "X",
+            "X",
+            "X",
+            "X",
+            "X",
+            "X",
+            "X"
+          ],
+          "targets": [
+            "D0",
+            "D3",
+            "D6",
+            "D7",
+            "D10",
+            "D11",
+            "D12",
+            "D15"
+          ],
+          "flags": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "reported_parity": 1
+        },
+        {
+          "check": "terminal_screen_recovery/3/X/6",
+          "extraction": "compact_flags",
+          "axes": [
+            "X",
+            "X",
+            "X",
+            "X",
+            "X",
+            "X",
+            "X",
+            "X"
+          ],
+          "targets": [
+            "D4",
+            "D7",
+            "D8",
+            "D9",
+            "D14",
+            "D15",
+            "D16",
+            "D19"
+          ],
+          "flags": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "reported_parity": 0
+        },
+        {
+          "check": "terminal_screen_recovery/3/X/7",
+          "extraction": "compact_flags",
+          "axes": [
+            "X",
+            "X",
+            "X",
+            "X",
+            "X",
+            "X",
+            "X",
+            "X"
+          ],
+          "targets": [
+            "D1",
+            "D2",
+            "D8",
+            "D11",
+            "D12",
+            "D13",
+            "D18",
+            "D19"
+          ],
+          "flags": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "reported_parity": 0
+        },
+        {
+          "check": "terminal_screen_recovery/3/X/8",
+          "extraction": "compact_flags",
+          "axes": [
+            "X",
+            "X",
+            "X",
+            "X",
+            "X",
+            "X",
+            "X",
+            "X"
+          ],
+          "targets": [
+            "D2",
+            "D3",
+            "D5",
+            "D6",
+            "D13",
+            "D14",
+            "D16",
+            "D17"
+          ],
+          "flags": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "reported_parity": 1
+        },
+        {
+          "check": "terminal_screen_recovery/4/Z/0",
+          "extraction": "compact_flags",
+          "axes": [
+            "Z",
+            "Z",
+            "Z",
+            "Z"
+          ],
+          "targets": [
+            "D0",
+            "D1",
+            "D2",
+            "D3"
+          ],
+          "flags": [
+            0
+          ],
+          "reported_parity": 0
+        },
+        {
+          "check": "terminal_screen_recovery/4/Z/1",
+          "extraction": "compact_flags",
+          "axes": [
+            "Z",
+            "Z",
+            "Z",
+            "Z"
+          ],
+          "targets": [
+            "D4",
+            "D5",
+            "D6",
+            "D7"
+          ],
+          "flags": [
+            0
+          ],
+          "reported_parity": 0
+        },
+        {
+          "check": "terminal_screen_recovery/4/Z/2",
+          "extraction": "compact_flags",
+          "axes": [
+            "Z",
+            "Z",
+            "Z",
+            "Z"
+          ],
+          "targets": [
+            "D8",
+            "D9",
+            "D10",
+            "D11"
+          ],
+          "flags": [
+            0
+          ],
+          "reported_parity": 0
+        },
+        {
+          "check": "terminal_screen_recovery/4/Z/3",
+          "extraction": "compact_flags",
+          "axes": [
+            "Z",
+            "Z",
+            "Z",
+            "Z"
+          ],
+          "targets": [
+            "D12",
+            "D13",
+            "D14",
+            "D15"
+          ],
+          "flags": [
+            0
+          ],
+          "reported_parity": 0
+        },
+        {
+          "check": "terminal_screen_recovery/4/Z/4",
+          "extraction": "compact_flags",
+          "axes": [
+            "Z",
+            "Z",
+            "Z",
+            "Z"
+          ],
+          "targets": [
+            "D16",
+            "D17",
+            "D18",
+            "D19"
+          ],
+          "flags": [
+            0
+          ],
+          "reported_parity": 0
+        },
+        {
+          "check": "terminal_screen_recovery/4/Z/5",
+          "extraction": "compact_flags",
+          "axes": [
+            "Z",
+            "Z",
+            "Z",
+            "Z",
+            "Z",
+            "Z",
+            "Z",
+            "Z"
+          ],
+          "targets": [
+            "D0",
+            "D3",
+            "D6",
+            "D7",
+            "D10",
+            "D11",
+            "D12",
+            "D15"
+          ],
+          "flags": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "reported_parity": 0
+        },
+        {
+          "check": "terminal_screen_recovery/4/Z/6",
+          "extraction": "compact_flags",
+          "axes": [
+            "Z",
+            "Z",
+            "Z",
+            "Z",
+            "Z",
+            "Z",
+            "Z",
+            "Z"
+          ],
+          "targets": [
+            "D4",
+            "D7",
+            "D8",
+            "D9",
+            "D14",
+            "D15",
+            "D16",
+            "D19"
+          ],
+          "flags": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "reported_parity": 0
+        },
+        {
+          "check": "terminal_screen_recovery/4/Z/7",
+          "extraction": "compact_flags",
+          "axes": [
+            "Z",
+            "Z",
+            "Z",
+            "Z",
+            "Z",
+            "Z",
+            "Z",
+            "Z"
+          ],
+          "targets": [
+            "D1",
+            "D2",
+            "D8",
+            "D11",
+            "D12",
+            "D13",
+            "D18",
+            "D19"
+          ],
+          "flags": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "reported_parity": 0
+        },
+        {
+          "check": "terminal_screen_recovery/4/Z/8",
+          "extraction": "compact_flags",
+          "axes": [
+            "Z",
+            "Z",
+            "Z",
+            "Z",
+            "Z",
+            "Z",
+            "Z",
+            "Z"
+          ],
+          "targets": [
+            "D2",
+            "D3",
+            "D5",
+            "D6",
+            "D13",
+            "D14",
+            "D16",
+            "D17"
+          ],
+          "flags": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "reported_parity": 0
+        },
+        {
+          "check": "terminal_screen_recovery/4/X/0",
+          "extraction": "compact_flags",
+          "axes": [
+            "X",
+            "X",
+            "X",
+            "X"
+          ],
+          "targets": [
+            "D0",
+            "D1",
+            "D2",
+            "D3"
+          ],
+          "flags": [
+            0
+          ],
+          "reported_parity": 0
+        },
+        {
+          "check": "terminal_screen_recovery/4/X/1",
+          "extraction": "compact_flags",
+          "axes": [
+            "X",
+            "X",
+            "X",
+            "X"
+          ],
+          "targets": [
+            "D4",
+            "D5",
+            "D6",
+            "D7"
+          ],
+          "flags": [
+            0
+          ],
+          "reported_parity": 0
+        },
+        {
+          "check": "terminal_screen_recovery/4/X/2",
+          "extraction": "compact_flags",
+          "axes": [
+            "X",
+            "X",
+            "X",
+            "X"
+          ],
+          "targets": [
+            "D8",
+            "D9",
+            "D10",
+            "D11"
+          ],
+          "flags": [
+            0
+          ],
+          "reported_parity": 1
+        },
+        {
+          "check": "terminal_screen_recovery/4/X/3",
+          "extraction": "compact_flags",
+          "axes": [
+            "X",
+            "X",
+            "X",
+            "X"
+          ],
+          "targets": [
+            "D12",
+            "D13",
+            "D14",
+            "D15"
+          ],
+          "flags": [
+            0
+          ],
+          "reported_parity": 0
+        },
+        {
+          "check": "terminal_screen_recovery/4/X/4",
+          "extraction": "compact_flags",
+          "axes": [
+            "X",
+            "X",
+            "X",
+            "X"
+          ],
+          "targets": [
+            "D16",
+            "D17",
+            "D18",
+            "D19"
+          ],
+          "flags": [
+            0
+          ],
+          "reported_parity": 1
+        },
+        {
+          "check": "terminal_screen_recovery/4/X/5",
+          "extraction": "compact_flags",
+          "axes": [
+            "X",
+            "X",
+            "X",
+            "X",
+            "X",
+            "X",
+            "X",
+            "X"
+          ],
+          "targets": [
+            "D0",
+            "D3",
+            "D6",
+            "D7",
+            "D10",
+            "D11",
+            "D12",
+            "D15"
+          ],
+          "flags": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "reported_parity": 1
+        },
+        {
+          "check": "terminal_screen_recovery/4/X/6",
+          "extraction": "compact_flags",
+          "axes": [
+            "X",
+            "X",
+            "X",
+            "X",
+            "X",
+            "X",
+            "X",
+            "X"
+          ],
+          "targets": [
+            "D4",
+            "D7",
+            "D8",
+            "D9",
+            "D14",
+            "D15",
+            "D16",
+            "D19"
+          ],
+          "flags": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "reported_parity": 0
+        },
+        {
+          "check": "terminal_screen_recovery/4/X/7",
+          "extraction": "compact_flags",
+          "axes": [
+            "X",
+            "X",
+            "X",
+            "X",
+            "X",
+            "X",
+            "X",
+            "X"
+          ],
+          "targets": [
+            "D1",
+            "D2",
+            "D8",
+            "D11",
+            "D12",
+            "D13",
+            "D18",
+            "D19"
+          ],
+          "flags": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "reported_parity": 0
+        },
+        {
+          "check": "terminal_screen_recovery/4/X/8",
+          "extraction": "compact_flags",
+          "axes": [
+            "X",
+            "X",
+            "X",
+            "X",
+            "X",
+            "X",
+            "X",
+            "X"
+          ],
+          "targets": [
+            "D2",
+            "D3",
+            "D5",
+            "D6",
+            "D13",
+            "D14",
+            "D16",
+            "D17"
+          ],
+          "flags": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "reported_parity": 1
+        },
+        {
+          "check": "terminal_screen_recovery/5/Z/0",
+          "extraction": "compact_flags",
+          "axes": [
+            "Z",
+            "Z",
+            "Z",
+            "Z"
+          ],
+          "targets": [
+            "D0",
+            "D1",
+            "D2",
+            "D3"
+          ],
+          "flags": [
+            0
+          ],
+          "reported_parity": 0
+        },
+        {
+          "check": "terminal_screen_recovery/5/Z/1",
+          "extraction": "compact_flags",
+          "axes": [
+            "Z",
+            "Z",
+            "Z",
+            "Z"
+          ],
+          "targets": [
+            "D4",
+            "D5",
+            "D6",
+            "D7"
+          ],
+          "flags": [
+            0
+          ],
+          "reported_parity": 0
+        },
+        {
+          "check": "terminal_screen_recovery/5/Z/2",
+          "extraction": "compact_flags",
+          "axes": [
+            "Z",
+            "Z",
+            "Z",
+            "Z"
+          ],
+          "targets": [
+            "D8",
+            "D9",
+            "D10",
+            "D11"
+          ],
+          "flags": [
+            0
+          ],
+          "reported_parity": 0
+        },
+        {
+          "check": "terminal_screen_recovery/5/Z/3",
+          "extraction": "compact_flags",
+          "axes": [
+            "Z",
+            "Z",
+            "Z",
+            "Z"
+          ],
+          "targets": [
+            "D12",
+            "D13",
+            "D14",
+            "D15"
+          ],
+          "flags": [
+            0
+          ],
+          "reported_parity": 0
+        },
+        {
+          "check": "terminal_screen_recovery/5/Z/4",
+          "extraction": "compact_flags",
+          "axes": [
+            "Z",
+            "Z",
+            "Z",
+            "Z"
+          ],
+          "targets": [
+            "D16",
+            "D17",
+            "D18",
+            "D19"
+          ],
+          "flags": [
+            0
+          ],
+          "reported_parity": 0
+        },
+        {
+          "check": "terminal_screen_recovery/5/Z/5",
+          "extraction": "compact_flags",
+          "axes": [
+            "Z",
+            "Z",
+            "Z",
+            "Z",
+            "Z",
+            "Z",
+            "Z",
+            "Z"
+          ],
+          "targets": [
+            "D0",
+            "D3",
+            "D6",
+            "D7",
+            "D10",
+            "D11",
+            "D12",
+            "D15"
+          ],
+          "flags": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "reported_parity": 0
+        },
+        {
+          "check": "terminal_screen_recovery/5/Z/6",
+          "extraction": "compact_flags",
+          "axes": [
+            "Z",
+            "Z",
+            "Z",
+            "Z",
+            "Z",
+            "Z",
+            "Z",
+            "Z"
+          ],
+          "targets": [
+            "D4",
+            "D7",
+            "D8",
+            "D9",
+            "D14",
+            "D15",
+            "D16",
+            "D19"
+          ],
+          "flags": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "reported_parity": 0
+        },
+        {
+          "check": "terminal_screen_recovery/5/Z/7",
+          "extraction": "compact_flags",
+          "axes": [
+            "Z",
+            "Z",
+            "Z",
+            "Z",
+            "Z",
+            "Z",
+            "Z",
+            "Z"
+          ],
+          "targets": [
+            "D1",
+            "D2",
+            "D8",
+            "D11",
+            "D12",
+            "D13",
+            "D18",
+            "D19"
+          ],
+          "flags": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "reported_parity": 0
+        },
+        {
+          "check": "terminal_screen_recovery/5/Z/8",
+          "extraction": "compact_flags",
+          "axes": [
+            "Z",
+            "Z",
+            "Z",
+            "Z",
+            "Z",
+            "Z",
+            "Z",
+            "Z"
+          ],
+          "targets": [
+            "D2",
+            "D3",
+            "D5",
+            "D6",
+            "D13",
+            "D14",
+            "D16",
+            "D17"
+          ],
+          "flags": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "reported_parity": 0
+        },
+        {
+          "check": "terminal_screen_recovery/5/X/0",
+          "extraction": "compact_flags",
+          "axes": [
+            "X",
+            "X",
+            "X",
+            "X"
+          ],
+          "targets": [
+            "D0",
+            "D1",
+            "D2",
+            "D3"
+          ],
+          "flags": [
+            0
+          ],
+          "reported_parity": 0
+        },
+        {
+          "check": "terminal_screen_recovery/5/X/1",
+          "extraction": "compact_flags",
+          "axes": [
+            "X",
+            "X",
+            "X",
+            "X"
+          ],
+          "targets": [
+            "D4",
+            "D5",
+            "D6",
+            "D7"
+          ],
+          "flags": [
+            0
+          ],
+          "reported_parity": 0
+        },
+        {
+          "check": "terminal_screen_recovery/5/X/2",
+          "extraction": "compact_flags",
+          "axes": [
+            "X",
+            "X",
+            "X",
+            "X"
+          ],
+          "targets": [
+            "D8",
+            "D9",
+            "D10",
+            "D11"
+          ],
+          "flags": [
+            0
+          ],
+          "reported_parity": 1
+        },
+        {
+          "check": "terminal_screen_recovery/5/X/3",
+          "extraction": "compact_flags",
+          "axes": [
+            "X",
+            "X",
+            "X",
+            "X"
+          ],
+          "targets": [
+            "D12",
+            "D13",
+            "D14",
+            "D15"
+          ],
+          "flags": [
+            0
+          ],
+          "reported_parity": 0
+        },
+        {
+          "check": "terminal_screen_recovery/5/X/4",
+          "extraction": "compact_flags",
+          "axes": [
+            "X",
+            "X",
+            "X",
+            "X"
+          ],
+          "targets": [
+            "D16",
+            "D17",
+            "D18",
+            "D19"
+          ],
+          "flags": [
+            0
+          ],
+          "reported_parity": 1
+        },
+        {
+          "check": "terminal_screen_recovery/5/X/5",
+          "extraction": "compact_flags",
+          "axes": [
+            "X",
+            "X",
+            "X",
+            "X",
+            "X",
+            "X",
+            "X",
+            "X"
+          ],
+          "targets": [
+            "D0",
+            "D3",
+            "D6",
+            "D7",
+            "D10",
+            "D11",
+            "D12",
+            "D15"
+          ],
+          "flags": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "reported_parity": 1
+        },
+        {
+          "check": "terminal_screen_recovery/5/X/6",
+          "extraction": "compact_flags",
+          "axes": [
+            "X",
+            "X",
+            "X",
+            "X",
+            "X",
+            "X",
+            "X",
+            "X"
+          ],
+          "targets": [
+            "D4",
+            "D7",
+            "D8",
+            "D9",
+            "D14",
+            "D15",
+            "D16",
+            "D19"
+          ],
+          "flags": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "reported_parity": 0
+        },
+        {
+          "check": "terminal_screen_recovery/5/X/7",
+          "extraction": "compact_flags",
+          "axes": [
+            "X",
+            "X",
+            "X",
+            "X",
+            "X",
+            "X",
+            "X",
+            "X"
+          ],
+          "targets": [
+            "D1",
+            "D2",
+            "D8",
+            "D11",
+            "D12",
+            "D13",
+            "D18",
+            "D19"
+          ],
+          "flags": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "reported_parity": 0
+        },
+        {
+          "check": "terminal_screen_recovery/5/X/8",
+          "extraction": "compact_flags",
+          "axes": [
+            "X",
+            "X",
+            "X",
+            "X",
+            "X",
+            "X",
+            "X",
+            "X"
+          ],
+          "targets": [
+            "D2",
+            "D3",
+            "D5",
+            "D6",
+            "D13",
+            "D14",
+            "D16",
+            "D17"
+          ],
+          "flags": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "reported_parity": 1
+        },
+        {
+          "history": "terminal_screen_recovery",
+          "records": [
+            [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              1,
+              0,
+              0,
+              1,
+              1,
+              1,
+              1
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              1,
+              0,
+              0,
+              1,
+              1,
+              1,
+              1
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              1,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              1,
+              0,
+              1,
+              1,
+              0,
+              0,
+              1
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              1,
+              0,
+              1,
+              1,
+              0,
+              0,
+              1
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              1,
+              0,
+              1,
+              1,
+              0,
+              0,
+              1
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              1,
+              0,
+              1,
+              1,
+              0,
+              0,
+              1
+            ]
+          ],
+          "reference": {
+            "selected": 5,
+            "occurrences": [
+              3,
+              4,
+              5
+            ],
+            "kind": "three_identical_complete_records"
+          },
+          "selected_record": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            1,
+            1,
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "data_recovery": "terminal_screen_recovery",
+          "syndrome": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            1,
+            1,
+            0,
+            0,
+            1
+          ],
+          "candidate_classes": 1,
+          "correction": [
+            0,
+            132096
+          ]
+        },
+        {
+          "terminal_screen_finish": "syndrome_certified"
+        }
+      ]
+    }
+  ]
+}

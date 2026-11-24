@@ -1,0 +1,50 @@
+{
+  "seed": 3000,
+  "shots_requested": 500,
+  "noise": {
+    "name": "independent_Pauli_depolarizing",
+    "gate_rate_convention": "average_gate_infidelity",
+    "rates": {
+      "two_qubit_infidelity": "1/1000",
+      "one_qubit_infidelity": "1/10000",
+      "t_infidelity": "1/10000",
+      "idle_infidelity": "0",
+      "preparation_flip_probability": "0",
+      "readout_flip_probability": "1/1000"
+    },
+    "nonidentity_probabilities": {
+      "CX": "1/800",
+      "Clifford_1q": "3/20000",
+      "T_TDG": "3/20000",
+      "idle": "0"
+    },
+    "controlled_W": "T^s,CX,T^-s; individual physical locations",
+    "quantum_timing": "gate noise after ideal gate; idle noise before operation",
+    "readout": "independent classical report flip after actual quantum measurement",
+    "preparation": "X after |0> preparation",
+    "fault_count_cap": null,
+    "idles": "one per live nonparticipant per serial operation, and every live qubit at boundary",
+    "duration_calibrated": false,
+    "atomic_multiqubit_gates": []
+  },
+  "simulator_options": {
+    "graph": "compact13",
+    "profile": "recovery",
+    "history_policy": "triple",
+    "source_extraction": "decoded_flags",
+    "flag_recovery": "data",
+    "max_flag_recoveries": 8,
+    "data_checks": "compact_flags",
+    "gauss_frame": "round_trip",
+    "graph_z_corrections": "physical",
+    "conditional_checks": "dual_flags",
+    "route": "gauging",
+    "graph_stars": "bare",
+    "terminal_policy": "screen",
+    "root_recovery": "joint",
+    "joint_recovery": "fallback"
+  },
+  "timeout_seconds": 120,
+  "runner": "in-process reuse of existing simulate() with persistent worker cache",
+  "runner_sha256": "38e5c25a6301606c2780d174eae1729f03d2c9edf0276f9c52c5ccc422f08a29"
+}

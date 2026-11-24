@@ -1,0 +1,220 @@
+# Gauging and ungauging on two vertices
+
+A graph with two vertices and one edge is enough to see the difference between
+the round-trip and persistent circuits. Both measure a data operator \(U\).
+The round trip ends by reading the edge and using its bit to correct the data.
+The persistent circuit performs that correction coherently at entry and uses
+the resulting coordinates throughout verification.
+
+## Common preparation
+
+The two vertex ancillas are \(a_0,a_1\), and the edge ancilla is \(A\). Vertex
+\(0\) is the root. The data register is separate from the graph and starts in
+an encoded state \(|\psi\rangle\). The operators \(U_0\) and \(U_1\) act on
+disjoint groups of data qubits, and their product \(U\) preserves the code
+space. They satisfy
+
+\[
+U_0^2=U_1^2=I,\qquad U_0U_1=U_1U_0=U.
+\]
+
+Prepare the vertices in \(|+\rangle\) and the edge in \(|0\rangle\). A CNOT
+from each vertex into \(A\) writes the XOR of the two vertex bits on the edge.
+Then use \(a_0\) to control \(U_0\) and \(a_1\) to control \(U_1\). These
+two controlled operations are the enrichment \(\Omega\). The joint state is
+
+\[
+\frac12\Big[
+ |00\rangle_a|0\rangle_A|\psi\rangle
++|01\rangle_a|1\rangle_A U_1|\psi\rangle
++|10\rangle_a|1\rangle_A U_0|\psi\rangle
++|11\rangle_a|0\rangle_A U|\psi\rangle
+\Big].
+\tag{1}
+\]
+
+In both circuits, the vertices are eventually measured in \(X\). Record
+their bits \(b_0,b_1\) and write \(x_j=(-1)^{b_j}\). The parity of the
+two reports gives the sign \(r=x_0x_1\). For a vertex term labelled by
+a bit \(t\), the measurement contributes the amplitude
+\(\langle b_j|H|t\rangle=x_j^t/\sqrt2\). Thus the terms \(00,01,10,11\)
+in (1) acquire factors \(1,x_1,x_0,r\), respectively, and a common factor \(1/2\).
+
+Write \(P_r=(I+rU)/2\). Whenever \(P_r|\psi\rangle\) is nonzero, denote its
+normalized state by \(|\psi_r\rangle\). It obeys
+\(U|\psi_r\rangle=r|\psi_r\rangle\). In the clean positive branch used for
+state preparation, \(r=+1\).
+
+## Round trip
+
+### 1. Measure the vertices
+
+Measure \(a_0,a_1\) in \(X\) directly after (1). The terms \(00,11\) both
+have edge label \(0\), while \(01,10\) both have edge label \(1\). Adding
+the contributions for each edge gives the unnormalized state
+
+\[
+\frac14\Big[
+ |0\rangle_A (I+rU)|\psi\rangle
++|1\rangle_A (x_1U_1+x_0U_0)|\psi\rangle
+\Big].
+\]
+
+On the edge-\(1\) term, \(x_1U_1+x_0U_0=x_1U_1(I+rU)\), since
+\(x_0=x_1r\) and \(U_1U=U_0\). The known sign \(x_1\) on that term can be
+removed by \(Z_A^{b_1}\). With the sign set this way, the normalized state
+in the **gauged coordinates** is
+
+\[
+\frac{|0\rangle_A|\psi_r\rangle+|1\rangle_A U_1|\psi_r\rangle}{\sqrt2}.
+\tag{2}
+\]
+
+### 2. Apply \(V\), then measure the ordinary data checks and \(X_A\)
+
+The coordinate change is \(V=C_A(U_1)\), with the **edge qubit** as the
+control. On the edge-\(1\) term in (2), it applies another \(U_1\).
+The two applications cancel, so the state in the **corrected coordinates** is
+
+\[
+V\frac{|0\rangle_A|\psi_r\rangle+|1\rangle_A U_1|\psi_r\rangle}{\sqrt2}
+=|+\rangle_A|\psi_r\rangle.
+\tag{3}
+\]
+
+Now measure the ordinary data stabilizers. They check whether the data
+lies in the original code space. For an ordinary stabilizer \(S\), the
+clean outcome is \(+1\) because \(S|\psi_r\rangle=|\psi_r\rangle\).
+A separate check of \(U\) is needed to tell its positive and negative
+sectors apart.
+
+Then measure \(X_A\) **using a helper**, so the edge stays available for
+the next gate. Prepare the helper in \(|+\rangle\), apply a CNOT from
+the helper to \(A\), then read the helper in \(X\). Here the edge itself is
+in \(|+\rangle_A\). Since \(X_A|+\rangle_A=|+\rangle_A\), the CNOT leaves
+both qubits in \(|+\rangle\) and the helper reports bit \(0\), meaning
+\(X_A=+1\). The state after these clean checks is still (3).
+
+### 3. Apply \(V\) again, then measure the root Gauss check
+
+The second \(V\) takes (3) back to (2). This return lets the circuit use the
+root Gauss check \(G_0=U_0X_A\), whose data part acts on just the root group.
+The check at the other vertex is \(G_1=U_1X_A\). On (2), \(G_1\) swaps the
+two terms, so its eigenvalue is \(+1\). This is the effect of the \(X_A=+1\)
+check in the corrected coordinates.
+
+Since \(G_0G_1=U_0U_1=U\), the root result gives the sign of \(U\) when
+\(G_1=+1\). The same result follows directly by applying \(G_0\) to (2):
+
+\[
+G_0
+\frac{|0\rangle_A|\psi_r\rangle+|1\rangle_AU_1|\psi_r\rangle}{\sqrt2}
+=
+\frac{|1\rangle_A U_0|\psi_r\rangle+|0\rangle_AU|\psi_r\rangle}{\sqrt2}
+=
+r\,\frac{|0\rangle_A|\psi_r\rangle+|1\rangle_AU_1|\psi_r\rangle}{\sqrt2}.
+\]
+
+The last equality uses \(U_0|\psi_r\rangle=U_1U|\psi_r\rangle
+=rU_1|\psi_r\rangle\). The root check reports \(r\), and the clean state
+is still (2). Each round of verification follows the same pair of
+coordinate changes.
+
+### 4. Ungauge by reading the edge in \(Z\)
+
+At the end of verification, measure the edge itself in \(Z\). The result
+\(z=0\) selects \(|\psi_r\rangle\). The result \(z=1\) selects
+\(U_1|\psi_r\rangle\). Apply the data correction \(U_1^z\), which gives
+\(U_1^zU_1^z|\psi_r\rangle=|\psi_r\rangle\) in either case.
+
+The \(X_A\) check during verification reads the edge's \(X\) eigenvalue
+through a helper. This final \(Z\) readout consumes the edge and tells the
+controller which data correction to apply.
+
+## Persistent coordinates
+
+### 1. Apply \(V\) before measuring the vertices
+
+Start from (1). This time apply \(V=C_A(U_1)\) while the vertices are still
+unmeasured. It changes the data operation on the \(01\) term from \(U_1\)
+to \(I\), and on the \(10\) term from \(U_0\) to \(U_1U_0=U\). Both of
+these terms have edge label \(1\). The terms with edge label \(0\) retain
+their data operations. Thus the state becomes
+
+\[
+\frac12\Big[
+ |00\rangle_a|0\rangle_A|\psi\rangle
++|01\rangle_a|1\rangle_A|\psi\rangle
++|10\rangle_a|1\rangle_A U|\psi\rangle
++|11\rangle_a|0\rangle_A U|\psi\rangle
+\Big].
+\]
+
+Now measure the vertices in \(X\), using the same bit-to-sign rule.
+Grouping by edge label as before gives
+
+\[
+\begin{aligned}
+&\frac14\Big[
+ |0\rangle_A (I+rU)|\psi\rangle
++|1\rangle_A (x_1 I+x_0U)|\psi\rangle
+\Big]\\
+&\qquad=
+\frac14\bigl(|0\rangle_A+x_1|1\rangle_A\bigr)
+\otimes(I+rU)|\psi\rangle .
+\end{aligned}
+\]
+
+The factorization uses \(x_0=x_1r\). Setting the known edge sign with
+\(Z_A^{b_1}\) and normalizing gives \(|+\rangle_A|\psi_r\rangle\), the
+same product state as (3). Verification starts in the corrected
+coordinates.
+
+### 2. Measure the ordinary data checks, \(X_A\), and the transformed root check
+
+Measure \(S\) on the data and \(X_A\) through the helper, just as in the
+round trip. Both report \(+1\) in this clean example. For the root
+measurement, stay in the corrected coordinates and measure
+\(VG_0V^\dagger\).
+
+To see what this operator does, take an edge basis term \(|z\rangle_A\).
+The right-hand \(V^\dagger\) contributes \(U_1^z\). Then \(G_0=U_0X_A\)
+applies \(U_0\) and flips the edge bit to \(z\oplus1\). The left-hand
+\(V\) contributes \(U_1^{z\oplus1}\). The combined data operation is
+
+\[
+U_1^{z\oplus1}U_0U_1^z=U_0U_1=U.
+\]
+
+Exactly one of the two edge controls contributes \(U_1\), because the
+edge flips between them. Therefore
+
+\[
+VG_0V^\dagger=UX_A,\qquad
+(UX_A)|+\rangle_A|\psi_r\rangle=r\,|+\rangle_A|\psi_r\rangle.
+\]
+
+The edge contributes \(+1\), so the measurement reads the data sign
+\(r\). The root check now acts on **both** data groups and the edge.
+Subsequent verification rounds use these same corrected coordinates.
+
+### 3. Discard the edge
+
+The final state is \(|+\rangle_A|\psi_r\rangle\). Its edge-\(0\) and
+edge-\(1\) terms both carry the same data state. The stock persistent
+circuit measures the edge in \(Z\) for disposal. Either outcome leaves
+\(|\psi_r\rangle\) on the data, so the edge report can be ignored.
+
+## Measurement order
+
+| Stage | Round trip | Persistent |
+|---|---|---|
+| After enrichment \(\Omega\) | Read vertices in \(X\). | Apply \(V\), then read vertices in \(X\). |
+| Data and edge checks | Apply \(V\), then measure \(S\) and \(X_A\). | Measure \(S\) and \(X_A\) in the current coordinates. |
+| Root check | Apply \(V\) again, then measure \(U_0X_A\). | Measure \(U_0U_1X_A\) in the current coordinates. |
+| After verification | Read edge in \(Z\) and apply \(U_1^z\). | Read edge in \(Z\) for disposal. |
+
+The full block and its verification schedules are described in
+[Understanding the internal logical CZ measurement](Understandable_Inter_CZ.md).
+The two-vertex example follows the ideal measurement sequence and the
+data byproduct through both circuits.
